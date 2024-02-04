@@ -6,12 +6,21 @@ const HTOADwelcome = require('./class/HTOAD/welcome.js');
 const HTOADleave = require('./class/HTOAD/leave.js');
 const HTOADautorole = require('./class/HTOAD/autorole.js');
 
+//Load Runic Class Files
+const Runicwelcome = require('./class/Runic/Welcome.js');
+const Runicleave = require('./class/Runic/Leave.js');
+
 const client = new ExtendedClient();
 
 client.start();
 
+//HTOAD
 HTOADwelcome(client);
 HTOADleave(client);
+
+//Runic
+Runicwelcome(client);
+Runicleave(client);
 
 // Handles errors and avoids crashes, better to not remove them.
 process.on('unhandledRejection', console.error);

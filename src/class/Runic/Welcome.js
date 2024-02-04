@@ -1,17 +1,17 @@
-const autorole = require('./autorole.js');
+const Autorole = require('./Autorole.js');
 
 module.exports = client => {
-    const targetGuildID = '1120022058601029652';
+    const targetGuildID = '1151497491288690688';
 
     client.on('guildMemberAdd', async member => {
         if (member.guild.id === targetGuildID) {
-            autorole.execute(client, member);
+            Autorole.execute(client, member);
         }
 
         // Public Message Code
-        const publicChannelIDs = ['1120030527920025650', '1168563282748125245']; // Channels where the message gets sent
+        const publicChannelIDs = ['1203659336417677396', '1151500458410647633']; // Channel where the message gets sent
         const totalMembers = member.guild.members.cache.size;
-        const publicMessage = `Hello ${member}! Because of you, we have ${totalMembers} members!`;
+        const publicMessage = `Hey ${member}, Welcome to our humble server, **Runic Isle**. You brought us to ${totalMembers} members!`;
 
         publicChannelIDs.forEach(async channelID => {
             const publicChannel = member.guild.channels.cache.get(channelID);
@@ -26,13 +26,13 @@ module.exports = client => {
     });
 
     function isWelcomeMessage(content) {
-        return content.includes("Hello");
+        return content.includes("Runic");
     }
 
     client.on('messageCreate', async (message) => {
-        if (message.channel.id === '1120030527920025650') { 
+        if (message.channel.id === '1151500458410647633') { 
             if (isWelcomeMessage(message.content)) {
-                const emojis = ['<:blaeh:1159184786250809475>'];
+                const emojis = ['<:cwShook:1152586423266988052> '];
 
                 for (const emoji of emojis) {
                     try {
@@ -44,4 +44,4 @@ module.exports = client => {
             }
         }
     });
-};
+}
