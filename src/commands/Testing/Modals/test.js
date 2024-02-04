@@ -7,8 +7,8 @@ const RunicHelpCategoryEmbed = require('../../../components/embed/Runic/HelpCate
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('help')
-        .setDescription('check all available commands in this server!'),
+        .setName('test')
+        .setDescription('Test'),
     run: async (client, interaction) => {
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
             await interaction.reply({
