@@ -1,5 +1,5 @@
 {
-  "name": "HTTYD",
+  "name": "How to Own a Dragon",
   "version": "1.0.0",
   "description": "This is the main bot of the How to Own a Dragon discord!",
   "main": "src/index.js",
@@ -13,7 +13,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "discord.js": "^14.13.0",
-    "dotenv": "^16.4.1",
+    "dotenv": "^16.3.1",
     "mongoose": "^7.4.3"
   }
 }
