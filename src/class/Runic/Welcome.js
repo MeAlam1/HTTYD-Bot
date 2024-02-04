@@ -11,7 +11,7 @@ module.exports = client => {
         // Public Message Code
         const publicChannelIDs = ['1203659336417677396', '1151500458410647633']; // Channel where the message gets sent
         const totalMembers = member.guild.members.cache.size;
-        const publicMessage = `Hey ${member}, Welcome to our humble server, **Runic Isle**. You brought us to ${totalMembers} members!`;
+        const publicMessage = `Hey ${member}, Welcome to our humble server, **Runic Isles**. You brought us to ${totalMembers} members!`;
 
         publicChannelIDs.forEach(async channelID => {
             const publicChannel = member.guild.channels.cache.get(channelID);
