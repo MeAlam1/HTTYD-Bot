@@ -2,16 +2,16 @@ require('dotenv').config();
 const ExtendedClient = require('./class/ExtendedClient');
 
 //Load HTOAD Class Files
-const welcome = require('./class/HTOAD/welcome.js');
-const leave = require('./class/HTOAD/leave.js');
-const autorole = require('./class/HTOAD/autorole.js');
+const HTOADwelcome = require('./class/HTOAD/welcome.js');
+const HTOADleave = require('./class/HTOAD/leave.js');
+const HTOADautorole = require('./class/HTOAD/autorole.js');
 
 const client = new ExtendedClient();
 
 client.start();
 
-welcome(client);
-leave(client);
+HTOADwelcome(client);
+HTOADleave(client);
 
 // Handles errors and avoids crashes, better to not remove them.
 process.on('unhandledRejection', console.error);

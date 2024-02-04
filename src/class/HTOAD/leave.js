@@ -12,18 +12,6 @@ module.exports = client => {
                 publicChannel.send(publicMessage);
             }
         });
-
-        // Private Message Code
-        const privateChannelIDs = ['1168553456076857486', '1168563347168436394']; // Replace with private channel IDs
-        const privateMessage = `${memberUsername} has left the server!
-We now have ${totalMembers} members left!`;
-
-        privateChannelIDs.forEach(channelID => {
-            const privateChannel = member.guild.channels.cache.get(channelID);
-            if (privateChannel) {
-              privateChannel.send(privateMessage);
-            }
-        });
     });
     
         function isLeaveMessage(content) {
