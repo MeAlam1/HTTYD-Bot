@@ -11,8 +11,8 @@ const HTOADHelpEmbed = new EmbedBuilder()
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription('Welcome to How to Own a Dragon. If you have any questions, please check <#1120302121980543007>!')
     .addFields(
-        { name: '\u200B', value: `**/faq** - Please read the FAQ before a sking questions!
-        ` },
+        { name: 'Links', value: `**[/faq](https://discord.com/channels/1120022058601029652/1120302121980543007/1173294933604585583)** - Please read the FAQ before asking Questions!
+        **[/google-drive](https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing)** - To open the Google Drive!` },
     )
     .setTimestamp()
     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
