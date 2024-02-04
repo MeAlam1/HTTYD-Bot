@@ -42,11 +42,11 @@ module.exports = {
             return;
         };
 
-        const roles = [];
-        
-        if (member.roles) member.roles.cache.forEach((role) => {
-            if (role.id !== interaction.guild.roles.everyone.id) roles.push(`${role.toString()}`);
-        });
+        const roles = member.roles.cache
+            .sort((a, b) => b.position - a.position)
+            .filter(role => role.id !== member.guild.roles.everyone.id)
+            .map(role => role.toString());
+
 
         const arr = [
             `**Username**: ${user.username}`,
@@ -54,7 +54,7 @@ module.exports = {
             `**ID**: ${user.id}`,
             `**Joined Discord**: ${time(user.createdTimestamp, 'd')} (${time(user.createdTimestamp, 'R')})`,
             `**Joined server**: ${time(member.joinedTimestamp, 'd')} (${time(member.joinedTimestamp, 'R')})`,
-            `**Roles** [${member.roles?.cache?.size - 1}]: ${roles.join(', ')}`,
+            `**Roles** [${roles.length}]:\n${roles.join('\n')}`,
             `**In a voice channel?**: ${member.voice.channel ? 'Yes' : 'No'}`,
             `**Guild owner?**: ${interaction.guild.ownerId === user.id ? 'Yes' : 'No'}`,
             `**Timed out?**: ${member.communicationDisabledUntilTimestamp ? 'Yes' : 'No'}`,
