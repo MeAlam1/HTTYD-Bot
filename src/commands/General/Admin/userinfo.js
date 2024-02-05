@@ -1,15 +1,28 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { time } = require('../../../functions');
 const allowedRoles = [
-    '1120030006626750474', // How to Own a Dragon Owner Role
-    '1133420066277437490', // How to Own a Dragon Lead Dev Role
-    '1161418815440166943', // How to Own a Dragon Moderator Role
-    '1151500042843201576', // Runic Isles Public Server Owner Role
-    '1189510610556301332', // Runic Isles Public Server Management Role
-    '1203303940364439573', // Runic Isles Public Server Moderator Role
-    '1151758461412057098', // Runic Isles Dev Server Founders Role 
-    '1153054168127381544', // Runic Isles Dev Server Mangement Role
-    '1203312420987211776'  // Runic Isles Dev Server Moderator Role
+    // How to Own a Dragon
+    '1120030006626750474', // Owner Role
+    '1133420066277437490', // Lead Dev Role
+    '1161418815440166943', // Moderator Role
+    // Runic Isles Public Server
+    '1151500042843201576', // Server Owner Role
+    '1189510610556301332', // Server Management Role
+    '1203303940364439573', // Server Moderator Role
+    // Runic Isles Dev Server
+    '1151758461412057098', // Founders Role 
+    '1153054168127381544', // Mangement Role
+    '1203312420987211776', // Moderator Role
+    // Ravenstone Peak
+    '1204164498848743495', // Bot Creater
+    '1157855652723560519', // Jr. Administrator
+    '1154606355827658783', // Administrator
+    '1150599340574900285', // Sr. Administrator
+    '1169424986117767218', // Head Administrator
+    '1150600192941359194', // Co-Owner
+    '1150600195734786078', // Owner
+    '1169424425477738577', // Founder
+    '1195272590063849562'  // (Retired) Owner
 ];
 
 module.exports = {

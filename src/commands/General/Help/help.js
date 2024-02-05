@@ -3,9 +3,11 @@ const HTOAD = ['1120022058601029652']; // How to Own a Dragon
 const Runic = [
     '1151585202506838036', // Runic Isles Dev Server
     '1151497491288690688'  // Runic Isles Public Server
-]
+];
+const Ravenstone = ['1150598668219588701'];
 const HTOADHelpCategoryEmbed = require('../../../components/embed/HTOAD/HelpCategoryEmbed.js');
 const RunicHelpCategoryEmbed = require('../../../components/embed/Runic/HelpCategoryEmbed.js');
+const RavenstoneHelpCategoryEmbed = require('../../../components/embed/Ravenstone/HelpCategoryEmbed.js');
 
 module.exports = {
     structure: new SlashCommandBuilder()
@@ -23,6 +25,7 @@ module.exports = {
                                 .setPlaceholder(`Category's`)
                                 .addOptions(
                                     { label: 'Links', value: 'htoad-help-category-links'},
+                                    { label: 'Mod', value: 'htoad-help-category-mod'}
                                 )
                         )
                 ]
@@ -41,6 +44,10 @@ module.exports = {
                                 )
                         )
                 ]
+            });
+        } else if (interaction.guild && Ravenstone.includes(interaction.guild.id)) {
+            await interaction.reply({
+                embeds: [RavenstoneHelpCategoryEmbed],
             });
         } else {
             await interaction.reply({
