@@ -4,7 +4,7 @@ const HTOAD = ['1120022058601029652'];
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('google-drive')
+        .setName('httyd')
         .setDescription('To open the Google Drive!'),
     run: async (client, interaction, args) => {
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
@@ -19,4 +19,3 @@ module.exports = {
         }
     }
 };
-
