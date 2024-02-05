@@ -1,7 +1,7 @@
 {
-  "name": "How to Own a Dragon",
-  "version": "1.0.0",
-  "description": "This is the main bot of the How to Own a Dragon discord!",
+  "name": "httyd",
+  "version": "0.0.1",
+  "description": "This is a Multi-Server bot with Server Specific Actions!",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Test?\" && exit 1",
@@ -9,7 +9,7 @@
     "dev": "nodemon ."
   },
   "keywords": [],
-  "author": "Aram, Justin",
+  "author": "How to Own a Dragon Coder Team!",
   "license": "All Rights Reserved",
   "dependencies": {
     "chalk": "^2.4.2",

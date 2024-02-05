@@ -1,3 +1,4 @@
+```javascript
 // Slash:
 
 const { ChatInputCommandInteraction, SlashCommandBuilder } = require('discord.js');
@@ -51,3 +52,4 @@ module.exports = {
 
     }
 };
+```

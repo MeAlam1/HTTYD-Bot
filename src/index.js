@@ -2,8 +2,8 @@ require('dotenv').config();
 const ExtendedClient = require('./class/ExtendedClient');
 
 //Load HTOAD Class Files
-const HTOADwelcome = require('./class/HTOAD/welcome.js');
-const HTOADleave = require('./class/HTOAD/leave.js');
+const HTOADwelcome = require('./class/htoad/welcome.js');
+const HTOADleave = require('./class/htoad/leave.js');
 
 //Load Runic Class Files
 const Runicwelcome = require('./class/Runic/Welcome.js');
@@ -18,7 +18,7 @@ client.start();
 HTOADwelcome(client);
 HTOADleave(client);
 
-//Runic
+//Runic Isles
 Runicwelcome(client);
 Runicleave(client);
 RunicETAReact(client);

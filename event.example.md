@@ -1,3 +1,4 @@
+```javascript
 const ExtendedClient = require('../../class/ExtendedClient');
 
 module.exports = {
@@ -13,3 +14,4 @@ module.exports = {
         
     }
 };
+```
