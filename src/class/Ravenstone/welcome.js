@@ -1,17 +1,10 @@
-const autorole = require('./autorole.js');
-
 module.exports = client => {
-    
-    const HTOAD = '1120022058601029652'; // How to Own a Dragon
 
     client.on('guildMemberAdd', async member => {
-        if (member.guild.id === HTOAD) {
-            autorole.execute(client, member);
-        }
 
         const totalMembers = member.guild.memberCount;
         const publicMessage = `Hello ${member}! Because of you, we have ${totalMembers} members!`;
-        const WelcomeChannel = ['1120030527920025650']; // How to Own a Dragon Welcome Channel
+        const WelcomeChannel = ['1150753214510149684']; // Ravenstone Peak Welcome Channel
 
         WelcomeChannel.forEach(async channelID => {
 
@@ -32,10 +25,10 @@ module.exports = client => {
     }
 
     client.on('messageCreate', async (message) => {
-        if (message.channel.id === '1120030527920025650') { // How to Own a Dragon Welcome Channel
+        if (message.channel.id === '1150753214510149684') { // Ravenstone Peak Welcome Channel
             if (isWelcomeMessage(message.content)) {
 
-                const emojis = ['<:blaeh:1159184786250809475>'];
+                const emojis = ['<:pwease:1150933470462365726>'];
 
                 for (const emoji of emojis) {
                     try {

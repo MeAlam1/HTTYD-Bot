@@ -1,14 +1,12 @@
 module.exports = client => {
     client.on('guildMemberRemove', member => {
 
-        const HTOAD = [
-            '1120030527920025650' // How to Own a Dragon
-        ];
-        const totalMembers = member.guild.members.cache.size;
+        const totalMembers = member.guild.memberCount;
         const memberUsername = member.user.username;
         const publicMessage = `${memberUsername} has left the server! We now have ${totalMembers} members left!`;
+        const WelcomeChannel = ['1120030527920025650']; // How to Own a Dragon Welcome Channel
 
-        HTOAD.forEach(channelID => {
+        WelcomeChannel.forEach(channelID => {
 
             const publicChannel = member.guild.channels.cache.get(channelID);
             

@@ -10,6 +10,10 @@ const Runicwelcome = require('./class/Runic/Welcome.js');
 const Runicleave = require('./class/Runic/Leave.js');
 const RunicETAReact = require('./class/Runic/ETAReact.js');
 
+//Load Ravenstone Class Files
+const Ravenstonewelcome = require('./class/Ravenstone/welcome.js');
+const Ravenstoneleave = require('./class/Ravenstone/leave.js');
+
 const client = new ExtendedClient();
 
 client.start();
@@ -22,6 +26,10 @@ HTOADleave(client);
 Runicwelcome(client);
 Runicleave(client);
 RunicETAReact(client);
+
+//Ravenstone Peak
+Ravenstonewelcome(client);
+Ravenstoneleave(client);
 
 // Handles errors and avoids crashes, better to not remove them.
 process.on('unhandledRejection', console.error);

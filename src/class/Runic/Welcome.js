@@ -1,3 +1,4 @@
+const { WelcomeChannel } = require('discord.js');
 const Autorole = require('./autorole.js');
 
 module.exports = client => {
@@ -9,10 +10,11 @@ module.exports = client => {
             Autorole.execute(client, member);
         }
 
-        const totalMembers = member.guild.members.cache.size;
+        const totalMembers = member.guild.memberCount;
         const publicMessage = `Hey ${member}, Welcome to our humble server, **Runic Isles**. You brought us to ${totalMembers} members!`;
+        const WelcomeChannel = ['1151500458410647633']; // Runic Isle Public Server Welcome Channel
 
-        Runic.forEach(async channelID => {
+        WelcomeChannel.forEach(async channelID => {
 
             const publicChannel = member.guild.channels.cache.get(channelID);
 

@@ -7,6 +7,8 @@ const RunicHelpLinksEmbed = new EmbedBuilder()
     .setAuthor({ name: 'Runic Isles', iconURL: 'https://imgur.com/KgKhMsg.png'})
     .addFields(
         { name: 'Links', value: `**/eta** - Check if we released the Mod!
+        **[/google-drive](https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing)** - To open the Google Drive!
+        **[/httyd](https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing)** - To open the Google Drive!
         ` },
     )
     .setTimestamp()
