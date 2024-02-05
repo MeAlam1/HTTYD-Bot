@@ -1,5 +1,4 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
-const ExtendedClient = require('../../../class/ExtendedClient');
+const { SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 const HTOAD = ['1120022058601029652'];
 const allowedRoles = ['1120030006626750474', '1133420066277437490'];
 
@@ -15,7 +14,9 @@ module.exports = {
             });
             return;
         }
+
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
+        
         if (!hasRole) {
             await interaction.reply({
                 content: 'You do not have permission to use this command.',

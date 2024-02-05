@@ -1,5 +1,4 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const ExtendedClient = require('../../../class/ExtendedClient');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { time } = require('../../../functions');
 const HTOAD = ['1120022058601029652', `1151585202506838036`, `1151497491288690688`];
 const allowedRoles = ['1120030006626750474', '1133420066277437490', '1161418815440166943', '1151500042843201576', '1189510610556301332', '1203303940364439573', '1151758461412057098', '1153054168127381544', '1203312420987211776'];
@@ -21,7 +20,9 @@ module.exports = {
             });
             return;
         }
+
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
+
         if (!hasRole) {
             await interaction.reply({
                 content: 'You do not have permission to use this command.',
@@ -31,7 +32,6 @@ module.exports = {
         }
 
         const user = interaction.options.getUser('user') || interaction.user;
-
         const member = interaction.guild.members.cache.get(user.id);
 
         if (!member) {

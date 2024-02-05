@@ -25,7 +25,7 @@ module.exports = class extends Client {
             partials: [Object.keys(Partials)],
             presence: {
                 activities: [{
-                    name: 'Busy Moderating'
+                    name: 'In Active Developement',
                 }]
             }
         });
