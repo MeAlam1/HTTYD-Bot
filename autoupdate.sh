@@ -15,7 +15,7 @@ while true; do
     # Restart the bot
     # Use the appropriate command to stop your bot here if needed
     pkill node
-    npm start &
+    npm run dev &
     echo "Bot restarted."
   else
     echo "No new changes detected."
