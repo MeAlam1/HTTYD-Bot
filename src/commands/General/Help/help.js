@@ -1,6 +1,9 @@
 const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
-const HTOAD = ['1120022058601029652'];
-const Runic = ['1151585202506838036', '1203659334177792080', '1151497491288690688']
+const HTOAD = ['1120022058601029652']; // How to Own a Dragon
+const Runic = [
+    '1151585202506838036', // Runic Isles Dev Server
+    '1151497491288690688'  // Runic Isles Public Server
+]
 const HTOADHelpCategoryEmbed = require('../../../components/embed/HTOAD/HelpCategoryEmbed.js');
 const RunicHelpCategoryEmbed = require('../../../components/embed/Runic/HelpCategoryEmbed.js');
 

@@ -1,15 +1,15 @@
 const { SlashCommandBuilder } = require('discord.js');
-const GoogleDriveEmbed = require('../../../components/embed/General/GoogleDriveEmbed.js');
-const HTOAD = ['1120022058601029652'];
+const HTOAD = ['1120022058601029652']; // How to Own a Dragon
+const HTOADSupportEmbed = require('../../../components/embed/HTOAD/SupportEmbed.js');
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('google-drive')
-        .setDescription('To open the Google Drive!'),
+        .setName('support')
+        .setDescription('Feel free to support us!'),
     run: async (client, interaction, args) => {
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
             await interaction.reply({
-                embeds: [GoogleDriveEmbed]
+                embeds: [HTOADSupportEmbed]
             });
         } else {
             await interaction.reply({

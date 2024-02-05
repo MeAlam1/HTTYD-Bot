@@ -1,7 +1,16 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { time } = require('../../../functions');
-const HTOAD = ['1120022058601029652', `1151585202506838036`, `1151497491288690688`];
-const allowedRoles = ['1120030006626750474', '1133420066277437490', '1161418815440166943', '1151500042843201576', '1189510610556301332', '1203303940364439573', '1151758461412057098', '1153054168127381544', '1203312420987211776'];
+const allowedRoles = [
+    '1120030006626750474', // How to Own a Dragon Owner Role
+    '1133420066277437490', // How to Own a Dragon Lead Dev Role
+    '1161418815440166943', // How to Own a Dragon Moderator Role
+    '1151500042843201576', // Runic Isles Public Server Owner Role
+    '1189510610556301332', // Runic Isles Public Server Management Role
+    '1203303940364439573', // Runic Isles Public Server Moderator Role
+    '1151758461412057098', // Runic Isles Dev Server Founders Role 
+    '1153054168127381544', // Runic Isles Dev Server Mangement Role
+    '1203312420987211776'  // Runic Isles Dev Server Moderator Role
+];
 
 module.exports = {
     structure: new SlashCommandBuilder()
@@ -13,13 +22,6 @@ module.exports = {
                 .setRequired(false)
         ),
     run: async (client, interaction) => {
-        if (!interaction.guild || !HTOAD.includes(interaction.guild.id)) {
-            await interaction.reply({
-                content: 'This command is not available in this server.',
-                ephemeral: true
-            });
-            return;
-        }
 
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 

@@ -1,7 +1,9 @@
 module.exports = client => {
     client.on('guildMemberRemove', member => {
 
-        const publicChannelIDs = ['1203659336417677397', '1151500497950363648'];
+        const publicChannelIDs = [
+            '1151497491288690688'  // Runic Isles Public Server
+        ];
         const totalMembers = member.guild.members.cache.size;
         const memberUsername = member.user.username;
         const publicMessage = `${memberUsername} left the server. We now have ${totalMembers} members left!`;
@@ -21,7 +23,7 @@ module.exports = client => {
     }
     
     client.on('messageCreate', async (message) => {
-        if (message.channel.id === '1151500497950363648') { 
+        if (message.channel.id === '1151500497950363648') { // Runic Isles Public Server Goodbye Channel
             if (isLeaveMessage(message.content)) {
 
                 const emojis = ['<:bhevil:1151933344804782161>'];

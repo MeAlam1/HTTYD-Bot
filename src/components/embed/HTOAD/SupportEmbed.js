@@ -1,5 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const HTOAD = ['1120022058601029652'];
+const { EmbedBuilder } = require('discord.js');
 
 const HTOADSupportEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
@@ -16,21 +15,4 @@ const HTOADSupportEmbed = new EmbedBuilder()
     .setTimestamp()
     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
-module.exports = {
-    structure: new SlashCommandBuilder()
-        .setName('support')
-        .setDescription('Feel free to support us!'),
-    run: async (client, interaction, args) => {
-        if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
-            await interaction.reply({
-                embeds: [HTOADSupportEmbed]
-            });
-        } else {
-            await interaction.reply({
-                content: 'This command is not available in this server.',
-                ephemeral: true
-            });
-        }
-    }
-};
-
+module.exports = HTOADSupportEmbed;

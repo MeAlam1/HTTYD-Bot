@@ -11,9 +11,9 @@ module.exports = client => {
 
     client.on('messageCreate', async (message) => {
 
-        const targetGuildID = '1151497491288690688';
+        const Runic = '1151497491288690688'; // Runic Isles Public Server
 
-        if (message.guild.id === targetGuildID) { 
+        if (message.guild.id === Runic) { 
             if (isETAMessage(message.content)) {
                 await message.reply({ embeds: [RunicETAEmbed] });
             }

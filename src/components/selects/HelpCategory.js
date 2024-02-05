@@ -1,5 +1,5 @@
-const HTOADHelpLinksEmbed = require('../../components/embed/HTOAD/HelpLinksEmbed.js');
-const RunicHelpLinksEmbed = require('../../components/embed/Runic/HelpLinksEmbed.js');
+const HTOADHelpLinksEmbed = require('../embed/HTOAD/HelpLinksEmbed.js');
+const RunicHelpLinksEmbed = require('../embed/Runic/HelpLinksEmbed.js');
 
 module.exports = {
     customId: 'help-category',
