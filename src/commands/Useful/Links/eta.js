@@ -1,5 +1,4 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const ExtendedClient = require('../../../class/ExtendedClient');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const RunicETAEmbed = require('../../../components/embed/Runic/ETAEmbed.js');
 const HTOAD = ['1120022058601029652'];
 const Runic = ['1151585202506838036', '1151497491288690688', '1203659334177792080']

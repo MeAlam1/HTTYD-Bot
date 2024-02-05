@@ -1,5 +1,3 @@
-const { StringSelectMenuInteraction } = require('discord.js');
-const ExtendedClient = require('../../class/ExtendedClient');
 const HTOADHelpLinksEmbed = require('../../components/embed/HTOAD/HelpLinksEmbed.js');
 const RunicHelpLinksEmbed = require('../../components/embed/Runic/HelpLinksEmbed.js');
 

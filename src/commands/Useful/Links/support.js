@@ -1,5 +1,4 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const ExtendedClient = require('../../../class/ExtendedClient');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const HTOAD = ['1120022058601029652'];
 
 const HTOADSupportEmbed = new EmbedBuilder()

@@ -1,5 +1,4 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
-const ExtendedClient = require('../../../class/ExtendedClient');
+const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
 const HTOAD = ['1120022058601029652'];
 const Runic = ['1151585202506838036', '1203659334177792080', '1151497491288690688']
 const HTOADHelpCategoryEmbed = require('../../../components/embed/HTOAD/HelpCategoryEmbed.js');
