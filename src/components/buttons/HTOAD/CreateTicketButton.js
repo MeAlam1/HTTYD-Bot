@@ -1,5 +1,5 @@
 const { ChannelType, PermissionFlagsBits } = require('discord.js');
-const HTOADFirstMessageTicketEmbed = require('../../components/embed/HTOAD/Ticket/FirstMessageTicketEmbed.js');
+const HTOADFirstMessageTicketEmbed = require('../../embed/HTOAD/Ticket/FirstMessageTicketEmbed.js');
 
 module.exports = {
     customId: 'create-ticket-button',
@@ -39,6 +39,7 @@ module.exports = {
             channel.send({ embeds: [HTOADFirstMessageTicketEmbed] })
               .then(message => message.pin())
               .catch(console.error);
+              
         }).catch(console.error);
     }
 };
