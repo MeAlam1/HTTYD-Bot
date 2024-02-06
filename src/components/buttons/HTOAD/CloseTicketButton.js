@@ -7,7 +7,7 @@ module.exports = {
     run: async (client, interaction) => {
 
         const channelName = interaction.channel.name;
-        const embed = HTOADCloseTicketEmbed(channelName);
+        const HTOADCloseTicketEmbed = HTOADCloseTicketEmbed(channelName);
 
         await interaction.reply({ embeds: [HTOADCloseTicketEmbed] });
 
