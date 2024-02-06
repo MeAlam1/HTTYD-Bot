@@ -1,12 +1,15 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const HTOADCloseTicketEmbed = require('../../embed/HTOAD/Ticket/CloseTicketEmbed.js');
+
 
 module.exports = {
     customId: 'close-ticket-button',
     run: async (client, interaction) => {
-        const embed = new EmbedBuilder()
-            .setColor(0x0099FF)
-            .setTitle('Your Title Here')
-            .setDescription('Your description here.');
+
+        const channelName = interaction.channel.name;
+        const embed = HTOADCloseTicketEmbed(channelName);
+
+        await interaction.reply({ embeds: [HTOADCloseTicketEmbed] });
 
         const button1 = new ButtonBuilder()
             .setCustomId('button1_custom_id')
@@ -21,7 +24,7 @@ module.exports = {
         const row = new ActionRowBuilder().addComponents(button1, button2);
 
         await interaction.reply({ 
-            embeds: [embed], 
+            embeds: [HTOADCloseTicketEmbed],  
             components: [row] 
         });
     }
