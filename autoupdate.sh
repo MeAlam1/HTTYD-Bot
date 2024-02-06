@@ -19,6 +19,4 @@ while true; do
   else
     echo "No new changes detected."
   fi
-  # Wait for 60 seconds before checking again
-  sleep 10
 done
