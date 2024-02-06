@@ -5,8 +5,8 @@ const Runic = [
     '1151497491288690688'  // Runic Isles Public Server
 ];
 const Ravenstone = ['1150598668219588701'];
-const HTOADHelpCategoryEmbed = require('../../../components/embed/HTOAD/HelpCategoryEmbed.js');
-const RunicHelpCategoryEmbed = require('../../../components/embed/Runic/HelpCategoryEmbed.js');
+const HTOADHelpCategoryEmbed = require('../../../components/embed/HTOAD/Help/HelpCategoryEmbed.js');
+const RunicHelpCategoryEmbed = require('../../../components/embed/Runic/Help/HelpCategoryEmbed.js');
 const RavenstoneHelpCategoryEmbed = require('../../../components/embed/Ravenstone/HelpCategoryEmbed.js');
 
 module.exports = {

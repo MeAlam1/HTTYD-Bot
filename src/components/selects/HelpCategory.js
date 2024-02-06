@@ -1,6 +1,6 @@
-const HTOADHelpLinksEmbed = require('../embed/HTOAD/HelpLinksEmbed.js');
-const HTOADHelpModEmbed = require('../embed/HTOAD/HelpModEmbed.js');
-const RunicHelpLinksEmbed = require('../embed/Runic/HelpLinksEmbed.js');
+const HTOADHelpLinksEmbed = require('../embed/HTOAD/Help/HelpLinksEmbed.js');
+const HTOADHelpModEmbed = require('../embed/HTOAD/Help/HelpModEmbed.js');
+const RunicHelpLinksEmbed = require('../embed/Runic/Help/HelpLinksEmbed.js');
 
 
 module.exports = {

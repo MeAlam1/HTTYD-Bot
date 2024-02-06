@@ -1,4 +1,5 @@
-const { ChannelType, PermissionFlagsBits, EmbedBuilder } = require('discord.js');
+const { ChannelType, PermissionFlagsBits } = require('discord.js');
+const HTOADFirstMessageTicketEmbed = require('../../components/embed/HTOAD/Ticket/FirstMessageTicketEmbed.js');
 
 module.exports = {
     customId: 'create-ticket-button',
@@ -22,16 +23,11 @@ module.exports = {
             ],
         }).then(channel => {
             interaction.reply({
-                content: `Your ticket has been created! [${channel.name}](https://discord.com/channels/${interaction.guild.id}/${channel.id})`,
+                content: `Your ticket has been created! <#${channel.id}>`,
                 ephemeral: true
             });
 
-            const embed = new EmbedBuilder()
-                .setTitle('Welcome to your ticket!')
-                .setDescription('Please describe your issue, and we will be with you shortly.')
-                .setColor(0x0099FF);
-
-            channel.send({ embeds: [embed] });
+            channel.send({ embeds: [HTOADFirstMessageTicketEmbed] });
         }).catch(console.error);
     }
 };

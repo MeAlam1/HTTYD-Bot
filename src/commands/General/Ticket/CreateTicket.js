@@ -1,9 +1,9 @@
 const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const allowedRoles = [
     // How to Own a Dragon
-    '1120030006626750474'
+    '1120030006626750474' // Owner Role
 ];
-const HTOADCreateTicketEmbed = require('../../../components/embed/HTOAD/CreateTicketEmbed.js');
+const HTOADCreateTicketEmbed = require('../../../components/embed/HTOAD/Ticket/CreateTicketEmbed.js');
 
 module.exports = {
     structure: new SlashCommandBuilder()
