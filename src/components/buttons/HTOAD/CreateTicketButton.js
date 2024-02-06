@@ -22,14 +22,14 @@ module.exports = {
                     id: interaction.guild.roles.everyone, // Everyone
                     deny: [PermissionFlagsBits.ViewChannel],
                 },
-                {
+                /**{
                     id: '1133420066277437490', // Lead Dev
                     allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
-                },
+                }, 
                 {
                     id: '1161418815440166943', // Moderator
                     allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
-                },
+                }, */
             ],
         }).then(channel => {
             interaction.reply({
