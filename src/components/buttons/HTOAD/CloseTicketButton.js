@@ -1,25 +1,30 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const HTOADCloseTicketEmbed = require('../../embed/HTOAD/Ticket/CloseTicketEmbed.js');
-
 
 module.exports = {
     customId: 'close-ticket-button',
     run: async (client, interaction) => {
+        const embed = new EmbedBuilder()
+            .setColor(0x0099FF)
+            .setTitle('Transcript')
+            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
+            .setDescription(`The Transcript will be named: **${interaction.channel.name}**`)
+            .setTimestamp()
+            .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
         const button1 = new ButtonBuilder()
-            .setCustomId('button1_custom_id')
-            .setLabel('Button 1')
-            .setStyle(ButtonStyle.Primary);
+            .setCustomId('htoad-create-transcript-button')
+            .setLabel('Create Transcript')
+            .setStyle(ButtonStyle.Success);
 
         const button2 = new ButtonBuilder()
-            .setCustomId('button2_custom_id')
-            .setLabel('Button 2')
-            .setStyle(ButtonStyle.Secondary);
+            .setCustomId('htoad-rename-transcript-button')
+            .setLabel('Rename Transcript')
+            .setStyle(ButtonStyle.Danger);
 
         const row = new ActionRowBuilder().addComponents(button1, button2);
 
         await interaction.reply({ 
-            embeds: [HTOADCloseTicketEmbed],  
+            embeds: [embed],  
             components: [row] 
         });
     }
