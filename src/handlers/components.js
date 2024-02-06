@@ -8,7 +8,7 @@ const ExtendedClient = require('../class/ExtendedClient');
  */
 module.exports = (client) => {
     for (const type of readdirSync('./src/components/')) {
-        for (const dir of readdirSync('./src/commands/' + type)) {
+        for (const dir of readdirSync('./src/components/' + type)) {
             for (const file of readdirSync('./src/components/' + type + '/' + dir).filter((f) => f.endsWith('.js'))) {
                 const module = require('../components/' + type + '/' + dir + '/' + file);
 
