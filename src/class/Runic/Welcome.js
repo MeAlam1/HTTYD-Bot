@@ -1,5 +1,5 @@
 const { WelcomeChannel } = require('discord.js');
-const Autorole = require('./autorole.js');
+const Autorole = require('./Autorole.js');
 
 module.exports = client => {
 
