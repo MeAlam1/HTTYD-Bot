@@ -4,7 +4,8 @@ const HTOADFirstMessageTicketEmbed = require('../../components/embed/HTOAD/Ticke
 module.exports = {
     customId: 'create-ticket-button',
     run: async (client, interaction) => {
-        const categoryId = '1126638959716470886'; 
+        // How to Own a Dragon
+        const categoryId = '1126638959716470886'; // Ticket Category
         const channelName = `ticket-${interaction.user.username.replace(/\s+/g, '-').toLowerCase()}`;
 
         interaction.guild.channels.create({
@@ -13,11 +14,11 @@ module.exports = {
             parent: categoryId, 
             permissionOverwrites: [
                 {
-                    id: interaction.user.id,
+                    id: interaction.user.id, // User that Creates the Ticket
                     allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages], 
                 },
                 {
-                    id: interaction.guild.roles.everyone,
+                    id: interaction.guild.roles.everyone, // Everyone
                     deny: [PermissionFlagsBits.ViewChannel],
                 },
                 {
