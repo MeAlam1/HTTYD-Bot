@@ -7,7 +7,7 @@ module.exports = {
     run: async (client, interaction) => {
 
         const channelName = interaction.channel.name;
-        const HTOADCloseTicketEmbed = HTOADCloseTicketEmbed(channelName);
+        const CloseTicketEmbed = HTOADCloseTicketEmbed(channelName);
 
         await interaction.reply({ embeds: [HTOADCloseTicketEmbed] });
 
@@ -24,7 +24,7 @@ module.exports = {
         const row = new ActionRowBuilder().addComponents(button1, button2);
 
         await interaction.reply({ 
-            embeds: [HTOADCloseTicketEmbed],  
+            embeds: [CloseTicketEmbed],  
             components: [row] 
         });
     }
