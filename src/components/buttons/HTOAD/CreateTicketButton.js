@@ -1,8 +1,9 @@
 const { ChannelType, PermissionFlagsBits } = require('discord.js');
 const HTOADFirstMessageTicketEmbed = require('../../embed/HTOAD/Ticket/FirstMessageTicketEmbed.js');
+const CloseTicketButton = require('../../buttons/HTOAD/CloseTicketButton.js');
 
 module.exports = {
-    customId: 'create-ticket-button',
+    customId: 'htoad-create-ticket-button',
     run: async (client, interaction) => {
         // How to Own a Dragon
         const categoryId = '1126638959716470886'; // Ticket Category
@@ -36,7 +37,12 @@ module.exports = {
                 ephemeral: true
             });
 
-            channel.send({ embeds: [HTOADFirstMessageTicketEmbed] })
+            const row = new ActionRowBuilder().addComponents(CloseTicketButton);
+
+            channel.send({
+                embeds: [HTOADFirstMessageTicketEmbed],
+                components: [row]
+            })
               .then(message => message.pin())
               .catch(console.error);
               
