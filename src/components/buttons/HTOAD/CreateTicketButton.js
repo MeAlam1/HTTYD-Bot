@@ -41,7 +41,6 @@ module.exports = {
         }).then(channel => {
             interaction.reply({
                 content: `Your ticket has been created! <#${channel.id}>`,
-                components: [row],
                 ephemeral: true
             });
 
