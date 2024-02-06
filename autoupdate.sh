@@ -1,7 +1,6 @@
 #!/bin/bash
 
 while true; do
-  echo "Checking for updates..."
   # Fetch latest changes from GitHub
   git fetch origin
 
@@ -21,5 +20,5 @@ while true; do
     echo "No new changes detected."
   fi
   # Wait for 60 seconds before checking again
-  sleep 60
+  sleep 10
 done
