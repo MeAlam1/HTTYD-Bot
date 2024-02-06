@@ -5,8 +5,10 @@ module.exports = {
     run: async (client, interaction) => {
         const categoryId = '1126638959716470886'; 
 
+        const channelName = `ticket-${interaction.user.username.replace(/\s+/g, '-').toLowerCase()}`;
+
         interaction.guild.channels.create({
-            name: 'test',
+            name: channelName,
             type: ChannelType.GuildText,
             parent: categoryId, 
             permissionOverwrites: [
@@ -19,8 +21,6 @@ module.exports = {
                  deny: [PermissionFlagsBits.ViewChannel],
               },
             ],
-        }).then(channel => {
-            console.log(`Created new channel ${channel.name}`);
         }).catch(console.error);
 
         await interaction.reply({
