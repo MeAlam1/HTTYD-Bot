@@ -11,15 +11,18 @@ module.exports = {
 
     if (value === 'htoad-help-category-links') {
         await interaction.reply({
-            embeds: [HTOADHelpLinksEmbed]
+            embeds: [HTOADHelpLinksEmbed],
+            ephemeral: true
         });
     } else if (value === 'htoad-help-category-mod') {
         await interaction.reply({
-            embeds: [HTOADHelpModEmbed]
+            embeds: [HTOADHelpModEmbed],
+            ephemeral: true
         });
     } else if (value === 'runic-help-category-links') {
         await interaction.reply({
-            embeds: [RunicHelpLinksEmbed]
+            embeds: [RunicHelpLinksEmbed],
+            ephemeral: true
         });
     }
 }

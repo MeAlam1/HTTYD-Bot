@@ -7,6 +7,7 @@ const RunicHelpCategoryEmbed = new EmbedBuilder()
     .setAuthor({ name: 'Runic Isles', iconURL: 'https://imgur.com/KgKhMsg.png'})
     .addFields(
         { name: `Category's`, value: `**Links** - All Commands related to links!
+        **Mod** - All Commands related to the mod!
         ` },
     )
     .setTimestamp()
