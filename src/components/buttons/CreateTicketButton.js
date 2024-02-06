@@ -35,7 +35,9 @@ module.exports = {
                 ephemeral: true
             });
 
-            channel.send({ embeds: [HTOADFirstMessageTicketEmbed] });
+            channel.send({ embeds: [HTOADFirstMessageTicketEmbed] })
+              .then(message => message.pin())
+              .catch(console.error);
         }).catch(console.error);
     }
 };
