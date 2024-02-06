@@ -1,6 +1,3 @@
-
-
-
 # Standard EmbedBuilder
 ```javascript
 const HelpEmbed = new EmbedBuilder()
