@@ -1,6 +1,14 @@
 const { ChannelType, PermissionFlagsBits, ActionRowBuilder } = require('discord.js');
 const HTOADFirstMessageTicketEmbed = require('../../embed/HTOAD/Ticket/FirstMessageTicketEmbed.js');
 
+const CloseTicketButton = new ButtonBuilder()
+.setCustomId('close-ticket-button')
+.setLabel('Close Ticket')
+.setStyle(ButtonStyle.Danger);
+
+
+const row = new ActionRowBuilder().addComponents(CloseTicketButton);
+
 module.exports = {
     customId: 'htoad-create-ticket-button',
     run: async (client, interaction) => {
@@ -33,16 +41,9 @@ module.exports = {
         }).then(channel => {
             interaction.reply({
                 content: `Your ticket has been created! <#${channel.id}>`,
+                components: [row],
                 ephemeral: true
             });
-
-            const CloseTicketButton = new ButtonBuilder()
-             .setCustomId('close-ticket-button')
-             .setLabel('Close Ticket')
-             .setStyle(ButtonStyle.Danger);
-
-
-            const row = new ActionRowBuilder().addComponents(CloseTicketButton);
 
             channel.send({
                 embeds: [HTOADFirstMessageTicketEmbed],
