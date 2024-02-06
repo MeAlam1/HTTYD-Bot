@@ -15,7 +15,7 @@ module.exports = {
 
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
-        if (!interaction.guild || !allowedRoles.includes(interaction.guild.id)) {
+        if (!interaction.guild || !allowedServers.includes(interaction.guild.id)) {
             await interaction.reply({
                 content: 'This command is not available in this server.',
                 ephemeral: true
