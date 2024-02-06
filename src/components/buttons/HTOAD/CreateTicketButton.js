@@ -47,8 +47,7 @@ module.exports = {
 
             channel.send({
                 embeds: [HTOADFirstMessageTicketEmbed],
-                components: [row],
-                ephemeral: true
+                components: [row]
             })
               .then(message => message.pin())
               .catch(console.error);
