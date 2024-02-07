@@ -5,7 +5,7 @@ const Runic = [
     '1151497491288690688'  // Runic Isles Public Server
 ];
 const RunicETAEmbed = require('../../../components/embed/Runic/ETAEmbed.js');
-const HTOADETAEmbed = require('../../../components/embed/HTOAD/ETAEmbed.js');
+const HTOADETAEmbed = require('../../../components/embed/HTOAD/Information/ETAEmbed.js');
 
 module.exports = {
     structure: new SlashCommandBuilder()
