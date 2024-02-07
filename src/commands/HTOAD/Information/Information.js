@@ -5,7 +5,7 @@ const allowedRoles = [
     '1120030006626750474', // Owner Role
     '1133420066277437490' // Lead Dev Role
 ];
-const HTOADInformationEmbed = require('../../../components/embed/HTOAD/Information/InfoEmbed.js');
+const HTOADInformationEmbed = require('../../../embed/HTOAD/Information/InfoEmbed.js');
 
 
 module.exports = {

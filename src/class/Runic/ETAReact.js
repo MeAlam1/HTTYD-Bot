@@ -1,4 +1,4 @@
-const RunicETAEmbed = require('../../components/embed/Runic/ETAEmbed.js');
+const RunicETAEmbed = require('../../embed/Runic/Information/ETAEmbed.js');
 
 module.exports = client => {
     function isETAMessage(content) {

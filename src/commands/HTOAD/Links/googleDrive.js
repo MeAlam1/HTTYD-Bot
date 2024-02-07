@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const GoogleDriveEmbed = require('../../../components/embed/General/GoogleDriveEmbed.js');
+const GoogleDriveEmbed = require('../../../embed/General/GoogleDriveEmbed.js');
 
 module.exports = {
     structure: new SlashCommandBuilder()

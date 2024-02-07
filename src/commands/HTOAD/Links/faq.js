@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const HTOAD = ['1120022058601029652']; // How to Own a Dragon
-const HTOADFAQEmbed = require('../../../components/embed/HTOAD/Information/FaqEmbed.js');
+const HTOADFAQEmbed = require('../../../embed/HTOAD/Information/FaqEmbed.js');
 
 module.exports = {
     structure: new SlashCommandBuilder()

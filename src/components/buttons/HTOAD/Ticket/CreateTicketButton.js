@@ -1,5 +1,5 @@
 const { ChannelType, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const HTOADFirstMessageTicketEmbed = require('../../../embed/HTOAD/Ticket/FirstMessageTicketEmbed.js');
+const HTOADFirstMessageTicketEmbed = require('../../../../embed/HTOAD/Ticket/FirstMessageTicketEmbed.js');
 
 module.exports = {
     customId: 'htoad-create-ticket-button',

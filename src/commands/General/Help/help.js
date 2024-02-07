@@ -5,9 +5,9 @@ const Runic = [
     '1151497491288690688'  // Runic Isles Public Server
 ];
 const Ravenstone = ['1150598668219588701'];
-const HTOADHelpCategoryEmbed = require('../../../components/embed/HTOAD/Help/HelpCategoryEmbed.js');
-const RunicHelpCategoryEmbed = require('../../../components/embed/Runic/Help/HelpCategoryEmbed.js');
-const RavenstoneHelpCategoryEmbed = require('../../../components/embed/Ravenstone/HelpCategoryEmbed.js');
+const HTOADHelpCategoryEmbed = require('../../../embed/HTOAD/Help/HelpCategoryEmbed.js');
+const RunicHelpCategoryEmbed = require('../../../embed/Runic/Help/HelpCategoryEmbed.js');
+const RavenstoneHelpCategoryEmbed = require('../../../embed/Ravenstone/HelpCategoryEmbed.js');
 
 module.exports = {
     structure: new SlashCommandBuilder()
