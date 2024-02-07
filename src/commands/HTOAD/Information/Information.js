@@ -26,7 +26,8 @@ module.exports = {
 
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
             await interaction.reply({
-                embeds: [WelcomeEmbed]
+                content: 'This command is available in this server.',
+                ephemeral: true
             });
         } else {
             await interaction.reply({
