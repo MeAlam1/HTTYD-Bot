@@ -3,7 +3,7 @@ const RunicETAEmbed = require('../../components/embed/Runic/ETAEmbed.js');
 module.exports = client => {
     function isETAMessage(content) {
 
-        const pattern = /(^|\s)eta[.,!?]?(\s|$)/i; 
+        const pattern = /(^|\s)eta[.,!?~*]?(\s|$)/i; 
         
         return pattern.test(content);
     }

@@ -3,7 +3,7 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('
 module.exports = {
     customId: 'close-ticket-button',
     run: async (client, interaction) => {
-        const embed = new EmbedBuilder()
+        const HTOADCloseTicketEmbed = new EmbedBuilder()
             .setColor(0x0099FF)
             .setTitle(`**${interaction.channel.name}**`)
             .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
@@ -11,20 +11,20 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
-        const button1 = new ButtonBuilder()
+        const CreateTranscriptButton = new ButtonBuilder()
             .setCustomId('htoad-create-transcript-button')
             .setLabel('Create Transcript')
             .setStyle(ButtonStyle.Success);
 
-        const button2 = new ButtonBuilder()
+        const RenameTranscriptButton = new ButtonBuilder()
             .setCustomId('htoad-rename-transcript-button')
             .setLabel('Rename Transcript')
             .setStyle(ButtonStyle.Danger);
 
-        const row = new ActionRowBuilder().addComponents(button1, button2);
+        const row = new ActionRowBuilder().addComponents(CreateTranscriptButton, RenameTranscriptButton);
 
         await interaction.reply({ 
-            embeds: [embed],  
+            embeds: [HTOADCloseTicketEmbed],  
             components: [row] 
         });
     }
