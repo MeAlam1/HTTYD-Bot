@@ -1,5 +1,5 @@
 const { ButtonInteraction } = require('discord.js');
-const ExtendedClient = require('../../../class/ExtendedClient');
+const ExtendedClient = require('../../../../class/ExtendedClient');
 
 module.exports = {
     customId: 'example-button',

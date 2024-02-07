@@ -10,7 +10,7 @@ const HTOADInformationEmbed = require('../../../components/embed/HTOAD/Informati
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('information')
+        .setName('info')
         .setDescription('HTOAD Admin Only.'),
     run: async (client, interaction, args) => {
 
