@@ -1,4 +1,10 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const allowedRoles = [
+    //How to Own a Dragon
+    '1120030006626750474', //Owner Role
+    '1133420066277437490', //Lead Dev Role
+    '1161418815440166943', //Moderator Role
+];
 
 module.exports = {
     customId: 'close-ticket-button',
@@ -16,7 +22,12 @@ module.exports = {
             .setLabel('Create Transcript')
             .setStyle(ButtonStyle.Success);
 
-        const row = new ActionRowBuilder().addComponents(CreateTranscriptButton, RenameTranscriptButton);
+        const row = new ActionRowBuilder().addComponents(CreateTranscriptButton);
+
+        if (!interaction.member.roles.cache.some(role => allowedRoles.includes(role.id))) {
+            await interaction.reply({ content: 'You do not have the necessary permissions to close the ticket.', ephemeral: true });
+            return;
+        }
 
         await interaction.reply({ 
             embeds: [HTOADCloseTicketEmbed],  
