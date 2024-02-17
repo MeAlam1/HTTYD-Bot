@@ -5,5 +5,5 @@
 * Reactions
 * Welcome Message
 * Leave Message
-* non-slash Commands
+* Non-slash Commands
 * Ticket System
