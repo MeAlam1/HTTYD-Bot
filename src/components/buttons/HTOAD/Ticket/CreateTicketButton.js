@@ -42,8 +42,13 @@ module.exports = {
              .setLabel('Close Ticket')
              .setStyle(ButtonStyle.Danger);
 
+             const RenameTranscriptButton = new ButtonBuilder()
+             .setCustomId('htoad-rename-channel-button')
+             .setLabel('Rename Channel')
+             .setStyle(ButtonStyle.Danger);
 
-            const row = new ActionRowBuilder().addComponents(CloseTicketButton);
+
+            const row = new ActionRowBuilder().addComponents(CloseTicketButton, RenameTranscriptButton);
 
             channel.send({
                 embeds: [HTOADFirstMessageTicketEmbed],

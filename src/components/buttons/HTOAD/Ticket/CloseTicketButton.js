@@ -16,11 +16,6 @@ module.exports = {
             .setLabel('Create Transcript')
             .setStyle(ButtonStyle.Success);
 
-        const RenameTranscriptButton = new ButtonBuilder()
-            .setCustomId('htoad-rename-transcript-button')
-            .setLabel('Rename Transcript')
-            .setStyle(ButtonStyle.Danger);
-
         const row = new ActionRowBuilder().addComponents(CreateTranscriptButton, RenameTranscriptButton);
 
         await interaction.reply({ 

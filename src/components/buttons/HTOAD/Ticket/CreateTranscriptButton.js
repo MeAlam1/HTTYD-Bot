@@ -4,40 +4,49 @@ const fs = require('fs');
 module.exports = {
     customId: 'htoad-create-transcript-button',
     run: async (client, interaction) => {
+        
+        function getCurrentDateFormatted() {
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            return `${day}-${month}-${year}`;
+        }
+
         if (!interaction.guildId || !interaction.channel) {
             await interaction.reply({ content: 'This command can only be used in a server channel.', ephemeral: true });
             return;
-        }
+        }   
+
+        // How to Own a Dragon
+        const customChannelId = '1197930601836191764'; // Ticket Transcript Channel
 
         try {
             const filePath = await createTranscript(interaction.channel);
             const fileAttachment = new AttachmentBuilder(filePath);
             
-            await interaction.reply({ content: 'Here is the transcript:', files: [fileAttachment] });
+            const customChannel = await client.channels.fetch(customChannelId);
+
+            if (!customChannel) {
+                await interaction.reply({ content: 'Custom channel not found.', ephemeral: true });
+                return;
+            }
+
+            await customChannel.send({ content: `
+Name: ${interaction.channel.name}
+Date: ${getCurrentDateFormatted()}
+Closed By: ${interaction.user}
+            `, files: [fileAttachment] });
             
-            fs.unlinkSync(filePath); // Optionally, clean up by deleting the file after sending
+            await interaction.reply({ content: 'Transcript created successfully.', ephemeral: true });
+
+            fs.unlinkSync(filePath);
         } catch (error) {
             console.error(error);
             await interaction.reply({ content: 'Failed to create a transcript.', ephemeral: true });
         }
     }
 };
-
-function formatTimestamp(timestamp) {
-    const date = new Date(timestamp);
-    const now = new Date();
-    let formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
-    
-    // Check if the date is today
-    if (date.getDate() === now.getDate() &&
-        date.getMonth() === now.getMonth() &&
-        date.getFullYear() === now.getFullYear()) {
-        formattedDate = 'Today';
-    }
-    
-    return `${formattedDate} at ${time}`;
-}
 
 
 async function createTranscript(channel) {
@@ -334,7 +343,16 @@ transcriptHtml += `
 </body>
 </html>`;
 
-    const filePath = `transcript-${channel.id}-${Date.now()}.html`;
+
+function getCurrentDateFormatted() {
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    return `${day}-${month}-${year}`;
+}
+
+    const filePath = `transcript-${channel.name}-${getCurrentDateFormatted()}.html`;
     fs.writeFileSync(filePath, transcriptHtml);
 
     return filePath;
