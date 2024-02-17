@@ -2,7 +2,7 @@ const { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle, ModalS
 const ExtendedClient = require('../../../../class/ExtendedClient');
 
 module.exports = {
-    customId: 'open-age-application',
+    customId: 'rename-name-application',
     /**
      * 
      * @param {ExtendedClient} client 
@@ -11,15 +11,15 @@ module.exports = {
 
     run: async (client, interaction) => {
         const modal = new ModalBuilder()
-        .setTitle('Question 2/3: Age')
-        .setCustomId('age-modal')
+        .setTitle('Question 1/3: Name')
+        .setCustomId('name-modal')
         .addComponents(
             new ActionRowBuilder()
                 .addComponents(
                     new TextInputBuilder()
-                        .setLabel('How old are you?')
-                        .setCustomId('age-application')
-                        .setPlaceholder('Type your age here!')
+                        .setLabel('What\'s your name?')
+                        .setCustomId('name-application')
+                        .setPlaceholder('Type your name here!')
                         .setStyle(TextInputStyle.Short)
                         .setRequired(true)
                 )

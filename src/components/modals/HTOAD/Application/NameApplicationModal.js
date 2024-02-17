@@ -1,4 +1,4 @@
-const { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle, ModalSubmitInteraction } = require('discord.js');
+const { ModalSubmitInteraction, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const ExtendedClient = require('../../../../class/ExtendedClient');
 
 module.exports = {
@@ -10,21 +10,28 @@ module.exports = {
      */
 
     run: async (client, interaction) => {
-        const modal = new ModalBuilder()
-        .setTitle('Question 2/3: Age')
-        .setCustomId('age-modal')
-        .addComponents(
-            new ActionRowBuilder()
-                .addComponents(
-                    new TextInputBuilder()
-                        .setLabel('What\'s your age?')
-                        .setCustomId('age-application')
-                        .setPlaceholder('Type your age here!')
-                        .setStyle(TextInputStyle.Short)
-                        .setRequired(true)
-                )
-        );
 
-        await interaction.showModal(modal);
-    }
-};
+        const NameInput = interaction.fields.getTextInputValue('name-application');
+
+        const Rename = new ButtonBuilder()
+        .setCustomId('rename-name-application')
+        .setLabel('Rename')
+        .setStyle(ButtonStyle.Danger);
+
+        const Next = new ButtonBuilder()
+        .setCustomId('open-age-application')
+        .setLabel('Continue')
+        .setStyle(ButtonStyle.Success);
+
+
+       const row = new ActionRowBuilder().addComponents(Next, Rename);
+
+        await interaction.reply({
+            content: `
+            You're name is ***${NameInput}***.
+Do you want to rename or continue?`,
+            components: [row],
+            ephemeral: true
+        });
+}
+}
