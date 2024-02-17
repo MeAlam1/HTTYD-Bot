@@ -8,7 +8,7 @@ const HTOADleave = require('./class/HTOAD/leave.js');
 //Load Runic Class Files
 const Runicwelcome = require('./class/Runic/Welcome.js');
 const Runicleave = require('./class/Runic/Leave.js');
-const RunicETAReact = require('./class/Runic/ETAReact.js');
+const RunicETA = require('./class/Runic/PrivateCommands/ETA.js');
 
 //Load Ravenstone Class Files
 const Ravenstonewelcome = require('./class/Ravenstone/welcome.js');
@@ -25,7 +25,7 @@ HTOADleave(client);
 //Runic Isles
 Runicwelcome(client);
 Runicleave(client);
-RunicETAReact(client);
+RunicETA(client);
 
 //Ravenstone Peak
 Ravenstonewelcome(client);
