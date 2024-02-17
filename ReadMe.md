@@ -1,5 +1,6 @@
 
 # Standard EmbedBuilder
+
 ```javascript
 const HelpEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
@@ -20,6 +21,8 @@ const HelpEmbed = new EmbedBuilder()
     .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 ```
 ![EmbedBuilder](/assets/ReadMe/EmbedBuilder.png)   
+
+# Standard Button/Select
 
 ```javascript
 const { ChatInputCommandInteraction, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder, ButtonStyle } = require('discord.js');
@@ -75,6 +78,8 @@ module.exports = {
 };
 ```
 ![Components](/assets/ReadMe/Components.png)
+
+# Standard Modal
 
 ```javascript
 const { ChatInputCommandInteraction, SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
