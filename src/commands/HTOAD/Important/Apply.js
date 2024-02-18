@@ -13,21 +13,6 @@ module.exports = {
         .setDescription('HTOAD Admin Only(for now).'),
     run: async (client, interaction, args) => {
 
-        const modal = new ModalBuilder()
-            .setTitle('Question 1/3: Name')
-            .setCustomId('name-modal')
-            .addComponents(
-                new ActionRowBuilder()
-                    .addComponents(
-                        new TextInputBuilder()
-                            .setLabel('What\'s your name?')
-                            .setCustomId('name-application')
-                            .setPlaceholder('Type your name here!')
-                            .setStyle(TextInputStyle.Short)
-                            .setRequired(true)
-                    )
-            );
-
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!hasRole) {
@@ -39,7 +24,10 @@ module.exports = {
         }
 
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
-            await interaction.showModal(modal);
+            await interaction.reply({
+                content: 'You do have permission to use this command.',
+                ephemeral: true
+            });
         } else {
             await interaction.reply({
                 content: 'This command is not available in this server.',
