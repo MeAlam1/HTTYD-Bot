@@ -34,16 +34,16 @@ module.exports = {
                                 .setCustomId('apply-category')
                                 .setPlaceholder(`Roles`)
                                 .addOptions(
-                                    { label: 'Tester', value: 'htoad-apply-tester'},
-                                    { label: 'Translator', value: 'htoad-apply-translator'},
+                                    { label: 'Discord Bot Coder', value: 'htoad-apply-discord-bot-coder'},
+                                    { label: 'Website Coder', value: 'htoad-apply-website-coder'},
                                     { label: 'Modeler', value: 'htoad-apply-modeler'},
-                                    { label: 'Texture Artist', value: 'htoad-apply-texture-artist'},
                                     { label: 'Animator', value: 'htoad-apply-animator'},
                                     { label: 'SFX Artist', value: 'htoad-apply-sfx-artist'},
-                                    { label: 'Builder', value: 'htoad-apply-builder'},
                                     { label: 'Concept Artist', value: 'htoad-apply-concept-artist'},
-                                    { label: 'Website Coder', value: 'htoad-apply-website-coder'},
-                                    { label: 'Discord Bot Coder', value: 'htoad-apply-discord-bot-coder'}
+                                    { label: 'Builder', value: 'htoad-apply-builder'},
+                                    { label: 'Texture Artist', value: 'htoad-apply-texture-artist'},
+                                    { label: 'Tester', value: 'htoad-apply-tester'},
+                                    { label: 'Translator', value: 'htoad-apply-translator'}
                                 )
                         )
                 ],
