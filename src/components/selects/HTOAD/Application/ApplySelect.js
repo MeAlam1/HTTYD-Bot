@@ -1,4 +1,6 @@
 const { ChannelType, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const HTOADTesterApplyEmbedded = require('../../../../embed/HTOAD/Application/TesterApplyEmbed.js');
+
 
 module.exports = {
     customId: 'apply-category',
@@ -103,7 +105,7 @@ module.exports = {
         });
     } else if (value === 'htoad-apply-tester') {
         await channel.send({
-            content: 'You have selected the `Tester` role.',
+            embeds: [HTOADTesterApplyEmbedded],
             components: [row],
 
         });
