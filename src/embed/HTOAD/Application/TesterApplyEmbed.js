@@ -6,7 +6,10 @@ const HTOADTesterApplyEmbed = new EmbedBuilder()
     .setURL('https://discord.com/channels/1120022058601029652/1120088926737141923/1120095097061658685')
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
     .addFields(
-        { name: `Question list:`, value: `
+        { name: `Thank you for applying to How to Own a Dragon!`, value: `
+        Please answer the following questions to start your application process.
+    ` },
+    { name: `Question list:`, value: `
         **1.** What should we call you? 
         **2.** How old are you?
         **3.** Which timezone are you located in?
