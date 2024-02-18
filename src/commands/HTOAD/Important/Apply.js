@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
 const HTOAD = ['1120022058601029652']; // How to Own a Dragon
 const allowedRoles = [
     // How to Own a Dragon
@@ -27,6 +27,26 @@ module.exports = {
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
             await interaction.reply({
                 embeds: [HTOADApplyEmbed],
+                components: [
+                    new ActionRowBuilder()
+                        .addComponents(
+                            new StringSelectMenuBuilder()
+                                .setCustomId('apply-category')
+                                .setPlaceholder(`Roles`)
+                                .addOptions(
+                                    { label: 'Tester', value: 'htoad-apply-tester'},
+                                    { label: 'Translator', value: 'htoad-apply-translator'},
+                                    { label: 'Modeler', value: 'htoad-apply-modeler'},
+                                    { label: 'Texture Artist', value: 'htoad-apply-texture-artist'},
+                                    { label: 'Animator', value: 'htoad-apply-animator'},
+                                    { label: 'SFX Artist', value: 'htoad-apply-sfx-artist'},
+                                    { label: 'Builder', value: 'htoad-apply-builder'},
+                                    { label: 'Concept Artist', value: 'htoad-apply-concept-artist'},
+                                    { label: 'Website Coder', value: 'htoad-apply-website-coder'},
+                                    { label: 'Discord Bot Coder', value: 'htoad-apply-discord-bot-coder'}
+                                )
+                        )
+                ],
                 ephemeral: true
             });
         } else {
