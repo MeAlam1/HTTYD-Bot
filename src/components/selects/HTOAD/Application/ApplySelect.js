@@ -1,3 +1,5 @@
+const { ChannelType, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+
 module.exports = {
     customId: 'apply-category',
     run: async (client, interaction) => {
