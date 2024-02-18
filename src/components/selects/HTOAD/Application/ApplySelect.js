@@ -60,58 +60,58 @@ module.exports = {
             components: [row],
         });
     } else if (value === 'htoad-apply-website-coder') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `Website Coder` role.',
             components: [row],
-            ephemeral: true
+
         });
     } else if (value === 'htoad-apply-modeler') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `Modeler` role.',
             components: [row],
-            ephemeral: true
+
         });
     } else if (value === 'htoad-apply-animator') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `Animator` role.',
             components: [row],
-            ephemeral: true
+
         });
     } else if (value === 'htoad-apply-sfx-artist') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `SFX Artist` role.',
             components: [row],
-            ephemeral: true
+
         });
     } else if (value === 'htoad-apply-concept-artist') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `Concept Artist` role.',
             components: [row],
-            ephemeral: true
+
         });
     } else if (value === 'htoad-apply-builder') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `Builder` role.',
             components: [row],
-            ephemeral: true
+
         });
     } else if (value === 'htoad-apply-texture-artist') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `Texture Artist` role.',
             components: [row],
-            ephemeral: true
+
         });
     } else if (value === 'htoad-apply-tester') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `Tester` role.',
             components: [row],
-            ephemeral: true
+
         });
     } else if (value === 'htoad-apply-translator') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `Translator` role.',
             components: [row],
-            ephemeral: true
+
         });
     }
 });
