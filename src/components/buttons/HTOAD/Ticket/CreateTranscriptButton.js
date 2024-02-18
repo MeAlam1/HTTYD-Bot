@@ -19,24 +19,41 @@ module.exports = {
         }   
 
         // How to Own a Dragon
-        const customChannelId = '1197930601836191764'; // Ticket Transcript Channel
+        const TicketChannelId = '1197930601836191764'; // Ticket Transcript Channel
+        const ApplicationChannelId = '1208542656129662986'; // Application Transcript Channel
 
         try {
             const filePath = await createTranscript(interaction.channel);
             const fileAttachment = new AttachmentBuilder(filePath);
             
-            const customChannel = await client.channels.fetch(customChannelId);
+            const TicketChannel = await client.channels.fetch(TicketChannelId);
+            const ApplicationChannel = await client.channels.fetch(ApplicationChannelId);
+            const TicketCategoryId = '1126638959716470886'; // Ticket Transcript Category
+            const ApplicationCategoryId = '1200532880019951726'; // Application Transcript Category
 
-            if (!customChannel) {
+
+            if (!TicketChannel) {
                 await interaction.reply({ content: 'Custom channel not found.', ephemeral: true });
                 return;
             }
 
-            await customChannel.send({ content: `
+            if (interaction.channel.parentId === TicketCategoryId) {
+            
+                await TicketChannel.send({ content: `
 Name: ${interaction.channel.name}
 Date: ${getCurrentDateFormatted()}
 Closed By: ${interaction.user}
             `, files: [fileAttachment] });
+
+            } else if (interaction.channel.parentId === ApplicationCategoryId) {
+            
+                await ApplicationChannel.send({ content: `
+Name: ${interaction.channel.name}
+Date: ${getCurrentDateFormatted()}
+Closed By: ${interaction.user}
+            `, files: [fileAttachment] });
+
+            }
             
             await interaction.reply({ content: 'Transcript created successfully.', ephemeral: true });
 
