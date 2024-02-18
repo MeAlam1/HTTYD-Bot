@@ -55,10 +55,9 @@ module.exports = {
     
 
     if (value === 'htoad-apply-discord-bot-coder') {
-        await interaction.reply({
+        await channel.send({
             content: 'You have selected the `Discord Bot Coder` role.',
             components: [row],
-            ephemeral: true
         });
     } else if (value === 'htoad-apply-website-coder') {
         await interaction.reply({
