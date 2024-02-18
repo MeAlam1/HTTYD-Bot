@@ -45,11 +45,7 @@ Date: ${getCurrentDateFormatted()}
 Closed By: ${interaction.user}
             `, files: [fileAttachment] });
 
-            await TicketChannel.send({ content: 'Transcript created successfully.', ephemeral: true });
-
             await interaction.channel.delete()
-            .then(() => TicketChannel.send({content: `Deleted channel ${interaction.channel.name}`, ephemeral: true}))
-            .catch(console.error)
 
             } else if (interaction.channel.parentId === ApplicationCategoryId) {
             
@@ -59,11 +55,7 @@ Date: ${getCurrentDateFormatted()}
 Closed By: ${interaction.user}
             `, files: [fileAttachment] });
 
-            await ApplicationChannel.send({ content: 'Transcript created successfully.', ephemeral: true });
-
             await interaction.channel.delete()
-            .then(() => ApplicationChannel.send({content: `Deleted channel ${interaction.channel.name}`, ephemeral: true}))
-            .catch(console.error);
             }
 
             fs.unlinkSync(filePath);
