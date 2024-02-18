@@ -14,7 +14,7 @@ const HTOADDiscordBotCoderApplyEmbed = new EmbedBuilder()
         **2.** How old are you?
         **3.** What timezone are you in?
         **4.** Do you have any prior experience with Discord.js V14 or Node.js?
-        **5.** Do you have any prior experience with Coding Discord Bots?
+        **5.** Do you have any prior experience with coding Discord Bots?
         **6.** Do you have any examples of your work?
         **7.** What inspired your application to How to Own a Dragon?
         **8.** Is there any additional information that you wish to share?

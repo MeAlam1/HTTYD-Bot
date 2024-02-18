@@ -13,7 +13,7 @@ const HTOADSFXArtistApplyEmbed = new EmbedBuilder()
         **1.** What should we call you? 
         **2.** How old are you?
         **3.** What timezone are you in?
-        **4.** Do you have any prior experience with Testing?
+        **4.** Do you have any prior experience with creating sound effects?
         **5.** What inspired your application to How to Own a Dragon?
         **6.** Is there any additional information that you wish to share?
     ` }
