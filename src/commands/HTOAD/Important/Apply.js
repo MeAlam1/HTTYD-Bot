@@ -5,6 +5,7 @@ const allowedRoles = [
     '1120030006626750474', // Owner Role
     '1133420066277437490' // Lead Dev Role
 ];
+const HTOADApplyEmbed = require('../../../embed/HTOAD/Application/ApplyEmbed.js');
 
 
 module.exports = {
@@ -25,7 +26,7 @@ module.exports = {
 
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
             await interaction.reply({
-                content: 'You do have permission to use this command.',
+                embeds: [HTOADApplyEmbed],
                 ephemeral: true
             });
         } else {
