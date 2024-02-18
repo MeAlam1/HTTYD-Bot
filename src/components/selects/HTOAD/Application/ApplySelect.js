@@ -1,5 +1,14 @@
 const { ChannelType, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const HTOADTesterApplyEmbedded = require('../../../../embed/HTOAD/Application/TesterApplyEmbed.js');
+const HTOADDiscordBotCoderApplyEmbed = require('../../../../embed/HTOAD/Application/DiscordBotCoderApplyEmbed.js');
+const HTOADWebsiteCoderApplyEmbed = require('../../../../embed/HTOAD/Application/WebsiteCoderApplyEmbed.js');
+const HTOADModelerApplyEmbed = require('../../../../embed/HTOAD/Application/ModelerApplyEmbed.js');
+const HTOADAnimatorApplyEmbed = require('../../../../embed/HTOAD/Application/AnimatorApplyEmbed.js');
+const HTOADSFXArtistApplyEmbed = require('../../../../embed/HTOAD/Application/SFXArtistApplyEmbed.js');
+const HTOADConceptArtistApplyEmbed = require('../../../../embed/HTOAD/Application/ConceptArtistApplyEmbed.js');
+const HTOADBuilderApplyEmbed = require('../../../../embed/HTOAD/Application/BuilderApplyEmbed.js');
+const HTOADTextureArtistApplyEmbed = require('../../../../embed/HTOAD/Application/TextureArtistApplyEmbed.js');
+const HTOADTesterApplyEmbed = require('../../../../embed/HTOAD/Application/TesterApplyEmbed.js');
+const HTOADTranslatorApplyEmbed = require('../../../../embed/HTOAD/Application/TranslatorApplyEmbed.js');
 
 
 module.exports = {
@@ -58,62 +67,53 @@ module.exports = {
 
     if (value === 'htoad-apply-discord-bot-coder') {
         await channel.send({
-            content: 'You have selected the `Discord Bot Coder` role.',
+            embeds: [HTOADDiscordBotCoderApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-website-coder') {
         await channel.send({
-            content: 'You have selected the `Website Coder` role.',
+            embeds: [HTOADWebsiteCoderApplyEmbed],
             components: [row],
-
         });
     } else if (value === 'htoad-apply-modeler') {
         await channel.send({
-            content: 'You have selected the `Modeler` role.',
+            embeds: [HTOADModelerApplyEmbed],
             components: [row],
-
         });
     } else if (value === 'htoad-apply-animator') {
         await channel.send({
-            content: 'You have selected the `Animator` role.',
+            embeds: [HTOADAnimatorApplyEmbed],
             components: [row],
-
         });
     } else if (value === 'htoad-apply-sfx-artist') {
         await channel.send({
-            content: 'You have selected the `SFX Artist` role.',
+            embeds: [HTOADSFXArtistApplyEmbed],
             components: [row],
-
         });
     } else if (value === 'htoad-apply-concept-artist') {
         await channel.send({
-            content: 'You have selected the `Concept Artist` role.',
+            embeds: [HTOADConceptArtistApplyEmbed],
             components: [row],
-
         });
     } else if (value === 'htoad-apply-builder') {
         await channel.send({
-            content: 'You have selected the `Builder` role.',
+            embeds: [HTOADBuilderApplyEmbed],
             components: [row],
-
         });
     } else if (value === 'htoad-apply-texture-artist') {
         await channel.send({
-            content: 'You have selected the `Texture Artist` role.',
+            embeds: [HTOADTextureArtistApplyEmbed],
             components: [row],
-
         });
     } else if (value === 'htoad-apply-tester') {
         await channel.send({
-            embeds: [HTOADTesterApplyEmbedded],
+            embeds: [HTOADTesterApplyEmbed],
             components: [row],
-
         });
     } else if (value === 'htoad-apply-translator') {
         await channel.send({
-            content: 'You have selected the `Translator` role.',
+            embeds: [HTOADTranslatorApplyEmbed],
             components: [row],
-
         });
     }
 });
