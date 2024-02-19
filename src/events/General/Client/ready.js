@@ -1,5 +1,5 @@
-const { log } = require("../../functions");
-const ExtendedClient = require('../../class/ExtendedClient');
+const { log } = require("../../../functions");
+const ExtendedClient = require('../../../class/ExtendedClient');
 
 module.exports = {
     event: 'ready',
