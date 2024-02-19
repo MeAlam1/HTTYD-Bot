@@ -1,6 +1,6 @@
-const config = require('../../config');
-const { log } = require('../../functions');
-const ExtendedClient = require('../../class/ExtendedClient');
+const config = require('../../../config');
+const { log } = require('../../../functions');
+const ExtendedClient = require('../../../class/ExtendedClient');
 
 module.exports = {
     event: 'interactionCreate',

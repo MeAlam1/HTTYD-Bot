@@ -1,5 +1,5 @@
-const ExtendedClient = require('../../class/ExtendedClient');
-const RunicETAEmbed = require('../../../embed/Runic/Information/ETAEmbed');
+const ExtendedClient = require('../../../class/ExtendedClient');
+const RunicETAEmbed = require('../../../embed/Runic/Information/ETAEmbed.js');
 
 module.exports = {
     event: 'messageCreate',
