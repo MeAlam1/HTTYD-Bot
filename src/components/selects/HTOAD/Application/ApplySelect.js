@@ -15,34 +15,74 @@ module.exports = {
     customId: 'apply-category',
     run: async (client, interaction) => {
         
-    const value = interaction.values[0];
+        const value = interaction.values[0];
 
-    // How to Own a Dragon
-    const categoryId = '1200532880019951726'; // Ticket Category
-    const channelName = `Application-${interaction.user.username.replace(/\s+/g, '-').toLowerCase()}`;
+        // Base channel name
+        let channelName = `${interaction.user.username.replace(/\s+/g, '-').toLowerCase()}`;
 
-    interaction.guild.channels.create({
-        name: channelName,
-        type: ChannelType.GuildText,
-        parent: categoryId, 
-        permissionOverwrites: [
-            {
-                id: interaction.user.id, // User that Creates the Ticket
-                allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages], 
-            },
-            {
-                id: interaction.guild.roles.everyone, // Everyone
-                deny: [PermissionFlagsBits.ViewChannel],
-            },
-            {
-                id: '1133420066277437490', // Lead Dev
-                allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
-            }, 
-            {
-                id: '1161418815440166943', // Moderator
-                allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
-            },
-        ],
+        // Adjust channelName based on the value
+        switch (value) {
+            case 'htoad-apply-discord-bot-coder':
+                channelName += '-discord-bot-coder';
+                break;
+            case 'htoad-apply-website-coder':
+                channelName += '-website-coder';
+                break;
+            case 'htoad-apply-modeler':
+                channelName += '-modeler';
+                break;
+            case 'htoad-apply-animator':
+                channelName += '-animator';
+                break;
+            case 'htoad-apply-sfx-artist':
+                channelName += '-sfx-artist';
+                break;
+            case 'htoad-apply-concept-artist':
+                channelName += '-concept-artist';
+                break;
+            case 'htoad-apply-builder':
+                channelName += '-builder';
+                break;
+            case 'htoad-apply-texture-artist':
+                channelName += '-texture-artist';
+                break;
+            case 'htoad-apply-tester':
+                channelName += '-tester';
+                break;
+            case 'htoad-apply-translator':
+                channelName += '-translator';
+                break;
+            // You can add more cases as needed
+            default:
+                // Keep the base channelName if no match is found
+                break;
+        }
+
+        // How to Own a Dragon
+        const categoryId = '1200532880019951726'; // Applications Category
+
+        interaction.guild.channels.create({
+            name: channelName,
+            type: ChannelType.GuildText,
+            parent: categoryId, 
+            permissionOverwrites: [
+                {
+                    id: interaction.user.id, // User that Creates the Ticket
+                    allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages], 
+                },
+                {
+                    id: interaction.guild.roles.everyone, // Everyone
+                    deny: [PermissionFlagsBits.ViewChannel],
+                },
+                {
+                    id: '1133420066277437490', // Lead Dev
+                    allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
+                }, 
+                {
+                    id: '1161418815440166943', // Moderator
+                    allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages],
+                },
+            ],
     }).then(async channel => {
         interaction.reply({
             content: `Your Application has been created! <#${channel.id}>`,
