@@ -1,4 +1,3 @@
-const ExtendedClient = require('../../../class/ExtendedClient');
 const RunicETAEmbed = require('../../../embed/Runic/Information/ETAEmbed.js');
 
 module.exports = {
@@ -13,7 +12,7 @@ module.exports = {
             return pattern.test(content);
         }
 
-        const Runic = '1151497491288690688';
+        const Runic = '1151497491288690688'; // Runic Isles Public Server
 
         if (message.guild && message.guild.id === Runic && isETAMessage(message.content)) {
             await message.reply({ embeds: [RunicETAEmbed] });
