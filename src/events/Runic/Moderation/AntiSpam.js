@@ -11,12 +11,15 @@ module.exports = {
         }
 
         const allowedRoles = [
-            '1120030006626750474', // Owner
-            '1133420066277437490', // Lead Devs
-            '1120033014416670895'  // Bots
+            '1151500042843201576', // Owner
+            '1189510610556301332', // Management
+            '1203303940364439573', // Moderator
+            '1202369001779499129', // Team Leader
+            '1151500178331807896', // Mod developer
+            '1160982940549918850'  // Trial developer
         ];
 
-        const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
+        const HTOAD = '1151497491288690688'; // Runic Public server
 
         if (message.guild && message.guild.id === HTOAD && isSpam(message.content)) {
             const hasAllowedRole = message.member.roles.cache.some(role => allowedRoles.includes(role.id));
@@ -25,7 +28,7 @@ module.exports = {
                 try {
                     await message.delete();
 
-                    const logChannelId = '1131214666757058654'; // HTOAD automod channel ID
+                    const logChannelId = '1151645114146488390'; // Runic Public log channel
                     const logChannel = await client.channels.fetch(logChannelId);
 
                     await logChannel.send({ content: `${message.author.tag} has been timed out for using @ everyone or @ here inappropriately.` });
