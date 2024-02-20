@@ -7,25 +7,26 @@ module.exports = {
 
         function isSpam(content) {
             const pattern = ['@everyone', '@here'];
-            
-            return pattern.some(spamWord => content.toLowerCase().includes(spamWord.toLowerCase()));
+            return pattern.some(spamWord => content.includes(spamWord));
         }
 
         const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
 
         if (message.guild && message.guild.id === HTOAD && isSpam(message.content)) {
             try {
-                
                 await message.delete();
 
-                const timeoutDuration = 7 * 24 * 60 * 60 * 1000;
+                const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 days
                 await message.member.timeout(timeoutDuration, 'Sending spam messages');
 
-                const LogChannel = '1131214666757058654'; // HTOAD automod channel
+                const logChannelId = '1131214666757058654'; // HTOAD automod channel ID
+                const logChannel = await client.channels.fetch(logChannelId);
 
-                await LogChannel.send({ content: `Test`});
+                if (logChannel && logChannel.isText()) {
+                    await logChannel.send({ content: `${message.author.tag} has been timed out for using @everyone or @here inappropriately.` });
+                }
             } catch (error) {
-                console.error('Error trying to delete a spam message: ', error);
+                console.error('Error trying to delete a spam message or timeout the user: ', error);
             }
         }
     }
