@@ -10,7 +10,7 @@ module.exports = {
             return pattern.some(spamWord => content.includes(spamWord));
         }
 
-        const allowedRoles = ['1120030006626750474', '1133420066277437490'];
+        const allowedRoles = ['1120030006626750474', '1133420066277437490', '1120033014416670895'];
 
         const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
 
@@ -24,7 +24,7 @@ module.exports = {
                     const logChannelId = '1131214666757058654'; // HTOAD automod channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
 
-                    await logChannel.send({ content: `${message.author.tag} has been timed out for using @everyone or @here inappropriately.` });
+                    await logChannel.send({ content: `${message.author.tag} has been timed out for using @ everyone or @ here inappropriately.` });
 
                     const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 days
                     await message.member.timeout(timeoutDuration, 'Using @  everyone or @ here inappropriately.');
