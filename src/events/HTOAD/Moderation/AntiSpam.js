@@ -15,8 +15,15 @@ module.exports = {
 
         if (message.guild && message.guild.id === HTOAD && isSpam(message.content)) {
             try {
+                
+                const timeoutDuration = 7 * 24 * 60 * 60 * 1000;
+                await message.member.timeout(timeoutDuration, 'Sending spam messages');
+
                 await message.delete();
-                await message.send('Your message was detected as spam and was removed.');
+
+                const LogChannel = '1131214666757058654'; // HTOAD automod channel
+
+                await LogChannel.send({ content: `Test`});
             } catch (error) {
                 console.error('Error trying to delete a spam message: ', error);
             }
