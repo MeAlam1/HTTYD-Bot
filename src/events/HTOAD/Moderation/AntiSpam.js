@@ -16,6 +16,8 @@ module.exports = {
             try {
                 await message.delete();
 
+                message.author.timeout({ reason: 'Using @ everyone or @ here inappropriately.', duration: 600000 });
+
                 const logChannelId = '1131214666757058654'; // HTOAD automod channel ID
                 const logChannel = await client.channels.fetch(logChannelId);
 
