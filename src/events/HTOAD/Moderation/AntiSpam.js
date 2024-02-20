@@ -27,7 +27,7 @@ module.exports = {
                     await logChannel.send({ content: `${message.author.tag} has been timed out for using @everyone or @here inappropriately.` });
 
                     const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 days
-                    await message.member.timeout(timeoutDuration, 'Using @ everyone or @ here inappropriately.');
+                    await message.member.timeout(timeoutDuration, 'Using @  everyone or @ here inappropriately.');
                 } catch (error) {
                     console.error('Error trying to delete a spam message or timeout the user: ', error);
                 }
