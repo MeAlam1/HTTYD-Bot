@@ -19,7 +19,7 @@ module.exports = {
                 const logChannelId = '1131214666757058654'; // HTOAD automod channel ID
                 const logChannel = await client.channels.fetch(logChannelId);
 
-                await logChannel.send({ content: `${message.author.tag} has been timed out for using @everyone or @here inappropriately.` });
+                //await logChannel.send({ content: `${message.author.tag} has been timed out for using @everyone or @here inappropriately.` });
             } catch (error) {
                 console.error('Error trying to delete a spam message or timeout the user: ', error);
             }
