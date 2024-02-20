@@ -19,9 +19,9 @@ module.exports = {
             '1160982940549918850'  // Trial developer
         ];
 
-        const HTOAD = '1151497491288690688'; // Runic Public server
+        const Runic = '1151497491288690688'; // Runic Public server
 
-        if (message.guild && message.guild.id === HTOAD && isSpam(message.content)) {
+        if (message.guild && message.guild.id === Runic && isSpam(message.content)) {
             const hasAllowedRole = message.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
             if (!hasAllowedRole) {
