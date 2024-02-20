@@ -16,9 +16,6 @@ module.exports = {
             try {
                 await message.delete();
 
-                const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 days
-                await message.member.timeout(timeoutDuration, 'Sending spam messages');
-
                 const logChannelId = '1131214666757058654'; // HTOAD automod channel ID
                 const logChannel = await client.channels.fetch(logChannelId);
 
