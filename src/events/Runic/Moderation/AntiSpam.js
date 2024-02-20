@@ -16,6 +16,7 @@ module.exports = {
             '1203303940364439573', // Moderator
             '1202369001779499129', // Team Leader
             '1151500178331807896', // Mod developer
+            '1151571613440020631'  // Bots
         ];
 
         const Runic = '1151497491288690688'; // Runic Public server
