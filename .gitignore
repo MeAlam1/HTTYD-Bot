@@ -1,4 +1,4 @@
-# Security related files
+# Security related files that the github ignore's while syncing
 src/config.js
 .env
 ID.md

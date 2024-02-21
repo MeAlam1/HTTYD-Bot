@@ -1,12 +1,11 @@
+// DO NOT TOUCH THIS FILE!
+
+// Description: Deploying application commands to Discord API, so that they are available to use in the servers.
+
 const { REST, Routes } = require("discord.js");
 const { log } = require("../functions");
 const config = require("../config");
-const ExtendedClient = require('../class/ExtendedClient');
 
-/**
- * 
- * @param {ExtendedClient} client 
- */
 module.exports = async (client) => {
     const rest = new REST({ version: '10' }).setToken(process.env.CLIENT_TOKEN || config.client.token);
 

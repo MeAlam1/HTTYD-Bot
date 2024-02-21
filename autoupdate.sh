@@ -1,7 +1,11 @@
+# DO NOT TOUCH THIS FILE!
+
+# Description: This script is used to automatically update the bot for the host.
+
 #!/bin/bash
 
 while true; do
-  # Fetch latest changes from GitHub
+  # Check if the Github has been updated
   git fetch origin
 
   # Check if there are any new changes
@@ -12,7 +16,6 @@ while true; do
 
     echo "Restarting the bot..."
     # Restart the bot
-    # Use the appropriate command to stop your bot here if needed
     pkill node
     npm run dev &
     echo "Bot restarted."

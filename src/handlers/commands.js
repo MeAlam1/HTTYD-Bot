@@ -1,11 +1,10 @@
+// DO NOT TOUCH THIS FILE!
+
+// Description: Loads all the commands from the commands directory.
+
 const { readdirSync } = require('fs');
 const { log } = require('../functions');
-const ExtendedClient = require('../class/ExtendedClient');
 
-/**
- * 
- * @param {ExtendedClient} client 
- */
 module.exports = (client) => {
     for (const type of readdirSync('./src/commands/')) {
         for (const dir of readdirSync('./src/commands/' + type)) {

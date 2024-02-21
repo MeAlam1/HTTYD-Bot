@@ -1,11 +1,10 @@
+// DO NOT TOUCH THIS FILE!
+
+// Description: Load all components from the components folder.
+
 const { readdirSync } = require('fs');
 const { log } = require('../functions');
-const ExtendedClient = require('../class/ExtendedClient');
 
-/**
- * 
- * @param {ExtendedClient} client 
- */
 module.exports = (client) => {
     for (const type of readdirSync('./src/components/')) {
         for (const subType of readdirSync(`./src/components/${type}`)) {

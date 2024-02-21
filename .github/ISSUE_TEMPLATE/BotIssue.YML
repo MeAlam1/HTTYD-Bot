@@ -1,0 +1,23 @@
+name: Bot Issue
+description: File a issue with the Discord Bot
+title: "[Bot Issue]: "
+labels: ["Bot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for making an issue!
+  - type: textarea
+    id: what-is-wrong
+    attributes:
+      label: What is wrong?
+      description: |
+        Please tell us about the issue as detailed as possible.
+        Feel free to also add Media!
+    validations:
+      required: true
+  - type: textarea
+    id: more-information
+    attributes:
+      label: More information
+      description: Is there anything else relevant that you want/need to share.

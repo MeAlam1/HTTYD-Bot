@@ -1,7 +1,7 @@
 {
   "name": "httyd",
   "version": "0.0.1",
-  "description": "This is a Multi-Server bot with Server Specific Actions!",
+  "description": "This is a Multi-Server bot with a lot of actions!",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Test?\" && exit 1",

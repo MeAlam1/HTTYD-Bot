@@ -1,3 +1,7 @@
+// DO NOT TOUCH THIS FILE!
+
+// For now useless since we don't have a database yet, but it's here for future use.
+
 const { connect } = require("mongoose");
 const config = require("../config");
 const { log } = require("../functions");

@@ -1,10 +1,9 @@
+// DO NOT TOUCH THIS FILE!
+
+// Description: Makes sure that the Console Prints the Logs in a nice way.
+
 const chalk = require('chalk');
 
-/**
- * 
- * @param {string} string 
- * @param {'info' | 'err' | 'warn' | 'done' | undefined} style 
- */
 const log = (string, style) => {
     switch (style) {
         case 'info': {
@@ -39,12 +38,6 @@ const log = (string, style) => {
     };
 };
 
-/**
- * 
- * @param {number} time 
- * @param {import('discord.js').TimestampStylesString} style
- * @returns {`<t:${string}>`}
- */
 const time = (time, style) => {
     return `<t:${Math.floor(time / 1000)}${style ? `:${style}` : ''}>`;
 };

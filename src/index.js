@@ -1,3 +1,7 @@
+// DO NOT TOUCH THIS FILE!
+
+// Description: Main file for the bot, loads the client and the classes.
+
 require('dotenv').config();
 const ExtendedClient = require('./class/ExtendedClient');
 
