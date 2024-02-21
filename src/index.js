@@ -1,7 +1,7 @@
 require('dotenv').config();
 const ExtendedClient = require('./class/ExtendedClient');
 
-//Load HTOAD Class Files
+//Load How to Own a Dragon Class Files
 const HTOADwelcome = require('./class/HTOAD/welcome.js');
 const HTOADleave = require('./class/HTOAD/leave.js');
 
@@ -17,7 +17,7 @@ const client = new ExtendedClient();
 
 client.start();
 
-//HTOAD
+// How to Own a Dragon
 HTOADwelcome(client);
 HTOADleave(client);
 
