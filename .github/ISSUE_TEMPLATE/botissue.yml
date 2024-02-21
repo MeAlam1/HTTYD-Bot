@@ -18,7 +18,7 @@ body:
       description: |
         Please describe the issue with the Discord Bot in detail. Include any error messages, unexpected behavior, or functionality that is not working as intended. If possible, attach screenshots, logs, or any other media that could help illustrate the problem.
         
-        **Example:** "The bot fails to respond to the `!help` command in the server, displaying an error message `Error 404: Command not found.`"
+        **Example:** "The bot fails to respond to the `/help` command in the server, displaying an error message `Error 404: Command not found.`"
         
       placeholder: "Describe the issue or bug you're experiencing..."
     validations:
@@ -31,7 +31,7 @@ body:
         If applicable, please provide a step-by-step guide on how to reproduce the issue. This information is crucial for diagnosing the problem and finding a solution.
         
         **Example:** 
-        1. Type `!help` in any channel where the bot is active.
+        1. Type `/help` in any channel where the bot is active.
         2. Notice the bot does not respond and eventually posts an error message.
       placeholder: "1. \n2. \n3. "
     validations:
