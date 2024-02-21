@@ -1,23 +1,56 @@
 name: Bot Issue
-description: File a issue with the Discord Bot
-title: "[Bot Issue]: "
-labels: ["Bot"]
+description: Use this template to report issues with the Discord Bot.
+title: "[Bot Issue]: " # Please add a brief title after the colon to summarize the issue.
+labels: ["bot"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for making an issue!
+        ## 🤖 Discord Bot Issue Report 🤖
+        
+        Thank you for taking the time to report an issue with our Discord Bot. Your feedback is invaluable in helping us improve the bot's performance and functionality. Please fill out the following sections with as much detail as possible to help us understand and resolve the issue efficiently.
+        
+        ---
   - type: textarea
     id: what-is-wrong
     attributes:
       label: What is wrong?
       description: |
-        Please tell us about the issue as detailed as possible.
-        Feel free to also add Media!
+        Please describe the issue with the Discord Bot in detail. Include any error messages, unexpected behavior, or functionality that is not working as intended. If possible, attach screenshots, logs, or any other media that could help illustrate the problem.
+        
+        **Example:** "The bot fails to respond to the `!help` command in the server, displaying an error message `Error 404: Command not found.`"
+        
+      placeholder: "Describe the issue or bug you're experiencing..."
     validations:
       required: true
   - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        If applicable, please provide a step-by-step guide on how to reproduce the issue. This information is crucial for diagnosing the problem and finding a solution.
+        
+        **Example:** 
+        1. Type `!help` in any channel where the bot is active.
+        2. Notice the bot does not respond and eventually posts an error message.
+      placeholder: "1. \n2. \n3. "
+    validations:
+      required: false
+  - type: textarea
     id: more-information
     attributes:
-      label: More information
-      description: Is there anything else relevant that you want/need to share.
+      label: More Information
+      description: |
+        Is there anything else relevant that you want or need to share? This can include observations, your Discord server settings, bot version, or any workarounds you've tried. Anything that you think might help us understand the context and the issue better.
+        
+        **Example:** "The issue started after the last bot update on (date). Other commands work fine except for the `!help` command."
+      placeholder: "Additional details..."
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        ## 📎 Attachments
+        Please attach any relevant files or screenshots that could help in diagnosing the issue.
+        
+        Thank you again for your help in improving our Discord Bot. We'll review the submitted issue and get back to you as soon as possible with updates.
