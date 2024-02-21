@@ -1,17 +1,14 @@
+// DO NOT TOUCH THIS FILE!
+
+// Description: This file will handle all the messages sent in the server.
+
 const { ChannelType, Message } = require('discord.js');
 const config = require('../../../config');
 const { log } = require('../../../functions');
 const GuildSchema = require('../../../schemas/GuildSchema');
-const ExtendedClient = require('../../../class/ExtendedClient');
 
 module.exports = {
     event: 'messageCreate',
-    /**
-     * 
-     * @param {ExtendedClient} client 
-     * @param {Message} message 
-     * @returns 
-     */
     run: async (client, message) => {
         if (message.author.bot || message.channel.type === ChannelType.DM) return;
 

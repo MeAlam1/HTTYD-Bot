@@ -1,3 +1,12 @@
+/** Description:
+ * This event will filter all messages sent in How to Own a Dragon.
+ * It Checks them for Spam. [@everyone or @here ]
+ * If @everyone or @here are found it will delete the message.
+ * Send a Message in the Automod Channel.
+ * Timeout the User for 7 days.
+ * The Owner, Lead Dev and Bot roles are allowed to use @everyone or @here in the server.
+ */
+
 module.exports = {
     event: 'messageCreate',
     once: false,
@@ -11,9 +20,9 @@ module.exports = {
         }
 
         const allowedRoles = [
-            '1120030006626750474', // Owner
-            '1133420066277437490', // Lead Devs
-            '1120033014416670895'  // Bots
+            '1120030006626750474', // Owner Role
+            '1133420066277437490', // Lead Devs Role
+            '1120033014416670895'  // Bots Role
         ];
 
         const HTOAD = '1120022058601029652'; // How to Own a Dragon Server

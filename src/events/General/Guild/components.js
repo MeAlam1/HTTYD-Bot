@@ -1,15 +1,11 @@
-const config = require('../../../config');
+// DO NOT TOUCH THIS FILE!
+
+// Description: This file will handle all the interactions with the components.
+
 const { log } = require('../../../functions');
-const ExtendedClient = require('../../../class/ExtendedClient');
 
 module.exports = {
     event: 'interactionCreate',
-    /**
-     * 
-     * @param {ExtendedClient} client 
-     * @param {import('discord.js').Interaction} interaction 
-     * @returns 
-     */
     run: (client, interaction) => {
         if (interaction.isButton()) {
             const component = client.collection.components.buttons.get(interaction.customId);
