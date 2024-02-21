@@ -1,7 +1,7 @@
 name: "Bot Issue"
 description: "Use this template to report issues with the Discord Bot."
 title: "[Bot Issue]: " 
-labels: ["bot"]
+labels: ["Bot"]
 body:
   - type: markdown
     attributes:
