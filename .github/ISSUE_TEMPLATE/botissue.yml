@@ -53,7 +53,7 @@ body:
       description: |
         Is there anything else relevant that you want or need to share? This can include observations, your Discord server settings, bot version, or any workarounds you've tried. Anything that you think might help us understand the context and the issue better.
         
-        **Example:** "The issue started after the last bot update on (date). Other commands work fine except for the `!help` command."
+        **Example:** "The issue started after the last bot update on (date). Other commands work fine except for the `/help` command."
       placeholder: "Additional details..."
     validations:
       required: false
