@@ -23,6 +23,16 @@ body:
       placeholder: "Describe the issue or bug you're experiencing..."
     validations:
       required: true
+  - type: dropdown
+    id: server
+    attributes:
+      label: Discord Server
+      description: |
+        In which server did you encounter this issue?
+      options:
+        - "How to Own a Dragon"
+        - "Runic Isles"
+        - "Ravenstone Peak"
   - type: textarea
     id: steps-to-reproduce
     attributes:
