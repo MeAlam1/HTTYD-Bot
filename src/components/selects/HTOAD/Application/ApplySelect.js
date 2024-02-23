@@ -1,3 +1,8 @@
+/**Description:
+ * This is a Select Menu for the HTOAD Application.
+ * src\commands\Public\Important\Apply.js
+ */
+
 const { ChannelType, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const HTOADDiscordBotCoderApplyEmbed = require('../../../../embed/HTOAD/Application/DiscordBotCoderApplyEmbed.js');
 const HTOADWebsiteCoderApplyEmbed = require('../../../../embed/HTOAD/Application/WebsiteCoderApplyEmbed.js');
@@ -15,12 +20,13 @@ module.exports = {
     customId: 'apply-category',
     run: async (client, interaction) => {
         
+        // The selected category.
         const value = interaction.values[0];
 
         // Base channel name
         let channelName = `${interaction.user.username.replace(/\s+/g, '-').toLowerCase()}`;
 
-        // Adjust channelName based on the value
+        // To change the channel name based on the selected category.
         switch (value) {
             case 'htoad-apply-discord-bot-coder':
                 channelName += '-discord-bot-coder';
@@ -83,16 +89,20 @@ module.exports = {
             ],
     }).then(async channel => {
         interaction.reply({
+
+            // The message that will be sent to the user.(only visible to the user that created the ticket.)
             content: `Your Application has been created! <#${channel.id}>`,
             ephemeral: true
         });
 
 
+        // The Close Application Button
         const CloseApplicationButton = new ButtonBuilder()
          .setCustomId('close-ticket-button')
          .setLabel('Close Application')
          .setStyle(ButtonStyle.Danger);
 
+         // The Rename Application Button
          const RenameApplicationButton = new ButtonBuilder()
          .setCustomId('htoad-rename-channel-button')
          .setLabel('Rename Channel')
@@ -103,6 +113,7 @@ module.exports = {
           
     
 
+    // To send the Application Embed based on the selected category.
     if (value === 'htoad-apply-discord-bot-coder') {
         await channel.send({
             embeds: [HTOADDiscordBotCoderApplyEmbed],

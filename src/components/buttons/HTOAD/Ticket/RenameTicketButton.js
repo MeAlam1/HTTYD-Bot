@@ -1,3 +1,8 @@
+/**Description:
+ * This button is used to rename the channel.
+ * src\components\buttons\HTOAD\Ticket\CreateTicketButton.js
+ */
+
 const { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 const allowedRoles = [
     //How to Own a Dragon
@@ -12,6 +17,7 @@ module.exports = {
     customId: 'htoad-rename-channel-button',
     run: async (client, interaction) => {
 
+        // The Modal to Rename the Channel
         const modal = new ModalBuilder()
         .setTitle('Channel Name')
         .setCustomId('channel-name-modal')
@@ -28,10 +34,13 @@ module.exports = {
         );
 
         if (!interaction.member.roles.cache.some(role => allowedRoles.includes(role.id))) {
+
+            // If the user does not have the necessary permissions to change the channel name.
             await interaction.reply({ content: 'You do not have the necessary permissions to change the channel name.', ephemeral: true });
             return;
         }
 
+        // To send the Modal to Rename the Channel.
         await interaction.showModal(modal);
 
     }

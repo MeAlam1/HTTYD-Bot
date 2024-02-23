@@ -1,6 +1,8 @@
-const { StringSelectMenuInteraction } = require('discord.js');
-const ExtendedClient = require('../../../../class/ExtendedClient');
+// DO NOT MODIFY THIS FILE! (Copy is allowed)
 
+/**Description:
+ * This is an example of a Select to Copy Paste.
+ */
 module.exports = {
     customId: 'example-select',
     run: async (client, interaction) => {
