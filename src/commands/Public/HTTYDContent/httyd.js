@@ -1,3 +1,7 @@
+/**Description:
+ * This command will send the Google Drive link/Embed.
+ */
+
 const { SlashCommandBuilder } = require('discord.js');
 const GoogleDriveEmbed = require('../../../embed/General/GoogleDriveEmbed.js');
 

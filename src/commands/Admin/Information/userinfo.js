@@ -1,3 +1,14 @@
+/**Servers:
+ * How to Own a Dragon
+ * Runic Isles Public Server
+ * Ravenstone Peak
+ */
+
+/**Description:
+ * This command is used to get a user's information.
+ * ADMIN ONLY COMMAND
+ */
+
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { time } = require('../../../functions');
 const allowedRoles = [
@@ -9,10 +20,6 @@ const allowedRoles = [
     '1151500042843201576', // Server Owner Role
     '1189510610556301332', // Server Management Role
     '1203303940364439573', // Server Moderator Role
-    // Runic Isles Dev Server
-    '1151758461412057098', // Founders Role 
-    '1153054168127381544', // Mangement Role
-    '1203312420987211776', // Moderator Role
     // Ravenstone Peak
     '1204164498848743495', // Bot Creater
     '1157855652723560519', // Jr. Administrator
@@ -36,33 +43,39 @@ module.exports = {
         ),
     run: async (client, interaction) => {
 
+        // To check if the user has the necessary permissions to use this command.
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!hasRole) {
             await interaction.reply({
+                // Reply if the user does not have the necessary permissions to use this command.
                 content: 'You do not have permission to use this command.',
                 ephemeral: true
             });
             return;
         }
 
+        // The user to get the information for.
         const user = interaction.options.getUser('user') || interaction.user;
         const member = interaction.guild.members.cache.get(user.id);
 
         if (!member) {
             await interaction.reply({
-                content: 'That user is not on the guild.'
+                // Reply if the user is not on the Server.
+                content: 'That user is not on the Server.'
             });
 
             return;
         };
 
+        // The roles of the user.
         const roles = member.roles.cache
             .sort((a, b) => b.position - a.position)
             .filter(role => role.id !== member.guild.roles.everyone.id)
             .map(role => role.toString());
 
 
+        // The information to be displayed.
         const arr = [
             `**Username**: ${user.username}`,
             `**Display name**: ${member.nickname || user.displayName}`,
@@ -76,6 +89,7 @@ module.exports = {
         ];
 
         await interaction.reply({
+            // To send the User Information Embed.
             embeds: [
                 new EmbedBuilder()
                     .setTitle('User info - ' + user.username)
