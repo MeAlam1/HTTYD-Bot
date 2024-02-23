@@ -10,7 +10,6 @@ const allowedRoles = [
     '1133420066277437490', //Lead Dev Role
     '1161418815440166943', //Moderator Role
 ];
-const HTOADCloseTicketEmbed = require('../../../../embed/HTOAD/Ticket/CloseTicketEmbed.js');
 
 module.exports = {
     customId: 'close-ticket-button',
@@ -21,6 +20,15 @@ module.exports = {
             .setCustomId('htoad-create-transcript-button')
             .setLabel('Create Transcript')
             .setStyle(ButtonStyle.Success);
+
+        // The Embed to Close the Ticket
+        const HTOADCloseTicketEmbed = new EmbedBuilder()
+            .setColor(0x0099FF)
+            .setTitle(`**${interaction.channel.name}**`)
+            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
+            .setDescription(`The title of this Embed will be the name of the Transcript!`)
+            .setTimestamp()
+            .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
         const row = new ActionRowBuilder().addComponents(CreateTranscriptButton);
 
