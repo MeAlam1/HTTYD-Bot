@@ -1,3 +1,8 @@
+/**Description:
+ * This embed used in the command: /support
+ * src\commands\Public\MinecraftMod\support.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADSupportEmbed = new EmbedBuilder()

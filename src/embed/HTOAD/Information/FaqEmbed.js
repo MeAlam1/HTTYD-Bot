@@ -1,3 +1,8 @@
+/**Description:
+ * This embed used in the command: /faq
+ * src\commands\Public\MinecraftMod\faq.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADFAQEmbed = new EmbedBuilder()

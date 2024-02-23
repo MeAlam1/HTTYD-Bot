@@ -1,3 +1,9 @@
+/**Description:
+ * This embed used in the command: /info
+ * src\commands\Admin\Information\Information.js
+ * ADMIN ONLY Command
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADInformationEmbed = new EmbedBuilder()

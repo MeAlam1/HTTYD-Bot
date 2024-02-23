@@ -1,3 +1,8 @@
+/**Description:
+ * This embed used in the command /apply after selecting the Discord Bot Coder.
+ * src\components\selects\HTOAD\Application\ApplySelect.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADDiscordBotCoderApplyEmbed = new EmbedBuilder()

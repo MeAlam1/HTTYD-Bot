@@ -1,3 +1,9 @@
+/**Description:
+ * This embed used in the command: /ticket
+ * src\commands\Admin\Ticket\CreateTicket.js
+ * ADMIN ONLY Command
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADCreateTicketEmbed = new EmbedBuilder()

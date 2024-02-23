@@ -1,3 +1,8 @@
+/**Description:
+ * This embed is Send when someone uses the word "ETA" in the Runic Isles Public Server.
+ * src\events\Runic\ETA\ETA.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const RunicETAEmbed = new EmbedBuilder()

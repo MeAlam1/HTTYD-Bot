@@ -52,9 +52,7 @@ module.exports = {
             case 'htoad-apply-translator':
                 channelName += '-translator';
                 break;
-            // You can add more cases as needed
             default:
-                // Keep the base channelName if no match is found
                 break;
         }
 

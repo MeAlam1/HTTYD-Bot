@@ -1,3 +1,8 @@
+/**Description:
+ * This embed used after you create a ticket.
+ * src\components\buttons\HTOAD\Ticket\CreateTicketButton.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADFirstMessageTicketEmbed = new EmbedBuilder()

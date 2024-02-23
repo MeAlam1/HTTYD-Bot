@@ -1,3 +1,8 @@
+/**Description:
+ * This embed used in the command /apply after selecting the SFX Artist.
+ * src\components\selects\HTOAD\Application\ApplySelect.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADSFXArtistApplyEmbed = new EmbedBuilder()

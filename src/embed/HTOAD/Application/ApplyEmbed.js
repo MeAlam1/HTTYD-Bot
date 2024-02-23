@@ -1,3 +1,8 @@
+/**Description:
+ * This embed is used in the command: /apply
+ * src\commands\Public\Important\Apply.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADApplyEmbed = new EmbedBuilder()

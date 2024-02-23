@@ -1,3 +1,10 @@
+/**Description:  
+ * This Embed used in the commands: /google-drive and /httyd
+ * src\commands\Public\HTTYDContent\googleDrive.js
+ * src\commands\Public\HTTYDContent\httyd.js
+ */
+
+
 const { EmbedBuilder } = require('discord.js');
 
 const GoogleDriveEmbed = new EmbedBuilder()

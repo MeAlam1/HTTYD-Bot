@@ -1,3 +1,8 @@
+/**Description:
+ * This embed used in the command: /help
+ * src\commands\Public\Help\help.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const RunicHelpCategoryEmbed = new EmbedBuilder()

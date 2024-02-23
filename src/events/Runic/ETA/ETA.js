@@ -30,6 +30,6 @@ module.exports = {
             
             // Send an embed in the channel.
             await message.reply({ embeds: [RunicETAEmbed] });
-        }
+        } 
     }
 };

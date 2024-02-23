@@ -1,3 +1,8 @@
+/**Description:
+ * This embed used in the command /apply after selecting the Texture Artist.
+ * src\components\selects\HTOAD\Application\ApplySelect.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADTextureArtistApplyEmbed = new EmbedBuilder()

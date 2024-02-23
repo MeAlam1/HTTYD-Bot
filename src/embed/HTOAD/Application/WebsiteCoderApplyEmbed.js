@@ -1,3 +1,8 @@
+/**Description:
+ * This embed used in the command /apply after selecting the Website Coder.
+ * src\components\selects\HTOAD\Application\ApplySelect.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADTesterApplyEmbed = new EmbedBuilder()

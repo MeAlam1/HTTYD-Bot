@@ -1,3 +1,8 @@
+/**Description:
+ * This embed used in the command: /eta
+ * src\commands\Public\MinecraftMod\eta.js
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 const HTOADETAEmbed = new EmbedBuilder()
