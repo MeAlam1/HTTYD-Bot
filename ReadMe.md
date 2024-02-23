@@ -1,6 +1,7 @@
 # HTTYD Bot
 
 ## In the Bot at the Moment
+
 * Multi Server Compatibility
 * Welcome Message
 * Leave Message
@@ -16,6 +17,7 @@
 * Transcripts
 
 # Planned
+
 * Complete Logging system
 * All Moderation Commands
 * Interface VC
