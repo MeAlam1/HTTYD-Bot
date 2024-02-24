@@ -14,11 +14,11 @@ module.exports = {
                     .setTitle(`${member.user.tag}`) // Tag of the user who joined
                     .setURL(`https://discord.com/users/${member.user.id}`) // The URL of the User Profile
                     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                    .setDescription(`${member.user.tag} has joined the server!`)
+                    .setDescription(`A member joined the server!`)
                     .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of the user
                     .addFields(
-                        { name: 'Username:', value: `${member.user.username}`, inline: true },
-                        { name: 'User ID:', value: `${member.user.id}`, inline: true },
+                        { name: 'User:', value: `<@${member.user.id}>⠀⠀⠀⠀`, inline: true },
+                        { name: 'User ID:', value: `${member.user.id}⠀⠀⠀⠀`, inline: true },
                         { name: 'Account Created:', value: `${member.user.createdAt.toUTCString()}`, inline: false } // Account creation date of the user
                     )
                     .setTimestamp()

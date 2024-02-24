@@ -30,11 +30,11 @@ module.exports = {
                         .setDescription('A message was edited!')
                         .setThumbnail(newMessage.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of User
                         .addFields(
-                            { name: 'The User:', value: `<@${newMessage.author.id}>`, inline: true },
-                            { name: 'The User ID:', value: `${newMessage.author.id}`, inline: true },
+                            { name: 'User:', value: `<@${newMessage.author.id}>`, inline: true },
+                            { name: 'User ID:', value: `${newMessage.author.id}`, inline: true },
                             { name: 'Message Before:', value: `${oldMessage.content.substring(0, 1024) || 'None'}`},
                             { name: 'Message After:', value: `${newMessage.content.substring(0, 1024) || 'None'}`},
-                            { name: 'The Message ID:', value: `${newMessage.id}`, inline: true }
+                            { name: 'Message ID:', value: `${newMessage.id}`, inline: true }
                         )
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
