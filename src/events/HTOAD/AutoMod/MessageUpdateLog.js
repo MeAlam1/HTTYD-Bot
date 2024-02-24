@@ -23,7 +23,7 @@ module.exports = {
             if (!hasAllowedRole) {
                 try {
                     const MessageUpdateLogEmbed = new EmbedBuilder()
-                        .setColor(0x0aff3b)
+                        .setColor(0xfc6f03)
                         .setTitle(`${newMessage.author.tag}`) // User that sent the message
                         .setURL(`https://discord.com/users/${newMessage.author.id}`) // The URL of the User
                         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })

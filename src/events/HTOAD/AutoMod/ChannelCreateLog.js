@@ -18,7 +18,7 @@ module.exports = {
                 let executor = creationLog ? creationLog.executor : { tag: 'Unknown', id: 'Unknown' };
 
                 const ChannelCreateLogEmbed = new EmbedBuilder()
-                    .setColor(0xbf020f)
+                    .setColor(0x20fc03)
                     .setTitle(`${executor.tag}`) // User that created the channel
                     .setURL(`https://discord.com/users/${executor.id}`) // The URL of the User
                     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
