@@ -20,10 +20,9 @@ module.exports = {
                 try {
                     const MessageDeleteLogEmbed = new EmbedBuilder()
                         .setColor(0xbf020f)
-                        .setTitle(`${message.author.tag}`) 
+                        .setTitle(`A message of ${message.author.tag} has been deleted!`) 
                         .setURL(`https://discord.com/users/${message.author.id}`)
                         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                        .setDescription('A message was deleted!')
                         .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
                             { name: 'User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, 
