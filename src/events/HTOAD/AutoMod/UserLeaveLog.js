@@ -28,7 +28,8 @@ module.exports = {
                         .addFields(
                             { name: 'User:', value: `${member.user.username}`, inline: true },
                             { name: 'User ID:', value: `${member.user.id}`, inline: true },
-                            { name: 'Kicked by:', value: `<@${executor.id}>`, inline: false },
+                            { name: '\u200B', value: '\u200B', inline: true },
+                            { name: 'Kicked by:', value: `<@${executor.id}>`, inline: true },
                             { name: 'Reason:', value: `${reason || 'No reason provided'}`, inline: true },
                         )
                         .setTimestamp()

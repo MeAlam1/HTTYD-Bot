@@ -27,7 +27,8 @@ module.exports = {
                     .addFields(
                         { name: 'Creator:', value: `<@${executor.id}>`, inline: true }, // The Ping of the User who created the channel
                         { name: 'Creator ID:', value: `${executor.id}`, inline: true }, // The ID of the User
-                        { name: 'Channel Name:', value: `${channel.name}` }, // The Name of the created channel
+                        { name: '\u200B', value: '\u200B', inline: true },
+                        { name: 'Channel Name:', value: `${channel.name}`, inline: true }, // The Name of the created channel
                         { name: 'Channel ID:', value: `${channel.id}`, inline: true} // The Channel ID
                     )
                     .setTimestamp()
