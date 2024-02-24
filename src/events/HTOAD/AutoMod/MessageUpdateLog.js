@@ -5,7 +5,7 @@ module.exports = {
     once: false,
 
     run: async (client, oldMessage, newMessage) => {
-        // Check if the content is the same (this might happen if an embed or attachment is added without changing text)
+        
         if (oldMessage.content === newMessage.content) return;
 
         const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
@@ -37,8 +37,8 @@ module.exports = {
                     // Additional handling for attachments and stickers
                     let otherAttachmentsContent = ""; // Initialize a variable to hold non-image attachments, links, and stickers
 
-                    if (newmessage.attachments.size > 0) {
-                        newmessage.attachments.forEach((attachment) => {
+                    if (newMessage.attachments.size > 0) {
+                        newMessage.attachments.forEach((attachment) => {
                             // Check if the attachment is an image or a gif
                             if (attachment.contentType && (attachment.contentType.includes('image') || attachment.contentType.includes('gif'))) {
                                 // Add image/gif to embed
@@ -59,8 +59,8 @@ module.exports = {
                     }
 
                     // Handle stickers
-                    if (newmessage.stickers.size > 0) {
-                        newmessage.stickers.forEach((sticker) => {
+                    if (newMessage.stickers.size > 0) {
+                        newMessage.stickers.forEach((sticker) => {
                             EditLog.addFields({ name: 'Sticker:', value: `⠀`}); 
                             otherAttachmentsContent += `${sticker.url || sticker.name}\n`;
                         });
