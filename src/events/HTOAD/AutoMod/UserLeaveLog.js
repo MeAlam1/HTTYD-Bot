@@ -28,8 +28,8 @@ module.exports = {
                         .addFields(
                             { name: 'User:', value: `${member.user.username}`, inline: true },
                             { name: 'User ID:', value: `${member.user.id}`, inline: true },
-                            { name: 'Kicked by:', value: `${executor.tag}`, inline: true },
-                            { name: 'Reason:', value: `${reason || 'No reason provided'}`, inline: false },
+                            { name: 'Kicked by:', value: `<@${executor.id}>`, inline: false },
+                            { name: 'Reason:', value: `${reason || 'No reason provided'}`, inline: true },
                         )
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team' });
