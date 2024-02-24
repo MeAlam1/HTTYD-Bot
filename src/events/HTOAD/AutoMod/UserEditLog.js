@@ -96,7 +96,7 @@ module.exports = {
                     const userNameChangeEmbed = new EmbedBuilder()
                         .setColor(0xfc6f03) 
                         .setTitle(`Username Change Detected`)
-                        .setDescription(`${oldMember.user.tag} has changed their username to ${newMember.user.tag}`)
+                        .setDescription(`<@${oldMember.user.id}> has changed their username to ${newMember.user.tag}`)
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
                             { name: 'Previous Username:', value: oldMember.user.tag, inline: true },
@@ -115,7 +115,7 @@ module.exports = {
                     const userNicknameChangeEmbed = new EmbedBuilder()
                         .setColor(0xfc6f03) // 
                         .setTitle(`Nickname Change Detected`)
-                        .setDescription(`${oldMember.displayName} has changed their nickname.`)
+                        .setDescription(`<@${oldMember.user.id}> has changed their nickname.`)
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
                             { name: 'Previous Nickname:', value: oldMember.nickname ? oldMember.nickname : oldMember.user.tag, inline: true },
