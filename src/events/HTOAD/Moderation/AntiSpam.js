@@ -39,6 +39,7 @@ module.exports = {
                     const AntiSpamLog = new EmbedBuilder()
                         .setColor(0xbf020f)
                         .setTitle(`${message.author.tag}`) // User that sent the message
+                        .setURL(`https://discord.com/users/${message.author.id}`) // The URL of the User
                         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
                         .setDescription('Usage of @everyone and @here in the server!')
                         .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of User
@@ -56,7 +57,7 @@ module.exports = {
                     // Delete the Spam message.
                     await message.delete();
 
-                    const logChannelId = '1168633106757070928'; // How to Own a Dragon automod channel ID
+                    const logChannelId = '1168633106757070928'; // How to Own a Dragon infraction channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
 
                     // Current date and time

@@ -5,6 +5,10 @@
 require('dotenv').config();
 const ExtendedClient = require('./class/ExtendedClient');
 
+const EventEmitter = require('events');
+
+EventEmitter.defaultMaxListeners = 50;
+
 //Load How to Own a Dragon Class Files
 const HTOADwelcome = require('./class/HTOAD/welcome.js');
 const HTOADleave = require('./class/HTOAD/leave.js');
