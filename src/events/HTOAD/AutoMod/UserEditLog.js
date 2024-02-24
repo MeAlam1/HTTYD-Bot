@@ -94,7 +94,7 @@ module.exports = {
 
                 if (oldMember.user.tag !== newMember.user.tag) {
                     const userNameChangeEmbed = new EmbedBuilder()
-                        .setColor(0xfc6f03) // Blue color for username change
+                        .setColor(0xfc6f03) 
                         .setTitle(`Username Change Detected`)
                         .setDescription(`${oldMember.user.tag} has changed their username to ${newMember.user.tag}`)
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
@@ -110,6 +110,26 @@ module.exports = {
                         
                     await logChannel.send({ embeds: [userNameChangeEmbed] });
                 }
+
+                if (oldMember.nickname !== newMember.nickname) {
+                    const userNicknameChangeEmbed = new EmbedBuilder()
+                        .setColor(0xfc6f03) // 
+                        .setTitle(`Nickname Change Detected`)
+                        .setDescription(`${oldMember.displayName} has changed their nickname.`)
+                        .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                        .addFields(
+                            { name: 'Previous Nickname:', value: oldMember.nickname ? oldMember.nickname : oldMember.user.tag, inline: true },
+                            { name: 'New Nickname:', value: newMember.nickname ? newMember.nickname : newMember.user.tag, inline: true },
+                        )
+                        .setTimestamp()
+                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                
+                    const logChannelId = '1211052643288612874'; // How to Own a Dragon user-automod channel ID
+                    const logChannel = await client.channels.fetch(logChannelId);
+                    
+                    await logChannel.send({ embeds: [userNicknameChangeEmbed] });
+                }
+                
             } catch (error) {
                 console.error('Error trying to log role changes: ', error);
             }
