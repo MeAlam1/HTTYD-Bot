@@ -33,12 +33,12 @@ module.exports = {
             .setDescription('A message containing "POTL" was sent in the server.')
             .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of User
             .addFields(
-                { name: 'The User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, // The Ping of the User
-                { name: 'The User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, // The ID of the User
+                { name: 'The User:', value: `✨<@${message.author.id}>✨⠀⠀⠀⠀`, inline: true }, // The Ping of the User
+                { name: 'The User ID:', value: `✨${message.author.id}✨⠀⠀⠀⠀`, inline: true }, // The ID of the User
             )
             .addFields(
                 { name: 'Message Content:', value: `${message.content}⠀⠀⠀⠀`}, // The Message that was sent
-                { name: 'The Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, // The Message ID
+                { name: 'The Message ID:', value: `✨${message.id}✨⠀⠀⠀⠀`, inline: true  }, // The Message ID
             )
             .setTimestamp()
             .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
