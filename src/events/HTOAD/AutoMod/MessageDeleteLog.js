@@ -18,7 +18,7 @@ module.exports = {
             const hasAllowedRole = message.member.roles.cache.some(role => allowedRoles.includes(role.id)); 
             if (!hasAllowedRole) {
                 try {
-                    const DeleteLog = new EmbedBuilder()
+                    const MessageDeleteLogEmbed = new EmbedBuilder()
                         .setColor(0xbf020f)
                         .setTitle(`${message.author.tag}`) // User that sent the message
                         .setURL(`https://discord.com/users/${message.author.id}`) // The URL of the User
@@ -41,7 +41,7 @@ module.exports = {
                             // Check if the attachment is an image or a gif
                             if (attachment.contentType && (attachment.contentType.includes('image') || attachment.contentType.includes('gif'))) {
                                 // Add image/gif to embed
-                                DeleteLog.setImage(attachment.url);
+                                MessageDeleteLogEmbed.setImage(attachment.url);
                             } else {
                                 // For video or other file types, collect the URLs for direct message content
                                 otherAttachmentsContent += `${attachment.url}\n`;
@@ -53,24 +53,24 @@ module.exports = {
                     const regex = /(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*\b/g;
                     const messageLinks = message.content.match(regex);
                     if (messageLinks) {
-                        DeleteLog.addFields({ name: 'Attachment:', value: `⠀`}); 
+                        MessageDeleteLogEmbed.addFields({ name: 'Attachment:', value: `⠀`}); 
                         otherAttachmentsContent += messageLinks.join('\n');
                     }
 
                     // Handle stickers
                     if (message.stickers.size > 0) {
                         message.stickers.forEach((sticker) => {
-                            DeleteLog.addFields({ name: 'Sticker:', value: `⠀`}); 
+                            MessageDeleteLogEmbed.addFields({ name: 'Sticker:', value: `⠀`}); 
                             otherAttachmentsContent += `${sticker.url || sticker.name}\n`;
                         });
                     }
 
-                    const logChannelId = '1131214666757058654'; // How to Own a Dragon automod channel ID
+                    const logChannelId = '1131214666757058654'; // How to Own a Dragon message-automod channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
 
                     // Message sent in the log channel.
                     await logChannel.send({
-                        embeds: [DeleteLog]
+                        embeds: [MessageDeleteLogEmbed]
                     });
                     if (otherAttachmentsContent) {
                         await logChannel.send(otherAttachmentsContent);

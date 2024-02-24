@@ -22,7 +22,7 @@ module.exports = {
             const hasAllowedRole = member && member.roles.cache.some(role => allowedRoles.includes(role.id)); 
             if (!hasAllowedRole) {
                 try {
-                    const EditLog = new EmbedBuilder()
+                    const MessageUpdateLogEmbed = new EmbedBuilder()
                         .setColor(0x0aff3b)
                         .setTitle(`${newMessage.author.tag}`) // User that sent the message
                         .setURL(`https://discord.com/users/${newMessage.author.id}`) // The URL of the User
@@ -70,12 +70,12 @@ module.exports = {
                         }
                     }
 
-                    const logChannelId = '1131214666757058654'; // How to Own a Dragon automod channel ID
+                    const logChannelId = '1131214666757058654'; // How to Own a Dragon message-automod channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
 
                     // Message sent in the log channel.
                     await logChannel.send({
-                        embeds: [EditLog]
+                        embeds: [MessageUpdateLogEmbed]
                     });
                     if (attachmentComparisonContent) {
                         await logChannel.send(attachmentComparisonContent);
