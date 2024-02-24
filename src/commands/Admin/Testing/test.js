@@ -8,24 +8,6 @@ const allowedRoles = [
     `1140629154748956813`  // How to Own a Dragon Coder Role
 ];
 
-const TestEmbed = new EmbedBuilder()
-    .setColor(0xbf020f)
-    .setTitle(`[User IGN]`) // IGN User that did the Punishment
-    .setURL(`https://discord.js.org/`) // URL to User
-    .setAuthor({ name: `How to Own a Dragon`, iconURL: `https://i.imgur.com/VTwEDBO.png`})
-    .setDescription(`Usage of @everyone and @here in the server!`)
-    .setThumbnail(`https://i.imgur.com/AfFp7pu.png`) // Profile Picture of User
-    .addFields(
-        { name: `The User Ping:`, value: `***User:*** [ping]⠀⠀⠀⠀`, inline: true }, // The Ping of the User 
-        { name: `The User ID:`, value: `***ID:*** [message]⠀⠀⠀`, inline: true  }, // The ID of the User
-        { name: `The Message ID:`, value: `***ID:*** [message]⠀⠀⠀`, inline: true  }, // The Message ID
-    )
-    .addFields(
-        { name: `Message Content:`, value: `***Message:*** [Message]` } // The Message that got deleted
-    )
-    .setTimestamp()
-    .setFooter({ text: `How to Own a Dragon Coder Team`, iconURL: `https://i.imgur.com/VTwEDBO.png` });
-
 module.exports = {
     structure: new SlashCommandBuilder()
         .setName(`test`)
@@ -48,6 +30,24 @@ module.exports = {
             });
             return;
         }
+
+    const TestEmbed = new EmbedBuilder()
+        .setColor(0xbf020f)
+        .setTitle(`${interaction.user.tag}`) // IGN User that did the Punishment
+        .setURL(`https://discord.js.org/`) // URL to User
+        .setAuthor({ name: `How to Own a Dragon`, iconURL: `https://i.imgur.com/VTwEDBO.png`})
+        .setDescription(`Usage of @everyone and @here in the server!`)
+        .setThumbnail(`https://i.imgur.com/AfFp7pu.png`) // Profile Picture of User
+        .addFields(
+            { name: `The User Ping:`, value: `***User:*** <@${interaction.user.id}>⠀⠀⠀⠀`, inline: true }, // The Ping of the User 
+            { name: `The User ID:`, value: `***ID:*** ${interaction.user.id}⠀⠀⠀`, inline: true  }, // The ID of the User
+            { name: `The Message ID:`, value: `***ID:*** [message]⠀⠀⠀`, inline: true  }, // The Message ID
+        )
+        .addFields(
+            { name: `Message Content:`, value: `***Message:*** [Message]` } // The Message that got deleted
+        )
+        .setTimestamp()
+        .setFooter({ text: `How to Own a Dragon Coder Team`, iconURL: `https://i.imgur.com/VTwEDBO.png` });
 
             await interaction.reply({
                 embeds: [TestEmbed]
