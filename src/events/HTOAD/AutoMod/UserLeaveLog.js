@@ -23,7 +23,8 @@ module.exports = {
                     // Create a special embed for kicks.
                     const KickLogEmbed = new EmbedBuilder()
                         .setColor(0xff0000) // Red for kicks
-                        .setTitle(`${member.user.tag} was kicked`)
+                        .setTitle(`${member.user.tag}`)
+                        .setURL(`https://discord.com/users/${member.user.id}`)
                         .setDescription(`A member was kicked from the server!`)
                         .addFields(
                             { name: 'User:', value: `${member.user.username}`, inline: true },

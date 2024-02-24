@@ -101,7 +101,7 @@ module.exports = {
                         .setDescription(`A member changed their Username!`)
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
-                            { name: 'Previous Username:', value: oldMember.user.tag, inline: true },
+                            { name: 'Previous Username:⠀⠀⠀⠀', value: oldMember.user.tag, inline: true },
                             { name: 'New Username:', value: newMember.user.tag, inline: true },
                         )
                         .setTimestamp()
@@ -122,7 +122,7 @@ module.exports = {
                         .setDescription(`A member changed their Nickname!`)
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
-                            { name: 'Previous Nickname:', value: oldMember.nickname ? oldMember.nickname : oldMember.user.tag, inline: true },
+                            { name: 'Previous Nickname:⠀⠀⠀⠀', value: oldMember.nickname ? oldMember.nickname : oldMember.user.tag, inline: true },
                             { name: 'New Nickname:', value: newMember.nickname ? newMember.nickname : newMember.user.tag, inline: true },
                         )
                         .setTimestamp()
