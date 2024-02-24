@@ -52,7 +52,7 @@ module.exports = {
 
                     // Include links from the message content
                     const regex = /(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*\b/g;
-                    const messageLinks = message.content.match(regex);
+                    const messageLinks = newMessage.content.match(regex);
                     if (messageLinks) {
                         EditLog.addFields({ name: 'Attachment:', value: `⠀`}); 
                         otherAttachmentsContent += messageLinks.join('\n');
