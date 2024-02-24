@@ -9,22 +9,22 @@ const allowedRoles = [
 ];
 
 const TestEmbed = new EmbedBuilder()
-    .setColor(0x0099FF)
-    .setTitle('Some title')
-    .setURL('https://discord.js.org/')
-    .setAuthor({ name: 'Some name', iconURL: 'https://i.imgur.com/AfFp7pu.png', url: 'https://discord.js.org' })
-    .setDescription('Some description here')
-    .setThumbnail('https://i.imgur.com/AfFp7pu.png')
+    .setColor(0xbf020f)
+    .setTitle('Usage of `@everone` and @here in the server!')
+    .setURL('https://discord.js.org/') // URL to User
+    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
+    .setDescription('Some description here') // IGN User that did the Punishment
+    .setThumbnail('https://i.imgur.com/AfFp7pu.png') // Profile Picture of User
     .addFields(
-        { name: 'Regular field title', value: 'Some value here' },
-        { name: '\u200B', value: '\u200B' },
-        { name: 'Inline field title', value: 'Some value here', inline: true },
-        { name: 'Inline field title', value: 'Some value here', inline: true },
+        { name: 'The User Ping:', value: 'Some value here' }, // The Ping of the User
+        { name: 'The User ID:', value: 'Some value here' }, // The ID of the User
+        { name: 'The Message ID:', value: 'Some value here' }, // The Message ID
     )
-    .addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
-    .setImage('https://i.imgur.com/AfFp7pu.png')
+    .addFields(
+        { name: '', value: 'Some value here' } // The Message that got deleted
+    )
     .setTimestamp()
-    .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
 module.exports = {
     structure: new SlashCommandBuilder()
