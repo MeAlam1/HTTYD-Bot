@@ -10,13 +10,21 @@ const allowedRoles = [
 
 const TestEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
-    .setTitle('How to Train your Dragon Content')
-    .setURL('https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing')
-    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
-    .setImage('https://imgur.com/oAi74ES.png')
-    .setDescription('[Google Drive](https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing) - Click here to open the Google Drive!')
+    .setTitle('Some title')
+    .setURL('https://discord.js.org/')
+    .setAuthor({ name: 'Some name', iconURL: 'https://i.imgur.com/AfFp7pu.png', url: 'https://discord.js.org' })
+    .setDescription('Some description here')
+    .setThumbnail('https://i.imgur.com/AfFp7pu.png')
+    .addFields(
+        { name: 'Regular field title', value: 'Some value here' },
+        { name: '\u200B', value: '\u200B' },
+        { name: 'Inline field title', value: 'Some value here', inline: true },
+        { name: 'Inline field title', value: 'Some value here', inline: true },
+    )
+    .addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
+    .setImage('https://i.imgur.com/AfFp7pu.png')
     .setTimestamp()
-    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+    .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
 module.exports = {
     structure: new SlashCommandBuilder()
@@ -40,7 +48,7 @@ module.exports = {
             });
             return;
         }
-        
+
             await interaction.reply({
                 embeds: [TestEmbed]
             });
