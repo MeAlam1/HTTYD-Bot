@@ -22,7 +22,7 @@ module.exports = {
         // If the member does not have an allowed role, do nothing
         if (hasRole) return;
 
-        const logChannelId = '1203770237795836004'; // Bot Testing Channel
+        const logChannelId = '1131214666757058654'; // Bot Testing Channel
         const logChannel = await client.channels.fetch(logChannelId);
         if (!logChannel) return; // Stop if log channel is not found
 

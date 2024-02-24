@@ -56,11 +56,13 @@ module.exports = {
                     // Delete the Spam message.
                     await message.delete();
 
-                    const logChannelId = '1131214666757058654'; // How to Own a Dragon automod channel ID
+                    const logChannelId = '1168633106757070928'; // How to Own a Dragon automod channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
 
                     // Message sent in the log channel.
-                    await logChannel.send({ embeds: [AntiSpamLog] });
+                    await logChannel.send({ 
+                        content: `<@${message.author.id}> got timed out for 7 Days!`,
+                        embeds: [AntiSpamLog] });
 
                     // Timeout duration in milliseconds.(7 Days)
                     const timeoutDuration = 7 * 24 * 60 * 60 * 1000; 
