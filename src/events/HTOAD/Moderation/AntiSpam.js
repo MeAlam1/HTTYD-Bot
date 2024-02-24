@@ -60,7 +60,7 @@ module.exports = {
                     const logChannel = await client.channels.fetch(logChannelId);
 
                     // Message sent in the log channel.
-                    await logChannel.send({ embed: [AntiSpamLog] });
+                    await logChannel.send({ embeds: [AntiSpamLog] });
 
                     // Timeout duration in milliseconds.(7 Days)
                     const timeoutDuration = 7 * 24 * 60 * 60 * 1000; 
