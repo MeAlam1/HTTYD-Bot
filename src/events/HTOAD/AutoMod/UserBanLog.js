@@ -35,7 +35,7 @@ module.exports = {
                     .setDescription(`A member was banned from the server!`)
                     .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of the banned user
                     .addFields(
-                        { name: 'Moderator:', value: responsibleModerator, inline: true },
+                        { name: 'Moderator:', value: `<@${responsibleModeratorId}>`, inline: true },
                         { name: 'Moderator ID:', value: responsibleModeratorId, inline: true },
                         { name: 'Ban Reason:', value: banReason, inline: false } // Including the ban reason
                     )
