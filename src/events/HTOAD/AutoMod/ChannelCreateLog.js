@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, AuditLogEvent } = require('discord.js');
 
 module.exports = {
     event: 'channelCreate',
@@ -12,7 +12,7 @@ module.exports = {
                 // Fetch the guild's audit logs to find out who created the channel
                 const fetchedLogs = await channel.guild.fetchAuditLogs({
                     limit: 1,
-                    type: 'CHANNEL_CREATE',
+                    type: AuditLogEvent.ChannelCreate,
                 });
                 const creationLog = fetchedLogs.entries.first();
                 let executor = creationLog ? creationLog.executor : { tag: 'Unknown', id: 'Unknown' };
@@ -27,8 +27,8 @@ module.exports = {
                     .addFields(
                         { name: 'Creator:', value: `<@${executor.id}>`, inline: true }, // The Ping of the User who created the channel
                         { name: 'Creator ID:', value: `${executor.id}`, inline: true }, // The ID of the User
-                        { name: 'Channel Name:', value: `${channel.name}`, inline: true }, // The Name of the created channel
-                        { name: 'Channel ID:', value: `${channel.id}`, inline: true  } // The Channel ID
+                        { name: 'Channel Name:', value: `${channel.name}` }, // The Name of the created channel
+                        { name: 'Channel ID:', value: `${channel.id}`, inline: true} // The Channel ID
                     )
                     .setTimestamp()
                     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
