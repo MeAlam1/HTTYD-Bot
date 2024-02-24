@@ -43,10 +43,9 @@ module.exports = {
                     addedRoles.forEach(async (role) => {
                         const UserRoleAddLogEmbed = new EmbedBuilder()
                             .setColor(0x20fc03)
-                            .setTitle(`${newMember.user.tag}`)
+                            .setTitle(`${newMember.user.tag} received a new role!`)
                             .setURL(`https://discord.com/users/${newMember.user.id}`)
                             .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                            .setDescription(`A member received a new role!`)
                             .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                             .addFields(
                                 { name: 'User:', value: `<@${newMember.user.id}>`, inline: true },
@@ -70,10 +69,9 @@ module.exports = {
                     removedRoles.forEach(async (role) => {
                         const UserRoleRemoveLogEmbed = new EmbedBuilder()
                             .setColor(0xbf020f)
-                            .setTitle(`${newMember.user.tag}`)
+                            .setTitle(`${newMember.user.tag} lost a role!`)
                             .setURL(`https://discord.com/users/${newMember.user.id}`)
                             .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                            .setDescription(`A member lost a role!`)
                             .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                             .addFields(
                                 { name: 'User:', value: `<@${newMember.user.id}>`, inline: true },
@@ -95,10 +93,9 @@ module.exports = {
                 if (oldMember.user.tag !== newMember.user.tag) {
                     const userNameChangeEmbed = new EmbedBuilder()
                         .setColor(0xfc6f03) 
-                        .setTitle(`${newMember.user.tag}`)
+                        .setTitle(`The Username of ${newMember.user.tag} has been changed!`)
                         .setURL(`https://discord.com/users/${newMember.user.id}`)
                         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                        .setDescription(`A member changed their Username!`)
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
                             { name: 'Previous Username:⠀⠀⠀⠀', value: oldMember.user.tag, inline: true },
@@ -116,10 +113,9 @@ module.exports = {
                 if (oldMember.nickname !== newMember.nickname) {
                     const userNicknameChangeEmbed = new EmbedBuilder()
                         .setColor(0xfc6f03) // 
-                        .setTitle(`${newMember.user.tag}`)
+                        .setTitle(`The Nickname of ${newMember.user.tag} has been changed!`)
                         .setURL(`https://discord.com/users/${newMember.user.id}`)
                         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                        .setDescription(`A member changed their Nickname!`)
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
                             { name: 'Previous Nickname:⠀⠀⠀⠀', value: oldMember.nickname ? oldMember.nickname : oldMember.user.tag, inline: true },

@@ -20,9 +20,8 @@ module.exports = {
 
                     const KickLogEmbed = new EmbedBuilder()
                         .setColor(0xff0000)
-                        .setTitle(`${member.user.tag}`)
+                        .setTitle(`${member.user.tag} has been kicked from the server!`)
                         .setURL(`https://discord.com/users/${member.user.id}`)
-                        .setDescription(`A member was kicked from the server!`)
                         .addFields(
                             { name: 'User:', value: `${member.user.username}`, inline: true },
                             { name: 'User ID:', value: `${member.user.id}`, inline: true },
@@ -39,10 +38,9 @@ module.exports = {
                 } else {
                     const UserLeaveLogEmbed = new EmbedBuilder()
                         .setColor(0xbf020f)
-                        .setTitle(`${member.user.tag}`)
+                        .setTitle(`${member.user.tag} has left the server!`)
                         .setURL(`https://discord.com/users/${member.user.id}`)
                         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                        .setDescription(`A member left the server!`)
                         .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
                             { name: 'User:', value: `${member.user.username}⠀⠀⠀⠀`, inline: true },

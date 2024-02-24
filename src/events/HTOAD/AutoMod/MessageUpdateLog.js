@@ -23,10 +23,9 @@ module.exports = {
                 try {
                     const MessageUpdateLogEmbed = new EmbedBuilder()
                         .setColor(0xfc6f03)
-                        .setTitle(`${newMessage.author.tag}`) 
+                        .setTitle(`A message of ${newMessage.author.tag} has been edited!`) 
                         .setURL(`https://discord.com/users/${newMessage.author.id}`)
                         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                        .setDescription('A message was edited!')
                         .setThumbnail(newMessage.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
                             { name: 'User:', value: `<@${newMessage.author.id}>`, inline: true },
@@ -83,7 +82,6 @@ module.exports = {
     }
 };
 
-// Helper function to extract links from a string using a regex
 function extractLinks(text) {
     const regex = /(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*/g;
     const matches = text.match(regex);

@@ -11,10 +11,9 @@ module.exports = {
             try {
                 const UserJoinLogEmbed = new EmbedBuilder()
                     .setColor(0x20fc03)
-                    .setTitle(`${member.user.tag}`)
+                    .setTitle(`${member.user.tag} has joined the server!`)
                     .setURL(`https://discord.com/users/${member.user.id}`)
                     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                    .setDescription(`A member joined the server!`)
                     .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                     .addFields(
                         { name: 'User:', value: `<@${member.user.id}>⠀⠀⠀⠀`, inline: true },

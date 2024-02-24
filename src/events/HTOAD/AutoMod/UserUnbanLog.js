@@ -26,10 +26,9 @@ module.exports = {
                 const user = ban.user;
                 const UnbanLogEmbed = new EmbedBuilder()
                     .setColor(0x30b330)
-                    .setTitle(`${user.tag}`)
+                    .setTitle(`${user.tag} has been Unbanned from the server!`)
                     .setURL(`https://discord.com/users/${user.id}`)
                     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                    .setDescription(`A member was unbanned from the server!`)
                     .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                     .addFields(
                         { name: 'User:', value: `${user.username}`, inline: true },

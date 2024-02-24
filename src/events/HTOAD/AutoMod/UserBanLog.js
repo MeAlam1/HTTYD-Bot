@@ -28,10 +28,9 @@ module.exports = {
                 const user = ban.user;
                 const BanLogEmbed = new EmbedBuilder()
                     .setColor(0xff0000)
-                    .setTitle(`${user.tag}`)
+                    .setTitle(`${user.tag} has been Banned!`)
                     .setURL(`https://discord.com/users/${user.id}`) 
                     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-                    .setDescription(`A member was banned from the server!`)
                     .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                     .addFields(
                         { name: 'User:', value: `${user.username}`, inline: true },
