@@ -33,9 +33,9 @@ module.exports = {
             .setDescription('A message containing "POTL" was sent in the server.')
             .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of User
             .addFields(
-                { name: 'The User:', value: `***User:*** <@${message.author.id}>`, inline: true }, // The Ping of the User
-                { name: 'The User ID:', value: `${message.author.id}`, inline: true }, // The ID of the User
-                { name: 'The Message ID:', value: `${message.id}`, inline: true  }, // The Message ID
+                { name: 'The User:', value: `***User:*** <@${message.author.id}>⠀⠀⠀⠀`, inline: true }, // The Ping of the User
+                { name: 'The User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, // The ID of the User
+                { name: 'The Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, // The Message ID
             )
             .addFields(
                 { name: 'Message Content:', value: `***Message:*** ${message.content}` } // The Message that was sent
