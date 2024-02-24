@@ -31,16 +31,19 @@ module.exports = {
             return;
         }
 
+        const user = interaction.user;
+        const avatarURL = user.displayAvatarURL({ format: "png", dynamic: true, size: 1024 });
+
     const TestEmbed = new EmbedBuilder()
         .setColor(0xbf020f)
         .setTitle(`${interaction.user.tag}`) // IGN User that did the Punishment
         .setURL(`https://discord.js.org/`) // URL to User
         .setAuthor({ name: `How to Own a Dragon`, iconURL: `https://i.imgur.com/VTwEDBO.png`})
         .setDescription(`Usage of @everyone and @here in the server!`)
-        .setThumbnail(`https://i.imgur.com/AfFp7pu.png`) // Profile Picture of User
+        .setThumbnail(avatarURL) // Profile Picture of User
         .addFields(
             { name: `The User Ping:`, value: `***User:*** <@${interaction.user.id}>⠀⠀⠀⠀`, inline: true }, // The Ping of the User 
-            { name: `The User ID:`, value: `***ID:*** ${interaction.user.id}⠀⠀⠀`, inline: true  }, // The ID of the User
+            { name: `The User ID:`, value: `${interaction.user.id}⠀⠀⠀`, inline: true  }, // The ID of the User
             { name: `The Message ID:`, value: `***ID:*** [message]⠀⠀⠀`, inline: true  }, // The Message ID
         )
         .addFields(
