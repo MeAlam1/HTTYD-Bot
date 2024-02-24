@@ -59,9 +59,16 @@ module.exports = {
                     const logChannelId = '1168633106757070928'; // How to Own a Dragon automod channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
 
+                    // Current date and time
+                    const now = new Date();
+                    // Add 7 days to the current date
+                    const sevenDaysLater = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+                    // Convert to Unix timestamp (seconds since epoch)
+                    const sevenDaysLaterTimestamp = Math.floor(sevenDaysLater.getTime() / 1000);
+
                     // Message sent in the log channel.
                     await logChannel.send({ 
-                        content: `<@${message.author.id}> got timed out for 7 Days!`,
+                        content: `<@${message.author.id}> got timed out until <t:${sevenDaysLaterTimestamp}:F>`,
                         embeds: [AntiSpamLog] });
 
                     // Timeout duration in milliseconds.(7 Days)
