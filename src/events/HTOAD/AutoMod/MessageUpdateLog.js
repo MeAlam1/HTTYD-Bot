@@ -6,7 +6,7 @@ module.exports = {
 
     run: async (client, oldMessage, newMessage) => {
         
-        if (oldMessage.content === newMessage.content) return;
+        if (oldMessage.content === newMessage.content && oldMessage.attachments.size === newMessage.attachments.size && oldMessage.attachments.every((value, key) => newMessage.attachments.has(key))) return;
 
         const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
 
@@ -34,35 +34,22 @@ module.exports = {
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
-                    // Additional handling for attachments and stickers
-                    let otherAttachmentsContent = ""; // Initialize a variable to hold non-image attachments, links, and stickers
-
-                    if (newMessage.attachments.size > 0) {
-                        newMessage.attachments.forEach((attachment) => {
-                            // Check if the attachment is an image or a gif
-                            if (attachment.contentType && (attachment.contentType.includes('image') || attachment.contentType.includes('gif'))) {
-                                // Add image/gif to embed
-                                EditLog.setImage(attachment.url);
-                            } else {
-                                // For video or other file types, collect the URLs for direct message content
-                                otherAttachmentsContent += `${attachment.url}\n`;
-                            }
+                    // Initialize variables for attachments comparison
+                    let attachmentComparisonContent = "";
+                    
+                    // Old Attachments
+                    if (oldMessage.attachments.size > 0) {
+                        attachmentComparisonContent += "Old Attachments:\n";
+                        oldMessage.attachments.forEach((attachment) => {
+                            attachmentComparisonContent += `${attachment.url}\n`;
                         });
                     }
 
-                    // Include links from the message content
-                    const regex = /(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*\b/g;
-                    const messageLinks = newMessage.content.match(regex);
-                    if (messageLinks) {
-                        EditLog.addFields({ name: 'Attachment:', value: `⠀`}); 
-                        otherAttachmentsContent += messageLinks.join('\n');
-                    }
-
-                    // Handle stickers
-                    if (newMessage.stickers.size > 0) {
-                        newMessage.stickers.forEach((sticker) => {
-                            EditLog.addFields({ name: 'Sticker:', value: `⠀`}); 
-                            otherAttachmentsContent += `${sticker.url || sticker.name}\n`;
+                    // New Attachments
+                    if (newMessage.attachments.size > 0) {
+                        attachmentComparisonContent += "\nNew Attachments:\n";
+                        newMessage.attachments.forEach((attachment) => {
+                            attachmentComparisonContent += `${attachment.url}\n`;
                         });
                     }
 
@@ -73,8 +60,8 @@ module.exports = {
                     await logChannel.send({
                         embeds: [EditLog]
                     });
-                    if (otherAttachmentsContent) {
-                        await logChannel.send(otherAttachmentsContent);
+                    if (attachmentComparisonContent) {
+                        await logChannel.send(attachmentComparisonContent);
                     }
                 } catch (error) {
                     console.error('Error trying to log the edited message ', error);
