@@ -35,20 +35,34 @@ module.exports = {
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
                     // Additional handling for attachments and stickers
-                    let extraContent = ""; // Initialize a variable to hold non-image attachments, links, and stickers
+                    let otherAttachmentsContent = ""; // Initialize a variable to hold non-image attachments, links, and stickers
 
-                    // Handle attachments
-                    if (newMessage.attachments.size > 0) {
-                        newMessage.attachments.forEach((attachment) => {
-                            // For non-image file types, collect the URLs for direct message content
-                            extraContent += `${attachment.url}\n`;
+                    if (message.attachments.size > 0) {
+                        message.attachments.forEach((attachment) => {
+                            // Check if the attachment is an image or a gif
+                            if (attachment.contentType && (attachment.contentType.includes('image') || attachment.contentType.includes('gif'))) {
+                                // Add image/gif to embed
+                                DeleteLog.setImage(attachment.url);
+                            } else {
+                                // For video or other file types, collect the URLs for direct message content
+                                otherAttachmentsContent += `${attachment.url}\n`;
+                            }
                         });
                     }
 
-                    // Include stickers if present
-                    if (newMessage.stickers.size > 0) {
-                        newMessage.stickers.forEach((sticker) => {
-                            extraContent += `${sticker.url || sticker.name}\n`;
+                    // Include links from the message content
+                    const regex = /(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*\b/g;
+                    const messageLinks = message.content.match(regex);
+                    if (messageLinks) {
+                        DeleteLog.addFields({ name: 'Attachment:', value: `⠀`}); 
+                        otherAttachmentsContent += messageLinks.join('\n');
+                    }
+
+                    // Handle stickers
+                    if (message.stickers.size > 0) {
+                        message.stickers.forEach((sticker) => {
+                            DeleteLog.addFields({ name: 'Sticker:', value: `⠀`}); 
+                            otherAttachmentsContent += `${sticker.url || sticker.name}\n`;
                         });
                     }
 
@@ -57,11 +71,10 @@ module.exports = {
 
                     // Message sent in the log channel.
                     await logChannel.send({
-                        embeds: [EditLog]
+                        embeds: [DeleteLog]
                     });
-                    // If there are extra contents like attachments or stickers, send them too.
-                    if (extraContent) {
-                        await logChannel.send(extraContent);
+                    if (otherAttachmentsContent) {
+                        await logChannel.send(otherAttachmentsContent);
                     }
                 } catch (error) {
                     console.error('Error trying to log the edited message ', error);
