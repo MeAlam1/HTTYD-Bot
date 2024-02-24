@@ -37,7 +37,7 @@ module.exports = {
                 { name: 'The User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, // The ID of the User
             )
             .addFields(
-                { name: 'Message Content:', value: `***Message:*** ${message.content}`, inline: true }, // The Message that was sent
+                { name: 'Message Content:', value: `${message.content}⠀⠀⠀⠀`, inline: true }, // The Message that was sent
                 { name: 'The Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, // The Message ID
             )
             .setTimestamp()
