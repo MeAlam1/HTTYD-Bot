@@ -34,7 +34,7 @@ module.exports = {
                     .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of the banned user
                     .addFields(
                         { name: 'User:', value: `${user.username}`, inline: true },
-                        { name: 'User ID:', value: `${user.id}`, inline: true },
+                        { name: 'User ID:', value: `${user.id}⠀⠀⠀⠀`, inline: true },
                         { name: '\u200B', value: '\u200B', inline: true },
                         { name: 'Moderator:', value: `<@${responsibleModeratorId}>`, inline: true },
                         { name: 'Moderator ID:', value: responsibleModeratorId, inline: true },

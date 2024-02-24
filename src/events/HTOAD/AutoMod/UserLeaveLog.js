@@ -31,7 +31,7 @@ module.exports = {
                             { name: 'User ID:', value: `${member.user.id}`, inline: true },
                             { name: '\u200B', value: '\u200B', inline: true },
                             { name: 'Kicked by:', value: `<@${executor.id}>`, inline: true },
-                            { name: 'Reason:', value: `${reason || 'No reason provided'}`, inline: true },
+                            { name: 'Reason:', value: `${reason || 'No reason provided'}`, inline: false },
                         )
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team' });
