@@ -105,6 +105,9 @@ module.exports = {
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
+                        const logChannelId = '1211052643288612874'; // How to Own a Dragon user-automod channel ID
+                        const logChannel = await client.channels.fetch(logChannelId);
+                        
                     await logChannel.send({ embeds: [userNameChangeEmbed] });
                 }
             } catch (error) {
