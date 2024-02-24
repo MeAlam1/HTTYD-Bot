@@ -91,6 +91,22 @@ module.exports = {
                         await logChannel.send({ embeds: [UserRoleRemoveLogEmbed] });
                     });
                 }
+
+                if (oldMember.user.tag !== newMember.user.tag) {
+                    const userNameChangeEmbed = new EmbedBuilder()
+                        .setColor(0xfc6f03) // Blue color for username change
+                        .setTitle(`Username Change Detected`)
+                        .setDescription(`${oldMember.user.tag} has changed their username to ${newMember.user.tag}`)
+                        .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                        .addFields(
+                            { name: 'Previous Username:', value: oldMember.user.tag, inline: true },
+                            { name: 'New Username:', value: newMember.user.tag, inline: true },
+                        )
+                        .setTimestamp()
+                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+
+                    await logChannel.send({ embeds: [userNameChangeEmbed] });
+                }
             } catch (error) {
                 console.error('Error trying to log role changes: ', error);
             }
