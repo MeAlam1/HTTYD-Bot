@@ -42,7 +42,7 @@ module.exports = {
                 if (addedRoles.size > 0) {
                     addedRoles.forEach(async (role) => {
                         const UserRoleAddLogEmbed = new EmbedBuilder()
-                            .setColor(0x20fc03) // Green color for role addition
+                            .setColor(0x20fc03)
                             .setTitle(`${newMember.user.tag}`)
                             .setURL(`https://discord.com/users/${newMember.user.id}`)
                             .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
@@ -58,7 +58,7 @@ module.exports = {
                             .setTimestamp()
                             .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
-                        const logChannelId = '1211052643288612874'; // Log channel ID
+                        const logChannelId = '1211052643288612874';  // How to Own a Dragon user-automod channel ID
                         const logChannel = await client.channels.fetch(logChannelId);
 
                         await logChannel.send({ embeds: [UserRoleAddLogEmbed] });
@@ -69,7 +69,7 @@ module.exports = {
                 if (removedRoles.size > 0) {
                     removedRoles.forEach(async (role) => {
                         const UserRoleRemoveLogEmbed = new EmbedBuilder()
-                            .setColor(0xbf020f) // Red color for role removal
+                            .setColor(0xbf020f)
                             .setTitle(`${newMember.user.tag}`)
                             .setURL(`https://discord.com/users/${newMember.user.id}`)
                             .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })

@@ -8,7 +8,6 @@ module.exports = {
 
         if (ban.guild.id === HTOAD) {
             try {
-                // Fetching the audit logs to find the ban action
                 const fetchedLogs = await ban.guild.fetchAuditLogs({
                     limit: 1,
                     type: AuditLogEvent.MemberBanAdd,
@@ -26,12 +25,12 @@ module.exports = {
 
                 const user = ban.user;
                 const UnbanLogEmbed = new EmbedBuilder()
-                    .setColor(0x30b330) // Red for ban
+                    .setColor(0x30b330)
                     .setTitle(`${user.tag}`)
-                    .setURL(`https://discord.com/users/${user.id}`) // The URL of the User Profile
+                    .setURL(`https://discord.com/users/${user.id}`)
                     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
                     .setDescription(`A member was unbanned from the server!`)
-                    .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of the banned user
+                    .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                     .addFields(
                         { name: 'User:', value: `${user.username}`, inline: true },
                         { name: 'User ID:', value: `${user.id}⠀⠀⠀⠀`, inline: true },
@@ -45,7 +44,6 @@ module.exports = {
                 const logChannelId = '1211052643288612874'; // How to Own a Dragon user-automod channel ID
                 const logChannel = await client.channels.fetch(logChannelId);
 
-                // Message sent in the log channel.
                 await logChannel.send({
                     embeds: [UnbanLogEmbed]
                 });

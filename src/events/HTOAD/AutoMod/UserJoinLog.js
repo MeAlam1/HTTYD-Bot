@@ -11,15 +11,15 @@ module.exports = {
             try {
                 const UserJoinLogEmbed = new EmbedBuilder()
                     .setColor(0x20fc03)
-                    .setTitle(`${member.user.tag}`) // Tag of the user who joined
-                    .setURL(`https://discord.com/users/${member.user.id}`) // The URL of the User Profile
+                    .setTitle(`${member.user.tag}`)
+                    .setURL(`https://discord.com/users/${member.user.id}`)
                     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
                     .setDescription(`A member joined the server!`)
-                    .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of the user
+                    .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                     .addFields(
                         { name: 'User:', value: `<@${member.user.id}>⠀⠀⠀⠀`, inline: true },
                         { name: 'User ID:', value: `${member.user.id}⠀⠀⠀⠀`, inline: true },
-                        { name: 'Account Created:', value: `${member.user.createdAt.toUTCString()}`, inline: false } // Account creation date of the user
+                        { name: 'Account Created:', value: `${member.user.createdAt.toUTCString()}`, inline: false } 
                     )
                     .setTimestamp()
                     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
@@ -27,7 +27,6 @@ module.exports = {
                 const logChannelId = '1211052643288612874'; // How to Own a Dragon user-automod channel ID
                 const logChannel = await client.channels.fetch(logChannelId);
 
-                // Message sent in the log channel.
                 await logChannel.send({
                     embeds: [UserJoinLogEmbed]
                 });

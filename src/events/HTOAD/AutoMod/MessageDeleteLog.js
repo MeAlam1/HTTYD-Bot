@@ -10,7 +10,7 @@ module.exports = {
         const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
 
         const allowedRoles = [
-            '1120033014416670895'  // Bots 
+            '1120033014416670895'  // Bots Role
         ];
 
         if (message.guild && message.guild.id === HTOAD) {
@@ -20,36 +20,32 @@ module.exports = {
                 try {
                     const MessageDeleteLogEmbed = new EmbedBuilder()
                         .setColor(0xbf020f)
-                        .setTitle(`${message.author.tag}`) // User that sent the message
-                        .setURL(`https://discord.com/users/${message.author.id}`) // The URL of the User
+                        .setTitle(`${message.author.tag}`) 
+                        .setURL(`https://discord.com/users/${message.author.id}`)
                         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
                         .setDescription('A message was deleted!')
-                        .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of User
+                        .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
-                            { name: 'User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, // The Ping of the User
-                            { name: 'User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, // The ID of the User
-                            { name: 'Message Content:', value: `${message.content}⠀⠀⠀⠀`}, // The Message that was sent
-                            { name: 'Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  } // The Message ID
+                            { name: 'User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, 
+                            { name: 'User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, 
+                            { name: 'Message Content:', value: `${message.content}⠀⠀⠀⠀`},
+                            { name: 'Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  } 
                         )
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
-                    let otherAttachmentsContent = ""; // Initialize a variable to hold non-image attachments, links, and stickers
+                    let otherAttachmentsContent = ""; 
 
                     if (message.attachments.size > 0) {
                         message.attachments.forEach((attachment) => {
-                            // Check if the attachment is an image or a gif
                             if (attachment.contentType && (attachment.contentType.includes('image') || attachment.contentType.includes('gif'))) {
-                                // Add image/gif to embed
                                 MessageDeleteLogEmbed.setImage(attachment.url);
                             } else {
-                                // For video or other file types, collect the URLs for direct message content
                                 otherAttachmentsContent += `${attachment.url}\n`;
                             }
                         });
                     }
 
-                    // Include links from the message content
                     const regex = /(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*\b/g;
                     const messageLinks = message.content.match(regex);
                     if (messageLinks) {
@@ -57,7 +53,6 @@ module.exports = {
                         otherAttachmentsContent += messageLinks.join('\n');
                     }
 
-                    // Handle stickers
                     if (message.stickers.size > 0) {
                         message.stickers.forEach((sticker) => {
                             MessageDeleteLogEmbed.addFields({ name: 'Sticker:', value: `⠀`}); 
@@ -68,7 +63,6 @@ module.exports = {
                     const logChannelId = '1131214666757058654'; // How to Own a Dragon message-automod channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
 
-                    // Message sent in the log channel.
                     await logChannel.send({
                         embeds: [MessageDeleteLogEmbed]
                     });
