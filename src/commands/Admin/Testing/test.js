@@ -21,7 +21,7 @@ const TestEmbed = new EmbedBuilder()
         { name: 'The Message ID:', value: 'Some value here' }, // The Message ID
     )
     .addFields(
-        { name: '', value: 'Some value here' } // The Message that got deleted
+        { name: 'Test', value: 'Some value here' } // The Message that got deleted
     )
     .setTimestamp()
     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
