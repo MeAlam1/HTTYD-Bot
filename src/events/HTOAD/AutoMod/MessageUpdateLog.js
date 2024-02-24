@@ -6,7 +6,12 @@ module.exports = {
 
     run: async (client, oldMessage, newMessage) => {
         
-        if (oldMessage.content === newMessage.content && oldMessage.attachments.size === newMessage.attachments.size && oldMessage.attachments.every((value, key) => newMessage.attachments.has(key))) return;
+        // Check if content or attachments have not changed
+        const contentChanged = oldMessage.content !== newMessage.content;
+        const attachmentsChanged = oldMessage.attachments.size !== newMessage.attachments.size || !oldMessage.attachments.every((value, key) => newMessage.attachments.has(key));
+        const linksChanged = extractLinks(oldMessage.content).toString() !== extractLinks(newMessage.content).toString(); // Added line for link comparison
+
+        if (!contentChanged && !attachmentsChanged && !linksChanged) return; // If neither content, attachments, nor links have changed, return
 
         const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
 
@@ -25,16 +30,15 @@ module.exports = {
                         .setDescription('A message was edited!')
                         .setThumbnail(newMessage.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of User
                         .addFields(
-                            { name: 'The User:', value: `<@${newMessage.author.id}>`, inline: true }, // The Ping of the User
-                            { name: 'The User ID:', value: `${newMessage.author.id}`, inline: true }, // The ID of the User
-                            { name: 'Message Before:', value: `${oldMessage.content.substring(0, 1024) || 'None'}`}, // The original Message that was sent
-                            { name: 'Message After:', value: `${newMessage.content.substring(0, 1024) || 'None'}`}, // The Message after edit
-                            { name: 'The Message ID:', value: `${newMessage.id}`, inline: true  } // The Message ID
+                            { name: 'The User:', value: `<@${newMessage.author.id}>`, inline: true },
+                            { name: 'The User ID:', value: `${newMessage.author.id}`, inline: true },
+                            { name: 'Message Before:', value: `${oldMessage.content.substring(0, 1024) || 'None'}`},
+                            { name: 'Message After:', value: `${newMessage.content.substring(0, 1024) || 'None'}`},
+                            { name: 'The Message ID:', value: `${newMessage.id}`, inline: true }
                         )
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
-                    // Initialize variables for attachments comparison
                     let attachmentComparisonContent = "";
                     
                     // Old Attachments
@@ -53,6 +57,19 @@ module.exports = {
                         });
                     }
 
+                    // Compare and list old and new links
+                    const oldLinks = extractLinks(oldMessage.content);
+                    const newLinks = extractLinks(newMessage.content);
+                    if (oldLinks.length > 0 || newLinks.length > 0) {
+                        attachmentComparisonContent += "\nLinks Changed:\n";
+                        if (oldLinks.length > 0) {
+                            attachmentComparisonContent += "Old Links:\n" + oldLinks.join('\n') + '\n';
+                        }
+                        if (newLinks.length > 0) {
+                            attachmentComparisonContent += "New Links:\n" + newLinks.join('\n');
+                        }
+                    }
+
                     const logChannelId = '1131214666757058654'; // How to Own a Dragon automod channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
 
@@ -64,9 +81,16 @@ module.exports = {
                         await logChannel.send(attachmentComparisonContent);
                     }
                 } catch (error) {
-                    console.error('Error trying to log the edited message ', error);
+                    console.error('Error trying to log the edited message: ', error);
                 }
             }
         }
     }
 };
+
+// Helper function to extract links from a string using a regex
+function extractLinks(text) {
+    const regex = /(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*/g;
+    const matches = text.match(regex);
+    return matches || [];
+}
