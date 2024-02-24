@@ -29,7 +29,7 @@ module.exports = {
                                 { name: 'User:', value: `<@${newMember.user.id}>`, inline: true },
                                 { name: 'User ID:', value: `${newMember.user.id}`, inline: true },
                                 { name: '\u200B', value: '\u200B', inline: true},
-                                { name: 'Role:', value: `${role.name}`, inline: true },
+                                { name: 'Role:', value: `<@&${role.id}>`, inline: true },
                                 { name: 'Role ID:', value: `${role.id}`, inline: true },
                             )
                             .setTimestamp()
