@@ -20,7 +20,7 @@ module.exports = {
         const hasRole = message.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         // If the member does not have an allowed role, do nothing
-        if (!hasRole) return;
+        if (hasRole) return;
 
         const logChannelId = '1203770237795836004'; // Bot Testing Channel
         const logChannel = await client.channels.fetch(logChannelId);
