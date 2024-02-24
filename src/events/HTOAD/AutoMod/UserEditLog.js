@@ -96,6 +96,8 @@ module.exports = {
                     const userNameChangeEmbed = new EmbedBuilder()
                         .setColor(0xfc6f03) 
                         .setTitle(`Username Change Detected`)
+                        .setURL(`https://discord.com/users/${newMember.user.id}`)
+                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
                         .setDescription(`<@${oldMember.user.id}> has changed their username to ${newMember.user.tag}`)
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
@@ -115,6 +117,8 @@ module.exports = {
                     const userNicknameChangeEmbed = new EmbedBuilder()
                         .setColor(0xfc6f03) // 
                         .setTitle(`Nickname Change Detected`)
+                        .setURL(`https://discord.com/users/${newMember.user.id}`)
+                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
                         .setDescription(`<@${oldMember.user.id}> has changed their nickname.`)
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
