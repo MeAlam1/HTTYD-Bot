@@ -1,3 +1,7 @@
+/**Description:
+ * This event is used to log the deleted message in the How to Own a Dragon server.
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {

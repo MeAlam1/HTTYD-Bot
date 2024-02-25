@@ -19,18 +19,15 @@ module.exports = {
         .setDescription('Check when the mod releases!'),
     run: async (client, interaction, args) => {
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
-            // How to Own a Dragon
             await interaction.reply({
                 embeds: [HTOADETAEmbed]
             });
         } else if (interaction.guild && Runic.includes(interaction.guild.id)) {
-            // Runic Isles Public Server
             await interaction.reply({
                 embeds: [RunicETAEmbed]
             });
         } else {
             await interaction.reply({
-                // This command is not available in this server.
                 content: 'This command is not available in this server.',
                 ephemeral: true
             });

@@ -1,3 +1,7 @@
+/**Description:
+ * This event is used to log the user leave/kick from the server.
+ */
+
 const { EmbedBuilder, AuditLogEvent } = require('discord.js');
 
 module.exports = {

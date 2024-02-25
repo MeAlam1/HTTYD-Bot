@@ -1,3 +1,7 @@
+/**Description:
+ * This event is used to log the user join in the How to Own a Dragon server.
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {

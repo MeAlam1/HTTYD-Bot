@@ -1,3 +1,5 @@
+// DO NOT TOUCH THIS FILE! 
+
 const { Client, Partials, Collection, GatewayIntentBits } = require("discord.js");
 const config = require('../config');
 const commands = require("../handlers/commands");

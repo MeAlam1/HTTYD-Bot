@@ -1,3 +1,7 @@
+/**Description:
+ * This event will log the user ban in the user-automod channel.
+ */
+
 const { EmbedBuilder, AuditLogEvent } = require('discord.js');
 
 module.exports = {

@@ -10,18 +10,16 @@ module.exports = {
     customId: 'htoad-create-transcript-button',
     run: async (client, interaction) => {
         
-        // Function to get the current date formatted.
         function getCurrentDateFormatted() {
             const now = new Date();
             const day = String(now.getDate()).padStart(2, '0');
             const month = String(now.getMonth() + 1).padStart(2, '0');
             const year = now.getFullYear();
-            return `${day}-${month}-${year}`; // Format: DD-MM-YYYY
+            return `${day}-${month}-${year}`;
         }
 
         if (!interaction.guildId || !interaction.channel) {
 
-            // If the command is used in a DM.
             await interaction.reply({ content: 'This command can only be used in a server channel.', ephemeral: true });
             return;
         }   
@@ -41,33 +39,28 @@ module.exports = {
 
             if (!TicketChannel) {
 
-                // If the ticket transcript channel is not found.
                 await interaction.reply({ content: 'Custom channel not found.', ephemeral: true });
                 return;
             }
 
             if (interaction.channel.parentId === TicketCategoryId) {
-            
-                // The message that gets sent when the transcript of a Ticket is created.
+
                 await TicketChannel.send({ content: `
 Name: ${interaction.channel.name}
 Date: ${getCurrentDateFormatted()}
 Closed By: ${interaction.user}
             `, files: [fileAttachment] });
 
-            // The transcript of the ticket is created and the ticket is closed.
             await interaction.channel.delete()
 
             } else if (interaction.channel.parentId === ApplicationCategoryId) {
-            
-                // The message that gets sent when the transcript of an Application is created.
+
                 await ApplicationChannel.send({ content: `
 Name: ${interaction.channel.name}
 Date: ${getCurrentDateFormatted()}
 Closed By: ${interaction.user}
             `, files: [fileAttachment] });
 
-            // The transcript of the application is created and the application is closed.
             await interaction.channel.delete()
             }
 
@@ -75,13 +68,11 @@ Closed By: ${interaction.user}
         } catch (error) {
             console.error(error);
 
-            // If the transcript creation fails.
             await interaction.reply({ content: 'Failed to create a transcript.', ephemeral: true });
         }
     }
 };
 
-// Function to create a transcript of the channel.
 async function createTranscript(channel) {
     const fetchedMessages = await channel.messages.fetch({ limit: 250 });
     let transcriptHtml = `
@@ -270,7 +261,6 @@ async function createTranscript(channel) {
 </div>
 `;
 
-// Reverse the messages to display them in chronological order
 fetchedMessages.reverse().forEach(msg => {
     let timestamp = new Date(msg.createdTimestamp).toLocaleString(); 
     let authorAvatarUrl = msg.author.displayAvatarURL();
@@ -291,7 +281,6 @@ fetchedMessages.reverse().forEach(msg => {
         });
     }
 
-    // Replace custom emojis with images
     messageContent = messageContent.replace(/<:(.*?):(\d+)>/g, (match, emojiName, emojiId) => {
         return `<img src="https://cdn.discordapp.com/emojis/${emojiId}.png" alt="${emojiName}" style="width: 20px; height: 20px;">`;
     });
@@ -306,29 +295,22 @@ fetchedMessages.reverse().forEach(msg => {
             </div>
             <div class="content">${messageContent.replace(/\n/g, '<br>')}</div>`;
 
-    // Processing attachments for images and videos
     if (msg.attachments.size > 0) {
         msg.attachments.forEach(attachment => {
-            // Extract URL before any query parameters for accurate file type checking
-            let urlBeforeParams = attachment.url.split('?')[0]; // Split the URL at the question mark and take the first part
+            let urlBeforeParams = attachment.url.split('?')[0];
             
             if (urlBeforeParams.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
-                // Image attachment
                 transcriptHtml += `<div class="attachment"><img src="${attachment.url}" style="max-width: 100%; height: auto;"></div>`;
             } 
             else if (urlBeforeParams.match(/\.(mp4|webm|mov|mkv)$/i)) {
-                // Video attachment
                 transcriptHtml += `<div class="attachment"><video controls style="max-width: 100%; height: auto;"><source src="${attachment.url}" type="video/mp4">Your browser does not support the video tag.</video></div>`;
             }
             else {
-                // Other attachment
                 transcriptHtml += `<div class="attachment"><a href="${attachment.url}" target="_blank">View Attachment</a></div>`;
             }
         });
     }
     
-
-    // Processing embeds
     if (msg.embeds.length > 0) {
         msg.embeds.forEach(embed => {
             transcriptHtml += `<div class="embed">`;
@@ -382,17 +364,13 @@ transcriptHtml += `
 </body>
 </html>`;
 
-
-// Function to get the current date formatted.
 function getCurrentDateFormatted() {
     const now = new Date();
     const day = String(now.getDate()).padStart(2, '0');
     const month = String(now.getMonth() + 1).padStart(2, '0');
     const year = now.getFullYear();
-    return `${day}-${month}-${year}`; // Format: DD-MM-YYYY
+    return `${day}-${month}-${year}`;
 }
-
-    // Name of the Transcript
     const filePath = `transcript-${channel.name}-${getCurrentDateFormatted()}.html`;
     fs.writeFileSync(filePath, transcriptHtml);
 

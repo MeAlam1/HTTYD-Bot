@@ -22,7 +22,6 @@ module.exports = {
         .setDescription('check all available commands in this server!'),
     run: async (client, interaction) => {
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
-            // How to Own a Dragon
             await interaction.reply({
                 embeds: [HTOADHelpCategoryEmbed],
                 components: [
@@ -39,7 +38,6 @@ module.exports = {
                 ]
             });
         } else if (interaction.guild && Runic.includes(interaction.guild.id)) {
-            // Runic Isles Public Server
             await interaction.reply({
                 embeds: [RunicHelpCategoryEmbed],
                 components: [
@@ -55,13 +53,11 @@ module.exports = {
                 ]
             });
         } else if (interaction.guild && Ravenstone.includes(interaction.guild.id)) {
-            // Ravenstone Peak
             await interaction.reply({
                 embeds: [RavenstoneHelpCategoryEmbed],
             });
         } else {
             await interaction.reply({
-                // This command is not available in this server.
                 content: 'This command is not available in this server.',
                 ephemeral: true
             });

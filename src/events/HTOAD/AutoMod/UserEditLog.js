@@ -1,3 +1,7 @@
+/**Description:
+ * This event is used to log the user's role changes, username changes, and nickname changes.
+ */
+
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {

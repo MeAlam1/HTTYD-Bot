@@ -15,13 +15,11 @@ module.exports = {
     customId: 'close-ticket-button',
     run: async (client, interaction) => {
 
-        // The Button to Create a Transcript
         const CreateTranscriptButton = new ButtonBuilder()
             .setCustomId('htoad-create-transcript-button')
             .setLabel('Create Transcript')
             .setStyle(ButtonStyle.Success);
 
-        // The Embed to Close the Ticket
         const HTOADCloseTicketEmbed = new EmbedBuilder()
             .setColor(0x0099FF)
             .setTitle(`**${interaction.channel.name}**`)
@@ -34,12 +32,10 @@ module.exports = {
 
         if (!interaction.member.roles.cache.some(role => allowedRoles.includes(role.id))) {
 
-            // If the user does not have the necessary permissions to close the ticket.
             await interaction.reply({ content: 'You do not have the necessary permissions to close the ticket.', ephemeral: true });
             return;
         }
 
-        // To send the Embed and the Button to Create a Transcript/Closed the Ticket.
         await interaction.reply({ 
             embeds: [HTOADCloseTicketEmbed],  
             components: [row] 

@@ -16,13 +16,11 @@ module.exports = {
         .setDescription('Feel free to support us!'),
     run: async (client, interaction, args) => {
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
-            // How to Own a Dragon
             await interaction.reply({
                 embeds: [HTOADSupportEmbed]
             });
         } else {
             await interaction.reply({
-                // This command is not available in this server.
                 content: 'This command is not available in this server.',
                 ephemeral: true
             });

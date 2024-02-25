@@ -28,7 +28,6 @@ module.exports = {
 
         if (message.guild && message.guild.id === Runic && isETAMessage(message.content)) {
             
-            // Send an embed in the channel.
             await message.reply({ embeds: [RunicETAEmbed] });
         } 
     }

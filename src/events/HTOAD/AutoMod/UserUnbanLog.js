@@ -1,3 +1,7 @@
+/**Description:
+ * This event is used to log the user unban in the How to Own a Dragon server.
+ */
+
 const { EmbedBuilder, AuditLogEvent } = require('discord.js');
 
 module.exports = {

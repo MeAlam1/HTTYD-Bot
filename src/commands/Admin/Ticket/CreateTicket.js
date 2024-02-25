@@ -22,12 +22,10 @@ module.exports = {
         .setDescription('Create a Ticket!'),
     run: async (client, interaction, args) => {
 
-        // To check if the user has the necessary permissions to use this command.
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!interaction.guild || !allowedServers.includes(interaction.guild.id)) {
             await interaction.reply({
-                // This command is not available in this server.
                 content: 'This command is not available in this server.',
                 ephemeral: true
             });
@@ -36,7 +34,6 @@ module.exports = {
 
         if (!hasRole) {
             await interaction.reply({
-                // Reply if the user does not have the necessary permissions to use this command.
                 content: 'You do not have permission to use this command.',
                 ephemeral: true
             });
@@ -45,7 +42,6 @@ module.exports = {
 
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
             await interaction.reply({
-                // To send the Create Ticket Embed + Button.
                 embeds: [HTOADCreateTicketEmbed],
                 components: [
                     new ActionRowBuilder()

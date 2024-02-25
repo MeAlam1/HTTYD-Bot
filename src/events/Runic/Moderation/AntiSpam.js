@@ -15,7 +15,6 @@ module.exports = {
         const message = args[0];
 
         function isSpam(content) {
-            // The list of words that the message will be checked for.
             const pattern = ['@everyone', '@here'];
             return pattern.some(spamWord => content.includes(spamWord));
         }
@@ -36,20 +35,16 @@ module.exports = {
 
             if (!hasAllowedRole) {
                 try {
-                    
-                    // Delete the Spam message.
+    
                     await message.delete();
 
                     const logChannelId = '1151645114146488390'; // Runic Public log channel
                     const logChannel = await client.channels.fetch(logChannelId);
 
-                    // Message sent in the log channel.
                     await logChannel.send({ content: `${message.author.tag} has been timed out for using everyone or here inappropriately.` });
 
-                    // Timeout duration in milliseconds.(7 Days)
-                    const timeoutDuration = 7 * 24 * 60 * 60 * 1000;
+                    const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 Days
                     
-                    // Message in Audit Log.
                     await message.member.timeout(timeoutDuration, 'Using `@everyone` or `@here` inappropriately.');
                 } catch (error) {
                     console.error('Error trying to delete a spam message or timeout the user: ', error);

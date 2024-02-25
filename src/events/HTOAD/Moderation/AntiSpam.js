@@ -17,7 +17,6 @@ module.exports = {
         const message = args[0];
 
         function isSpam(content) {
-            // The list of words that the message will be checked for.
             const pattern = ['@everyone', '@here'];
             return pattern.some(spamWord => content.includes(spamWord));
         }
@@ -38,44 +37,37 @@ module.exports = {
 
                     const AntiSpamLog = new EmbedBuilder()
                         .setColor(0xbf020f)
-                        .setTitle(`${message.author.tag}`) // User that sent the message
-                        .setURL(`https://discord.com/users/${message.author.id}`) // The URL of the User
+                        .setTitle(`${message.author.tag}`) 
+                        .setURL(`https://discord.com/users/${message.author.id}`) 
                         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
                         .setDescription('Usage of @everyone and @here in the server!')
-                        .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) // Profile Picture of User
+                        .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
-                            { name: 'The User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, // The Ping of the User
-                            { name: 'The User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, // The ID of the User
+                            { name: 'The User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, 
+                            { name: 'The User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, 
                         )
                         .addFields(
-                            { name: 'Message Content:', value: `${message.content}⠀⠀⠀⠀`}, // The Message that was sent
-                            { name: 'The Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, // The Message ID
+                            { name: 'Message Content:', value: `${message.content}⠀⠀⠀⠀`}, 
+                            { name: 'The Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, 
                         )
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
-                    // Delete the Spam message.
                     await message.delete();
 
                     const logChannelId = '1168633106757070928'; // How to Own a Dragon infraction channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
 
-                    // Current date and time
                     const now = new Date();
-                    // Add 7 days to the current date
                     const sevenDaysLater = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
-                    // Convert to Unix timestamp (seconds since epoch)
                     const sevenDaysLaterTimestamp = Math.floor(sevenDaysLater.getTime() / 1000);
 
-                    // Message sent in the log channel.
                     await logChannel.send({ 
                         content: `<@${message.author.id}> got timed out until <t:${sevenDaysLaterTimestamp}:F>`,
                         embeds: [AntiSpamLog] });
 
-                    // Timeout duration in milliseconds.(7 Days)
-                    const timeoutDuration = 7 * 24 * 60 * 60 * 1000; 
+                    const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 days
 
-                    // Message in Audit Log.
                     await message.member.timeout(timeoutDuration, 'Using `@everyone` or `@here` inappropriately.');
                 } catch (error) {
                     console.error('Error trying to delete a spam message or timeout the user: ', error);

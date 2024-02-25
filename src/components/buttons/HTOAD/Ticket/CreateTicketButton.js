@@ -10,8 +10,7 @@ const HTOADFirstMessageTicketEmbed = require('../../../../embed/HTOAD/Ticket/Fir
 module.exports = {
     customId: 'htoad-create-ticket-button',
     run: async (client, interaction) => {
-        // How to Own a Dragon
-        const categoryId = '1126638959716470886'; // Ticket Category
+        const categoryId = '1126638959716470886'; // How to Own a Dragon Ticket Category
         const channelName = `ticket-${interaction.user.username.replace(/\s+/g, '-').toLowerCase()}`;
 
         interaction.guild.channels.create({
@@ -39,18 +38,15 @@ module.exports = {
         }).then(channel => {
             interaction.reply({
 
-                // The message that gets sent when they create a ticket. (only they can see it)
                 content: `Your ticket has been created! <#${channel.id}>`,
                 ephemeral: true
             });
 
-            // The Button to Close the Ticket
             const CloseTicketButton = new ButtonBuilder()
              .setCustomId('close-ticket-button')
              .setLabel('Close Ticket')
              .setStyle(ButtonStyle.Danger);
 
-            // The Button to Rename the Transcript
              const RenameTranscriptButton = new ButtonBuilder()
              .setCustomId('htoad-rename-channel-button')
              .setLabel('Rename Channel')
@@ -59,7 +55,6 @@ module.exports = {
 
             const row = new ActionRowBuilder().addComponents(CloseTicketButton, RenameTranscriptButton);
 
-            // The First message in the ticket that gets created. The message also gets pinned.
             channel.send({
                 embeds: [HTOADFirstMessageTicketEmbed],
                 content: `<@&1161418815440166943>`,
