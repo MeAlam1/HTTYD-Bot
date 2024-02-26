@@ -23,7 +23,7 @@ module.exports = {
             '1131196059608174705' // Important Admin Channel
         ];
 
-        if (excludedChannelIds.includes(newMessage.channel.id)) return;
+        if (excludedChannelIds.includes(message.channel.id)) return;
 
         if (message.guild && message.guild.id === HTOAD) {
 
