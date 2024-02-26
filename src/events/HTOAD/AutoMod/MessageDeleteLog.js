@@ -17,6 +17,14 @@ module.exports = {
             '1120033014416670895'  // Bots Role
         ];
 
+        const excludedChannelIds = [
+            '1120026059686019193', // Moderator Only Channel
+            '1134586375140802600', // Admin Discuss Channel
+            '1131196059608174705' // Important Admin Channel
+        ];
+
+        if (excludedChannelIds.includes(newMessage.channel.id)) return;
+
         if (message.guild && message.guild.id === HTOAD) {
 
             const hasAllowedRole = message.member.roles.cache.some(role => allowedRoles.includes(role.id)); 

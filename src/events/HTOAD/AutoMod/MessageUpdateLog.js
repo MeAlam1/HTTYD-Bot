@@ -18,6 +18,14 @@ module.exports = {
 
         const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
 
+        const excludedChannelIds = [
+            '1120026059686019193', // Moderator Only Channel
+            '1134586375140802600', // Admin Discuss Channel
+            '1131196059608174705' // Important Admin Channel
+        ];
+
+        if (excludedChannelIds.includes(newMessage.channel.id)) return;
+
         if (newMessage.guild && newMessage.guild.id === HTOAD) {
             const member = newMessage.member;
             const allowedRoles = ['1120033014416670895']; // Bots Role
