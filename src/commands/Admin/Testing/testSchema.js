@@ -13,7 +13,7 @@ module.exports = {
             '1140629154748956813'  // How to Own a Dragon Coder Role
         ];
 
-        const hasRole = interaction.member.roles.cache.some(role => allowedRoleIds.includes(role.id));
+        const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!hasRole) {
             await interaction.reply({ content: 'You do not have permission to use this command.', ephemeral: true });
