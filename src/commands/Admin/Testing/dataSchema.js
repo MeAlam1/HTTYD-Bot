@@ -1,4 +1,4 @@
-/**const { SlashCommandBuilder } = require(`discord.js`);
+const { SlashCommandBuilder } = require(`discord.js`);
 const testSchema = require(`../../../schemas/test`);
 
 module.exports = {
@@ -18,4 +18,3 @@ module.exports = {
         await interaction.reply({ content: values.join(`\n`) || `The database is empty.` });
     }
 };
-*/

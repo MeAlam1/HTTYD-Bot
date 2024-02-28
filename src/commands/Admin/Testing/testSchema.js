@@ -1,4 +1,3 @@
-/**
 const { SlashCommandBuilder } = require(`discord.js`);
 const testSchema = require(`../../../schemas/test`);
 
@@ -20,4 +19,3 @@ module.exports = {
 
     }
 };
-*/

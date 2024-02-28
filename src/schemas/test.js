@@ -5,4 +5,4 @@ let test = new Schema({
     name: String,
 });
 
-module.exports = model('testScema13579', test);
+module.exports = model('Public1', test);
