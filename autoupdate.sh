@@ -4,6 +4,12 @@
 
 #!/bin/bash
 
+# Restart the bot once before entering the update loop
+echo "Initial bot restart..."
+pkill node
+npm run dev &
+echo "Bot restarted."
+
 while true; do
   # Check if the Github has been updated
   git fetch origin
