@@ -40,7 +40,8 @@ module.exports = {
                             { name: 'User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, 
                             { name: 'User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, 
                             { name: 'Message Content:', value: `${message.content}⠀⠀⠀⠀`},
-                            { name: 'Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  } 
+                            { name: 'Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, 
+                            { name: 'Channel:', value: `<#${message.channel.id}>⠀⠀⠀⠀`, inline: true}
                         )
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });

@@ -44,7 +44,8 @@ module.exports = {
                             { name: 'User ID:', value: `${newMessage.author.id}`, inline: true },
                             { name: 'Message Before:', value: `${oldMessage.content.substring(0, 1024) || 'None'}`},
                             { name: 'Message After:', value: `${newMessage.content.substring(0, 1024) || 'None'}`},
-                            { name: 'Message ID:', value: `${newMessage.id}`, inline: true }
+                            { name: 'Message ID:', value: `${newMessage.id}`, inline: true },
+                            { name: 'Link to Message:', value: `[Jump to Message](https://discord.com/channels/${newMessage.guild.id}/${newMessage.channel.id}/${newMessage.id})`, inline: true }
                         )
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
