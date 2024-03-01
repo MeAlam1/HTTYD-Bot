@@ -91,7 +91,7 @@ Closed By: ${interaction.user}
         } catch (error) {
             console.error(error);
 
-            await interaction.reply({ content: 'Failed to create a transcript.', ephemeral: true });
+            await interaction.reply({ content: `Failed to create a transcript. ${error}`, ephemeral: true });
         }
     }
 };
