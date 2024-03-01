@@ -7,6 +7,7 @@ const HTOAD = ['1120022058601029652']; // How to Own a Dragon
 const allowedRoles = [
     '1120030006626750474', // How to Own a Dragon Owner Role
     '1133420066277437490', // How to Own a Dragon Lead Dev Role
+    '1161418815440166943', // How to Own a Dragon Moderator Role
     '1140629154748956813'  // How to Own a Dragon Coder Role
 ];
 
