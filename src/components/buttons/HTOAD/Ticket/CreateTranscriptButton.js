@@ -74,7 +74,7 @@ Closed By: ${interaction.user}
 };
 
 async function createTranscript(channel) {
-    const fetchedMessages = await channel.messages.fetch({ limit: 250 });
+    const fetchedMessages = await channel.messages.fetch({ limit: 100 });
     let transcriptHtml = `
 <!DOCTYPE html>
 <html lang="en">
