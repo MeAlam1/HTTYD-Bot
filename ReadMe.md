@@ -16,10 +16,10 @@
 * UserInfo
 * Tickets
 * Transcripts
+* Complete Logging system
 
 # Planned
 
-* Complete Logging system
 * All Moderation Commands
 * Interface VC
 * And More(The list above is the priority)
