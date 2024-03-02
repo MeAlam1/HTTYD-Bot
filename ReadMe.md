@@ -17,6 +17,7 @@
 * Tickets
 * Transcripts
 * Complete Logging system
+* Connected a Database
 
 # Planned
 
