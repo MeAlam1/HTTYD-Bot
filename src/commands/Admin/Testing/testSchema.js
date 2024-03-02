@@ -1,3 +1,13 @@
+// DO NOT TOUCH THIS FILE!
+
+/**Servers:
+ * How to Own a Dragon
+ */
+
+/**Description:
+ * This Command lets you add data to the database.
+ */
+
 const { SlashCommandBuilder } = require(`discord.js`);
 const testSchema = require(`../../../schemas/test`);
 

@@ -1,3 +1,13 @@
+// DO NOT TOUCH THIS FILE!
+
+/**Servers:
+ * How to Own a Dragon
+ */
+
+/**Description:
+ * This command is used to delete the values in the database.
+ */
+
 const { SlashCommandBuilder } = require(`discord.js`);
 const testSchema = require(`../../../schemas/test`);
 

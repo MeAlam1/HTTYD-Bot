@@ -1,6 +1,11 @@
+/**Servers:
+ * How to Own a Dragon
+ */
+
 /**Description:
  * This is an Command to create a transcript of a ticket.
  */
+
 const fs = require('fs');
 const { SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 const HTOAD = ['1120022058601029652']; // How to Own a Dragon
