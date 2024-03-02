@@ -8,10 +8,9 @@ const { EmbedBuilder } = require('discord.js');
 
 const HTOADInformationEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
-    .setTitle('Server Information')
+    .setTitle('Welcome to How to Own a Dragon!')
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
     .setImage('https://imgur.com/xEKQnvq.png')  
-    .setDescription('Welcome to How to Own a Dragon!')
     .addFields(
         { name: '\u200B', value: `
         This server is a Minecraft Mod and a How to Train your Dragon Community!
@@ -21,7 +20,7 @@ const HTOADInformationEmbed = new EmbedBuilder()
         Our server is a place for all the fans to come together and share their love for the franchise. We are a friendly and welcoming community and we hope you enjoy your time here.
         ` },
         { name: '\u200B', value: `
-        The server is also a place for the fans of the Minecraft Mod "How to Own a Dragon" to come together and discuss the mod, share their experiences, and help each other out.
+        The server is also a place for the fans of the Minecraft Mod How to Own a Dragon to come together and discuss the mod, share their experiences, and help each other out.
         ` },
         { name: '\u200B', value: `
         For any Questions, Suggestions, or Feedback, please feel free to contact the Staff by pressing the "Contact Staff" button below. 
