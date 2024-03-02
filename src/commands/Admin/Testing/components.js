@@ -6,6 +6,7 @@
 
 /**Description:
  * This is an example of a Component Command to Copy Paste.
+ * ADMIN ONLY COMMAND
  */
 
 const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder, ButtonStyle } = require('discord.js');

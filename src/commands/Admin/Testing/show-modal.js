@@ -6,6 +6,7 @@
 
 /**Description:
  * This is an example of a Modal Command to Copy Paste.
+ * ADMIN ONLY COMMAND
  */
 
 const { SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');

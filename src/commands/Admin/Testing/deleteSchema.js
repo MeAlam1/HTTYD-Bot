@@ -6,6 +6,7 @@
 
 /**Description:
  * This command is used to delete the values in the database.
+ * ADMIN ONLY COMMAND
  */
 
 const { SlashCommandBuilder } = require(`discord.js`);

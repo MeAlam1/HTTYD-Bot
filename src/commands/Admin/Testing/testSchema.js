@@ -6,6 +6,7 @@
 
 /**Description:
  * This Command lets you add data to the database.
+ * ADMIN ONLY COMMAND
  */
 
 const { SlashCommandBuilder } = require(`discord.js`);
