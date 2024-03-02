@@ -17,10 +17,10 @@ const HTOADInformationEmbed = new EmbedBuilder()
         This Discord Community is for all the fans of the How to Train your Dragon Universe(Movies, Series, Specials, Games, and all other related media).
         ` },
         { name: '\u200B', value: `
-        Our server is a place for all the fans to come together and share their love for the franchise. We are a friendly and welcoming community and we hope you enjoy your time here.
+        The server is a place for the fans of the Minecraft Mod How to Own a Dragon to come together and discuss the mod, share their experiences, and help each other out.
         ` },
         { name: '\u200B', value: `
-        The server is also a place for the fans of the Minecraft Mod How to Own a Dragon to come together and discuss the mod, share their experiences, and help each other out.
+        Our server is also a place for all the fans to come together and share their love for the franchise. We are a friendly and welcoming community and we hope you enjoy your time here.
         ` },
         { name: '\u200B', value: `
         For any Questions, Suggestions, or Feedback, please feel free to contact the Staff by pressing the "Contact Staff" button below. 
