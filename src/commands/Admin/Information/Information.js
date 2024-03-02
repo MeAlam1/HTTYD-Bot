@@ -33,7 +33,22 @@ module.exports = {
          .setLabel('Rules')
          .setStyle(ButtonStyle.Primary);
 
-        const row = new ActionRowBuilder().addComponents(FaqButton, RulesButton);
+        const RolesButton = new ButtonBuilder()
+         .setCustomId('htoad-roles-button')
+         .setLabel('Role info')
+         .setStyle(ButtonStyle.Primary);
+
+        const ChannelsButton = new ButtonBuilder()
+         .setCustomId('htoad-channels-button')
+         .setLabel('Channel info')
+         .setStyle(ButtonStyle.Primary);
+
+        const ContactStaffButton = new ButtonBuilder()
+         .setCustomId('htoad-contact-staff-button')
+         .setLabel('Contact Staff')
+         .setStyle(ButtonStyle.Secondary);
+
+        const row = new ActionRowBuilder().addComponents(FaqButton, RulesButton, RolesButton, ChannelsButton, ContactStaffButton);
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!hasRole) {
