@@ -44,7 +44,7 @@ module.exports = {
          .setStyle(ButtonStyle.Primary);
 
         const ContactStaffButton = new ButtonBuilder()
-         .setCustomId('htoad-contact-staff-button')
+         .setCustomId('htoad-create-ticket-button')
          .setLabel('Contact Staff')
          .setStyle(ButtonStyle.Secondary);
 
