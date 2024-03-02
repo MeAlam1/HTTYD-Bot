@@ -48,16 +48,6 @@ module.exports = {
 
                     let otherAttachmentsContent = ""; 
 
-                    if (message.attachments.size > 0) {
-                        message.attachments.forEach((attachment) => {
-                            if (attachment.contentType && (attachment.contentType.includes('image') || attachment.contentType.includes('gif'))) {
-                                MessageDeleteLogEmbed.setImage(attachment.url);
-                            } else {
-                                otherAttachmentsContent += `${attachment.url}\n`;
-                            }
-                        });
-                    }
-
                     const regex = /(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*\b/g;
                     const messageLinks = message.content.match(regex);
                     if (messageLinks) {
