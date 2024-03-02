@@ -27,7 +27,7 @@ const HTOADInformationEmbed = new EmbedBuilder()
         This will create a ticket for you to talk to the staff. A staff member will be with you as soon as possible. Please provide as much information as possible so we can help you as quickly as possible.
         ` },
         { name: '\u200B', value: `
-        This is a fan project mod and community to come together! We are not associated with Universal, Dreamworks or How to Train your Dragon.
+        This is a fan project Mod! We are not associated with Universal, Dreamworks or How to Train your Dragon.
         ` },
     )
     .setTimestamp()
