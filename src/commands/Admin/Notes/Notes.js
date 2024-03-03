@@ -7,7 +7,7 @@
  * ADMIN ONLY COMMAND
  */
 
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
 const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 
 module.exports = {
@@ -52,12 +52,26 @@ module.exports = {
             const discordTimestamp = `<t:${Math.floor(new Date(note.createdAt).getTime() / 1000)}:R>`;
             const noteContent = note.note.length > 1020 ? note.note.substring(0, 1020) + '...' : note.note;
             noteEmbed.addFields(
+                { name: `Note ${index + 1}`, value: noteContent, inline: true},
                 { name: `Created:`, value: discordTimestamp, inline: true },
-                { name: `Moderator:`, value: `<@${note.moderator}>`, inline: true},
-                { name: `Note ${index + 1}`, value: noteContent }
+                { name: `Moderator:`, value: `<@${note.moderator}>`, inline: false},
             );
         });
 
-        await interaction.reply({ embeds: [noteEmbed] });
+        const selectOptions = notes.map((note, index) => ({
+            label: `Note ${index + 1}`,
+            description: `Select to view details about Note ${index + 1}`,
+            value: `note_${index}`,
+        }));
+    
+        await interaction.reply({ embeds: [noteEmbed], components: [
+            new ActionRowBuilder()
+                .addComponents(
+                    new StringSelectMenuBuilder()
+                        .setCustomId('all-notes')
+                        .setPlaceholder(`Select a Note to view details.`)
+                        .addOptions(selectOptions)
+                )
+        ], });
     }
 };
