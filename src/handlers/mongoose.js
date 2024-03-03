@@ -1,5 +1,3 @@
-// DO NOT TOUCH THIS FILE!
-
 const { createConnection } = require("mongoose");
 const config = require("../config");
 const { log } = require("../functions");
@@ -12,17 +10,24 @@ const connectDatabases = async () => {
 
     log('Started connecting to MongoDB databases...', 'warn');
 
+    const connectionOptions = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        connectTimeoutMS: 30000, 
+        socketTimeoutMS: 45000, 
+    };
+
     try {
-        const TestDB = await createConnection(dbConnections.dbATest, { useNewUrlParser: true, useUnifiedTopology: true });
+        const TestDB = await createConnection(dbConnections.dbATest, connectionOptions);
         log('MongoDB TestDB is connected!', 'done');
 
-        const NoteDB = await createConnection(dbConnections.dbBNote, { useNewUrlParser: true, useUnifiedTopology: true });
+        const NoteDB = await createConnection(dbConnections.dbBNote, connectionOptions);
         log('MongoDB NoteDB is connected!', 'done');
 
         return { TestDB, NoteDB };
     } catch (err) {
         log(`Error connecting to databases: ${err}`, 'error');
-        throw err; // Or handle it as per your application's needs
+        throw err; 
     }
 };
 
