@@ -113,6 +113,10 @@ module.exports = {
                 .setTimestamp()
                 .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
 
+                if (attachments.length > 0) {
+                    dmEmbed.setImage(attachments[0]);
+                }
+
             try {
                 await userOption.send({ embeds: [dmEmbed] });
             } catch (error) {
