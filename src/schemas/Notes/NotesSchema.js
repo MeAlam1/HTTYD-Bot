@@ -1,6 +1,8 @@
-const mongoose = require('mongoose');
+// DO NOT TOUCH THIS FILE!
 
-const notesSchema = new mongoose.Schema({
+const { Schema, model } = require('mongoose');
+
+let notes = new Schema({
     guild: String,
     moderator: String,
     user: String,
@@ -13,7 +15,6 @@ const notesSchema = new mongoose.Schema({
     attachments: [{ type: String }],
     visibility: { type: String, enum: ['public', 'guild'], default: 'public' },
     dmNotification: { type: Boolean, default: false },
-}, { collection: 'htoad' });
+});
 
-const Note = mongoose.model('Note', notesSchema);
-module.exports = Note;
+module.exports = model('htoad', notes);
