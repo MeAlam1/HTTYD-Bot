@@ -41,16 +41,20 @@ module.exports = {
 
         // Create an EmbedBuilder instance
         const noteEmbed = new EmbedBuilder()
-            .setColor(0x0099FF)
+            .setColor(0xbf020f)
             .setTitle(`Notes for ${userOption.username}`)
-            .setDescription(`Found ${notes.length} notes for this user.`)
+            .setURL(`https://discord.com/users/${userOption.id}`)
+            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
             .setThumbnail(userOption.displayAvatarURL({ dynamic: true }));
 
         const displayedNotes = notes.slice(0, 25);
 
         displayedNotes.forEach((note, index) => {
             const noteContent = note.note.length > 1020 ? note.note.substring(0, 1020) + '...' : note.note;
-            noteEmbed.addFields({ name: `Note ${index + 1}`, value: noteContent });
+            noteEmbed.addFields(
+                { name: `Moderator: <@${note.moderator}>`, value: `At: ${note.createdAt}` },
+                { name: `Note ${index + 1}`, value: noteContent }
+            );
         });
 
         await interaction.reply({ embeds: [noteEmbed] });
