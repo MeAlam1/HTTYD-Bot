@@ -17,4 +17,4 @@ let notes = new Schema({
     dmNotification: { type: Boolean, default: false },
 });
 
-module.exports = model('htoad', notes);
+module.exports = model('Note', notes);
