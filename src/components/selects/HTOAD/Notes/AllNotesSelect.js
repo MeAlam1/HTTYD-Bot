@@ -4,7 +4,6 @@ const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
 module.exports = {
     customId: 'all-notes',
     run: async (client, interaction) => {
-        if (!interaction.isSelectMenu()) return;
 
         const selectedValue = interaction.values[0];
         const noteId = selectedValue.split('_')[1];
@@ -34,7 +33,7 @@ module.exports = {
                 { name: 'Status', value: selectedNote.status, inline: true },
                 { name: 'Visibility', value: selectedNote.visibility, inline: true },
                 { name: 'DM User', value: selectedNote.dmNotification ? 'Yes' : 'No', inline: true },
-                { name: 'Created At', value: selectedNote.createdAt.toISOString(), inline: true }, 
+                { name: 'Created At', value: selectedNote.createdAt, inline: true }, 
                 { name: 'Note', value: selectedNote.note },
             )
             .setTimestamp()
