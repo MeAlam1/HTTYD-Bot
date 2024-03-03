@@ -39,7 +39,6 @@ module.exports = {
             return;
         }
 
-        // Create an EmbedBuilder instance
         const noteEmbed = new EmbedBuilder()
             .setColor(0xbf020f)
             .setTitle(`Notes for ${userOption.username}`)
@@ -49,10 +48,13 @@ module.exports = {
 
         const displayedNotes = notes.slice(0, 25);
 
+        const discordTimestamp = `<t:${Math.floor(new Date(note.createdAt).getTime() / 1000)}:R>`;
+
         displayedNotes.forEach((note, index) => {
             const noteContent = note.note.length > 1020 ? note.note.substring(0, 1020) + '...' : note.note;
             noteEmbed.addFields(
-                { name: `Moderator: <@${note.moderator}>`, value: `At: ${note.createdAt}` },
+                { name: `Created:`, value: discordTimestamp, inline: true },
+                { name: `Moderator:`, value: `<@${note.moderator}>`, inline: true},
                 { name: `Note ${index + 1}`, value: noteContent }
             );
         });
