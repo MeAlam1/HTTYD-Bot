@@ -1,4 +1,3 @@
-/** 
 const { SlashCommandBuilder } = require('discord.js');
 const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 
@@ -69,4 +68,3 @@ module.exports = {
         await interaction.reply('Note successfully added.');
     }
 };
-*/

@@ -1,7 +1,6 @@
-const { Schema } = require('mongoose');
-const { NoteDB } = require('../../handlers/mongoose.js');
+const mongoose = require('mongoose');
 
-let notesSchema = new Schema({
+const notesSchema = new mongoose.Schema({
     guild: String,
     moderator: String,
     user: String,
@@ -16,6 +15,5 @@ let notesSchema = new Schema({
     dmNotification: { type: Boolean, default: false },
 }, { collection: 'htoad' });
 
-const HTOADModel = NoteDB.model('htoad', notesSchema);
-
-module.exports = HTOADModel;
+const Note = mongoose.model('Note', notesSchema);
+module.exports = Note;

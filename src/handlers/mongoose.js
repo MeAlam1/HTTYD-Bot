@@ -6,7 +6,7 @@ const { log } = require("../functions");
 
 const connectDatabases = async () => {
     const dbConnections = {
-        dbATest: process.env.MONGODB_URI_TEST|| config.handler.mongodb.uritest,
+        dbATest: process.env.MONGODB_URI_TEST || config.handler.mongodb.uritest,
         dbBNote: process.env.MONGODB_URI_NOTE || config.handler.mongodb.urinote,
     };
 
