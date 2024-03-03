@@ -49,7 +49,16 @@ module.exports = {
             if (attachmentOption) {
                 attachments.push(attachmentOption.url);
             }
-                
+
+            function formatDateToMinutes(date) {
+                const year = date.getFullYear();
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                const day = date.getDate().toString().padStart(2, '0');
+                const hours = date.getHours().toString().padStart(2, '0');
+                const minutes = date.getMinutes().toString().padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}`;
+            }
+
             const userOption = options.getUser('user');
             const noteDocument = await NoteSchema.create({
                 guild: interaction.guild.id,
@@ -79,7 +88,7 @@ module.exports = {
                     { name: 'Status', value: noteDocument.status, inline: true },
                     { name: 'Visibility', value: noteDocument.visibility, inline: true },
                     { name: 'DM Notification', value: noteDocument.dmNotification ? 'Yes' : 'No', inline: true },
-                    { name: 'Created At', value: noteDocument.createdAt.toISOString(), inline: true },
+                    { name: 'Created At', value: formatDateToMinutes(noteDocument.createdAt), inline: true },
                     { name: 'Note', value: noteDocument.note },
                 )
                 .setTimestamp()
