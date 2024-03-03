@@ -70,7 +70,6 @@ module.exports = {
         .setTitle(`A note for ${noteDocument.user} has been created! `) 
         .setURL(`https://discord.com/users/${noteDocument.user}`)
         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-        .setThumbnail(options.getUser('user').displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
         .addFields(
             { name: 'Moderator', value: `<@${noteDocument.moderator}>`, inline: true },
             { name: 'User', value: `<@${noteDocument.user}>`, inline: true },
