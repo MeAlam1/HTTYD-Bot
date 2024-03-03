@@ -48,9 +48,8 @@ module.exports = {
 
         const displayedNotes = notes.slice(0, 25);
 
-        const discordTimestamp = `<t:${Math.floor(new Date(note.createdAt).getTime() / 1000)}:R>`;
-
         displayedNotes.forEach((note, index) => {
+            const discordTimestamp = `<t:${Math.floor(new Date(note.createdAt).getTime() / 1000)}:R>`;
             const noteContent = note.note.length > 1020 ? note.note.substring(0, 1020) + '...' : note.note;
             noteEmbed.addFields(
                 { name: `Created:`, value: discordTimestamp, inline: true },
