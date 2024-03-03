@@ -65,6 +65,27 @@ module.exports = {
             dmNotification: options.getBoolean('dm') || false,
         });
 
-        await interaction.reply('Note successfully added.');
+        const noteEmbed = new EmbedBuilder()
+        .setColor('#0099ff')
+        .setTitle(`A note for ${noteDocument.user} has been created! `) 
+        .setURL(`https://discord.com/users/${noteDocument.user}`)
+        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+        .setThumbnail(options.getUser('user').displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
+        .addFields(
+            { name: 'Moderator', value: `<@${noteDocument.moderator}>`, inline: true },
+            { name: 'User', value: `<@${noteDocument.user}>`, inline: true },
+            { name: 'Note Type', value: noteDocument.type, inline: true },
+            { name: 'Status', value: noteDocument.status, inline: true },
+            { name: 'visibility', value: noteDocument.visibility, inline: true },
+            { name: 'Note', value: noteDocument.note },
+        )
+        .setTimestamp()
+        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+
+    if (attachments.length > 0) {
+        noteEmbed.setImage(attachments[0]); 
+    }
+
+    await interaction.reply({ embeds: [noteEmbed] });
     }
 };
