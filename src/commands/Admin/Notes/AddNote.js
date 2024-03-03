@@ -76,7 +76,7 @@ module.exports = {
             });
 
             const noteEmbed = new EmbedBuilder()
-                .setColor('#0099ff')
+                .setColor(0xbf020f)
                 .setTitle(`A note for ${userOption.tag} has been created!`)
                 .setURL(`https://discord.com/users/${userOption.id}`)
                 .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
@@ -102,7 +102,7 @@ module.exports = {
 
         if (noteDocument.dmNotification) {
             const dmEmbed = new EmbedBuilder()
-                .setColor('#0099ff')
+                .setColor(0xbf020f)
                 .setTitle(`You've received a new note!`)
                 .setDescription(`A note has been added to your profile.`)
                 .addFields(
