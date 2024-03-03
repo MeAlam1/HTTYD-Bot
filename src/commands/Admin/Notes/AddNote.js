@@ -87,7 +87,7 @@ module.exports = {
                     { name: 'Note Type', value: noteDocument.type, inline: true },
                     { name: 'Status', value: noteDocument.status, inline: true },
                     { name: 'Visibility', value: noteDocument.visibility, inline: true },
-                    { name: 'DM Notification', value: noteDocument.dmNotification ? 'Yes' : 'No', inline: true },
+                    { name: 'DM User', value: noteDocument.dmNotification ? 'Yes' : 'No', inline: true },
                     { name: 'Created At', value: formatDateToMinutes(noteDocument.createdAt), inline: true },
                     { name: 'Note', value: noteDocument.note },
                 )
@@ -95,9 +95,30 @@ module.exports = {
                 .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
                 
             if (attachments.length > 0) {
-                noteEmbed.setImage(attachments[0]); // Assuming the URL is correct
+                noteEmbed.setImage(attachments[0]);
             }
                 
         await interaction.reply({ embeds: [noteEmbed] });
+
+        if (noteDocument.dmNotification) {
+            const dmEmbed = new EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle(`You've received a new note!`)
+                .setDescription(`A note has been added to your profile.`)
+                .addFields(
+                    { name: 'Note Type', value: noteDocument.type, inline: true },
+                    { name: 'Created At', value: formatDateToMinutes(noteDocument.createdAt), inline: true },
+                    { name: 'Note', value: noteDocument.note },
+                )
+                .setTimestamp()
+                .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+
+            try {
+                await userOption.send({ embeds: [dmEmbed] });
+            } catch (error) {
+                console.error("Failed to send DM", error);
+                await interaction.followUp({ content: 'Failed to send DM to the user.', ephemeral: true });
+            }
+        }
     }
 };                
