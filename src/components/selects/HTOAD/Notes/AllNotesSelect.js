@@ -1,3 +1,5 @@
+// DOESNT WORK YET
+
 const { EmbedBuilder } = require('discord.js');
 const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
 
