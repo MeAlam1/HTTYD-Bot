@@ -1,3 +1,12 @@
+/**Servers:
+ * How to Own a Dragon
+ */
+
+/**Description:
+ * This command is used to add a note to a user.
+ * ADMIN ONLY COMMAND
+ */
+
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 
@@ -15,7 +24,7 @@ module.exports = {
                 .setRequired(true))
         .addStringOption(option => 
             option.setName('type')
-                .setDescription('type for the note.'))
+                .setDescription('Type of note.'))
         .addStringOption(option => 
             option.setName('status')
                 .setDescription('Status of the note.')
