@@ -1,8 +1,7 @@
-// DO NOT TOUCH THIS FILE!
+const { Schema } = require('mongoose');
+const { NoteDB } = require('../../handlers/mongoose.js');
 
-const { Schema, model } = require('mongoose');
-
-let notes = new Schema({
+let notesSchema = new Schema({
     guild: String,
     moderator: String,
     user: String,
@@ -15,6 +14,8 @@ let notes = new Schema({
     attachments: [{ type: String }],
     visibility: { type: String, enum: ['public', 'guild'], default: 'public' },
     dmNotification: { type: Boolean, default: false },
-});
+}, { collection: 'htoad' });
 
-module.exports = model('htoad', notes);
+const HTOADModel = NoteDB.model('htoad', notesSchema);
+
+module.exports = HTOADModel;

@@ -1,15 +1,29 @@
 // DO NOT TOUCH THIS FILE!
 
-// For now useless since we don't have a database yet, but it's here for future use.
-
-const { connect } = require("mongoose");
+const { createConnection } = require("mongoose");
 const config = require("../config");
 const { log } = require("../functions");
 
-module.exports = async () => {
-    log('Started connecting to MongoDB...', 'warn');
+const connectDatabases = async () => {
+    const dbConnections = {
+        dbATest: process.env.MONGODB_URITest || config.handler.mongodb.uriTest,
+        dbBNote: process.env.MONGODB_URINote || config.handler.mongodb.uriNote,
+    };
 
-    await connect(process.env.MONGODB_URI || config.handler.mongodb.uri).then(() => {
-        log('MongoDB is connected!', 'done')
-    });
+    log('Started connecting to MongoDB databases...', 'warn');
+
+    try {
+        const TestDB = await createConnection(dbConnections.dbATest, { useNewUrlParser: true, useUnifiedTopology: true });
+        log('MongoDB TestDB is connected!', 'done');
+
+        const NoteDB = await createConnection(dbConnections.dbBNote, { useNewUrlParser: true, useUnifiedTopology: true });
+        log('MongoDB NoteDB is connected!', 'done');
+
+        return { TestDB, NoteDB };
+    } catch (err) {
+        log(`Error connecting to databases: ${err}`, 'error');
+        throw err; // Or handle it as per your application's needs
+    }
 };
+
+module.exports = connectDatabases;

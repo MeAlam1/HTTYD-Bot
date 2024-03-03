@@ -14,8 +14,8 @@ module.exports = {
                 .setDescription('Text to add as note.')
                 .setRequired(true))
         .addStringOption(option => 
-            option.setName('reason')
-                .setDescription('Reason for the note.'))
+            option.setName('type')
+                .setDescription('type for the note.'))
         .addStringOption(option => 
             option.setName('status')
                 .setDescription('Status of the note.')
@@ -58,7 +58,7 @@ module.exports = {
             createdAt: new Date(),
             updatedAt: new Date(),
             isHidden: false,
-            type: options.getString('reason') || 'general',
+            type: options.getString('type') || 'general',
             status: options.getString('status') || 'closed',
             attachments: attachments,
             visibility: 'public',
