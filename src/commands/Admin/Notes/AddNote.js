@@ -67,19 +67,19 @@ module.exports = {
 
         const noteEmbed = new EmbedBuilder()
         .setColor('#0099ff')
-        .setTitle(`A note for ${noteSchema.user} has been created! `) 
-        .setURL(`https://discord.com/users/${noteSchema.user}`)
+        .setTitle(`A note for ${NoteSchema.user} has been created! `) 
+        .setURL(`https://discord.com/users/${NoteSchema.user}`)
         .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
         .setThumbnail(options.getUser('user').displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
         .addFields(
-            { name: 'Moderator', value: `<@${noteSchema.moderator}>`, inline: true },
-            { name: 'User', value: `<@${noteSchema.user}>`, inline: true },
-            { name: 'Note Type', value: noteSchema.type, inline: true },
-            { name: 'Status', value: noteSchema.status, inline: true },
-            { name: 'visibility', value: noteSchema.visibility, inline: true },
-            { name: 'DM Notification', value: noteSchema.dmNotification, inline: true },
-            { name: 'Created At', value: noteSchema.createdAt, inline: true },
-            { name: 'Note', value: noteSchema.note },
+            { name: 'Moderator', value: `<@${NoteSchema.moderator}>`, inline: true },
+            { name: 'User', value: `<@${NoteSchema.user}>`, inline: true },
+            { name: 'Note Type', value: NoteSchema.type, inline: true },
+            { name: 'Status', value: NoteSchema.status, inline: true },
+            { name: 'visibility', value: NoteSchema.visibility, inline: true },
+            { name: 'DM Notification', value: NoteSchema.dmNotification, inline: true },
+            { name: 'Created At', value: NoteSchema.createdAt, inline: true },
+            { name: 'Note', value: NoteSchema.note },
         )
         .setTimestamp()
         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
