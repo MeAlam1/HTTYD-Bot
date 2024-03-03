@@ -45,3 +45,5 @@ const connectDatabases = async () => {
         throw err;
     }
 };
+
+module.exports = connectDatabases;
