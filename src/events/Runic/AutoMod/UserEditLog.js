@@ -44,7 +44,7 @@ module.exports = {
                             .setTimestamp()
                             .setFooter({ text: 'Runic Isles Management Team', iconURL: 'https://imgur.com/KgKhMsg.png' });
 
-                        const logChannelId = '1211052643288612874';  // Runic Isles user-automod channel ID
+                        const logChannelId = '1151645114146488390';  // Runic Isles log channel ID
                         const logChannel = await client.channels.fetch(logChannelId);
 
                         await logChannel.send({ embeds: [UserRoleAddLogEmbed] });
