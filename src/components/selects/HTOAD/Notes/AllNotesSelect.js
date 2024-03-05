@@ -49,6 +49,10 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
+        if (selectedNote.attachments.length > 0) {
+            noteDetailsEmbed.setImage(selectedNote.attachments[0]);
+        }
+
         await interaction.reply({ embeds: [noteDetailsEmbed] });
     }
 };

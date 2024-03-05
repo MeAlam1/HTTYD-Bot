@@ -54,7 +54,7 @@ module.exports = {
             noteEmbed.addFields(
                 { name: `Note ${index + 1}`, value: noteContent, inline: true},
                 { name: `Created:`, value: discordTimestamp, inline: true },
-                { name: `Moderator:`, value: `<@${note.moderator}>`, inline: false},
+                { name: `Moderator:`, value: `<@${note.moderator}>`, inline: true},
             );
         });
 
