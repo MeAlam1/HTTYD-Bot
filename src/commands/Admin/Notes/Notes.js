@@ -48,7 +48,7 @@ module.exports = {
             const fieldsToAdd = [];
 
             if (!isSameModeratorAsPrevious) {
-                fieldsToAdd.push({ name: `Moderator:`, value: `<@${note.moderator}>`, inline: true });
+                fieldsToAdd.push({ name: `Moderator:`, value: `<@${note.moderator}>`, inline: false });
             }
 
             fieldsToAdd.push(
