@@ -22,11 +22,6 @@ module.exports = {
 
         console.log(selectedNote); 
 
-        if (!guildNoteId.match(/^[0-9a-fA-F]{24}$/)) {
-            await interaction.reply({ content: "Invalid note ID.", ephemeral: true });
-            return;
-        }
-
         if (!selectedNote) {
             await interaction.reply({ content: "Note not found.", ephemeral: true });
             return;
