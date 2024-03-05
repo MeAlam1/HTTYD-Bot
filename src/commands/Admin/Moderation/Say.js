@@ -83,7 +83,6 @@ module.exports = {
             return;
         }
         try {
-            await channel.send(messageOption);
             const sentMessage = await channel.send(messageOption);
             await interaction.reply({
                 content: `Message sent to <#${channel.id}>.`,
