@@ -51,6 +51,8 @@ module.exports = {
                 return;
             }
 
+            const { options } = interaction;
+
             const userOption = options.getUser('user');
 
             const lastGuildNote = await NoteSchema.findOne({ guild: interaction.guild.id, user: userOption.id })
@@ -68,8 +70,6 @@ module.exports = {
             if (lastGeneralNote) {
                 newGeneralNoteId = lastGeneralNote.generalNoteId + 1;
             }
-                
-            const { options } = interaction;
                 
             const attachmentOption = options.getAttachment('attachment');
             let attachments = [];
