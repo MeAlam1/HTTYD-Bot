@@ -3,6 +3,8 @@
 const { Schema, model } = require('mongoose');
 
 let notes = new Schema({
+    guildNoteId: Number,
+    generalNoteId: Number,
     guild: String,
     moderator: String,
     user: String,

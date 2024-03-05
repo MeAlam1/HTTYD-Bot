@@ -43,12 +43,30 @@ module.exports = {
                 '1120030006626750474', // How to Own a Dragon Owner Role
                 '1133420066277437490', // How to Own a Dragon Lead Dev Role
             ];
-                
+
             const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
                 
             if (!hasRole) {
                 await interaction.reply({ content: 'You do not have permission to use this command.', ephemeral: true });
                 return;
+            }
+
+            const userOption = options.getUser('user');
+
+            const lastGuildNote = await NoteSchema.findOne({ guild: interaction.guild.id, user: userOption.id })
+                .sort({ guildNoteId: -1 })
+                .limit(1);
+            let newGuildNoteId = 1;
+            if (lastGuildNote) {
+                newGuildNoteId = lastGuildNote.guildNoteId + 1;
+            }
+
+            const lastGeneralNote = await NoteSchema.findOne({ user: userOption.id })
+                .sort({ generalNoteId: -1 })
+                .limit(1);
+            let newGeneralNoteId = 1;
+            if (lastGeneralNote) {
+                newGeneralNoteId = lastGeneralNote.generalNoteId + 1;
             }
                 
             const { options } = interaction;
@@ -68,8 +86,9 @@ module.exports = {
                 return `${year}-${month}-${day} ${hours}:${minutes}`;
             }
 
-            const userOption = options.getUser('user');
             const noteDocument = await NoteSchema.create({
+                guildNoteId: newGuildNoteId,
+                generalNoteId: newGeneralNoteId,
                 guild: interaction.guild.id,
                 moderator: interaction.user.id,
                 user: userOption.id,
