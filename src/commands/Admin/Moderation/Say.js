@@ -37,23 +37,23 @@ module.exports = {
                 .setDescription('Channel to send the message to.')
                 .setRequired(true))
         .addStringOption(option =>
-            option.setName('Line1')
+            option.setName('first')
                 .setDescription('First line of the message')
                 .setRequired(true))
         .addStringOption(option =>
-            option.setName('Line2')
+            option.setName('second')
                 .setDescription('Second line of the message')
                 .setRequired(false))
         .addStringOption(option =>
-            option.setName('Line3')
+            option.setName('third')
                 .setDescription('Third line of the message')
                 .setRequired(false))
         .addStringOption(option =>
-            option.setName('Line4')
+            option.setName('fourth')
                 .setDescription('Fourth line of the message')
                 .setRequired(false))
         .addStringOption(option =>
-            option.setName('Line5')
+            option.setName('fifth')
                 .setDescription('Fifth line of the message')
                 .setRequired(false))
         .addAttachmentOption(option => 
@@ -82,11 +82,11 @@ module.exports = {
         const { options } = interaction;
         const channelOption = options.getChannel('channel');
         let messageContents = [
-            options.getString('Line1'),
-            options.getString('Line2'),
-            options.getString('Line3'),
-            options.getString('Line4'),
-            options.getString('Line5')
+            options.getString('first'),
+            options.getString('second'),
+            options.getString('third'),
+            options.getString('fourth'),
+            options.getString('fifth')
         ].filter(msg => msg !== null); // Filter out null values if any option is not provided
     
         const attachment = options.getAttachment('attachment');
