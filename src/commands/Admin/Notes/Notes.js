@@ -61,7 +61,7 @@ module.exports = {
         const selectOptions = notes.map((note, index) => ({
             label: `Note ${index + 1}`,
             description: `Select to view details about Note ${index + 1}`,
-            value: `note_${index}`,
+            value: `note_${index + 1}`,
         }));
     
         await interaction.reply({ embeds: [noteEmbed], components: [

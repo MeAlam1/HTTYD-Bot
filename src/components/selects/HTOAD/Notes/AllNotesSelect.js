@@ -9,13 +9,13 @@ module.exports = {
 
 
         
-        const selectedValue = interaction.values[0] + 1;
-        const noteId = selectedValue.split('_')[1];
+        const selectedValue = interaction.values[0];
+        const guildNoteId = selectedValue.split('_')[1];
 
         console.log(`Selected Value: ${selectedValue}`);
-        console.log(`Extracted Note ID: ${noteId}`);
+        console.log(`Extracted guildNoteId: ${guildNoteId}`);
 
-        const selectedNote = await NoteSchema.findById(noteId);
+        const selectedNote = await NoteSchema.findOne({ guildNoteId: guildNoteId });
 
         const moderatorId = selectedNote.moderator;
         const userId = selectedNote.user;
