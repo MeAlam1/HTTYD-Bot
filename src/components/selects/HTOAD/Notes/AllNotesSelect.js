@@ -54,6 +54,6 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
 
-        await interaction.update({ embeds: [noteDetailsEmbed] });
+        await interaction.reply({ embeds: [noteDetailsEmbed] });
     }
 };
