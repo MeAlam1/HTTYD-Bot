@@ -118,7 +118,7 @@ module.exports = {
                     { name: 'Status', value: noteDocument.status, inline: true },
                     { name: 'Visibility', value: noteDocument.visibility, inline: true },
                     { name: 'DM User', value: noteDocument.dmNotification ? 'Yes' : 'No', inline: true },
-                    { name: 'Created At', value: formatDateToMinutes(noteDocument.createdAt), inline: true },
+                    { name: 'Created At', value: noteDocument.createdAt, inline: true },
                     { name: 'Note', value: noteDocument.note },
                 )
                 .setTimestamp()
