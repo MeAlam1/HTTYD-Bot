@@ -19,6 +19,7 @@ const allowedRoles = [
     // How to Own a Dragon
     '1120030006626750474', // Owner Role
     '1133420066277437490', // Lead Dev Role
+    '1161418815440166943', // Moderator Role
     '1140629154748956813', // Coder Role
     // Runic Isles
     '1151500042843201576', // Owner Role
