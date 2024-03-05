@@ -71,7 +71,7 @@ module.exports = {
             new ActionRowBuilder()
                 .addComponents(
                     new StringSelectMenuBuilder()
-                        .setCustomId('select-note')
+                        .setCustomId('all-notes')
                         .setPlaceholder('Select a Note to view details.')
                         .addOptions(selectOptions)
                 )
