@@ -86,7 +86,7 @@ module.exports = {
                 ephemeral: true
             });
             await channelLog.send({
-                content: `Message sent to ${channel.name} by ${interaction.user.tag}.`,
+                content: `Message sent to <#${channel.id}> by <@${interaction.user.id}>.`,
             });
 
         } catch (error) {
