@@ -8,11 +8,22 @@
  */
 
 const { SlashCommandBuilder } = require('discord.js');
+const AllowedServers = [
+    '1120022058601029652',  // How to Own a Dragon
+    '1151497491288690688'  // Runic Isles
+
+];
 const HTOAD = ['1120022058601029652']; // How to Own a Dragon
+const Runic = ['1151497491288690688']; // Runic Isles
 const allowedRoles = [
-    '1120030006626750474', // How to Own a Dragon Owner Role
-    '1133420066277437490', // How to Own a Dragon Lead Dev Role
-    '1140629154748956813'  // How to Own a Dragon Coder Role
+    // How to Own a Dragon
+    '1120030006626750474', // Owner Role
+    '1133420066277437490', // Lead Dev Role
+    '1140629154748956813', // Coder Role
+    // Runic Isles
+    '1151500042843201576', // Owner Role
+    '1214620041425846272'  // Bot Coder Role
+
 ];
 
 module.exports = {
@@ -28,7 +39,7 @@ module.exports = {
                 .setDescription('Message to send.')
                 .setRequired(true)),
     run: async (_, interaction) => {
-        if (!interaction.guild || !HTOAD.includes(interaction.guild.id)) {
+        if (!interaction.guild || !AllowedServers.includes(interaction.guild.id)) {
             await interaction.reply({
                 content: 'This command is not available in this server.',
                 ephemeral: true
@@ -50,6 +61,16 @@ module.exports = {
         const channelOption = options.getChannel('channel');
         const messageOption = options.getString('message');
 
+        let channelLogId;
+
+        if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
+            channelLogId = '1168633539676344490'; // How to Own a Dragon Log Channel 
+        } else if (interaction.guild && Runic.includes(interaction.guild.id)) {
+            channelLogId = '1151645114146488390'; // Runic Isles Log Channel
+        }
+        
+        const channelLog = interaction.guild.channels.cache.get(channelLogId);
+
         const channel = interaction.guild.channels.cache.get(channelOption.id);
         if (!channel) {
             await interaction.reply({
@@ -64,6 +85,10 @@ module.exports = {
                 content: `Message sent to ${channel.name}.`,
                 ephemeral: true
             });
+            await channelLog.send({
+                content: `Message sent to ${channel.name} by ${interaction.user.tag}.`,
+            });
+
         } catch (error) {
             console.error(error);
             await interaction.reply({
