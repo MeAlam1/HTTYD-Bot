@@ -9,7 +9,7 @@ module.exports = {
 
 
         
-        const selectedValue = interaction.values[0];
+        const selectedValue = interaction.values[0] + 1;
         const noteId = selectedValue.split('_')[1];
 
         console.log(`Selected Value: ${selectedValue}`);
