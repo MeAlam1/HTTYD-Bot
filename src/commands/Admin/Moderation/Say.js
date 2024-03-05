@@ -18,8 +18,16 @@ const allowedRoles = [
 module.exports = {
     structure: new SlashCommandBuilder()
         .setName('say')
-        .setDescription('Send a Bot Message.'),
-    run: async (client, interaction) => {
+        .setDescription('Send a Bot Message.')
+        .addChannelOption(option =>
+            option.setName('channel')
+                .setDescription('Channel to send the message to.')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('message')
+                .setDescription('Message to send.')
+                .setRequired(true)),
+    run: async (_, interaction) => {
         if (!interaction.guild || !HTOAD.includes(interaction.guild.id)) {
             await interaction.reply({
                 content: 'This command is not available in this server.',
@@ -36,6 +44,32 @@ module.exports = {
                 ephemeral: true
             });
             return;
+        }
+        
+        const { options } = interaction;
+        const channelOption = options.getChannel('channel');
+        const messageOption = options.getString('message');
+
+        const channel = interaction.guild.channels.cache.get(channelOption.id);
+        if (!channel) {
+            await interaction.reply({
+                content: 'The channel you provided is not valid.',
+                ephemeral: true
+            });
+            return;
+        }
+        try {
+            await channel.send(messageOption);
+            await interaction.reply({
+                content: `Message sent to ${channel.name}.`,
+                ephemeral: true
+            });
+        } catch (error) {
+            console.error(error);
+            await interaction.reply({
+                content: 'An error occurred while sending the message.',
+                ephemeral: true
+            });
         }
     }
 };
