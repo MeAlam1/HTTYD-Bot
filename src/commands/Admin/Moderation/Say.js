@@ -71,6 +71,8 @@ module.exports = {
         
         const channelLog = interaction.guild.channels.cache.get(channelLogId);
 
+        
+
         const channel = interaction.guild.channels.cache.get(channelOption.id);
         if (!channel) {
             await interaction.reply({
@@ -81,12 +83,16 @@ module.exports = {
         }
         try {
             await channel.send(messageOption);
+            const sentMessage = await channel.send(messageOption);
             await interaction.reply({
-                content: `Message sent to ${channel.name}.`,
+                content: `Message sent to <#${channel.id}>.`,
                 ephemeral: true
             });
+
+            const messageLink = `https://discord.com/channels/${interaction.guild.id}/${channel.id}/${sentMessage.id}`;
+
             await channelLog.send({
-                content: `Message sent to <#${channel.id}> by <@${interaction.user.id}>.`,
+                content: `Message sent to <#${channel.id}> by <@${interaction.user.id}>. [View Message](${messageLink})`,
             });
 
         } catch (error) {
