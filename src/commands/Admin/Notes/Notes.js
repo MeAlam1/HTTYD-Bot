@@ -1,3 +1,12 @@
+/**Servers:
+ * How to Own a Dragon
+ */
+
+/**Description:
+ * This command is used to read the notes of a user.
+ * ADMIN ONLY COMMAND
+ */
+
 const { SlashCommandBuilder, EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
 const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 

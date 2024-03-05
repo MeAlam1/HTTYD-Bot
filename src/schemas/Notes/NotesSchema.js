@@ -1,5 +1,12 @@
 // DO NOT TOUCH THIS FILE!
 
+/**Description:
+ * This Database Schema is used to store notes for users.
+ * src\components\selects\HTOAD\Notes\AllNotesSelect.js
+ * src\commands\Admin\Notes\Notes.js
+ * src\commands\Admin\Notes\AddNote.js
+ */
+
 const { Schema, model } = require('mongoose');
 
 let notes = new Schema({

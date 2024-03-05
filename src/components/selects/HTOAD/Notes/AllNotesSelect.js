@@ -1,4 +1,7 @@
-// DOESNT WORK YET
+/**Description:
+ * This Select is used to check which note you want to see in detail.
+ * src\commands\Admin\Notes\Notes.js
+ */
 
 const { EmbedBuilder } = require('discord.js');
 const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
