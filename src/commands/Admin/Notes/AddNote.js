@@ -42,6 +42,8 @@ module.exports = {
             const allowedRoles = [
                 '1120030006626750474', // How to Own a Dragon Owner Role
                 '1133420066277437490', // How to Own a Dragon Lead Dev Role
+                '1214620041425846272', // Runic Bot Coder Role
+                '1151500042843201576'  // Runic Owner Role
             ];
 
             const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
