@@ -45,14 +45,16 @@ module.exports = {
             const noteContent = note.note.length > 1020 ? note.note.substring(0, 1020) + '...' : note.note;
             const isSameModeratorAsPrevious = note.moderator === lastModeratorId;
 
-            const fieldsToAdd = [
-                { name: `Note ${index + 1}`, value: noteContent },
-                { name: `Created:`, value: discordTimestamp, inline: true },
-            ];
+            const fieldsToAdd = [];
 
             if (!isSameModeratorAsPrevious) {
                 fieldsToAdd.push({ name: `Moderator:`, value: `<@${note.moderator}>`, inline: true });
             }
+
+            fieldsToAdd.push(
+                { name: `Note ${index + 1}`, value: noteContent },
+                { name: `Created:`, value: discordTimestamp, inline: true }
+            );
 
             noteEmbed.addFields(fieldsToAdd);
 
