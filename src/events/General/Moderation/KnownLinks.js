@@ -21,11 +21,10 @@ module.exports = {
 
         function isSpam(content) {
             const pattern = [
-                'http://specific-link1.com',
-                'https://specific-link2.com',
-                'http://specific-link3.com',
+                'https://discord.com/channels/1120022058601029652/1203770237795836004', 
+                'Hndkjahwhawdkj'
             ];
-            return pattern.some(link => content.includes(link));
+            return pattern.some(spamWord => content.includes(spamWord));
         }
 
         const allowedRoles = [
