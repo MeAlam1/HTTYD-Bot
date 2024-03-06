@@ -21,7 +21,7 @@ module.exports = {
 
         function isSpam(content) {
             const pattern = [
-                'https://discord.com/channels/1120022058601029652/1203770237795836004', 
+                'xgfc kijhkjv', 
                 'Hndkjahwhawdkj'
             ];
             return pattern.some(spamWord => content.includes(spamWord));
