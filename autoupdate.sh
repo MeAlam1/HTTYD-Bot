@@ -28,4 +28,6 @@ while true; do
   else
     echo "No new changes detected."
   fi
+
+  sleep 5
 done
