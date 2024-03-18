@@ -6,7 +6,7 @@
 restart_bot() {
   echo "Restarting the bot..."
   pkill node
-  npm run dev &
+  /home/aram/.nvm/versions/node/v19.9.0/bin/npm run dev &
   echo "Bot restarted."
 }
 
