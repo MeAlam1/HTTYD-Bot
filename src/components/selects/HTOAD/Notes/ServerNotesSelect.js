@@ -13,7 +13,8 @@ module.exports = {
         const [guildId, userOptionId] = selectedValue.split('_');
         const user = await client.users.fetch(userOptionId);
 
-        const notes = await NoteSchema.find({ userId: userOptionId, guildId, isHidden: false }).sort({ createdAt: -1 });
+        interaction.reply({ content: `Selected Value: ${selectedValue}\nExtracted guildId: ${guildId}\nExtracted userOptionId: ${userOptionId}`, ephemeral: true });
+        /**const notes = await NoteSchema.find({ userId: userOptionId, guildId, isHidden: false }).sort({ createdAt: -1 });
 
         if (!notes.length) {
             await interaction.reply({ content: `No public notes found for <@${userOptionId}> in <#${selectedValue}>.`, ephemeral: true });
@@ -49,6 +50,6 @@ module.exports = {
             noteEmbed.addFields(fieldsToAdd);
 
             lastModeratorId = note.moderator;
-        });
+        });*/
     }
 };
