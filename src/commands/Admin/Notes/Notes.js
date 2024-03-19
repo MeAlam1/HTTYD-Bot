@@ -32,7 +32,7 @@ module.exports = {
         }
 
         const userOption = interaction.options.getUser('user');
-        const notes = await NoteSchema.find({ user: userOption.id, guild: interaction.guild.id });
+        const notes = await NoteSchema.find({ user: userOption.id, guildId: interaction.guild.id });
 
         if (!notes.length) {
             await interaction.reply({ content: `No notes found for ${userOption.username}.`, ephemeral: true });
