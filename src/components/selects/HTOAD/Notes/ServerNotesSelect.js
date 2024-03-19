@@ -58,7 +58,7 @@ module.exports = {
             value: `note_${index + 1}`,
         }));
 
-        const serverOptions = client.guilds.cache.filter(guild).map(guild => ({
+        const serverOptions = client.guilds.cache.filter(guild => guild.id).map(guild => ({
             label: guild.name,
             description: `Select to view notes for ${user.username} in ${guild.name}`,
             value: `${guild.id}_${user.id}`,
