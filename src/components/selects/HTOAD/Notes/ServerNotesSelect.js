@@ -10,7 +10,7 @@ module.exports = {
     customId: 'server-notes',
     run: async (client, interaction) => {
     const selectedValue = interaction.values[0];
-    console.log(`Selected Value: ${selectedValue}`);
+    interaction.reply({ content: `Selected Value: ${selectedValue}`, ephemeral: true });
     
     }
 };
