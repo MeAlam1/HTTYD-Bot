@@ -90,6 +90,7 @@ module.exports = {
             label: guild.name,
             description: `Select to view notes for ${userOption.username} in ${guild.name}`,
             value: guild.id,
+            value: userOption.id
         }));
 
         await interaction.reply({ embeds: [noteEmbed], components: [

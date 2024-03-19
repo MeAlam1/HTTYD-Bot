@@ -9,9 +9,10 @@ const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
 module.exports = {
     customId: 'server-notes',
     run: async (client, interaction) => {
-    const selectedValue = interaction.values[0];
+        const selectedValue = interaction.values[0];
+        const userOption = interaction.values[1];
 
-    const notes = await NoteSchema.find({ userId: userOption.id, selectedValue, isHidden: false }).sort({ createdAt: -1 });
+        const notes = await NoteSchema.find({ userId: userOption.id, selectedValue, isHidden: false }).sort({ createdAt: -1 });
 
         if (!notes.length) {
             await interaction.reply({ content: `No public notes found for ${userOption.username} in <#${selectedValue}>.`, ephemeral: true });
@@ -48,6 +49,5 @@ module.exports = {
 
             lastModeratorId = note.moderator;
         });
-    
     }
 };
