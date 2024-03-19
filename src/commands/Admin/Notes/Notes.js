@@ -52,12 +52,12 @@ module.exports = {
         displayedNotes.forEach((note, index) => {
             const discordTimestamp = `<t:${Math.floor(new Date(note.createdAt).getTime() / 1000)}:R>`;
             const noteContent = note.note.length > 1020 ? note.note.substring(0, 1020) + '...' : note.note;
-            const isSameModeratorAsPrevious = note.moderator === lastModeratorId;
+            const isSameModeratorAsPrevious = note.moderatorId === lastModeratorId;
 
             const fieldsToAdd = [];
 
             if (!isSameModeratorAsPrevious) {
-                fieldsToAdd.push({ name: `Moderator:`, value: `<@${note.moderator}>`, inline: false });
+                fieldsToAdd.push({ name: `Moderator:`, value: `<@${note.moderatorId}>`, inline: false });
             }
 
             fieldsToAdd.push(
