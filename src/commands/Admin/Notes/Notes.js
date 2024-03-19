@@ -86,6 +86,12 @@ module.exports = {
             value: `note_${index + 1}`,
         }));
 
+        const serverOptions = client.guilds.cache.filter(guild => guild.id !== interaction.guild.id).map(guild => ({
+            label: guild.name,
+            description: `Select to view notes for ${userOption.username} in ${guild.name}`,
+            value: `server_${guild.id}`,
+        }));
+
         await interaction.reply({ embeds: [noteEmbed], components: [
             new ActionRowBuilder()
                 .addComponents(
@@ -93,6 +99,13 @@ module.exports = {
                         .setCustomId('all-notes')
                         .setPlaceholder('Select a Note to view details.')
                         .addOptions(selectOptions)
+                ),
+            new ActionRowBuilder()
+                .addComponents(
+                    new StringSelectMenuBuilder()
+                        .setCustomId('server-notes')
+                        .setPlaceholder('Select a server to view the notes of the user in another server..')
+                        .addOptions(serverOptions)
                 )
         ] });
     }
