@@ -89,8 +89,7 @@ module.exports = {
         const serverOptions = client.guilds.cache.filter(guild => guild.id !== interaction.guild.id).map(guild => ({
             label: guild.name,
             description: `Select to view notes for ${userOption.username} in ${guild.name}`,
-            value: guild.id,
-            value: userOption.id
+            value: `${guild.id}_${userOption.id}`,
         }));
 
         await interaction.reply({ embeds: [noteEmbed], components: [

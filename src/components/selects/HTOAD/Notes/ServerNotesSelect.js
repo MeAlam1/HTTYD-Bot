@@ -10,19 +10,20 @@ module.exports = {
     customId: 'server-notes',
     run: async (client, interaction) => {
         const selectedValue = interaction.values[0];
-        const userOption = interaction.values[1];
+        const [guildId, userOptionId] = selectedValue.split('_');
+        const user = await client.users.fetch(userOptionId);
 
-        const notes = await NoteSchema.find({ userId: userOption.id, selectedValue, isHidden: false }).sort({ createdAt: -1 });
+        const notes = await NoteSchema.find({ userId: userOptionId, guildId, isHidden: false }).sort({ createdAt: -1 });
 
         if (!notes.length) {
-            await interaction.reply({ content: `No public notes found for ${userOption.username} in <#${selectedValue}>.`, ephemeral: true });
+            await interaction.reply({ content: `No public notes found for <@${userOptionId}> in <#${selectedValue}>.`, ephemeral: true });
             return;
         }
 
         const noteEmbed = new EmbedBuilder()
             .setColor(0xbf020f)
-            .setTitle(`Notes for ${userOption.username}`)
-            .setURL(`https://discord.com/users/${userOption.id}`)
+            .setTitle(`Notes for ${user.username}`)
+            .setURL(`https://discord.com/users/${userOptionId}`)
             .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
             .setThumbnail(userOption.displayAvatarURL({ dynamic: true }));
 
