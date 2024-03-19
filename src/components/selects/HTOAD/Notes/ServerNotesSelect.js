@@ -7,7 +7,7 @@ const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('dis
 const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
 
 module.exports = {
-    customId: 'server-notes',
+    customId: 'server-notes-select',
     run: async (client, interaction) => {
         const selectedValue = interaction.values[0];
         const [guildId, userOptionId] = selectedValue.split('_');
@@ -68,14 +68,14 @@ module.exports = {
             new ActionRowBuilder()
                 .addComponents(
                     new StringSelectMenuBuilder()
-                        .setCustomId('all-notes')
+                        .setCustomId('all-notes-select')
                         .setPlaceholder('Select a Note to view details.')
                         .addOptions(selectOptions)
                 ),
             new ActionRowBuilder()
                 .addComponents(
                     new StringSelectMenuBuilder()
-                        .setCustomId('server-notes')
+                        .setCustomId('server-notes-select')
                         .setPlaceholder('Select a server.')
                         .addOptions(serverOptions)
                 )] 

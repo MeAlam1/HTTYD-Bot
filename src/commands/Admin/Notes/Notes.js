@@ -96,14 +96,14 @@ module.exports = {
             new ActionRowBuilder()
                 .addComponents(
                     new StringSelectMenuBuilder()
-                        .setCustomId('all-notes')
+                        .setCustomId('all-notes-select')
                         .setPlaceholder('Select a Note to view details.')
                         .addOptions(selectOptions)
                 ),
             new ActionRowBuilder()
                 .addComponents(
                     new StringSelectMenuBuilder()
-                        .setCustomId('server-notes')
+                        .setCustomId('server-notes-select')
                         .setPlaceholder('Select a server.')
                         .addOptions(serverOptions)
                 )

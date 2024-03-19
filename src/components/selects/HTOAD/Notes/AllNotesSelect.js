@@ -4,15 +4,12 @@
  * src\components\selects\HTOAD\Notes\ServerNotesSelect.js
  */
 
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
 
 module.exports = {
-    customId: 'all-notes',
+    customId: 'all-notes-select',
     run: async (client, interaction) => {
-
-
-        
         const selectedValue = interaction.values[0];
         const guildNoteNumber = selectedValue.split('_')[1];
 
@@ -57,6 +54,16 @@ module.exports = {
             noteDetailsEmbed.setImage(selectedNote.attachments[0]);
         }
 
-        await interaction.reply({ embeds: [noteDetailsEmbed] });
+        await interaction.reply({ embeds: [noteDetailsEmbed], components: [
+            new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setCustomId('edit-note-button')
+                    .setLabel('Edit Note')
+                    .setStyle(ButtonStyle.PRIMARY)
+                    .setEmoji('✏️')
+            ),
+
+        ]});
     }
 };
