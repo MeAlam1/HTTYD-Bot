@@ -3,7 +3,7 @@
  * src\commands\Admin\Notes\Notes.js
  */
 
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
 const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
 
 module.exports = {
@@ -51,6 +51,32 @@ module.exports = {
             lastModeratorId = note.moderator;
         });
 
-        await interaction.reply({ embeds: [noteEmbed], ephemeral: true });
+        const selectOptions = displayedNotes.map((note, index) => ({
+            label: `Note ${index + 1}`,
+            description: `Select to view details about Note ${index + 1}`,
+            value: `note_${index + 1}`,
+        }));
+
+        const serverOptions = client.guilds.cache.filter(guild => guildId !== interaction.guild.id).map(guild => ({
+            label: guild.name,
+            description: `Select to view notes for ${user.username} in ${guild.name}`,
+            value: `${guild.id}_${user.id}`,
+        }));
+
+        await interaction.reply({ embeds: [noteEmbed], components: [
+            new ActionRowBuilder()
+                .addComponents(
+                    new StringSelectMenuBuilder()
+                        .setCustomId('all-notes')
+                        .setPlaceholder('Select a Note to view details.')
+                        .addOptions(selectOptions)
+                ),
+            new ActionRowBuilder()
+                .addComponents(
+                    new StringSelectMenuBuilder()
+                        .setCustomId('server-notes')
+                        .setPlaceholder('Select a server.')
+                        .addOptions(serverOptions)
+                )] });
     }
 };
