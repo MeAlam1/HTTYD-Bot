@@ -13,15 +13,15 @@ module.exports = {
 
         
         const selectedValue = interaction.values[0];
-        const guildNoteId = selectedValue.split('_')[1];
+        const guildNoteNumber = selectedValue.split('_')[1];
 
         console.log(`Selected Value: ${selectedValue}`);
-        console.log(`Extracted guildNoteId: ${guildNoteId}`);
+        console.log(`Extracted guildNoteNumber: ${guildNoteNumber}`);
 
-        const selectedNote = await NoteSchema.findOne({ guildNoteId: guildNoteId });
+        const selectedNote = await NoteSchema.findOne({ guildNoteNumber: guildNoteNumber });
 
-        const moderatorId = selectedNote.moderator;
-        const userId = selectedNote.user;
+        const moderatorId = selectedNote.moderatorId;
+        const userId = selectedNote.userId;
 
         console.log(selectedNote); 
 
