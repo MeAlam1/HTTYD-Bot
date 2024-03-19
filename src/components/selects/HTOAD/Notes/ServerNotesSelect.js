@@ -25,7 +25,7 @@ module.exports = {
             .setTitle(`Notes for ${user.username}`)
             .setURL(`https://discord.com/users/${userOptionId}`)
             .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
-            .setThumbnail(userOption.displayAvatarURL({ dynamic: true }));
+            .setThumbnail(user.displayAvatarURL({ dynamic: true }));
 
         let lastModeratorId = null;
         displayedNotes = notes.slice(0, 25);
