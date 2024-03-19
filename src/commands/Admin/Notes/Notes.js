@@ -19,9 +19,19 @@ module.exports = {
                 .setDescription('Select a user to view notes for.')
                 .setRequired(true)),
     run: async (client, interaction) => {
+        const allowedServers = [
+            '1120022058601029652', // How to Own a Dragon
+        ]
+
+        if (!allowedServers.includes(interaction.guild.id)) {
+            await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
+            return;
+        }
+
         const allowedRoles = [
             '1120030006626750474', // How to Own a Dragon Owner Role
             '1133420066277437490', // How to Own a Dragon Lead Dev Role
+            '1161418815440166943'  // How to Own a Dragon Moderator Role
         ];
         
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
@@ -32,7 +42,7 @@ module.exports = {
         }
 
         const userOption = interaction.options.getUser('user');
-        const notes = await NoteSchema.find({ userId: userOption.id, guildId: interaction.guild.id });
+        const notes = await NoteSchema.find({ userId: userOption.id, guildId: interaction.guild.id, isHidden: false }).sort({ createdAt: -1 });
 
         if (!notes.length) {
             await interaction.reply({ content: `No notes found for ${userOption.username}.`, ephemeral: true });

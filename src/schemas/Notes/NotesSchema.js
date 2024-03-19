@@ -25,7 +25,7 @@ let notes = new Schema({
     type: { type: String, default: 'general' },
     status: { type: String, enum: ['open', 'closed'], default: 'closed' },
     attachments: [{ type: String }],
-    visibility: { type: String, enum: ['public', 'guild'], default: 'public' },
+    visibility: { type: String, enum: ['public', 'server'], default: 'public' },
     dmNotification: { type: Boolean, default: false },
 });
 
