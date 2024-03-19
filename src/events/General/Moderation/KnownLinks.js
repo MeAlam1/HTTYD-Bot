@@ -21,8 +21,10 @@ module.exports = {
 
         function isSpam(content) {
             const pattern = [
-                'xgfc kijhkjv', 
-                'Hndkjahwhawdkj'
+                'https://discord.gg/twerks', 
+                'https://discord.gg/pents',
+                'https://go-link.ru/mp4Gn',
+                '',
             ];
             return pattern.some(spamWord => content.includes(spamWord));
         }
