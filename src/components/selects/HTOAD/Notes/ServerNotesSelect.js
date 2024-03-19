@@ -13,11 +13,10 @@ module.exports = {
         const [guildId, userOptionId] = selectedValue.split('_');
         const user = await client.users.fetch(userOptionId);
 
-        interaction.reply({ content: `Selected Value: ${selectedValue}\nExtracted guildId: ${guildId}\nExtracted userOptionId: ${userOptionId}`, ephemeral: true });
-        /**const notes = await NoteSchema.find({ userId: userOptionId, guildId, isHidden: false }).sort({ createdAt: -1 });
+        const notes = await NoteSchema.find({ userId: userOptionId, guildId, isHidden: false }).sort({ createdAt: -1 });
 
         if (!notes.length) {
-            await interaction.reply({ content: `No public notes found for <@${userOptionId}> in <#${selectedValue}>.`, ephemeral: true });
+            await interaction.reply({ content: `No public notes found for <@${userOptionId}> in <#${guildId}>.`, ephemeral: true });
             return;
         }
 
@@ -29,7 +28,7 @@ module.exports = {
             .setThumbnail(user.displayAvatarURL({ dynamic: true }));
 
         let lastModeratorId = null;
-        displayedNotes = notes.slice(0, 25);
+        let displayedNotes = notes.slice(0, 25);
         
         displayedNotes.forEach((note, index) => {
             const discordTimestamp = `<t:${Math.floor(new Date(note.createdAt).getTime() / 1000)}:R>`;
@@ -50,6 +49,8 @@ module.exports = {
             noteEmbed.addFields(fieldsToAdd);
 
             lastModeratorId = note.moderator;
-        });*/
+        });
+
+        await interaction.reply({ embeds: [noteEmbed], ephemeral: true });
     }
 };
