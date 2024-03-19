@@ -63,7 +63,8 @@ module.exports = {
                     const sevenDaysLaterTimestamp = Math.floor(sevenDaysLater.getTime() / 1000);
 
                     await logChannel.send({ 
-                        content: `<@${message.author.id}> got timed out until <t:${sevenDaysLaterTimestamp}:F>`,
+                        content: `<@1161418815440166943>
+                        <@${message.author.id}> got timed out until <t:${sevenDaysLaterTimestamp}:F>`,
                         embeds: [AntiSpamLog] });
 
                     const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 days
