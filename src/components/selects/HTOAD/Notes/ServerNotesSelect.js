@@ -28,7 +28,7 @@ module.exports = {
             .setThumbnail(user.displayAvatarURL({ dynamic: true }));
 
         let lastModeratorId = null;
-        let displayedNotes = notes.slice(0, 25);
+        let displayedNotes = notes.slice(0, 50);
         
         displayedNotes.forEach((note, index) => {
             const discordTimestamp = `<t:${Math.floor(new Date(note.createdAt).getTime() / 1000)}:R>`;
