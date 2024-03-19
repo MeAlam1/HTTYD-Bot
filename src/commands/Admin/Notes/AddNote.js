@@ -40,6 +40,15 @@ module.exports = {
             option.setName('dm')
                 .setDescription('DM the user?')),
         run: async (client, interaction) => {
+            const allowedServers = [
+                '1120030006626750474', // How to Own a Dragon Server
+            ];
+
+            if (!allowedServers.includes(interaction.guild.id)) {
+                await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
+                return;
+            }
+
             const allowedRoles = [
                 '1120030006626750474', // How to Own a Dragon Owner Role
                 '1133420066277437490', // How to Own a Dragon Lead Dev Role
