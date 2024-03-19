@@ -30,6 +30,10 @@ module.exports = {
                 'discord.gg/onlylatina',
                 'discord.gg/xxnudes',
                 'discord.gg/teenz',
+                'discord.gg/onlycp',
+                'discord.gg/BqWt8dqUAP',
+                'discord.gg/9BHf9tdSSd',
+                'discord.com/invite/WmvcCP5n',
                 
                 // Steam Scams
                 'go-link.ru/mp4Gn',
