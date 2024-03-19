@@ -21,10 +21,28 @@ module.exports = {
 
         function isSpam(content) {
             const pattern = [
+                // Corn Scams
                 'discord.gg/twerks', 
                 'discord.gg/pents',
-                'go-link.ru/mp4Gn',
                 'discord.gg/tiktokgirlss',
+                'discord.com/invite/bWCgvMeK',
+                'discord.gg/vQ6pyutr',
+                'discord.gg/onlylatina',
+                'discord.gg/xxnudes',
+                'discord.gg/teenz',
+                
+                // Steam Scams
+                'go-link.ru/mp4Gn',
+                'steamcommunity.com/gift/75847462',
+                'steamcommunity.com/gift/76561199218059944',
+                'steamcommunity.com/gift/75847462',
+                'steamcommunity.com/gift/7694583629857385',
+                'steamcommunity.com/gift/76566859347623964',
+                'steamcommunity.com/tradeoffer/new',
+                'steamcommunity.com/gift/76566894433977630',
+
+                // Other Scams
+                'getdrops.org/$DeBank',
             ];
             return pattern.some(spamWord => content.includes(spamWord));
         }
@@ -71,8 +89,8 @@ module.exports = {
                     const sevenDaysLaterTimestamp = Math.floor(sevenDaysLater.getTime() / 1000);
 
                     await logChannel.send({ 
-                        content: `<@1161418815440166943>
-                        <@${message.author.id}> got timed out until <t:${sevenDaysLaterTimestamp}:F>`,
+                        content: `<@&1161418815440166943>
+<@${message.author.id}> got timed out until <t:${sevenDaysLaterTimestamp}:F>`,
                         embeds: [AntiSpamLinkLog] });
 
                     const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 days
