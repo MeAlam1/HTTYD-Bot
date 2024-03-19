@@ -12,11 +12,12 @@ module.exports = {
         const selectedValue = interaction.values[0];
         const [guildId, userOptionId] = selectedValue.split('_');
         const user = await client.users.fetch(userOptionId);
+        const guild = await client.guilds.fetch(guildId);
 
         const notes = await NoteSchema.find({ userId: userOptionId, guildId, isHidden: false }).sort({ createdAt: -1 });
 
         if (!notes.length) {
-            await interaction.reply({ content: `No public notes found for <@${userOptionId}> in <#${guildId}>.`, ephemeral: true });
+            await interaction.reply({ content: `No public notes found for <@${userOptionId}> in ${guild}.`, ephemeral: true });
             return;
         }
 
@@ -28,7 +29,7 @@ module.exports = {
             .setThumbnail(user.displayAvatarURL({ dynamic: true }));
 
         let lastModeratorId = null;
-        let displayedNotes = notes.slice(0, 50);
+        let displayedNotes = notes.slice(0, 25);
         
         displayedNotes.forEach((note, index) => {
             const discordTimestamp = `<t:${Math.floor(new Date(note.createdAt).getTime() / 1000)}:R>`;
@@ -57,7 +58,7 @@ module.exports = {
             value: `note_${index + 1}`,
         }));
 
-        const serverOptions = client.guilds.cache.filter(guild => guildId !== interaction.guild.id).map(guild => ({
+        const serverOptions = client.guilds.cache.filter(guild => guild.id !== interaction.guild.id).map(guild => ({
             label: guild.name,
             description: `Select to view notes for ${user.username} in ${guild.name}`,
             value: `${guild.id}_${user.id}`,
@@ -77,6 +78,7 @@ module.exports = {
                         .setCustomId('server-notes')
                         .setPlaceholder('Select a server.')
                         .addOptions(serverOptions)
-                )] });
+                )] 
+            });
     }
 };
