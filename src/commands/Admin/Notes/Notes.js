@@ -104,7 +104,7 @@ module.exports = {
                 .addComponents(
                     new StringSelectMenuBuilder()
                         .setCustomId('server-notes')
-                        .setPlaceholder('Select a server to view the notes of the user in another server..')
+                        .setPlaceholder('Select a server.')
                         .addOptions(serverOptions)
                 )
         ] });
