@@ -90,11 +90,14 @@ module.exports = {
             }
 
             const noteDocument = await NoteSchema.create({
-                guildNoteId: newGuildNoteId,
-                generalNoteId: newGeneralNoteId,
-                guild: interaction.guild.id,
-                moderator: interaction.user.id,
-                user: userOption.id,
+                guildNoteNumber: newGuildNoteId,
+                generalNoteNumber: newGeneralNoteId,
+                guildId: interaction.guild.id,
+                guild: interaction.guild.name,
+                moderatorId: interaction.user.id,
+                moderator: interaction.user.tag,
+                userId: userOption.id,
+                user: userOption.tag,
                 note: options.getString('note'),
                 createdAt: formatDateToMinutes(new Date()),
                 updatedAt: formatDateToMinutes(new Date()),

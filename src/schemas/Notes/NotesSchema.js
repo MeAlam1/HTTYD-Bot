@@ -10,10 +10,13 @@
 const { Schema, model } = require('mongoose');
 
 let notes = new Schema({
-    guildNoteId: Number,
-    generalNoteId: Number,
+    guildNoteNumber: Number,
+    generalNoteNumber: Number,
+    guildId: String,
     guild: String,
+    moderatorId: String,
     moderator: String,
+    userId: String,
     user: String,
     note: String,
     createdAt: String,
