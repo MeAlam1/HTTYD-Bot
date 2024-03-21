@@ -1,6 +1,6 @@
 /**Description:
  * This button is used to edit a note
- * src\components\selects\HTOAD\Notes\AllNotesSelect.js
+ * src\HTOAD\selects\Notes\AllNotesSelect.js
  */
 
 module.exports = {

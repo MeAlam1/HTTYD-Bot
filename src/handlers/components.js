@@ -6,7 +6,7 @@ const { readdirSync } = require(`fs`);
 const { log } = require(`../functions`);
 
 // Add Servers to this Array whenever they get their own folder
-const folders = ['Ignore', 'HTOAD', 'Runic', 'Ravenstone'];
+const folders = ['General', 'HTOAD', 'Runic', 'Ravenstone'];
 
 module.exports = (client) => {
     folders.forEach(folder => {

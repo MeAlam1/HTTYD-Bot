@@ -4,16 +4,17 @@
  */
 
 const { ChannelType, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const HTOADDiscordBotCoderApplyEmbed = require('../../../../embed/HTOAD/Application/DiscordBotCoderApplyEmbed.js');
-const HTOADWebsiteCoderApplyEmbed = require('../../../../embed/HTOAD/Application/WebsiteCoderApplyEmbed.js');
-const HTOADModelerApplyEmbed = require('../../../../embed/HTOAD/Application/ModelerApplyEmbed.js');
-const HTOADAnimatorApplyEmbed = require('../../../../embed/HTOAD/Application/AnimatorApplyEmbed.js');
-const HTOADSFXArtistApplyEmbed = require('../../../../embed/HTOAD/Application/SFXArtistApplyEmbed.js');
-const HTOADConceptArtistApplyEmbed = require('../../../../embed/HTOAD/Application/ConceptArtistApplyEmbed.js');
-const HTOADBuilderApplyEmbed = require('../../../../embed/HTOAD/Application/BuilderApplyEmbed.js');
-const HTOADTextureArtistApplyEmbed = require('../../../../embed/HTOAD/Application/TextureArtistApplyEmbed.js');
-const HTOADTesterApplyEmbed = require('../../../../embed/HTOAD/Application/TesterApplyEmbed.js');
-const HTOADTranslatorApplyEmbed = require('../../../../embed/HTOAD/Application/TranslatorApplyEmbed.js');
+
+const HTOADDiscordBotCoderApplyEmbed = require('../../../HTOAD/embeds/Application/DiscordBotCoderApplyEmbed.js');
+const HTOADWebsiteCoderApplyEmbed = require('../../../HTOAD/embeds/Application/WebsiteCoderApplyEmbed.js');
+const HTOADModelerApplyEmbed = require('../../../HTOAD/embeds/Application/ModelerApplyEmbed.js');
+const HTOADAnimatorApplyEmbed = require('../../../HTOAD/embeds/Application/AnimatorApplyEmbed.js');
+const HTOADSFXArtistApplyEmbed = require('../../../HTOAD/embeds/Application/SFXArtistApplyEmbed.js');
+const HTOADConceptArtistApplyEmbed = require('../../../HTOAD/embeds/Application/ConceptArtistApplyEmbed.js');
+const HTOADBuilderApplyEmbed = require('../../../HTOAD/embeds/Application/BuilderApplyEmbed.js');
+const HTOADTextureArtistApplyEmbed = require('../../../HTOAD/embeds/Application/TextureArtistApplyEmbed.js');
+const HTOADTesterApplyEmbed = require('../../../HTOAD/embeds/Application/TesterApplyEmbed.js');
+const HTOADTranslatorApplyEmbed = require('../../../HTOAD/embeds/Application/TranslatorApplyEmbed.js');
 
 
 module.exports = {

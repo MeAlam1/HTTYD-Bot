@@ -1,6 +1,6 @@
 /**Description:
  * This embed used in the command: /help after selecting the Links category.
- * src\components\selects\General\Help\HelpCategorySelect.js
+ * src\General\selects\Help\HelpCategorySelect.js
  */
 
 const { EmbedBuilder } = require('discord.js');

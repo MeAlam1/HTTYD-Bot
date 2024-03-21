@@ -1,11 +1,11 @@
 /**Description:
  * This Select is used to check which note you want to see in detail.
  * src\commands\Admin\Notes\Notes.js
- * src\components\selects\HTOAD\Notes\ServerNotesSelect.js
+ * src\HTOAD\selects\Notes\ServerNotesSelect.js
  */
 
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
+const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 
 module.exports = {
     customId: 'all-notes-select',

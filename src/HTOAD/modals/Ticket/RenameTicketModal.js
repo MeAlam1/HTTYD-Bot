@@ -1,6 +1,6 @@
 /**Description: 
  * This Modal is used to rename the channel.
- * src\components\buttons\HTOAD\Ticket\RenameTicketButton.js
+ * src\HTOAD\buttons\Ticket\RenameTicketButton.js
  */
 
 module.exports = {

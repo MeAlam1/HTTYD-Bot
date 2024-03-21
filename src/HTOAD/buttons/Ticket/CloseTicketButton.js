@@ -1,6 +1,6 @@
 /**Description:
  * This Button is used to close a ticket in the How to Own a Dragon Server.
- * src\components\buttons\HTOAD\Ticket\CreateTicketButton.js
+ * src\HTOAD\buttons\Ticket\CreateTicketButton.js
  */
 
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
@@ -30,9 +30,13 @@ module.exports = {
 
         const row = new ActionRowBuilder().addComponents(CreateTranscriptButton);
 
-        if (!interaction.member.roles.cache.some(role => allowedRoles.includes(role.id))) {
+        const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
-            await interaction.reply({ content: 'You do not have the necessary permissions to close the ticket.', ephemeral: true });
+        if (!hasRole) {
+            await interaction.reply({
+                content: 'You do not have permission to use this command.',
+                ephemeral: true
+            });
             return;
         }
 

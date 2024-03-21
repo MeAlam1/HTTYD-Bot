@@ -1,6 +1,6 @@
 /**Description:
  * This button is used to create a transcript of the ticket or application channel.
- * src\components\buttons\HTOAD\Ticket\CloseTicketButton.js
+ * src\HTOAD\buttons\Ticket\CloseTicketButton.js
  */
 
 const { AttachmentBuilder } = require('discord.js');

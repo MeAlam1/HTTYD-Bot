@@ -1,6 +1,6 @@
 /**Description:
  * This embed used in the command: /help after selecting the Mod category.
- * src\components\selects\General\Help\HelpCategorySelect.js
+ * src\General\selects\Help\HelpCategorySelect.js
  */
 
 

@@ -1,7 +1,3 @@
-/**Servers:
- * How to Own a Dragon
- */
-
 /** Description:
  * This event will filter all messages sent in How to Own a Dragon.
  * It Checks them for known spam links.
