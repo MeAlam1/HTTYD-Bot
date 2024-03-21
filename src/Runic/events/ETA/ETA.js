@@ -4,7 +4,7 @@
  * If ETA is found it will send a message in the channel.
  */
 
-const RunicETAEmbed = require('../../../embed/Runic/Information/ETAEmbed.js');
+const RunicETAEmbed = require('../../../Runic/embeds/Information/ETAEmbed.js');
 
 module.exports = {
     event: 'messageCreate',
