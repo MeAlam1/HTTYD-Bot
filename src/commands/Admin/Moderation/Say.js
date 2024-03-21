@@ -9,13 +9,13 @@
  */
 
 const { SlashCommandBuilder } = require('discord.js');
-const AllowedServers = [
+const HTOAD = ['1120022058601029652']; // How to Own a Dragon
+const Runic = ['1151497491288690688']; // Runic Isles
+const allowedServers = [
     '1120022058601029652',  // How to Own a Dragon
     '1151497491288690688'  // Runic Isles
 
 ];
-const HTOAD = ['1120022058601029652']; // How to Own a Dragon
-const Runic = ['1151497491288690688']; // Runic Isles
 const allowedRoles = [
     // How to Own a Dragon
     '1120030006626750474', // Owner Role
@@ -61,11 +61,9 @@ module.exports = {
                 .setDescription('Attachment to add to the Message.')
                 .setRequired(false)),
     run: async (_, interaction) => {
-        if (!interaction.guild || !AllowedServers.includes(interaction.guild.id)) {
-            await interaction.reply({
-                content: 'This command is not available in this server.',
-                ephemeral: true
-            });
+        
+        if (!allowedServers.includes(interaction.guild.id)) {
+            await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
             return;
         }
     

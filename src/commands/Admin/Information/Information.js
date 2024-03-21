@@ -9,12 +9,16 @@
 
 const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const HTOAD = ['1120022058601029652']; // How to Own a Dragon
+
+const allowedServers = [
+    '1120030006626750474', // How to Own a Dragon Server
+];
 const allowedRoles = [
     // How to Own a Dragon
     '1120030006626750474', // Owner Role
     '1133420066277437490' // Lead Dev Role
 ];
-const HTOADInformationEmbed = require('../../../embed/HTOAD/Information/InfoEmbed.js');
+const HTOADInformationEmbed = require('../../../HTOAD/embeds/Information/InfoEmbed.js');
 
 
 module.exports = {
@@ -49,6 +53,12 @@ module.exports = {
          .setStyle(ButtonStyle.Secondary);
 
         const row = new ActionRowBuilder().addComponents(FaqButton, RulesButton, RolesButton, ChannelsButton, ContactStaffButton);
+
+        if (!allowedServers.includes(interaction.guild.id)) {
+            await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
+            return;
+        }
+        
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!hasRole) {
@@ -63,11 +73,6 @@ module.exports = {
             await interaction.reply({
                 embeds: [HTOADInformationEmbed],
                 components: [row]
-            });
-        } else {
-            await interaction.reply({
-                content: 'This command is not available in this server.',
-                ephemeral: true
             });
         }
     }

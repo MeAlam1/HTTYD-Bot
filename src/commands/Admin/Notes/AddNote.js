@@ -11,6 +11,19 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 
+const allowedServers = [
+    '1120030006626750474', // How to Own a Dragon Server
+];
+
+const allowedRoles = [
+    // How to Own a Dragon
+    '1120030006626750474', // Owner Role
+    '1133420066277437490', // Lead Dev Role
+    // Runic Isles
+    '1214620041425846272', // Bot Coder Role
+    '1151500042843201576'  // Owner Role
+];
+
 module.exports = {
     structure: new SlashCommandBuilder()
         .setName('addnote')
@@ -40,21 +53,11 @@ module.exports = {
             option.setName('dm')
                 .setDescription('DM the user?')),
         run: async (client, interaction) => {
-            const allowedServers = [
-                '1120030006626750474', // How to Own a Dragon Server
-            ];
 
             if (!allowedServers.includes(interaction.guild.id)) {
                 await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
                 return;
             }
-
-            const allowedRoles = [
-                '1120030006626750474', // How to Own a Dragon Owner Role
-                '1133420066277437490', // How to Own a Dragon Lead Dev Role
-                '1214620041425846272', // Runic Bot Coder Role
-                '1151500042843201576'  // Runic Owner Role
-            ];
 
             const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
                 

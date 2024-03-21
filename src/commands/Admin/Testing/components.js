@@ -10,11 +10,16 @@
  */
 
 const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder, ButtonStyle } = require('discord.js');
-const HTOAD = ['1120022058601029652']; // How to Own a Dragon
+
+const allowedServers = [
+    '1120030006626750474', // How to Own a Dragon Server
+];
+
 const allowedRoles = [
-    '1120030006626750474', // How to Own a Dragon Owner Role
-    '1133420066277437490', // How to Own a Dragon Lead Dev Role
-    '1140629154748956813'  // How to Own a Dragon Coder Role
+    // How to Own a Dragon
+    '1120030006626750474', // Owner Role
+    '1133420066277437490', // Dragon Lead Dev Role
+    '1140629154748956813'  // Coder Role
 ];
 
 module.exports = {
@@ -22,11 +27,9 @@ module.exports = {
         .setName('components')
         .setDescription('Test the components handler.'),
     run: async (client, interaction) => {
-        if (!interaction.guild || !HTOAD.includes(interaction.guild.id)) {
-            await interaction.reply({
-                content: 'This command is not available in this server.',
-                ephemeral: true
-            });
+        
+        if (!allowedServers.includes(interaction.guild.id)) {
+            await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
             return;
         }
 

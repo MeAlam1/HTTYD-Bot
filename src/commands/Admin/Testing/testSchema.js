@@ -12,17 +12,28 @@
 const { SlashCommandBuilder } = require(`discord.js`);
 const testSchema = require(`../../../schemas/test`);
 
+const allowedServers = [
+    '1120030006626750474', // How to Own a Dragon Server
+];
+
+const allowedRoles = [
+    // How to Own a Dragon
+    '1120030006626750474', // Owner Role
+    '1133420066277437490', // Dragon Lead Dev Role
+    '1140629154748956813'  // Coder Role
+];
+
 module.exports = {
     structure: new SlashCommandBuilder()
         .setName(`test-schema`)
         .setDescription(`Testing the Schema`)
         .addStringOption(option => option.setName(`schema-input`).setDescription(`text to save.`).setRequired(true)),
     run: async (client, interaction) => {
-        const allowedRoles = [
-            '1120030006626750474', // How to Own a Dragon Owner Role
-            '1133420066277437490', // How to Own a Dragon Lead Dev Role
-            '1140629154748956813'  // How to Own a Dragon Coder Role
-        ];
+        
+        if (!allowedServers.includes(interaction.guild.id)) {
+            await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
+            return;
+        }
 
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 

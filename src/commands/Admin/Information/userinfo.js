@@ -1,6 +1,6 @@
 /**Servers:
  * How to Own a Dragon
- * Runic Isles Public Server
+ * Runic Isles Server
  * Ravenstone Peak
  */
 
@@ -11,12 +11,19 @@
 
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { time } = require('../../../functions');
+
+const allowedServers = [
+    '1120030006626750474', // How to Own a Dragon Server
+    '1151497491288690688', // Runic Isles Server
+    '1150598668219588701'  // Ravenstone Peak
+];
+
 const allowedRoles = [
     // How to Own a Dragon
     '1120030006626750474', // Owner Role
     '1133420066277437490', // Lead Dev Role
     '1161418815440166943', // Moderator Role
-    // Runic Isles Public Server
+    // Runic Isles Server
     '1151500042843201576', // Server Owner Role
     '1189510610556301332', // Server Management Role
     '1203303940364439573', // Server Moderator Role
@@ -43,6 +50,11 @@ module.exports = {
         ),
     run: async (client, interaction) => {
         
+        if (!allowedServers.includes(interaction.guild.id)) {
+            await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
+            return;
+        }
+
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!hasRole) {

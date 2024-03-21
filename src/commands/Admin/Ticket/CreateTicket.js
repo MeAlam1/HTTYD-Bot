@@ -9,12 +9,17 @@
 
 const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const HTOAD = ['1120022058601029652']; // How to Own a Dragon
-const allowedServers = ['1120022058601029652']; // How to Own a Dragon
+
+const allowedServers = [
+    '1120022058601029652' // How to Own a Dragon
+];
+
 const allowedRoles = [
     // How to Own a Dragon
     '1120030006626750474' // Owner Role
 ];
-const HTOADCreateTicketEmbed = require('../../../embed/HTOAD/Ticket/CreateTicketEmbed.js');
+
+const HTOADCreateTicketEmbed = require('../../../HTOAD/embeds/Ticket/CreateTicketEmbed.js');
 
 module.exports = {
     structure: new SlashCommandBuilder()
@@ -22,15 +27,12 @@ module.exports = {
         .setDescription('Create a Ticket!'),
     run: async (client, interaction, args) => {
 
-        const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
-
-        if (!interaction.guild || !allowedServers.includes(interaction.guild.id)) {
-            await interaction.reply({
-                content: 'This command is not available in this server.',
-                ephemeral: true
-            });
+        if (!allowedServers.includes(interaction.guild.id)) {
+            await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
             return;
         }
+
+        const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!hasRole) {
             await interaction.reply({
