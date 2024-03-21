@@ -1,11 +1,12 @@
 const { WelcomeChannel } = require('discord.js');
 const Autorole = require('./Autorole.js');
+const Runic = '1151497491288690688'; // Runic Isles Public Server
 
-module.exports = client => {
+module.exports = {
+    name: 'guildMemberAdd',
+    once: false,
 
-    const Runic = '1151497491288690688'; // Runic Isles Public Server
-
-    client.on('guildMemberAdd', async member => {
+    run: async (client, member) => {
         if (member.guild.id === Runic) {
             Autorole.execute(client, member);
         }
@@ -26,26 +27,5 @@ module.exports = client => {
                 }
             }
         });
-    });
-
-    function isWelcomeMessage(content) {
-        return content.includes("Runic");
     }
-
-    client.on('messageCreate', async (message) => {
-        if (message.channel.id === '1151500458410647633') { // Runic Isle Public Server Welcome Channel
-            if (isWelcomeMessage(message.content)) {
-                
-                const emojis = ['<:cwShook:1152586423266988052> '];
-
-                for (const emoji of emojis) {
-                    try {
-                        await message.react(emoji);
-                    } catch (error) {
-                        console.error(`Error reacting with emoji ${emoji}:`, error.message);
-                    }
-                }
-            }
-        }
-    });
 }

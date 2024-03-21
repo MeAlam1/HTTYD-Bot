@@ -3,9 +3,9 @@
  * src\commands\Public\Help\help.js
  */
 
-const HTOADHelpLinksEmbed = require('../../../../embed/HTOAD/Help/HelpLinksEmbed.js');
-const HTOADHelpModEmbed = require('../../../../embed/HTOAD/Help/HelpModEmbed.js');
-const RunicHelpLinksEmbed = require('../../../../embed/Runic/Help/HelpLinksEmbed.js');
+const HTOADHelpLinksEmbed = require('../../../HTOAD/embeds/Help/HelpLinksEmbed.js');
+const HTOADHelpModEmbed = require('../../../HTOAD/embeds/Help/HelpModEmbed.js');
+const RunicHelpLinksEmbed = require('../../../Runic/embeds/Help/HelpLinksEmbed.js');
 
 
 module.exports = {

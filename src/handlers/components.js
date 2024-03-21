@@ -7,14 +7,15 @@ const { log } = require(`../functions`);
 
 // Add Servers to this Array whenever they get their own folder
 const folders = ['General', 'HTOAD', 'Runic', 'Ravenstone'];
+const components = ['buttons', 'selects', 'modals'];
 
 module.exports = (client) => {
     folders.forEach(folder => {
-        for (const type of readdirSync(`./src/${folder}/components/`)) {
-            for (const subType of readdirSync(`./src/${folder}/components/${type}`)) {
-                for (const dir of readdirSync(`./src/${folder}/components/${type}/${subType}`)) {
-                    for (const file of readdirSync(`./src/${folder}/components/${type}/${subType}/${dir}`).filter(f => f.endsWith(`.js`))) {
-                        const module = require(`../${folder}/components/${type}/${subType}/${dir}/${file}`);
+        for (const type of readdirSync(`./src/${folder}`)) {
+            if (!components.includes(type)) continue;
+            for (const subType of readdirSync(`./src/${folder}/${type}`)) {
+                    for (const file of readdirSync(`./src/${folder}/${type}/${subType}`).filter(f => f.endsWith(`.js`))) {
+                        const module = require(`../${folder}/${type}/${subType}/${file}`);
 
                         if (!module) continue;
 
@@ -51,7 +52,6 @@ module.exports = (client) => {
                         log(`Loaded new component: ` + file, `info`);
                     };
                 };
-            };
         };
     });
 };

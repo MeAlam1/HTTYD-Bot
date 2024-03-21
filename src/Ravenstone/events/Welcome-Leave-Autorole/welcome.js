@@ -1,6 +1,8 @@
-module.exports = client => {
+module.exports = {
+    event: 'guildMemberAdd',
+    once: false,
 
-    client.on('guildMemberAdd', async member => {
+    run: async (client, member) => {
 
         const totalMembers = member.guild.memberCount;
         const publicMessage = `Hello ${member}! Because of you, we have ${totalMembers} members!`;
@@ -18,26 +20,5 @@ module.exports = client => {
                 }
             }
         });
-    });
-
-    function isWelcomeMessage(content) {
-        return content.includes("Hello");
     }
-
-    client.on('messageCreate', async (message) => {
-        if (message.channel.id === '1150753214510149684') { // Ravenstone Peak Welcome Channel
-            if (isWelcomeMessage(message.content)) {
-
-                const emojis = ['<:pwease:1150933470462365726>'];
-
-                for (const emoji of emojis) {
-                    try {
-                        await message.react(emoji);
-                    } catch (error) {
-                        console.error(`Error reacting with emoji ${emoji}:`, error.message);
-                    }
-                }
-            }
-        }
-    });
 };

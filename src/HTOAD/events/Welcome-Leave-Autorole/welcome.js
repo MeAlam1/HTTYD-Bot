@@ -1,10 +1,11 @@
 const autorole = require('./autorole.js');
+const HTOAD = '1120022058601029652'; // How to Own a Dragon
 
-module.exports = client => {
-    
-    const HTOAD = '1120022058601029652'; // How to Own a Dragon
+module.exports = {
+    event: 'guildMemberAdd',
+    once: false,
+    run: async (client, member) => {
 
-    client.on('guildMemberAdd', async member => {
         if (member.guild.id === HTOAD) {
             autorole.execute(client, member);
         }
@@ -17,7 +18,7 @@ module.exports = client => {
 
             const publicChannel = member.guild.channels.cache.get(channelID);
 
-            if (publicChannel) {
+            if (publicChannel){
                 try {
                     await publicChannel.send(publicMessage);
                 } catch (error) {
@@ -25,26 +26,5 @@ module.exports = client => {
                 }
             }
         });
-    });
-
-    function isWelcomeMessage(content) {
-        return content.includes("Hello");
-    }
-
-    client.on('messageCreate', async (message) => {
-        if (message.channel.id === '1120030527920025650') { // How to Own a Dragon Welcome Channel
-            if (isWelcomeMessage(message.content)) {
-
-                const emojis = ['<:blaeh:1159184786250809475>'];
-
-                for (const emoji of emojis) {
-                    try {
-                        await message.react(emoji);
-                    } catch (error) {
-                        console.error(`Error reacting with emoji ${emoji}:`, error.message);
-                    }
-                }
-            }
-        }
-    });
-};
+    } 
+}
