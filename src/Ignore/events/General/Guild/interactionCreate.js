@@ -2,8 +2,8 @@
 
 // Description: This file will handle all the interactions with the commands.
 
-const config = require('../../../config');
-const { log } = require('../../../functions');
+const config = require('../../../../config');
+const { log } = require('../../../../functions');
 
 module.exports = {
     event: 'interactionCreate',

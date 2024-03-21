@@ -2,7 +2,7 @@
 
 // Description: This file will handle all the interactions with the components.
 
-const { log } = require('../../../functions');
+const { log } = require('../../../../functions');
 
 module.exports = {
     event: 'interactionCreate',

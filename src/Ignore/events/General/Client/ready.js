@@ -2,7 +2,7 @@
 
 // Description: Makes sure that the Console Prints the Logs in a nice way.
 
-const { log } = require("../../../functions");
+const { log } = require("../../../../functions");
 
 module.exports = {
     event: 'ready',

@@ -3,9 +3,9 @@
 // Description: This file will handle all the messages sent in the server.
 
 const { ChannelType, Message } = require('discord.js');
-const config = require('../../../config');
-const { log } = require('../../../functions');
-const GuildSchema = require('../../../schemas/GuildSchema');
+const config = require('../../../../config');
+const { log } = require('../../../../functions');
+const GuildSchema = require('../../../../schemas/GuildSchema');
 
 module.exports = {
     event: 'messageCreate',
