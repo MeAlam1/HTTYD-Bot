@@ -1,6 +1,12 @@
+// DO NOT TOUCH THIS FILE!
+
+// Description: Load all events from the events folder.
+
 const { readdirSync } = require('fs');
 const { log } = require('../functions');
-const folders = ['Ignore', 'HTOAD', 'Runic'];
+
+// Add Servers to this Array whenever they get their own folder
+const folders = ['Ignore', 'HTOAD', 'Runic', 'Ravenstone'];
 
 module.exports = (client) => {
     folders.forEach(folder => {

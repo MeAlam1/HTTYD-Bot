@@ -3,6 +3,8 @@
 # Node modules
 node_modules/*
 .npm/*
+package-lock.json
+package.json
 
 # Config
 src/config.js
@@ -15,12 +17,3 @@ ID.md
 
 # Auto update script
 autoupdate.sh
-
-# Important files for loading the bot, not needed for the github
-src\index.js
-src\Ignore/*
-package-lock.json
-package.json
-src\handlers/*
-src\functions/*
-src\class/*
