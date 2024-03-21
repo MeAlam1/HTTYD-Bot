@@ -1,5 +1,26 @@
 # Security related files that the github ignore's while syncing
+
+# Node modules
+node_modules/*
+.npm/*
+
+# Config
 src/config.js
+
+# ENV
 .env
+
+# Computer only files
 ID.md
+
+# Auto update script
 autoupdate.sh
+
+# Important files for loading the bot, not needed for the github
+src\index.js
+src\Ignore/*
+package-lock.json
+package.json
+src\handlers/*
+src\functions/*
+src\class/*
