@@ -4,7 +4,7 @@
  */
 
 const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
-const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
+const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 
 module.exports = {
     customId: 'server-notes-select',
