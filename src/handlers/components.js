@@ -48,8 +48,6 @@ module.exports = (client) => {
 
                             continue;
                         };
-
-                        log(`Loaded new component: ` + file, `info`);
                     };
                 };
         };

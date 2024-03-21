@@ -3,7 +3,7 @@ const Autorole = require('./Autorole.js');
 const Runic = '1151497491288690688'; // Runic Isles Public Server
 
 module.exports = {
-    name: 'guildMemberAdd',
+    event: 'guildMemberAdd',
     once: false,
 
     run: async (client, member) => {

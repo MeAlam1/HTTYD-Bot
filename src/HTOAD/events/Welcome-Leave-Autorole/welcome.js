@@ -4,6 +4,7 @@ const HTOAD = '1120022058601029652'; // How to Own a Dragon
 module.exports = {
     event: 'guildMemberAdd',
     once: false,
+    
     run: async (client, member) => {
 
         if (member.guild.id === HTOAD) {

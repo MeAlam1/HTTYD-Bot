@@ -37,8 +37,6 @@ module.exports = (client) => {
                     client.collection.interactioncommands.set(module.structure.name, module);
                     client.applicationcommandsArray.push(module.structure);
                 };
-
-                log('Loaded new command: ' + file, 'info');
             };
         };
     };
