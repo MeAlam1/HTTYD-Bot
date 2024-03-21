@@ -8,7 +8,12 @@
 
 const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
 const HTOAD = ['1120022058601029652']; // How to Own a Dragon
-const HTOADApplyEmbed = require('../../../embed/HTOAD/Application/ApplyEmbed.js');
+
+const allowedServers = [
+    '1120030006626750474', // How to Own a Dragon Server
+];
+
+const HTOADApplyEmbed = require('../../../HTOAD/embeds/Application/ApplyEmbed.js');
 
 
 module.exports = {
@@ -16,6 +21,11 @@ module.exports = {
         .setName('apply')
         .setDescription('Execute this command to Apply for How to Own a Dragon!'),
     run: async (client, interaction, args) => {
+
+        if (!allowedServers.includes(interaction.guild.id)) {
+            await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
+            return;
+        }
 
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
             await interaction.reply({
@@ -40,11 +50,6 @@ module.exports = {
                                 )
                         )
                 ],
-                ephemeral: true
-            });
-        } else {
-            await interaction.reply({
-                content: 'This command is not available in this server.',
                 ephemeral: true
             });
         }

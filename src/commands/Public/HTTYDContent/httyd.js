@@ -3,7 +3,7 @@
  */
 
 const { SlashCommandBuilder } = require('discord.js');
-const GoogleDriveEmbed = require('../../../embed/General/GoogleDriveEmbed.js');
+const GoogleDriveEmbed = require('../../../HTOAD/embeds/GoogleDriveEmbed.js');
 
 module.exports = {
     structure: new SlashCommandBuilder()
