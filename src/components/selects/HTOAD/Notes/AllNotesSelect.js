@@ -60,7 +60,7 @@ module.exports = {
                 new ButtonBuilder()
                     .setCustomId('edit-note-button')
                     .setLabel('Edit Note')
-                    .setStyle(ButtonStyle.PRIMARY)
+                    .setStyle(ButtonStyle.Primary)
                     .setEmoji('✏️')
             ),
 
