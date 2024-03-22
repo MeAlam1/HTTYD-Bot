@@ -1,9 +1,2 @@
 # Security related files that the github ignore's while syncing
-src/config.js
 .env
-ID.md
-autoupdate.sh
-node_modules/*
-.npm/*
-package.json
-package-lock.json
