@@ -42,6 +42,7 @@ module.exports = {
                 { name: 'Visibility', value: selectedNote.visibility, inline: true },
                 { name: 'DM User', value: selectedNote.dmNotification ? 'Yes' : 'No', inline: true },
                 { name: 'Created At', value: selectedNote.createdAt, inline: true }, 
+                { name: 'Updated At', value: selectedNote.updatedAt, inline: true},
                 { name: 'Note', value: selectedNote.note },
             )
             .setTimestamp()
@@ -62,7 +63,6 @@ module.exports = {
                         { label: 'Type', value: 'type' },
                         { label: 'Status', value: 'status' },
                         { label: 'Visibility', value: 'visibility' },
-                        { label: 'DM Notification', value: 'dmNotification' },
                     ]),
 
             ),
