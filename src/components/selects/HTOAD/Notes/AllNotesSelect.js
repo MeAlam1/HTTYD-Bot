@@ -57,7 +57,13 @@ module.exports = {
                 new StringSelectMenuBuilder()
                     .setCustomId('edit-note-select')
                     .setPlaceholder('What part of the node do you want to edit?')
-                    .addOptions(),
+                    .addOptions([
+                        { label: 'Note', value: 'note' },
+                        { label: 'Type', value: 'type' },
+                        { label: 'Status', value: 'status' },
+                        { label: 'Visibility', value: 'visibility' },
+                        { label: 'DM Notification', value: 'dmNotification' },
+                    ]),
 
             ),
 
