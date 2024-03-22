@@ -4,14 +4,15 @@
  */
 
 module.exports = {
-    customId: 'edit-note-button',
+    customId: `edit-note-button_`, 
     run: async (client, interaction) => {
         const customIdParts = interaction.customId.split('_');
         const action = customIdParts[0];
-        const selectedValue = customIdParts[1];
+        const guildNoteNumber = customIdParts[1];
 
         console.log(`Action: ${action}`);
-        console.log(`Selected Value: ${selectedValue}`);
+        console.log(`Guild Note Number: ${guildNoteNumber}`);
 
+        interaction.reply({ content: `${guildNoteNumber}`, ephemeral: true });
     }
 };
