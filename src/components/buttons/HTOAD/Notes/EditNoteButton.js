@@ -4,15 +4,8 @@
  */
 
 module.exports = {
-    customId: `edit-note-button_`, 
+    customId: `edit-note-button`, 
     run: async (client, interaction) => {
-        const customIdParts = interaction.customId.split('_');
-        const action = customIdParts[0];
-        const guildNoteNumber = customIdParts[1];
-
-        console.log(`Action: ${action}`);
-        console.log(`Guild Note Number: ${guildNoteNumber}`);
-
-        interaction.reply({ content: `${guildNoteNumber}`, ephemeral: true });
+        await interaction.reply({ content: 'Edit Note Button Clicked!', ephemeral: true });
     }
 };

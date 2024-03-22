@@ -55,7 +55,7 @@ module.exports = {
             new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
-                    .setCustomId(`edit-note-button_${guildNoteNumber}`)
+                    .setCustomId('edit-note-button')
                     .setLabel('Edit Note')
                     .setStyle(ButtonStyle.Primary)
                     .setEmoji('✏️')
