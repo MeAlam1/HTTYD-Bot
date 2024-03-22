@@ -13,10 +13,6 @@ module.exports = {
         const selectedValue = interaction.values[0];
         const guildNoteNumber = selectedValue.split('_')[1];
 
-        
-        console.log(`Selected Value: ${selectedValue}`);
-        console.log(`Extracted guildNoteNumber: ${guildNoteNumber}`);
-
         const selectedNote = await NoteSchema.findOne({ guildNoteNumber: guildNoteNumber });
 
         const moderatorId = selectedNote.moderatorId;
@@ -59,7 +55,7 @@ module.exports = {
             new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
-                    .setCustomId('edit-note-button')
+                    .setCustomId(`edit-note-button_${selectedValue}`)
                     .setLabel('Edit Note')
                     .setStyle(ButtonStyle.Primary)
                     .setEmoji('✏️')

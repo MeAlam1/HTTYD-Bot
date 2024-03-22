@@ -3,7 +3,7 @@
  * src\components\buttons\HTOAD\Ticket\CreateTicketButton.js
  */
 
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 const allowedRoles = [
     //How to Own a Dragon
     '1120030006626750474', //Owner Role
