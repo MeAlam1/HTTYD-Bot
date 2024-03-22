@@ -13,6 +13,7 @@ module.exports = {
         const selectedValue = interaction.values[0];
         const guildNoteNumber = selectedValue.split('_')[1];
 
+        
         console.log(`Selected Value: ${selectedValue}`);
         console.log(`Extracted guildNoteNumber: ${guildNoteNumber}`);
 
