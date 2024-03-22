@@ -1,4 +1,4 @@
-// DO NOT TOUCH THIS FILE!
+// DO NOT TOUCH THIS FILE! :)
  
 // Description: Main file for the bot, loads the client and the classes.
 
