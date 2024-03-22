@@ -37,6 +37,7 @@ module.exports = {
                 
                 // Steam Scams
                 'go-link.ru/mp4Gn',
+                'h15t.cfd/hbkd',
                 'steamcommunity.com/gift/75847462',
                 'steamcommunity.com/gift/76561199218059944',
                 'steamcommunity.com/gift/75847462',
