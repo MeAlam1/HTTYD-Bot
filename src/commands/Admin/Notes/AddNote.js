@@ -24,7 +24,7 @@ module.exports = {
                 .setDescription('Text to add as note.')
                 .setRequired(true))
         .addStringOption(option =>
-            option.setName('ruleBroken')
+            option.setName('rulebroken')
                 .setDescription('Which rule did the user break?("-" if not applicable.')
                 .setRequired(true))
         .addStringOption(option =>
@@ -116,7 +116,7 @@ module.exports = {
                 userId: userOption.id,
                 user: userOption.tag,
                 note: options.getString('note'),
-                ruleBroken: options.getString('ruleBroken'),
+                ruleBroken: options.getString('rulebroken'),
                 punishment: options.getString('punishment'),
                 createdAt: formatDateToMinutes(new Date()),
                 updatedAt: formatDateToMinutes(new Date()),

@@ -62,7 +62,7 @@ module.exports = {
                     .setPlaceholder('What part of the node do you want to edit?')
                     .addOptions([
                         { label: 'Note', value: 'note' },
-                        { label: 'Rule Broken', value: 'ruleBroken' },
+                        { label: 'Rule Broken', value: 'rulebroken' },
                         { label: 'Punishment', value: 'punishment' },
                         { label: 'Type', value: 'type' },
                         { label: 'Status', value: 'status' },

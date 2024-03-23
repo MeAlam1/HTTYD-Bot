@@ -34,7 +34,7 @@ module.exports = {
             await interaction.reply({ content: 'You have selected to edit the status.', ephemeral: true });
         } else if (value === 'visibility') {
             await interaction.reply({ content: 'You have selected to edit the visibility.', ephemeral: true });
-        } else if (value === 'ruleBroken') {
+        } else if (value === 'rulebroken') {
             await interaction.reply({ content: 'You have selected to edit the Rule Broken.', ephemeral: true });
         } else if (value === 'punishment') {
             await interaction.reply({ content: 'You have selected to edit the punishment.', ephemeral: true });
