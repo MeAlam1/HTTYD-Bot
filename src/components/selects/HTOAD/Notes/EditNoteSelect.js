@@ -24,9 +24,10 @@ module.exports = {
                             .setPlaceholder('Type the new note here!')
                             .setStyle(TextInputStyle.Short)
                             .setRequired(true)
+
                     )
             );
-
+            await interaction.showModal(modal); 
             await interaction.reply({ content: 'You have selected to edit the note.', ephemeral: true });
         } else if (value === 'type') {
             await interaction.reply({ content: 'You have selected to edit the type.', ephemeral: true });
