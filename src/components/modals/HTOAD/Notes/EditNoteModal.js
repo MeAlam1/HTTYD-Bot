@@ -17,6 +17,8 @@ module.exports = {
         const uniqueKey = matches[1];
         const noteType = tempStorage[uniqueKey];
         
+        interaction.reply({ content: `Note: ${noteType}, Key: ${tempStorage[uniqueKey]}`, ephemeral: true });
+
         if (!noteType) {
             await interaction.reply({ content: 'Failed to retrieve note type.', ephemeral: true });
             return;
