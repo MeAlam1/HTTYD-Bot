@@ -1,13 +1,9 @@
 const { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 
-const tempStorage = {};
 module.exports = {
     customId: 'edit-note-select',
     run: async (client, interaction) => {
         const [action, noteType] = interaction.values[0].split('_');
-        uniqueKey = 'edit-note';
-        tempStorage[uniqueKey] = noteType; 
-        tempStorage;
 
         switch (action) {
             case 'note':
