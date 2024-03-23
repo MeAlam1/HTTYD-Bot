@@ -61,7 +61,7 @@ module.exports = {
                     .setCustomId('edit-note-select')
                     .setPlaceholder('What part of the node do you want to edit?')
                     .addOptions([
-                        { label: 'Note', value: 'note' },
+                        { label: 'Note', value: `note_${selectedNote.note}` },
                         { label: 'Rule Broken', value: 'rulebroken' },
                         { label: 'Punishment', value: 'punishment' },
                         { label: 'Type', value: 'type' },
