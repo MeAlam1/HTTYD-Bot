@@ -23,6 +23,14 @@ module.exports = {
             option.setName('note')
                 .setDescription('Text to add as note.')
                 .setRequired(true))
+        .addStringOption(option =>
+            option.setName('ruleBroken')
+                .setDescription('Which rule did the user break?("-" if not applicable.')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('punishment')
+                .setDescription('What punishment was given?("-" if not applicable.')
+                .setRequired(true))
         .addStringOption(option => 
             option.setName('type')
                 .setDescription('Type of note.'))
@@ -108,6 +116,8 @@ module.exports = {
                 userId: userOption.id,
                 user: userOption.tag,
                 note: options.getString('note'),
+                ruleBroken: options.getString('ruleBroken'),
+                punishment: options.getString('punishment'),
                 createdAt: formatDateToMinutes(new Date()),
                 updatedAt: formatDateToMinutes(new Date()),
                 isHidden: false,
@@ -133,6 +143,8 @@ module.exports = {
                     { name: 'DM User', value: noteDocument.dmNotification ? 'Yes' : 'No', inline: true },
                     { name: 'Created At', value: noteDocument.createdAt, inline: true },
                     { name: 'Note', value: noteDocument.note },
+                    { name: 'Rule Broken', value: noteDocument.ruleBroken },
+                    { name: 'Punishment', value: noteDocument.punishment }
                 )
                 .setTimestamp()
                 .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
@@ -152,6 +164,8 @@ module.exports = {
                     { name: 'Note Type', value: noteDocument.type, inline: true },
                     { name: 'Created At', value: formatDateToMinutes(noteDocument.createdAt), inline: true },
                     { name: 'Note', value: noteDocument.note },
+                    { name: 'Rule Broken', value: noteDocument.ruleBroken },
+                    { name: 'Punishment', value: noteDocument.punishment }
                 )
                 .setTimestamp()
                 .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' })

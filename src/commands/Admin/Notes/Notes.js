@@ -72,6 +72,8 @@ module.exports = {
 
             fieldsToAdd.push(
                 { name: `Note ${index + 1}`, value: noteContent },
+                { name: `Rule Broken:`, value: note.ruleBroken },
+                { name: `Punishment:`, value: note.punishment },
                 { name: `Created:`, value: discordTimestamp, inline: true }
             );
 

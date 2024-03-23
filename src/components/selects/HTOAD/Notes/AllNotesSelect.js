@@ -44,6 +44,8 @@ module.exports = {
                 { name: 'Created At', value: selectedNote.createdAt, inline: true }, 
                 { name: 'Updated At', value: selectedNote.updatedAt, inline: true},
                 { name: 'Note', value: selectedNote.note },
+                { name: 'Rule Broken', value: selectedNote.ruleBroken },
+                { name: 'Punishment', value: selectedNote.punishment }
             )
             .setTimestamp()
             .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
@@ -60,6 +62,8 @@ module.exports = {
                     .setPlaceholder('What part of the node do you want to edit?')
                     .addOptions([
                         { label: 'Note', value: 'note' },
+                        { label: 'Rule Broken', value: 'ruleBroken' },
+                        { label: 'Punishment', value: 'punishment' },
                         { label: 'Type', value: 'type' },
                         { label: 'Status', value: 'status' },
                         { label: 'Visibility', value: 'visibility' },
