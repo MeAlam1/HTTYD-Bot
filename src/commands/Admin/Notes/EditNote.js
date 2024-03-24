@@ -32,26 +32,19 @@ module.exports = {
             option.setName('user')
                 .setDescription('User to edit the note for.')
                 .setRequired(true))
-        .addStringOption(option =>
-            option.setName('server')
-                .setDescription('Which server is the note in?')
-                .setRequired(true)
-                .setChoices(
-                    { name: 'How to Own a Dragon', value: '1120022058601029652' },
-                    { name: 'Runic Isles', value: '1151497491288690688' }))
         .addNumberOption(option => 
             option.setName('number')
-                .setDescription('Which number of the Note do you want to edit?')
+                .setDescription('Write the Number of the Note you want to Edit.')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('note')
-                .setDescription('What is the note?'))
+                .setDescription('Write the new content of the note.'))
         .addStringOption(option =>
             option.setName('rulebroken')
-                .setDescription('Which rule did the user break?'))
+                .setDescription('Write the new rule the user broke.'))
         .addStringOption(option =>
             option.setName('punishment')
-                .setDescription('What punishment was given?'))
+                .setDescription('Write the new punishment given.'))
         .addStringOption(option =>
             option.setName('proof')
                 .setDescription('Proof of the note.'))
@@ -87,7 +80,6 @@ module.exports = {
 
             const { options } = interaction;
             const userOption = options.getUser('user');
-            const serverOption = options.getString('server');
             const numberOption = options.getNumber('number');
             const noteOption = options.getString('note');
             const ruleBrokenOption = options.getString('rulebroken');
@@ -97,7 +89,7 @@ module.exports = {
             const visibilityOption = options.getString('visibility');
             const proofOption = options.getString('proof');
 
-            const note = await NoteSchema.findOne({ guildId: serverOption, userId: userOption.id, guildNoteNumber: numberOption });
+            const note = await NoteSchema.findOne({ guildId: interaction.guild.id, userId: userOption.id, guildNoteNumber: numberOption });
 
             if (!note) {
                 await interaction.reply({ content: `No note found for ${userOption.username}.`, ephemeral: true });
@@ -115,9 +107,9 @@ module.exports = {
             if (proofOption !== null) update.proof = proofOption;
 
             if (Object.keys(update).length > 0) {
-                await NoteSchema.updateOne({ guildId: serverOption, userId: userOption.id, guildNoteNumber: numberOption }, update);
+                await NoteSchema.updateOne({ guildId: interaction.guild.id, userId: userOption.id, guildNoteNumber: numberOption }, update);
 
-                const newNote = await NoteSchema.findOne({ guildId: serverOption, userId: userOption.id, guildNoteNumber: numberOption });
+                const newNote = await NoteSchema.findOne({ guildId: interaction.guild.id, userId: userOption.id, guildNoteNumber: numberOption });
 
                 const noteEmbed = new EmbedBuilder()
                 .setColor(0xbf020f)
