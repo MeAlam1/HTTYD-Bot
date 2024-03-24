@@ -85,7 +85,7 @@ module.exports = {
         const selectOptions = displayedNotes.map((note, index) => ({
             label: `Note ${index + 1}`,
             description: `Select to view details about Note ${index + 1}`,
-            value: `note_${index + 1}_${userOption.id}_${notes.guildId}`,
+            value: `note_${index + 1}_${userOption.id}_${notes.guildId}_${notes.moderatorId}`,
         }));
 
         const serverOptions = client.guilds.cache.filter(guild => guild.id !== interaction.guild.id).map(guild => ({

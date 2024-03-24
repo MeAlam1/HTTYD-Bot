@@ -16,10 +16,9 @@ module.exports = {
         const noteIndex = parts[1]; 
         const userId = parts[2]; 
         const guildId = parts[3];
+        const moderatorId = parts[4];
 
         const selectedNote = await NoteSchema.findOne({ userId: userId, guildId: guildId, guildNoteNumber: noteIndex})
-
-        const moderatorId = selectedNote.moderatorId;
 
         console.log(selectedNote); 
 
