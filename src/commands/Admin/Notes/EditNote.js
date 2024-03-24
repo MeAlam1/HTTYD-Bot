@@ -116,7 +116,29 @@ module.exports = {
                     { new: true }
                 );
 
-                await interaction.reply({ content: `The note for ${userOption.username} has been successfully updated.`, ephemeral: true });
+                const noteEmbed = new EmbedBuilder()
+                .setColor(0xbf020f)
+                .setTitle(`A note for ${userOption.tag} has been created!`)
+                .setURL(`https://discord.com/users/${userOption.id}`)
+                .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
+                .setThumbnail(userOption.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                .addFields(
+                    { name: 'Moderator', value: `<@${note.userId}>`, inline: true },
+                    { name: 'User', value: `<@${userOption.id}>`, inline: true },
+                    { name: 'Note Type', value: note.type, inline: true },
+                    { name: 'Status', value: note.status, inline: true },
+                    { name: 'Visibility', value: note.visibility, inline: true },
+                    { name: 'DM User', value: note.dmNotification ? 'Yes' : 'No', inline: true },
+                    { name: 'Created At', value: note.createdAt, inline: true },
+                    { name: 'Note', value: note.note },
+                    { name: 'Rule Broken', value: note.ruleBroken },
+                    { name: 'Punishment', value: note.punishment }
+                )
+                .setTimestamp()
+                .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
+                
+
+                await interaction.reply({ content: `The note for ${userOption.username} has been successfully updated.`, embeds: [noteEmbed], ephemeral: true });
             } else {
                 await interaction.reply({ content: `No updates were made to the note for ${userOption.username}.`, ephemeral: true });
             }
