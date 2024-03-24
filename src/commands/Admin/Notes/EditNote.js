@@ -112,6 +112,8 @@ module.exports = {
             if (Object.keys(update).length > 0) {
                 await NoteSchema.updateOne({ guildId: serverOption, userId: userOption.id, guildNoteNumber: numberOption }, update);
 
+                const newNote = await NoteSchema.findOne({ guildId: serverOption, userId: userOption.id, guildNoteNumber: numberOption });
+
                 const noteEmbed = new EmbedBuilder()
                 .setColor(0xbf020f)
                 .setTitle(`A note for ${userOption.tag} has been created!`)
@@ -121,20 +123,20 @@ module.exports = {
                 .addFields(
                     { name: 'Moderator', value: `<@${note.userId}>`, inline: true },
                     { name: 'User', value: `<@${userOption.id}>`, inline: true },
-                    { name: 'Note Type', value: note.type, inline: true },
-                    { name: 'Status', value: note.status, inline: true },
-                    { name: 'Visibility', value: note.visibility, inline: true },
-                    { name: 'DM User', value: note.dmNotification ? 'Yes' : 'No', inline: true },
-                    { name: 'Created At', value: note.createdAt, inline: true },
-                    { name: 'Note', value: note.note },
-                    { name: 'Rule Broken', value: note.ruleBroken },
-                    { name: 'Punishment', value: note.punishment }
+                    { name: 'Note Type', value: newNote.type, inline: true },
+                    { name: 'Status', value: newNote.status, inline: true },
+                    { name: 'Visibility', value: newNote.visibility, inline: true },
+                    { name: 'DM User', value: newNote.dmNotification ? 'Yes' : 'No', inline: true },
+                    { name: 'Created At', value: newNote.createdAt, inline: true },
+                    { name: 'Note', value: newNote.note },
+                    { name: 'Rule Broken', value: newNote.ruleBroken },
+                    { name: 'Punishment', value: newNote.punishment }
                 )
                 .setTimestamp()
                 .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
                 
 
-                await interaction.reply({ content: `The note for ${userOption.username} has been successfully updated.`, embeds: [noteEmbed], ephemeral: true });
+                await interaction.reply({ content: `The note for ${userOption.username} has been successfully updated.`, embeds: [noteEmbed] });
             } else {
                 await interaction.reply({ content: `No updates were made to the note for ${userOption.username}.`, ephemeral: true });
             }
