@@ -2,7 +2,7 @@
  * This button is to Edit a Note.
  */
 
-const { ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
+const { ActionRowBuilder, TextInputBuilder, TextInputStyle, ModalBuilder } = require('discord.js');
 
 module.exports = {
     customId: 'edit-note-button',
