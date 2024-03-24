@@ -9,7 +9,7 @@ const HTOADTextureArtistApplyEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
     .setTitle(`Texture Artist Application`)
     .setURL('https://discord.com/channels/1120022058601029652/1120088926737141923/1120095097061658685')
-    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
+    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .addFields(
         { name: `Thank you for applying to How to Own a Dragon!`, value: `
         Please answer the following questions to start your application process.
@@ -26,6 +26,6 @@ const HTOADTextureArtistApplyEmbed = new EmbedBuilder()
     ` }
     )
     .setTimestamp()
-    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
 module.exports = HTOADTextureArtistApplyEmbed;

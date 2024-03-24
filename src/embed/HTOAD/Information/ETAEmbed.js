@@ -9,7 +9,7 @@ const HTOADETAEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
     .setTitle('Estimated Time of Arrival (ETA)')
     .setURL('https://discord.com/channels/1120022058601029652/1120302121980543007/1173294933604585583')
-    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
+    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription('The first Alpha already has been released!')
     .addFields(
@@ -17,6 +17,6 @@ const HTOADETAEmbed = new EmbedBuilder()
         **[Github](https://github.com/MeAlam1/How-to-Own-a-Dragon)** - To open the Github page!` },
     )
     .setTimestamp()
-    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
 module.exports = HTOADETAEmbed;

@@ -53,7 +53,7 @@ module.exports = {
             .setColor(0xbf020f)
             .setTitle(`Notes for ${userOption.username} in ${interaction.guild}`)
             .setURL(`https://discord.com/users/${userOption.id}`)
-            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
             .setThumbnail(userOption.displayAvatarURL({ dynamic: true }));
 
         let lastModeratorId = null;

@@ -27,7 +27,7 @@ module.exports = {
                         .setTitle(`${member.user.tag} has been kicked from the server!`)
                         .setURL(`https://discord.com/users/${member.user.id}`)
                         .setURL(`https://discord.com/users/${member.user.id}`)
-                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                         .addFields(
                             { name: 'User:', value: `${member.user.username}`, inline: true },
                             { name: 'User ID:', value: `${member.user.id}`, inline: true },
@@ -36,7 +36,7 @@ module.exports = {
                             { name: 'Reason:', value: `${reason || 'No reason provided'}`, inline: false },
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
                     const logChannelId = '1211052643288612874'; // How to Own a Dragon user-automod channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
@@ -46,7 +46,7 @@ module.exports = {
                         .setColor(0xbf020f)
                         .setTitle(`${member.user.tag} has left the server!`)
                         .setURL(`https://discord.com/users/${member.user.id}`)
-                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                         .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
                             { name: 'User:', value: `${member.user.username}⠀⠀⠀⠀`, inline: true },
@@ -54,7 +54,7 @@ module.exports = {
                             { name: 'Account Created:', value: `${member.user.createdAt.toUTCString()}`, inline: false }
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
                 const logChannelId = '1211052643288612874'; // How to Own a Dragon user-automod channel ID
                 const logChannel = await client.channels.fetch(logChannelId);

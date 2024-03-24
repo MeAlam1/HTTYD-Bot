@@ -49,7 +49,7 @@ module.exports = {
                             .setColor(0x20fc03)
                             .setTitle(`${newMember.user.tag} received a new role!`)
                             .setURL(`https://discord.com/users/${newMember.user.id}`)
-                            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                             .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                             .addFields(
                                 { name: 'User:', value: `<@${newMember.user.id}>`, inline: true },
@@ -59,7 +59,7 @@ module.exports = {
                                 { name: 'Role ID:', value: `${role.id}`, inline: true },
                             )
                             .setTimestamp()
-                            .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                            .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
                         const logChannelId = '1211052643288612874';  // How to Own a Dragon user-automod channel ID
                         const logChannel = await client.channels.fetch(logChannelId);
@@ -75,7 +75,7 @@ module.exports = {
                             .setColor(0xbf020f)
                             .setTitle(`${newMember.user.tag} lost a role!`)
                             .setURL(`https://discord.com/users/${newMember.user.id}`)
-                            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                             .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                             .addFields(
                                 { name: 'User:', value: `<@${newMember.user.id}>`, inline: true },
@@ -85,7 +85,7 @@ module.exports = {
                                 { name: 'Role ID:', value: `${role.id}`, inline: true },
                             )
                             .setTimestamp()
-                            .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                            .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
                         const logChannelId = '1211052643288612874'; // How to Own a Dragon user-automod channel ID
                         const logChannel = await client.channels.fetch(logChannelId);
@@ -99,14 +99,14 @@ module.exports = {
                         .setColor(0xfc6f03) 
                         .setTitle(`The Username of ${newMember.user.tag} has been changed!`)
                         .setURL(`https://discord.com/users/${newMember.user.id}`)
-                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
                             { name: 'Previous Username:⠀⠀⠀⠀', value: oldMember.user.tag, inline: true },
                             { name: 'New Username:', value: newMember.user.tag, inline: true },
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
                         const logChannelId = '1211052643288612874'; // How to Own a Dragon user-automod channel ID
                         const logChannel = await client.channels.fetch(logChannelId);
@@ -119,14 +119,14 @@ module.exports = {
                         .setColor(0xfc6f03) // 
                         .setTitle(`The Nickname of ${newMember.user.tag} has been changed!`)
                         .setURL(`https://discord.com/users/${newMember.user.id}`)
-                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                         .setThumbnail(newMember.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
                             { name: 'Previous Nickname:⠀⠀⠀⠀', value: oldMember.nickname ? oldMember.nickname : oldMember.user.tag, inline: true },
                             { name: 'New Nickname:', value: newMember.nickname ? newMember.nickname : newMember.user.tag, inline: true },
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
                 
                     const logChannelId = '1211052643288612874'; // How to Own a Dragon user-automod channel ID
                     const logChannel = await client.channels.fetch(logChannelId);

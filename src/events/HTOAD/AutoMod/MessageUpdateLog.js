@@ -37,7 +37,7 @@ module.exports = {
                         .setColor(0xfc6f03)
                         .setTitle(`A message of ${newMessage.author.tag} has been edited!`) 
                         .setURL(`https://discord.com/users/${newMessage.author.id}`)
-                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                         .setThumbnail(newMessage.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                         .addFields(
                             { name: 'User:', value: `<@${newMessage.author.id}>`, inline: true },
@@ -48,7 +48,7 @@ module.exports = {
                             { name: 'Link to Message:', value: `[Jump to Message](https://discord.com/channels/${newMessage.guild.id}/${newMessage.channel.id}/${newMessage.id})`, inline: true }
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
                     let attachmentComparisonContent = "";
                     

@@ -9,7 +9,7 @@ const HTOADSupportEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
     .setTitle('Support')
     .setURL('https://ko-fi.com/htoad')
-    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
+    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription('Here are the different platforms where you can Officially Support us!')
     .addFields(
@@ -18,6 +18,6 @@ const HTOADSupportEmbed = new EmbedBuilder()
         
         `},)
     .setTimestamp()
-    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
 module.exports = HTOADSupportEmbed;

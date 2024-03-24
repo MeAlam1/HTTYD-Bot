@@ -135,7 +135,7 @@ module.exports = {
                 .setColor(0xbf020f)
                 .setTitle(`A note for ${userOption.tag} has been created!`)
                 .setURL(`https://discord.com/users/${userOption.id}`)
-                .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                 .setThumbnail(userOption.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
                 .addFields(
                     { name: 'Moderator', value: `<@${interaction.user.id}>`, inline: true },
@@ -150,7 +150,7 @@ module.exports = {
                     { name: 'Punishment', value: noteDocument.punishment }
                 )
                 .setTimestamp()
-                .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
                 
             if (attachments.length > 0) {
                 noteEmbed.setImage(attachments[0]);
@@ -171,7 +171,7 @@ module.exports = {
                     { name: 'Punishment', value: noteDocument.punishment }
                 )
                 .setTimestamp()
-                .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
 
                 if (attachments.length > 0) {
                     dmEmbed.setImage(attachments[0]);

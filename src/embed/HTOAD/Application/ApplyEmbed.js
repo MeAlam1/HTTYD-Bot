@@ -9,7 +9,7 @@ const HTOADApplyEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
     .setTitle(`Which role would you like to have in our team?`)
     .setURL('https://discord.com/channels/1120022058601029652/1120088926737141923/1120095097061658685')
-    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png'})
+    .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .addFields(
         { name: `***Developer***`, value: `
         **Discord Bot Coder** - Develops bot features using Discord.js and Node.js.
@@ -27,6 +27,6 @@ const HTOADApplyEmbed = new EmbedBuilder()
     ` },
     )
     .setTimestamp()
-    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+    .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
 module.exports = HTOADApplyEmbed;

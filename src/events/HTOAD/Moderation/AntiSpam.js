@@ -39,7 +39,7 @@ module.exports = {
                         .setColor(0xbf020f)
                         .setTitle(`${message.author.tag}`) 
                         .setURL(`https://discord.com/users/${message.author.id}`) 
-                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                         .setDescription('Usage of @everyone and @here in the server!')
                         .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
@@ -51,7 +51,7 @@ module.exports = {
                             { name: 'The Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, 
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
                     await message.delete();
 

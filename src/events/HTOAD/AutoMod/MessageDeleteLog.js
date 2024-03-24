@@ -34,7 +34,7 @@ module.exports = {
                         .setColor(0xbf020f)
                         .setTitle(`A message of ${message.author.tag} has been deleted!`) 
                         .setURL(`https://discord.com/users/${message.author.id}`)
-                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/VTwEDBO.png' })
+                        .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                         .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
                             { name: 'User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, 
@@ -44,7 +44,7 @@ module.exports = {
                             { name: 'Channel:', value: `<#${message.channel.id}>⠀⠀⠀⠀`, inline: true}
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/VTwEDBO.png' });
+                        .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
                     let otherAttachmentsContent = ""; 
 
