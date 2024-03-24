@@ -8,7 +8,7 @@
  * ADMIN ONLY COMMAND
  */
 
-const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 
 const allowedServers = [
@@ -179,11 +179,14 @@ module.exports = {
 
             try {
                 await userOption.send({ embeds: [dmEmbed], components: [
-                    new ButtonBuilder()
-                        .setCustomId('edit-note-button')
-                        .setLabel('Edit Note')
-                        .setStyle(ButtonStyle.Primary)
-                        .setEmoji('✏️'),
+                    new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder()
+                            .setCustomId('edit-note-button')
+                            .setLabel('Edit Note')
+                            .setStyle(ButtonStyle.Primary)
+                            .setEmoji('✏️')
+                    )
                     ]});
             } catch (error) {
                 console.error("Failed to send DM", error);

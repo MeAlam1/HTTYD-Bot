@@ -109,11 +109,14 @@ module.exports = {
                         .setPlaceholder('Select a server.')
                         .addOptions(serverOptions)
                 ),
-            new ButtonBuilder()
+            new ActionRowBuilder()
+                .addComponents(
+                    new ButtonBuilder()
                         .setCustomId('edit-note-button')
                         .setLabel('Edit Note')
                         .setStyle(ButtonStyle.Primary)
-                        .setEmoji('✏️'),
+                        .setEmoji('✏️')
+                )
         ] });
     }
 };
