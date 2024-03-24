@@ -110,11 +110,7 @@ module.exports = {
             if (visibilityOption !== null) update.visibility = visibilityOption;
 
             if (Object.keys(update).length > 0) {
-                await NoteSchema.findOneAndUpdate(
-                    { guildId: serverOption, userId: userOption.id, guildNoteNumber: numberOption, updatedAt: new Date()},
-                    update,
-                    { new: true }
-                );
+                await NoteSchema.updateOne({ guildId: serverOption, userId: userOption.id, guildNoteNumber: numberOption }, update);
 
                 const noteEmbed = new EmbedBuilder()
                 .setColor(0xbf020f)
