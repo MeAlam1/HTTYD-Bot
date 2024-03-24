@@ -16,8 +16,6 @@ module.exports = {
         const noteIndex = parts[1]; 
         const userId = parts[2]; 
 
-        await interaction.reply({ content: `NoteNumber: ${noteIndex}, UserId: ${userId}`, ephemeral: true });
-
         const selectedNote = await NoteSchema.findOne({ userId: userId, guildNoteNumber: noteIndex})
 
         console.log(selectedNote); 
