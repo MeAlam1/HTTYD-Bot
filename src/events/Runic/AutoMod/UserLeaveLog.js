@@ -26,7 +26,7 @@ module.exports = {
                         .setColor(0xff0000)
                         .setTitle(`${member.user.tag} has been kicked from the server!`)
                         .setURL(`https://discord.com/users/${member.user.id}`)
-                        .setAuthor({ name: 'Runic Isles', iconURL: 'https://imgur.com/KgKhMsg.png'})
+                        .setAuthor({ name: 'Runic Isles', iconURL: 'https://i.imgur.com/xR54d7T.png'})
                         .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
                             { name: 'User:', value: `${member.user.username}`, inline: true },
@@ -36,7 +36,7 @@ module.exports = {
                             { name: 'Reason:', value: `${reason || 'No reason provided'}`, inline: false },
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'Runic Isles Management Team', iconURL: 'https://imgur.com/KgKhMsg.png' });
+                        .setFooter({ text: 'Runic Isles Management Team', iconURL: 'https://i.imgur.com/xR54d7T.png' });
 
                     const logChannelId = '1151645114146488390'; // Runic Isles Log channel ID
                     const logChannel = await client.channels.fetch(logChannelId);
@@ -46,7 +46,7 @@ module.exports = {
                         .setColor(0xbf020f)
                         .setTitle(`${member.user.tag} has left the server!`)
                         .setURL(`https://discord.com/users/${member.user.id}`)
-                        .setAuthor({ name: 'Runic Isles', iconURL: 'https://imgur.com/KgKhMsg.png'})
+                        .setAuthor({ name: 'Runic Isles', iconURL: 'https://i.imgur.com/xR54d7T.png'})
                         .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
                             { name: 'User:', value: `${member.user.username}⠀⠀⠀⠀`, inline: true },
@@ -54,7 +54,7 @@ module.exports = {
                             { name: 'Account Created:', value: `${member.user.createdAt.toUTCString()}`, inline: false }
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'Runic Isles Management Team', iconURL: 'https://imgur.com/KgKhMsg.png' });
+                        .setFooter({ text: 'Runic Isles Management Team', iconURL: 'https://i.imgur.com/xR54d7T.png' });
 
                 const logChannelId = '1151645114146488390'; // Runic Isles Log channel ID
                 const logChannel = await client.channels.fetch(logChannelId);

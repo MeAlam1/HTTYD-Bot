@@ -34,7 +34,7 @@ module.exports = {
                         .setColor(0xbf020f)
                         .setTitle(`A message of ${message.author.tag} has been deleted!`) 
                         .setURL(`https://discord.com/users/${message.author.id}`)
-                        .setAuthor({ name: 'Runic Isles', iconURL: 'https://imgur.com/KgKhMsg.png'})
+                        .setAuthor({ name: 'Runic Isles', iconURL: 'https://i.imgur.com/xR54d7T.png'})
                         .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                         .addFields(
                             { name: 'User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, 
@@ -44,7 +44,7 @@ module.exports = {
                             { name: 'Channel:', value: `<#${message.channel.id}>⠀⠀⠀⠀`, inline: true}
                         )
                         .setTimestamp()
-                        .setFooter({ text: 'Runic Isles Management Team', iconURL: 'https://imgur.com/KgKhMsg.png' });
+                        .setFooter({ text: 'Runic Isles Management Team', iconURL: 'https://i.imgur.com/xR54d7T.png' });
 
                     let otherAttachmentsContent = ""; 
 
