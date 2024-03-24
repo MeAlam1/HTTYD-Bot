@@ -69,10 +69,9 @@ module.exports = {
             "-" = Not applicable`)
             .setStyle(TextInputStyle.Paragraph);
 
-		const firstActionRow = new ActionRowBuilder().addComponents();
-		const secondActionRow = new ActionRowBuilder().addComponents();
+		const ActionRow = new ActionRowBuilder().addComponents(userNoteText, serverNoteText, numberNoteText, noteText, ruleText, punishmentText, typeText, statusText, visibilityText);
 
-		modal.addComponents(firstActionRow, secondActionRow);
+		modal.addComponents(ActionRow);
 
         interaction.showModal(modal);
     }
