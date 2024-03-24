@@ -15,12 +15,10 @@ module.exports = {
 
         const noteIndex = parts[1]; 
         const userId = parts[2]; 
-        const guildId = parts[3];
-        const moderatorId = parts[4];
 
-        await interaction.reply({ content: `NoteNumber: ${noteIndex}, UserId: ${userId}, guildId: ${guildId}, ModeratorId: ${moderatorId}`, ephemeral: true });
+        await interaction.reply({ content: `NoteNumber: ${noteIndex}, UserId: ${userId}`, ephemeral: true });
 
-        const selectedNote = await NoteSchema.findOne({ userId: userId, guildId: guildId, guildNoteNumber: noteIndex})
+        const selectedNote = await NoteSchema.findOne({ userId: userId, guildNoteNumber: noteIndex})
 
         console.log(selectedNote); 
 
@@ -38,7 +36,7 @@ module.exports = {
             .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
             .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
             .addFields(
-                { name: 'Moderator', value: `<@${moderatorId}>`, inline: true },
+                { name: 'Moderator', value: `<@${selectedNote.moderatorId}>`, inline: true },
                 { name: 'User', value: `<@${userId}>`, inline: true },
                 { name: 'Note Type', value: selectedNote.type, inline: true },
                 { name: 'Status', value: selectedNote.status, inline: true },
