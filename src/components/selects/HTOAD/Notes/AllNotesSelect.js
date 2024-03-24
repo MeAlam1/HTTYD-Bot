@@ -11,12 +11,15 @@ module.exports = {
     customId: 'all-notes-select',
     run: async (client, interaction) => {
         const selectedValue = interaction.values[0];
-        const guildNoteNumber = selectedValue.split('_')[1];
+        const parts = selectedValue.split('_');
 
-        const selectedNote = await NoteSchema.findOne({ guildNoteNumber: guildNoteNumber });
+        const noteIndex = parts[1]; 
+        const userId = parts[2]; 
+        const guildId = parts[3];
+
+        const selectedNote = await NoteSchema.findOne({ userId: userId, guildId: guildId, guildNoteNumber: noteIndex})
 
         const moderatorId = selectedNote.moderatorId;
-        const userId = selectedNote.userId;
 
         console.log(selectedNote); 
 
@@ -26,7 +29,6 @@ module.exports = {
         }
 
         const user = await client.users.fetch(userId);
-        const moderator = await client.users.fetch(moderatorId);
 
         const noteDetailsEmbed = new EmbedBuilder()
             .setColor(0xbf020f)
