@@ -57,8 +57,8 @@ let displayedNotes = notes.slice(0, 25);
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('addnote')
-        .setDescription('Add a note about a user.')
+        .setName('editnote')
+        .setDescription('edit a note about a user.')
         .addUserOption(option => 
             option.setName('user')
                 .setDescription('User to edit the note for.')
