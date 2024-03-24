@@ -4,7 +4,7 @@
  */
 
 /**Description:
- * This command is used to add a note to a user.
+ * This command is used to edit a note of a user.
  * ADMIN ONLY COMMAND
  */
 
@@ -26,15 +26,19 @@ const allowedRoles = [
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('addnote')
-        .setDescription('Add a note about a user.')
+        .setName('editnote')
+        .setDescription('edit a note about a user.')
         .addUserOption(option => 
             option.setName('user')
-                .setDescription('User to add the note to.')
+                .setDescription('User to edit the note for.')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('server')
+                .setDescription('Which server is the note in?')
                 .setRequired(true))
         .addStringOption(option => 
-            option.setName('note')
-                .setDescription('Text to add as note.')
+            option.setName('number')
+                .setDescription('Which number of the Note do you want to edit?')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('rulebroken')

@@ -7,7 +7,7 @@
  * ADMIN ONLY COMMAND
  */
 
-const { SlashCommandBuilder, EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
 const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 
 module.exports = {
@@ -109,14 +109,6 @@ module.exports = {
                         .setPlaceholder('Select a server.')
                         .addOptions(serverOptions)
                 ),
-            new ActionRowBuilder()
-                .addComponents(
-                    new ButtonBuilder()
-                        .setCustomId('edit-note-button')
-                        .setLabel('Edit Note')
-                        .setStyle(ButtonStyle.Primary)
-                        .setEmoji('✏️')
-                )
         ] });
     }
 };

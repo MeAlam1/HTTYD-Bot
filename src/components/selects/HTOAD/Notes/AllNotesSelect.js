@@ -4,7 +4,7 @@
  * src\components\selects\HTOAD\Notes\ServerNotesSelect.js
  */
 
-const { EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
+const { EmbedBuilder,} = require('discord.js');
 const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
 
 module.exports = {
@@ -54,15 +54,6 @@ module.exports = {
             noteDetailsEmbed.setImage(selectedNote.attachments[0]);
         }
 
-    await interaction.reply({ embeds: [noteDetailsEmbed], components: [
-        new ActionRowBuilder()
-        .addComponents(
-            new ButtonBuilder()
-                .setCustomId('edit-note-button')
-                .setLabel('Edit Note')
-                .setStyle(ButtonStyle.Primary)
-                .setEmoji('✏️')
-        )
-        ]});
+    await interaction.reply({ embeds: [noteDetailsEmbed] });
     }
 };
