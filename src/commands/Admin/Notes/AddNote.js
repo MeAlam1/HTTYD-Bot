@@ -126,6 +126,7 @@ module.exports = {
                 note: options.getString('note'),
                 ruleBroken: options.getString('rulebroken'),
                 punishment: options.getString('punishment'),
+                proof: options.getString('proof'),
                 createdAt: formatDateToMinutes(new Date()),
                 updatedAt: formatDateToMinutes(new Date()),
                 isHidden: false,
