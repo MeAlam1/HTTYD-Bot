@@ -13,6 +13,7 @@ const NoteSchema = require('../../../schemas/Notes/NotesSchema.js');
 
 const allowedServers = [
     '1120022058601029652', // How to Own a Dragon Server
+    '1151497491288690688'  // Runic Isles
 ];
 
 const allowedRoles = [
