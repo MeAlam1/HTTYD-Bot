@@ -4,7 +4,7 @@
  * src\components\selects\HTOAD\Notes\ServerNotesSelect.js
  */
 
-const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const NoteSchema = require('../../../../schemas/Notes/NotesSchema.js');
 
 module.exports = {
@@ -53,24 +53,5 @@ module.exports = {
         if (selectedNote.attachments.length > 0) {
             noteDetailsEmbed.setImage(selectedNote.attachments[0]);
         }
-
-        await interaction.reply({ embeds: [noteDetailsEmbed], components: [
-            new ActionRowBuilder()
-            .addComponents(
-                new StringSelectMenuBuilder()
-                    .setCustomId('edit-note-select')
-                    .setPlaceholder('What part of the node do you want to edit?')
-                    .addOptions([
-                        { label: 'Note', value: `note_${selectedNote.note}` },
-                        { label: 'Rule Broken', value: 'rulebroken' },
-                        { label: 'Punishment', value: 'punishment' },
-                        { label: 'Type', value: 'type' },
-                        { label: 'Status', value: 'status' },
-                        { label: 'Visibility', value: 'visibility' },
-                    ]),
-
-            ),
-
-        ]});
     }
 };

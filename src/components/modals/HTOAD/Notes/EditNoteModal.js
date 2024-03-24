@@ -4,13 +4,9 @@
  */
 
 module.exports = {
-    customId: 'edit-note-modal', // This is now a prefix
+    customId: 'edit-note-modal',
     run: async (client, interaction) => {
         
-        const noteType = interaction.customId.split(':')[1];
-        const newNoteValue = interaction.fields.getTextInputValue('edit-note-text');
-
-        await interaction.reply({ content: `Note type: ${noteType}, New Value: ${newNoteValue}`, ephemeral: true });
     }
 };
 
