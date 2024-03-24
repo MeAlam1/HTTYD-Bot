@@ -37,6 +37,7 @@ module.exports = {
                 
                 // Steam Scams
                 'go-link.ru/mp4Gn',
+                'go-link.ru/jAGQM',
                 'h15t.cfd/hbkd',
                 'steamcommunity.com/gift/75847462',
                 'steamcommunity.com/gift/76561199218059944',
@@ -45,6 +46,7 @@ module.exports = {
                 'steamcommunity.com/gift/76566859347623964',
                 'steamcommunity.com/tradeoffer/new',
                 'steamcommunity.com/gift/76566894433977630',
+                'steamcommunity.com/gift/906353439838',
 
                 // Other Scams
                 'getdrops.org/$DeBank',
