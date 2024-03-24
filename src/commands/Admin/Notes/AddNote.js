@@ -39,11 +39,15 @@ module.exports = {
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('rulebroken')
-                .setDescription('Which rule did the user break?("-" if not applicable.')
+                .setDescription('Which rule did the user break?("-" if not applicable.)')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('punishment')
-                .setDescription('What punishment was given?("-" if not applicable.')
+                .setDescription('What punishment was given?("-" if not applicable.)')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('proof')
+                .setDescription('Proof of the note.("-" if not applicable.)')
                 .setRequired(true))
         .addStringOption(option => 
             option.setName('type')
@@ -148,7 +152,8 @@ module.exports = {
                     { name: 'Created At', value: noteDocument.createdAt, inline: true },
                     { name: 'Note', value: noteDocument.note },
                     { name: 'Rule Broken', value: noteDocument.ruleBroken },
-                    { name: 'Punishment', value: noteDocument.punishment }
+                    { name: 'Punishment', value: noteDocument.punishment },
+                    { name: 'proof', value: noteDocument.proof}
                 )
                 .setTimestamp()
                 .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });

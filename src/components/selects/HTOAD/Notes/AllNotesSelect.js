@@ -44,7 +44,8 @@ module.exports = {
                 { name: 'Updated At', value: selectedNote.updatedAt, inline: true},
                 { name: 'Note', value: selectedNote.note },
                 { name: 'Rule Broken', value: selectedNote.ruleBroken },
-                { name: 'Punishment', value: selectedNote.punishment }
+                { name: 'Punishment', value: selectedNote.punishment },
+                { name: 'Proof', value: selectedNote.proof}
             )
             .setTimestamp()
             .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });

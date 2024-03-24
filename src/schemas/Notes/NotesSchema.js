@@ -21,6 +21,7 @@ let notes = new Schema({
     note: String,
     ruleBroken: String,
     punishment: String,
+    proof: String,
     createdAt: String,
     updatedAt: String,
     isHidden: { type: Boolean, default: false },

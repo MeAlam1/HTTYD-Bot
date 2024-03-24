@@ -74,6 +74,7 @@ module.exports = {
                 { name: `Note ${index + 1}`, value: noteContent },
                 { name: `Rule Broken:`, value: note.ruleBroken },
                 { name: `Punishment:`, value: note.punishment },
+                { name: `Proof:`, value: note.proof, inline: true },
                 { name: `Created:`, value: discordTimestamp, inline: true }
             );
 
