@@ -121,7 +121,7 @@ module.exports = {
 
                 const noteEmbed = new EmbedBuilder()
                 .setColor(0xbf020f)
-                .setTitle(`A note for ${userOption.tag} has been created!`)
+                .setTitle(`Note ${newNote.guildNoteNumber} for ${userOption.tag} has been edited!`)
                 .setURL(`https://discord.com/users/${userOption.id}`)
                 .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
                 .setThumbnail(userOption.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
