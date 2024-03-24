@@ -15,7 +15,7 @@ module.exports = {
 		const userNoteText = new TextInputBuilder()
 			.setCustomId('user-text')
 			.setLabel("Which user is the note for? Use their username, NOT NICKNAME!")
-			.setStyle(TextInputStyle.Short);
+			.setStyle(TextInputStyle.Paragraph);
 
 		const serverNoteText = new TextInputBuilder()
 			.setCustomId('server-text')
@@ -27,7 +27,7 @@ module.exports = {
         const numberNoteText = new TextInputBuilder()
             .setCustomId('number-text')
             .setLabel('What is the note number?')
-            .setStyle(TextInputStyle.Short);
+            .setStyle(TextInputStyle.Paragraph);
 
         const noteText = new TextInputBuilder()
             .setCustomId('note-text')
@@ -39,19 +39,19 @@ module.exports = {
             .setCustomId('rule-text')
             .setLabel(`What rule was broken?
             "-" = Not applicable`)
-            .setStyle(TextInputStyle.Short);
+            .setStyle(TextInputStyle.Paragraph);
 
         const punishmentText = new TextInputBuilder()
             .setCustomId('punishment-text')
             .setLabel(`What was the punishment?
             "-" = Not applicable`)
-            .setStyle(TextInputStyle.Short);
+            .setStyle(TextInputStyle.Paragraph);
         
         const typeText = new TextInputBuilder()
             .setCustomId('type-text')
             .setLabel(`What is the type of note?
             "-" = Not applicable`)
-            .setStyle(TextInputStyle.Short);
+            .setStyle(TextInputStyle.Paragraph);
 
         const statusText = new TextInputBuilder()
             .setCustomId('status-text')
