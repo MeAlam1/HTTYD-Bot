@@ -9,19 +9,19 @@ module.exports = {
             case 'note':
 
                 const modal = new ModalBuilder()
-                    .setTitle(`Edit ${noteType} Note`)
-                    .setCustomId('edit-note-modal')
-                    .addComponents(
-                        new ActionRowBuilder()
-                            .addComponents(
-                                new TextInputBuilder()
-                                    .setLabel(`What do you want to change the ${noteType} note to?`)
-                                    .setCustomId('edit-note-text')
-                                    .setPlaceholder('Type the new note here!')
-                                    .setStyle(TextInputStyle.Short)
-                                    .setRequired(true)
-                            )
-                    );
+                .setTitle(`Edit ${noteType} Note`)
+                .setCustomId(`edit-note-modal:${noteType}`)
+                .addComponents(
+                    new ActionRowBuilder()
+                        .addComponents(
+                            new TextInputBuilder()
+                                .setLabel(`What do you want to change the ${noteType} note to?`)
+                                .setCustomId('edit-note-text')
+                                .setPlaceholder('Type the new note here!')
+                                .setStyle(TextInputStyle.Short)
+                                .setRequired(true)
+                        )
+                );
                 await interaction.showModal(modal);
 
                 await interaction.reply({ content: `You have selected to edit the ${noteType} note.`, ephemeral: true });
