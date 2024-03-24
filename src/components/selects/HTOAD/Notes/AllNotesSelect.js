@@ -29,7 +29,7 @@ module.exports = {
 
         const noteDetailsEmbed = new EmbedBuilder()
             .setColor(0xbf020f)
-            .setTitle(`Notes for ${user.username} in ${client.guilds.cache.get(selectedNote.guildId).name}`) 
+            .setTitle(`Note ${selectedNote.guildNoteNumber} for ${user.username} in ${client.guilds.cache.get(selectedNote.guildId).name}`) 
             .setURL(`https://discord.com/users/${userId}`)
             .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
             .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
