@@ -35,19 +35,23 @@ module.exports = {
         .addStringOption(option =>
             option.setName('server')
                 .setDescription('Which server is the note in?')
-                .setRequired(true))
-        .addStringOption(option => 
+                .setRequired(true)
+                .setChoices(
+                    { name: 'How to Own a Dragon', value: '1120022058601029652' },
+                    { name: 'Runic Isles', value: '1151497491288690688' }))
+        .addNumberOption(option => 
             option.setName('number')
                 .setDescription('Which number of the Note do you want to edit?')
                 .setRequired(true))
         .addStringOption(option =>
+            option.setName('note')
+                .setDescription('What is the note?'))
+        .addStringOption(option =>
             option.setName('rulebroken')
-                .setDescription('Which rule did the user break?("-" if not applicable.')
-                .setRequired(true))
+                .setDescription('Which rule did the user break?'))
         .addStringOption(option =>
             option.setName('punishment')
-                .setDescription('What punishment was given?("-" if not applicable.')
-                .setRequired(true))
+                .setDescription('What punishment was given?'))
         .addStringOption(option => 
             option.setName('type')
                 .setDescription('Type of note.'))
@@ -58,12 +62,12 @@ module.exports = {
                     { name: 'Open', value: 'open' },
                     { name: 'Closed', value: 'closed' }
                 ))
-        .addAttachmentOption(option => 
-            option.setName('attachment')
-                .setDescription('Attachment to add to the note.'))
-        .addBooleanOption(option => 
-            option.setName('dm')
-                .setDescription('DM the user?')),
+        .addStringOption(option =>
+            option.setName('visibility')
+                .setDescription('Visibility of the note.')
+                .addChoices(
+                    { name: 'Public', value: 'public' },
+                    { name: 'Server', value: 'server' })),
         run: async (client, interaction) => {
 
             if (!allowedServers.includes(interaction.guild.id)) {
@@ -79,114 +83,45 @@ module.exports = {
             }
 
             const { options } = interaction;
-
             const userOption = options.getUser('user');
+            const serverOption = options.getString('server');
+            const numberOption = options.getNumber('number');
+            const noteOption = options.getString('note');
+            const ruleBrokenOption = options.getString('rulebroken');
+            const punishmentOption = options.getString('punishment');
+            const typeOption = options.getString('type');
+            const statusOption = options.getString('status');
+            const visibilityOption = options.getString('visibility');
 
-            const lastGuildNote = await NoteSchema.findOne({ guild: interaction.guild.id, user: userOption.id })
-                .sort({ guildNoteId: -1 })
-                .limit(1);
-            let newGuildNoteId = 1;
-            if (lastGuildNote) {
-                newGuildNoteId = lastGuildNote.guildNoteId + 1;
+            const note = await NoteSchema.findOne({ guildId: serverOption, userId: userOption.id, guildNoteNumber: numberOption });
+
+            if (!note) {
+                await interaction.reply({ content: `No note found for ${userOption.username}.`, ephemeral: true });
+                return;
             }
 
-            const lastGeneralNote = await NoteSchema.findOne({ user: userOption.id })
-                .sort({ generalNoteId: -1 })
-                .limit(1);
-            let newGeneralNoteId = 1;
-            if (lastGeneralNote) {
-                newGeneralNoteId = lastGeneralNote.generalNoteId + 1;
-            }
-                
-            const attachmentOption = options.getAttachment('attachment');
-            let attachments = [];
-            if (attachmentOption) {
-                attachments.push(attachmentOption.url);
-            }
+            let update = {};
 
-            function formatDateToMinutes(date) {
-                const year = date.getFullYear();
-                const month = (date.getMonth() + 1).toString().padStart(2, '0');
-                const day = date.getDate().toString().padStart(2, '0');
-                const hours = date.getHours().toString().padStart(2, '0');
-                const minutes = date.getMinutes().toString().padStart(2, '0');
-                return `${year}-${month}-${day} ${hours}:${minutes}`;
+            if (noteOption !== null) update.note = noteOption;
+            if (ruleBrokenOption !== null) update.ruleBroken = ruleBrokenOption;
+            if (punishmentOption !== null) update.punishment = punishmentOption;
+            if (typeOption !== null) update.type = typeOption;
+            if (statusOption !== null) update.status = statusOption;
+            if (visibilityOption !== null) update.visibility = visibilityOption;
+
+            if (Object.keys(update).length > 0) {
+                await NoteSchema.findOneAndUpdate(
+                    { guildId: serverOption, userId: userOption.id, guildNoteNumber: numberOption, updatedAt: new Date()},
+                    update,
+                    { new: true }
+                );
+
+                await interaction.reply({ content: `The note for ${userOption.username} has been successfully updated.`, ephemeral: true });
+            } else {
+                await interaction.reply({ content: `No updates were made to the note for ${userOption.username}.`, ephemeral: true });
             }
 
-            const noteDocument = await NoteSchema.create({
-                guildNoteNumber: newGuildNoteId,
-                generalNoteNumber: newGeneralNoteId,
-                guildId: interaction.guild.id,
-                guild: interaction.guild.name,
-                moderatorId: interaction.user.id,
-                moderator: interaction.user.tag,
-                userId: userOption.id,
-                user: userOption.tag,
-                note: options.getString('note'),
-                ruleBroken: options.getString('rulebroken'),
-                punishment: options.getString('punishment'),
-                createdAt: formatDateToMinutes(new Date()),
-                updatedAt: formatDateToMinutes(new Date()),
-                isHidden: false,
-                type: options.getString('type') || 'general',
-                status: options.getString('status') || 'closed',
-                attachments: attachments,
-                visibility: 'public',
-                dmNotification: options.getBoolean('dm') || false,
-            });
 
-            const noteEmbed = new EmbedBuilder()
-                .setColor(0xbf020f)
-                .setTitle(`A note for ${userOption.tag} has been created!`)
-                .setURL(`https://discord.com/users/${userOption.id}`)
-                .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
-                .setThumbnail(userOption.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
-                .addFields(
-                    { name: 'Moderator', value: `<@${interaction.user.id}>`, inline: true },
-                    { name: 'User', value: `<@${userOption.id}>`, inline: true },
-                    { name: 'Note Type', value: noteDocument.type, inline: true },
-                    { name: 'Status', value: noteDocument.status, inline: true },
-                    { name: 'Visibility', value: noteDocument.visibility, inline: true },
-                    { name: 'DM User', value: noteDocument.dmNotification ? 'Yes' : 'No', inline: true },
-                    { name: 'Created At', value: noteDocument.createdAt, inline: true },
-                    { name: 'Note', value: noteDocument.note },
-                    { name: 'Rule Broken', value: noteDocument.ruleBroken },
-                    { name: 'Punishment', value: noteDocument.punishment }
-                )
-                .setTimestamp()
-                .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
-                
-            if (attachments.length > 0) {
-                noteEmbed.setImage(attachments[0]);
-            }
-                
-        await interaction.reply({ embeds: [noteEmbed] });
 
-        if (noteDocument.dmNotification) {
-            const dmEmbed = new EmbedBuilder()
-                .setColor(0xbf020f)
-                .setTitle(`You've received a new note!`)
-                .setDescription(`A note has been added to your profile.`)
-                .addFields(
-                    { name: 'Note Type', value: noteDocument.type, inline: true },
-                    { name: 'Created At', value: formatDateToMinutes(noteDocument.createdAt), inline: true },
-                    { name: 'Note', value: noteDocument.note },
-                    { name: 'Rule Broken', value: noteDocument.ruleBroken },
-                    { name: 'Punishment', value: noteDocument.punishment }
-                )
-                .setTimestamp()
-                .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
-
-                if (attachments.length > 0) {
-                    dmEmbed.setImage(attachments[0]);
-                }
-
-            try {
-                await userOption.send({ embeds: [dmEmbed] });
-            } catch (error) {
-                console.error("Failed to send DM", error);
-                await interaction.followUp({ content: 'Failed to send DM to the user.', ephemeral: true });
-            }
         }
-    }
-};                
+    };                
