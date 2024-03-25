@@ -8,7 +8,7 @@
  * ADMIN ONLY COMMAND
  */
 
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const KnownLinkSchema = require('../../../schemas/Moderation/KnownLinkSchema.js');
 
 const allowedServers = [
@@ -48,12 +48,20 @@ module.exports = {
                 return;
             }
 
-            const { options } = interaction;
+            const link = interaction.options.getString('link');
 
-            const linkOption = options.getUser('link');
+            const knownLink = await KnownLinkSchema.findOne({ link: link });
 
-            await KnownLinkSchema.create({link: linkOption});
+            if (knownLink) {
+                await interaction.reply({ content: 'This link is already in the database.', ephemeral: true });
+                return;
+            }
 
-            await interaction.reply({ content: 'Link added to the database.', ephemeral: true });
+            await new KnownLinkSchema({
+                link: link
+            }).save();
+
+            await interaction.reply({ content: `Link added to the database.
+${link}`, ephemeral: true });
         }
     }            
