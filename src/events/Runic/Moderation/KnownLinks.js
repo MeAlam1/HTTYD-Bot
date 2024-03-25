@@ -17,33 +17,32 @@ module.exports = {
         const message = args[0];
 
         const allowedRoles = [
-            // How to Own a Dragon
-            '1120030006626750474', // Owner
-            '1133420066277437490', // Lead Devs 
-            '1120033014416670895'  // Bots 
+            // Runic Isles
+            '1214620041425846272', // Bot Coder Role
+            '1151500042843201576', // Owner Role
+            '1189510610556301332', // Management Role
+            '1203303940364439573', // Moderator Role
+            '1151500178331807896'  // Developer Role
         ];
 
-        const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
+        const HTOAD = '1151497491288690688'; // Runic Isles Server
 
         if (message.guild.id === HTOAD) {
             const hasAllowedRole = message.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
             if (!hasAllowedRole) {
                 try {
-                    // Fetch known spam links from the database
                     const knownLinks = await KnownLinkSchema.find({});
-                    const spamLinks = knownLinks.map(link => link.value); // Assuming each link is stored in the 'value' field
+                    const spamLinks = knownLinks.map(link => link.value);
 
-                    // Check if the message contains any known spam links
                     const containsSpamLink = spamLinks.some(spamLink => message.content.includes(spamLink));
 
                     if (containsSpamLink) {
                         const AntiSpamLinkLog = new EmbedBuilder()
-                            // Embed configuration remains the same
                             .setColor(0xbf020f)
                             .setTitle(`${message.author.tag}`) 
                             .setURL(`https://discord.com/users/${message.author.id}`) 
-                            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
+                            .setAuthor({ name: 'Runic Isles', iconURL: 'https://i.imgur.com/xR54d7T.png' })
                             .setDescription('Known Spam Link has been Located!')
                             .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
                             .addFields(
@@ -55,11 +54,11 @@ module.exports = {
                                 { name: 'The Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, 
                             )
                             .setTimestamp()
-                            .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
+                            .setFooter({ text: 'Runic Isles Management Team', iconURL: 'https://i.imgur.com/xR54d7T.png' });
 
                         await message.delete();
 
-                        const logChannelId = '1168633106757070928'; // How to Own a Dragon infraction channel ID
+                        const logChannelId = '1151645114146488390'; // Runic Isles infraction channel ID
                         const logChannel = await client.channels.fetch(logChannelId);
 
                         const now = new Date();

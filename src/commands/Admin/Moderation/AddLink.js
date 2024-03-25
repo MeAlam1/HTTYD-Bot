@@ -23,7 +23,10 @@ const allowedRoles = [
     '1161418815440166943', // Moderator Role
     // Runic Isles
     '1214620041425846272', // Bot Coder Role
-    '1151500042843201576'  // Owner Role
+    '1151500042843201576', // Owner Role
+    '1189510610556301332', // Management Role
+    '1203303940364439573', // Moderator Role
+    '1151500178331807896'  // Developer Role
 ];
 
 module.exports = {
