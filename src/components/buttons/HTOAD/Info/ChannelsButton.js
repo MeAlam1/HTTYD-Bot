@@ -16,7 +16,7 @@ module.exports = {
                     new ButtonBuilder()
                         .setCustomId('htoad-archive-button')
                         .setLabel('Archive')
-                        .setStyle(ButtonStyle.Primary),
+                        .setStyle(ButtonStyle.Primary)
                 )
         ], ephemeral: true});
     }
