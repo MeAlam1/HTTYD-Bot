@@ -48,7 +48,7 @@ module.exports = {
                         .addComponents(
                             new ButtonBuilder()
                                 .setCustomId('htoad-create-ticket-button')
-                                .setEmoji('<a:Toothless_Dance:1204207905365164032>')
+                                .setEmoji('🎫')
                                 .setLabel('Create a Ticket!')
                                 .setStyle(ButtonStyle.Primary)
                         ),

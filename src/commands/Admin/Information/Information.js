@@ -46,6 +46,7 @@ module.exports = {
         const ContactStaffButton = new ButtonBuilder()
          .setCustomId('htoad-create-ticket-button')
          .setLabel('Contact Staff')
+         .setEmoji('🎫')
          .setStyle(ButtonStyle.Secondary);
 
         const row = new ActionRowBuilder().addComponents(FaqButton, RulesButton, RolesButton, ChannelsButton, ContactStaffButton);
