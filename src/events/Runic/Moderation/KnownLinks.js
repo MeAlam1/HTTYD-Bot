@@ -1,9 +1,9 @@
 /** Description:
- * This event will filter all messages sent in How to Own a Dragon.
+ * This event will filter all messages sent in Runic Isles.
  * It Checks them for known spam links.
  * Send a Message in the Automod Channel.
  * Timeout the User for 7 days.
- * The Owner, Lead Dev and Bot roles are allowed to use spam links in the server.
+ * The Owner, Admin, Management, Moderator, Developer and Bot roles are allowed to use spam links in the server.
  */
 
 const { EmbedBuilder } = require('discord.js');
@@ -25,9 +25,9 @@ module.exports = {
             '1151500178331807896'  // Developer Role
         ];
 
-        const HTOAD = '1151497491288690688'; // Runic Isles Server
+        const Runic = '1151497491288690688'; // Runic Isles Server
 
-        if (message.guild.id === HTOAD) {
+        if (message.guild.id === Runic) {
             const hasAllowedRole = message.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
             if (!hasAllowedRole) {
