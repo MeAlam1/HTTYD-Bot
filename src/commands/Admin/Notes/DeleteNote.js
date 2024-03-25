@@ -54,6 +54,14 @@ module.exports = {
             const userOption = interaction.options.getUser('user');
             const numberOption = interaction.options.getNumber('number');
 
+            const note = await NoteSchema.findOne({ guildId: interaction.guild.id, userId: userOption.id, guildNoteNumber: numberOption });
+
+            note.isHidden = true;
+
+            await NoteSchema.updateOne({ guildId: interaction.guild.id, userId: userOption.id, guildNoteNumber: numberOption }, note);
+
+            await interaction.reply({ content: `Note ${numberOption} for ${userOption.tag} has been deleted.`, ephemeral: true });
+
             
         }
     }               
