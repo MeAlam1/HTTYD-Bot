@@ -12,26 +12,24 @@ const HTOADFAQEmbed = new EmbedBuilder()
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription(`
-    ~~_                                                                                                    _~~
     **The drive**
     https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing
-    ~~_                                                                                                    _~~
-    # The Current status
-    ## On the Drive
-    ### Movies:
+
+    **On the Drive**
+    *Movies:*
     How to Train Your Dragon, (With Subtitles)
     How to Train Your Dragon 2,
     How to Train Your Dragon: The Hidden World,
-    ~~_                                                                                                    _~~
-    ### Specials:
+
+    *Specials:*
     Book of Dragons,
     Dawn of the Dragon Racers,
     Dreamworks Dragons: Gift of the Nightfury,
     How to Train Your Dragon: Homecoming,
     How to Train Your Dragon: Snoggletog Log,
     Legend of the Boneknapper Dragon,
-    ~~_                                                                                                    _~~
-    ### Series:
+
+    *Series*
     Dragons: Riders of Berk,
     Dragons: Defenders of Berk,
     Dragons: Race to the Edge Season 1,
@@ -40,15 +38,16 @@ const HTOADFAQEmbed = new EmbedBuilder()
     Dragons: Race to the Edge Season 4,
     Dragons: Race to the Edge Season 5,
     Dragons: Race to the Edge Season 6,
-    ~~_                                                                                                    _~~
-    ## Upcoming
-    ### Series:
+
+    **Upcoming**
+    *Series*
     DreamWorks Dragons:  The Nine Realms,
     Dragons: Rescue Riders,
     Dragons Rescue Riders: Heroes of the Sky,
-    ~~_                                                                                                    _~~
-    # The drive
+
+    **The drive**
     https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing`)
+    
     .setTimestamp()
     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
