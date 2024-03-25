@@ -27,7 +27,7 @@ const allowedRoles = [
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('addnote')
+        .setName('deletenote')
         .setDescription('Delete a note of a user.')
         .addUserOption(option => 
             option.setName('user')
