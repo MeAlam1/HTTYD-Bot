@@ -12,15 +12,9 @@ const ChannelsEmbed = new EmbedBuilder()
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription(`
-    **Welcome**
-    <#1120030527920025650> - A space for sending greetings to newcomers and farewells to departing members.
-    <#1182345490101186711> - Discover all the essential links associated with our server.
-    <#1120088926737141923> - A detailed guide to every role available on this server.
-    <#1157675244404875305> - Descriptions for each channel, helping you navigate our server with ease.
-
     **Important**
-    <#1120026059686019192> - The heart of our server's guidelines. Make sure to read them thoroughly.
-    <#1120302121980543007> - Your go-to resource for common questions about our server or the mod. Please consult this before posing queries.
+    <#1120030527920025650> - A space for sending greetings to newcomers and farewells to departing members.
+    <#1221905515798597662> - The central hub for all server information.
     <#1158314758840270930> - A comprehensive list of all our collaborative partners.
     <#1147986319771967488> - Find all announcements from our partners in this channel.
 
@@ -39,12 +33,15 @@ const ChannelsEmbed = new EmbedBuilder()
     <#1129499336137519175> - Have a question? Ask us anything (but check the FAQ first).
     <#1120033166279839865> - A dedicated voice channel for assistance with any issues.
 
-    **HTTYD**
+    **Events**
+
+    **General**
     <#1120032046539087986> - The primary general chat dedicated to HTTYD discussions.
     <#1120032310197231646> - An alternate general chat for non-HTTYD topics.
     <#1130864389168316446> - Show off your creations here.
+    <#1203829620156145724> - Execute all the commands you want in this channel.
 
-    **Off-topic**
+    **Utilities**
     <#1120032404996890654> - A friendly space to introduce yourself to the community.
     <#1143521037955367052> - Collaboratively complete a song, one line at a time.
     <#1124098888463290399> - Participate in various polls created by <@&1133420066277437490>.
@@ -55,20 +52,9 @@ const ChannelsEmbed = new EmbedBuilder()
     <#1120033591208968264> - For private conversations.
     <#1120033811577716878>  - A general space for chatting.
     <#1120033849708122155> - An additional chat room for when others are full or engaged.
-
-    **Events**
-
-    **Archive**
-    <#1136677313967300730> - A look back at the old Helper Applications. This channel was closed, details here: https://discord.com/channels/1120022058601029652/1127173809032663110/1209137446369886258
-    <#1158305505660383232> - A look back at the old Developer Applications. This channel was closed, details here: https://discord.com/channels/1120022058601029652/1127173809032663110/1209137446369886258
-    <#1166785959417884694> - A look back at the Server Banner contest from November 2023.
-    <#1148738960693153882> - Reflecting on when <@&1120030006626750474> used to do recaps. This channel was closed, details here: https://discord.com/channels/1120022058601029652/1127173809032663110/1197595787807436880
-    <#1123664502995570838> & <#1152747457311146034> - Reminiscing about our Meme channels era. Closure details: https://discord.com/channels/1120022058601029652/1127173809032663110/1198692115429986396
-    <#1152747429083492363> - Remembering the times when our showcases were divided into two separate channels. Closed due to: https://discord.com/channels/1120022058601029652/1127173809032663110/1198692115429986396
-    <#1199697255993720862> - A look back at the Server Logo contest from February 2024.
-
+        
     Future channel additions are a possibility!
-
+    
     For any errors, please contact <@397416283835990016>.
     `)
     .setTimestamp()

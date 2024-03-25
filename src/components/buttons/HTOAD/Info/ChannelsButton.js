@@ -5,10 +5,19 @@
  */
 
 const ChannelsEmbed = require('../../../../embed/HTOAD/Information/ChannelsEmbed.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 module.exports = {
     customId: 'htoad-channels-button',
     run: async (client, interaction) => {
-        await interaction.reply({ embeds: [ChannelsEmbed], ephemeral: true});
+        await interaction.reply({ embeds: [ChannelsEmbed], components: [
+            new ActionRowBuilder
+                .addComponents(
+                    new ButtonBuilder()
+                        .setCustomId('htoad-archive-button')
+                        .setLabel('Archive')
+                        .setStyle(ButtonStyle.Primary),
+                )
+        ], ephemeral: true});
     }
 };
