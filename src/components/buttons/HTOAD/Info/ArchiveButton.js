@@ -7,7 +7,7 @@
 const ArchiveEmbed = require('../../../../embed/HTOAD/Information/ArchiveEmbed.js');
 
 module.exports = {
-    customId: 'htoad-roles-button',
+    customId: 'htoad-archive-button',
     run: async (client, interaction) => {
         await interaction.reply({ embeds: [ArchiveEmbed], ephemeral: true});
     }
