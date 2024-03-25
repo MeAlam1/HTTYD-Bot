@@ -8,12 +8,11 @@ const { EmbedBuilder } = require('discord.js');
 
 const HTOADFAQEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
-    .setTitle('Milestone')
+    .setTitle('Milestones:')
     .setURL('https://discord.com/channels/1120022058601029652/1221905515798597662')
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription(`
-    **Milestones:**
     Start of this mod: <t:1686998820> 
 
     *Members:*

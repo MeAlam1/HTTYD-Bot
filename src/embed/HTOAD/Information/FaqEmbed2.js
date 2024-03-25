@@ -8,13 +8,11 @@ const { EmbedBuilder } = require('discord.js');
 
 const FaqEmbed2 = new EmbedBuilder()
     .setColor(0x0099FF)
-    .setTitle('Frequently Asked Questions')
+    .setTitle('Frequently Asked Questions (FAQ)')
     .setURL('https://discord.com/channels/1120022058601029652/1221905515798597662')
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription(`
-    **Frequently Asked Questions (FAQ)**
-
     *What is this?*
     This mod, How to Own a Dragon, is a Minecraft Forge modification inspired by the How to Train Your Dragon series. 
     ***Note: This is a mod for Minecraft Java Edition, not Bedrock.

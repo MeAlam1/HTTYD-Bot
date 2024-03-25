@@ -8,7 +8,7 @@ const { EmbedBuilder } = require('discord.js');
 const HTOADETAEmbed = new EmbedBuilder()
     .setColor(0x0099FF)
     .setTitle('Estimated Time of Arrival (ETA)')
-    .setURL('https://discord.com/channels/1120022058601029652/1120302121980543007/1173294933604585583')
+    .setURL('https://discord.com/channels/1120022058601029652/1221905515798597662')
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription('The first Alpha already has been released!')
