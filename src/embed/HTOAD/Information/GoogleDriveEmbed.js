@@ -13,7 +13,7 @@ const HTOADFAQEmbed = new EmbedBuilder()
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription(`
     ~~_                                                                                                    _~~
-    # The drive
+    **The drive**
     https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing
     ~~_                                                                                                    _~~
     # The Current status
