@@ -2,7 +2,8 @@
 
 /**Description:
  * This Database Schema is used to store notes for users.
- * src\components\selects\HTOAD\Notes\AllNotesSelect.js
+ * src\commands\Admin\Notes\DeleteNote.js
+ * src\commands\Admin\Notes\EditNote.js
  * src\commands\Admin\Notes\Notes.js
  * src\commands\Admin\Notes\AddNote.js
  */
