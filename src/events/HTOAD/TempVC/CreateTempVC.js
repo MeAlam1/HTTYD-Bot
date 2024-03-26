@@ -18,7 +18,7 @@ module.exports = {
             try {
                 const newVC = await guild.channels.create({
                     name: vcName,
-                    type: ChannelType.GuildText,
+                    type: ChannelType.GuildVoice,
                     parent: category,
                     permissionOverwrites: [
                         {
