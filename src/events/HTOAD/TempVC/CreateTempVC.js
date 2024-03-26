@@ -4,7 +4,7 @@
  */
 
 const VcMakerChannel = '1222203117303500870'; // HTOAD VC Maker Channel
-const { PermissionFlagsBits } = require('discord.js');
+const { PermissionFlagsBits, ChannelType } = require('discord.js');
 
 module.exports = {
     event: 'voiceStateUpdate',
@@ -18,7 +18,7 @@ module.exports = {
             try {
                 const newVC = await guild.channels.create({
                     name: vcName,
-                    type: 'GUILD_VOICE',
+                    type: ChannelType.GuildText,
                     parent: category,
                     permissionOverwrites: [
                         {
