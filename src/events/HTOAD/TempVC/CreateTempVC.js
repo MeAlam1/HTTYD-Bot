@@ -4,6 +4,7 @@
  */
 
 const VcMakerChannel = '1222203117303500870'; // HTOAD VC Maker Channel
+const { PermissionFlagsBits } = require('discord.js');
 
 module.exports = {
     event: 'voiceStateUpdate',
@@ -22,15 +23,15 @@ module.exports = {
                     permissionOverwrites: [
                         {
                             id: newState.member.id,
-                            allow: ['MANAGE_CHANNELS'],
+                            allow: [PermissionFlagsBits.ManageChannels],
                         },
                         {
                             id: guild.roles.everyone,
-                            deny: ['MANAGE_CHANNELS'],
+                            deny: [PermissionFlagsBits.ManageChannels],
                         },
                         {
                             id: guild.roles.everyone,
-                            deny: ['VIEW_CHANNEL'],
+                            deny: [PermissionFlagsBits.ViewChannel],
                         }
                     ],
                 });
