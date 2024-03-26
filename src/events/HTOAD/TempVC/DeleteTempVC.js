@@ -13,20 +13,24 @@ const exceptions = [
     '1120033166279839865'  // Support VC
 ];
 
+const targetGuildId = '1120022058601029652'; // How to Own a Dragon
+
 module.exports = {
     event: 'voiceStateUpdate',
     once: false,
 
     run: async (client, oldState, newState) => {
-        if (oldState.channelId && oldState.channelId !== newState.channelId) {
-            const channel = oldState.channel;
-            if (channel && channel.members.size === 0 && !exceptions.includes(channel.id)) {
-                try {
-                    await channel.delete();
-                } catch (error) {
-                    console.error(`Failed to delete channel: ${error}`);
+        if (newState.guild.id === targetGuildId) {
+            if (oldState.channelId && oldState.channelId !== newState.channelId) {
+                const channel = oldState.channel;
+                if (channel && channel.members.size === 0 && !exceptions.includes(channel.id)) {
+                    try {
+                        await channel.delete();
+                    } catch (error) {
+                        console.error(`Failed to delete channel: ${error}`);
+                    }
                 }
             }
         }
     }
-};
+}
