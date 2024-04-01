@@ -23,11 +23,11 @@ const HTOADFAQEmbed = new EmbedBuilder()
 
     *Specials:*
     Book of Dragons,
-    Dawn of the Dragon Racers,
+    Dawn of the Dragon Racers, (With Subtitles)
     Dreamworks Dragons: Gift of the Nightfury,
     How to Train Your Dragon: Homecoming,
     How to Train Your Dragon: Snoggletog Log,
-    Legend of the Boneknapper Dragon,
+    Legend of the Boneknapper Dragon, (With Subtitles)
 
     *Series*
     Dragons: Riders of Berk,
