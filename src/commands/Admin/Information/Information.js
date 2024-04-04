@@ -49,6 +49,11 @@ module.exports = {
          .setEmoji('🎫')
          .setStyle(ButtonStyle.Secondary);
 
+        const ApplyButton = new ButtonBuilder()
+        .setCustomId('htoad-apply-button')
+        .setLabel('Apply to HTOAD')
+        .setStyle(ButtonStyle.Secondary);
+
         const row = new ActionRowBuilder().addComponents(FaqButton, RulesButton, RolesButton, ChannelsButton, ContactStaffButton);
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
