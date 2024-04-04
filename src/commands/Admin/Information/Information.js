@@ -54,7 +54,7 @@ module.exports = {
         .setLabel('Apply to HTOAD')
         .setStyle(ButtonStyle.Secondary);
 
-        const row = new ActionRowBuilder().addComponents(FaqButton, RulesButton, RolesButton, ChannelsButton, ContactStaffButton);
+        const row = new ActionRowBuilder().addComponents(FaqButton, RulesButton, RolesButton, ChannelsButton, ContactStaffButton, ApplyButton);
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!hasRole) {
