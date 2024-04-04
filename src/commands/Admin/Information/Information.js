@@ -68,6 +68,10 @@ module.exports = {
         const channel = client.channels.cache.get(interaction.channelId);
 
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
+            await interaction.reply({
+                embeds: [HTOADInformationEmbed],
+                components: [row]
+            });
             await channel.send({
                 embeds: [HTOADInformationEmbed],
                 components: [row]
