@@ -50,9 +50,9 @@ module.exports = {
          .setStyle(ButtonStyle.Secondary);
 
         const ApplyButton = new ButtonBuilder()
-        .setCustomId('htoad-apply-button')
-        .setLabel('Apply to HTOAD')
-        .setStyle(ButtonStyle.Secondary);
+         .setCustomId('htoad-apply-button')
+         .setLabel('Apply to HTOAD')
+         .setStyle(ButtonStyle.Secondary);
 
         const row = new ActionRowBuilder().addComponents(FaqButton, RulesButton, RolesButton, ChannelsButton, ContactStaffButton, ApplyButton);
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
@@ -68,10 +68,6 @@ module.exports = {
         const channel = client.channels.cache.get(interaction.channelId);
 
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
-            await interaction.reply({
-                embeds: [HTOADInformationEmbed],
-                components: [row]
-            });
             await channel.send({
                 embeds: [HTOADInformationEmbed],
                 components: [row]
