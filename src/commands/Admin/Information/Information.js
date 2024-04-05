@@ -54,7 +54,8 @@ module.exports = {
          .setLabel('Apply to HTOAD')
          .setStyle(ButtonStyle.Secondary);
 
-        const row = new ActionRowBuilder().addComponents(FaqButton, RulesButton, RolesButton, ChannelsButton, ContactStaffButton, ApplyButton);
+        const row1 = new ActionRowBuilder().addComponents(ContactStaffButton, ApplyButton);
+        const row2 = new ActionRowBuilder().addComponents(FaqButton, RulesButton, RolesButton, ChannelsButton);
         const hasRole = interaction.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
         if (!hasRole) {
@@ -70,7 +71,7 @@ module.exports = {
         if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
             await channel.send({
                 embeds: [HTOADInformationEmbed],
-                components: [row]
+                components: [row1, row2]
             });
         } else {
             await interaction.reply({
