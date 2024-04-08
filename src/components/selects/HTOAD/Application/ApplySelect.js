@@ -107,51 +107,61 @@ module.exports = {
           
     if (value === 'htoad-apply-discord-bot-coder') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADDiscordBotCoderApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-website-coder') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADWebsiteCoderApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-modeler') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADModelerApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-animator') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADAnimatorApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-sfx-artist') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADSFXArtistApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-concept-artist') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADConceptArtistApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-builder') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADBuilderApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-texture-artist') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADTextureArtistApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-tester') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADTesterApplyEmbed],
             components: [row],
         });
     } else if (value === 'htoad-apply-translator') {
         await channel.send({
+            content: `<@${interaction.user.id}>`,
             embeds: [HTOADTranslatorApplyEmbed],
             components: [row],
         });
