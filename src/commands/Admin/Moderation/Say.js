@@ -11,11 +11,12 @@
 const { SlashCommandBuilder } = require('discord.js');
 const AllowedServers = [
     '1120022058601029652',  // How to Own a Dragon
-    '1151497491288690688'  // Runic Isles
-
+    '1151497491288690688', // Runic Isles
+    '1121921556130566204'  // BFS
 ];
 const HTOAD = ['1120022058601029652']; // How to Own a Dragon
 const Runic = ['1151497491288690688']; // Runic Isles
+const BFS = ['1121921556130566204']; // BFS
 const allowedRoles = [
     // How to Own a Dragon
     '1120030006626750474', // Owner Role
@@ -24,7 +25,9 @@ const allowedRoles = [
     '1140629154748956813', // Coder Role
     // Runic Isles
     '1151500042843201576', // Owner Role
-    '1214620041425846272'  // Bot Coder Role
+    '1214620041425846272', // Bot Coder Role
+    // BFS
+    '1122271190443098173' // Moderators
 
 ];
 
@@ -98,6 +101,8 @@ module.exports = {
             channelLogId = '1168633539676344490'; // How to Own a Dragon Log Channel 
         } else if (interaction.guild && Runic.includes(interaction.guild.id)) {
             channelLogId = '1151645114146488390'; // Runic Isles Log Channel
+        } else if (interaction.guild && BFS.includes(interaction.guild.id)) {
+            channelLogId = '1190698582781722774'; // BFS Log Channel
         }
     
         const channelLog = interaction.guild.channels.cache.get(channelLogId);
