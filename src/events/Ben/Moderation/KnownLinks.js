@@ -31,7 +31,7 @@ module.exports = {
                 try {
                     // Fetch known spam links from the database
                     const knownLinks = await KnownLinkSchema.find({});
-                    const spamLinks = knownLinks.map(link => link.value); // Assuming each link is stored in the 'value' field
+                    const spamLinks = knownLinks.map(link => link.link);
 
                     // Check if the message contains any known spam links
                     const containsSpamLink = spamLinks.some(spamLink => message.content.includes(spamLink));

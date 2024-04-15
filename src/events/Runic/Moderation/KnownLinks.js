@@ -33,7 +33,7 @@ module.exports = {
             if (!hasAllowedRole) {
                 try {
                     const knownLinks = await KnownLinkSchema.find({});
-                    const spamLinks = knownLinks.map(link => link.value);
+                    const spamLinks = knownLinks.map(link => link.link);
 
                     const containsSpamLink = spamLinks.some(spamLink => message.content.includes(spamLink));
 
