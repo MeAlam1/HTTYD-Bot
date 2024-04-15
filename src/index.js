@@ -21,6 +21,9 @@ const Runicleave = require('./class/Runic/Leave.js');
 const Ravenstonewelcome = require('./class/Ravenstone/welcome.js');
 const Ravenstoneleave = require('./class/Ravenstone/leave.js');
 
+//Load BFS Class Files
+const BFSwelcome = require('./class/BFS/welcome.js');
+
 const client = new ExtendedClient();
 
 client.start();
@@ -36,6 +39,9 @@ Runicleave(client);
 //Ravenstone Peak
 Ravenstonewelcome(client);
 Ravenstoneleave(client);
+
+// BFS
+BFSwelcome(client);
 
 // Handles errors and avoids crashes, better to not remove them.
 process.on('unhandledRejection', console.error);
