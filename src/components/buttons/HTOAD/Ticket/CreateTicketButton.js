@@ -57,7 +57,7 @@ module.exports = {
 
             channel.send({
                 embeds: [HTOADFirstMessageTicketEmbed],
-                content: `<@&1161418815440166943>`,
+                content: `<@&1161418815440166943> <@${interaction.user.id}>`,
                 components: [row]
             })
               .then(message => message.pin())
