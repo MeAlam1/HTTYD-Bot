@@ -47,7 +47,7 @@ module.exports = {
                     .setTimestamp()
                         .setFooter({ text: 'Bens Fintastic Sharks Bot Coder Team', iconURL: 'https://i.imgur.com/Y2kTsOt.png' })
 
-                const logChannelId = '1211052643288612874'; // Bens Fintastic Sharks user-automod channel ID
+                const logChannelId = '1190698582781722774'; // Bens Fintastic Sharks Logging channel ID
                 const logChannel = await client.channels.fetch(logChannelId);
 
                 await logChannel.send({
