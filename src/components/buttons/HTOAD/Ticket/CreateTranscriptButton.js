@@ -265,9 +265,12 @@ fetchedMessages.reverse().forEach(msg => {
     let timestamp = new Date(msg.createdTimestamp).toLocaleString(); 
     let authorAvatarUrl = msg.author.displayAvatarURL();
     
-    let coloredRoles = msg.member.roles.cache.filter(role => role.color !== 0);
-    let highestColoredRole = coloredRoles.reduce((highest, role) => highest.position > role.position ? highest : role, {position: -1, color: 0}); // Fallback role
-    let roleColor = highestColoredRole.position !== -1 ? `#${highestColoredRole.color.toString(16).padStart(6, '0')}` : '#FFFFFF'; // Default color
+    let roleColor = '#FFFFFF'; // Default to white color
+    if (msg.member && msg.member.roles.cache.size > 0) {
+        let coloredRoles = msg.member.roles.cache.filter(role => role.color !== 0);
+        let highestColoredRole = coloredRoles.reduce((highest, role) => highest.position > role.position ? highest : role, {position: -1, color: 0}); // Fallback role
+        roleColor = highestColoredRole.position !== -1 ? `#${highestColoredRole.color.toString(16).padStart(6, '0')}` : '#FFFFFF';
+    }
     
     let messageContent = msg.content;
     let mentionMatches = messageContent.match(/<@!?(\d+)>/g);

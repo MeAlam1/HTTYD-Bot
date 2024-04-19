@@ -21,7 +21,8 @@ module.exports = {
         const excludedChannelIds = [
             '1120026059686019193', // Moderator Only Channel
             '1134586375140802600', // Admin Discuss Channel
-            '1131196059608174705' // Important Admin Channel
+            '1131196059608174705', // Important Admin Channel
+            '1230876266195062856'  // Completed Assets
         ];
 
         if (excludedChannelIds.includes(newMessage.channel.id)) return;
