@@ -28,7 +28,7 @@ module.exports = {
                     });
                     const deletionLog = fetchedLogs.entries.first();
 
-                    let executor = 'Unknown'; // Default to unknown if no log is found
+                    let executor = message.author.id; // Default to unknown if no log is found
                     if (deletionLog) {
                         const target = deletionLog.target;
                         if (target.id === message.author.id) {
