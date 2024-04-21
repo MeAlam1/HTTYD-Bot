@@ -48,7 +48,7 @@ module.exports = {
                             { name: 'Message Content:', value: message.content ? message.content : 'Content Not Available' },
                             { name: 'Message ID:', value: `${message.id}`, inline: true },
                             { name: 'Channel:', value: `<#${message.channel.id}>`, inline: true },
-                            { name: 'Deleted by:', value: `<#${executor}>`, inline: true }
+                            { name: 'Deleted by:', value: `<@${executor}>`, inline: true }
                         )
                         .setTimestamp()
                         .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
