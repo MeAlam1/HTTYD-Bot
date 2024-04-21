@@ -1,3 +1,5 @@
+const autorole = require('./autorole.js');
+
 module.exports = client => {
     
     const BFS = '1121921556130566204'; // Bens Fintastic Sharks
@@ -11,6 +13,9 @@ module.exports = client => {
     ];
 
     client.on('guildMemberAdd', async member => {
+        if (member.guild.id === BFS) {
+            autorole.execute(client, member);
+        }
 
         const totalMembers = member.guild.memberCount;
         const messageTemplate = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
