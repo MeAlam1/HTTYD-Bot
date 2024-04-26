@@ -17,11 +17,13 @@ const ChannelsEmbed = new EmbedBuilder()
     <#1221905515798597662> - The central hub for all server information.
     <#1158314758840270930> - A comprehensive list of all our collaborative partners.
     <#1147986319771967488> - Find all announcements from our partners in this channel.
+    <#1210733361593585664> - View all commits made towards discord!
+    <#1232986809034735656> - View all Minecraft Version Changelogs!
 
     **Development**
     <#1120095709060931744> - This channel is where <@&1133420066277437490>  sends out pings to notify everyone when they are actively working on the mod.
     <#1120085724054704258> - Catch a glimpse of what's coming every 3-5 business days, courtesy of <@&1133420066277437490>.
-    <#1120026742933958788> - <@&1140629154748956813> posts detailed changelogs here with each new mod release.
+    <#1120026742933958788> - <@&1140629154748956813> posts detailed changelogs here with each new release.
     <#1127173809032663110> - The hub for all crucial server/mod announcements.
     <#1152611101893214258> - Explore our planned dragon additions.
     <#1157988227890823289> - Track changes made to the code or Wiki by <@&1140629154748956813> 
@@ -48,10 +50,7 @@ const ChannelsEmbed = new EmbedBuilder()
 
     **Voice Channels**
     <#1120097034431639622> - Join this channel to find someone working on the mod.
-    <#1175873957098954893>  - A less formal mod development channel.
-    <#1120033591208968264> - For private conversations.
     <#1120033811577716878>  - A general space for chatting.
-    <#1120033849708122155> - An additional chat room for when others are full or engaged.
         
     Future channel additions are a possibility!
     
