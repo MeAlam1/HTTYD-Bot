@@ -20,8 +20,8 @@ const HTOADFAQEmbed = new EmbedBuilder()
     250 Members: <t:1693775760> 
     500 Members: <t:1697305800>
     750 Members: <t:1700934125> 
-    1000 Members:
-    <t:1704014820:f>
+    1000 Members: <t:1704014820>
+    2500 Members: <t:1714423835> 
 
     *Downloads:*
     100 Downloads: <t:1693980120> 
