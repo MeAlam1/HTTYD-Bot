@@ -4,7 +4,6 @@
  */
 
 const FaqEmbed2 = require('../../../../embed/HTOAD/Information/FaqEmbed2.js');
-const GoogleDriveEmbed = require('../../../../embed/HTOAD/Information/GoogleDriveEmbed.js');
 const MilestoneEmbed = require('../../../../embed/HTOAD/Information/MilestoneEmbed.js');
 
 module.exports = {
@@ -21,11 +20,6 @@ module.exports = {
         } else if (value === 'milestone') {
             await interaction.reply({
                 embeds: [MilestoneEmbed],
-                ephemeral: true
-            });
-        } else if (value === 'google-drive') {
-            await interaction.reply({
-                embeds: [GoogleDriveEmbed],
                 ephemeral: true
             });
         }

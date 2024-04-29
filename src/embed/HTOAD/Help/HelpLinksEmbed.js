@@ -13,7 +13,6 @@ const HTOADHelpLinksEmbed = new EmbedBuilder()
     .setImage('https://imgur.com/xEKQnvq.png')
     .addFields(
         { name: `Links`, value: `
-        **[/google-drive](https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing)** - To open the Google Drive!
         **[/httyd](https://drive.google.com/drive/folders/1fKXuKjjZOmeRWR5Ar2EhiDnHyMm_Ikbx?usp=sharing)** - To open the Google Drive!
     
         `},

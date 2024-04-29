@@ -21,8 +21,7 @@ module.exports = {
                         .setPlaceholder('Select what part of the FAQ you would like to view.')
                         .addOptions([
                             { label: 'FAQ', value: 'faq' },
-                            { label: 'Milestone', value: 'milestone' },
-                            { label: 'Google Drive', value: 'google-drive' },
+                            { label: 'Milestone', value: 'milestone' }
                         ])
             )], ephemeral: true});
 
