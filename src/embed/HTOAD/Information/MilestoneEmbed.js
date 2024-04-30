@@ -26,10 +26,6 @@ const HTOADFAQEmbed = new EmbedBuilder()
     *Downloads:*
     100 Downloads: <t:1693980120> 
     250 Downloads: <t:1701700750> 
-
-    *Mod:*
-    First Alpha: <t:1689615000>
-    5th Alpha: <t:1697738940>
 `)
     .setTimestamp()
     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
