@@ -39,10 +39,6 @@ module.exports = {
                         {
                             id: guild.roles.everyone,
                             deny: [PermissionFlagsBits.ManageChannels, PermissionFlagsBits.ViewChannel],
-                        },
-                        {
-                            id: guild.roles.admin,
-                            allow: [PermissionFlagsBits.ManageChannels, PermissionFlagsBits.ViewChannel],
                         }
                     ],
                 });
