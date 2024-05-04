@@ -112,12 +112,11 @@ module.exports = {
                     ],
                 });
                 await newState.setChannel(newVC);
-                const message = await newVC.send({ 
+                await newVC.send({ 
                     content: `<@${newState.member.id}>`,
                     embeds: [HTOADInterfaceEmbed], 
                     components: [row1, row2]
                 });
-                await message.pin();
             } catch (error) {
                 console.error(`Error creating a VC: ${error}`);
             }
