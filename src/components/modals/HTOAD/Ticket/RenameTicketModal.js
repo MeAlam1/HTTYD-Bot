@@ -10,7 +10,7 @@ module.exports = {
         const newChannelName = interaction.fields.getTextInputValue('channel-name');
 
         if (!interaction.guildId || !interaction.channel) {
-            await interaction.reply({ content: 'This command can only be used in a server channel.', ephemeral: true });
+            await interaction.reply({ content: 'This Button can only be used in a server channel.', ephemeral: true });
             return;
         }
 
