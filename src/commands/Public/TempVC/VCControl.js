@@ -16,6 +16,8 @@ module.exports = {
         .setDescription('To control the VC.'),
     run: async (client, interaction, args) => {
             if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
+            const channel = interaction.channel;
+            const member = interaction.member;
             const textChannelName = interaction.channel.name;
     
             const voiceChannel = interaction.guild.channels.cache.find(
@@ -30,7 +32,7 @@ module.exports = {
                 return;
             }
 
-            const memberPermissions = member.permissions.has(PermissionFlagsBits.ManageChannels)
+            const memberPermissions = channel.permissionsFor(member).has(PermissionFlagsBits.ManageChannels);
             if (!memberPermissions) {
                 await interaction.reply({
                     content: 'You do not have the required permissions to use this command.',
