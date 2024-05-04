@@ -20,6 +20,7 @@ const HTOADApplyEmbed = new EmbedBuilder()
         **Concept Artist** - Generates visual concepts for the mod.
         **Builder** - Constructs detailed in-mod structures.
         **Texture Artist** - Enhances mod with detailed item and model textures.
+        **Game Designer** - Designs the mod's gameplay and mechanics.
     ` },
         { name: `***Helper***`, value: `
         **Tester** - Checks mod for bugs and ensures stability.
