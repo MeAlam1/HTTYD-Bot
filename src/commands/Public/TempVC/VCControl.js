@@ -12,8 +12,8 @@ const HTOADInterfaceEmbed = require('../../../embed/HTOAD/TempVC/InterfaceEmbed.
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('support')
-        .setDescription('Feel free to support us!'),
+        .setName('vc-control')
+        .setDescription('To control the VC.'),
     run: async (client, interaction, args) => {
             if (interaction.guild && HTOAD.includes(interaction.guild.id)) {
             const textChannelName = interaction.channel.name;
