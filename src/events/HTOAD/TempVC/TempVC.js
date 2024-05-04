@@ -26,9 +26,9 @@ module.exports = {
             const guild = newState.guild;
             const vcName = newState.member.user.username ? `${newState.member.user.username} VC` : 'please gimme name';
             const category = newState.channel.parent;
-            console.log(`Creating new VC with name: '${vcName}'`);
             try {
-                const newVC = await guild.channels.create(vcName, {
+                const newVC = await guild.channels.create({
+                    name: vcName,
                     type: ChannelType.GuildVoice,
                     parent: category,
                     permissionOverwrites: [
