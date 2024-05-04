@@ -25,7 +25,7 @@ module.exports = {
 
         const HTOAD = '1120022058601029652'; // How to Own a Dragon Server
 
-        if (message.guild.id === HTOAD) {
+        if (message.guild.id === HTOAD && message.member) {
             const hasAllowedRole = message.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
             if (!hasAllowedRole) {
