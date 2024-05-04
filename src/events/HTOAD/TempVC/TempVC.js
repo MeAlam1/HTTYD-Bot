@@ -24,7 +24,7 @@ module.exports = {
     run: async (client, oldState, newState) => {
         if (newState.channelId === VcMakerChannel && oldState.channelId !== newState.channelId) {
             const guild = newState.guild;
-            const vcName = `${newState.member.user.username}'s channel`;
+            const vcName = newState.member.user.username ? `${newState.member.user.username} VC` : 'please gimme name';
             const category = newState.channel.parent;
             try {
                 const newVC = await guild.channels.create(vcName, {
