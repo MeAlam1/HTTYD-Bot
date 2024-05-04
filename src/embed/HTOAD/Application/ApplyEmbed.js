@@ -17,7 +17,7 @@ const HTOADApplyEmbed = new EmbedBuilder()
         **Modeler** - Creates and textures dragons for the mod.
         **Animator** - Animates mod elements, adding motion and life.
         **SFX Artist** - Designs sound effects for an immersive mod experience.
-        **Concept Artist** - Generates visual concepts for the mod.
+        **Artist** - Generates visual concepts for the mod.
         **Builder** - Constructs detailed in-mod structures.
         **Texture Artist** - Enhances mod with detailed item and model textures.
         **Game Designer** - Designs the mod's gameplay and mechanics.
