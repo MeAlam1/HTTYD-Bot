@@ -4,7 +4,8 @@
  */
 
 const VcMakerChannel = '1222203117303500870'; // HTOAD VC Maker Channel
-const { PermissionFlagsBits, ChannelType } = require('discord.js');
+const HTOADInterfaceEmbed = require('../../../embed/HTOAD/TempVC/InterfaceEmbed.js');
+const { PermissionFlagsBits, ChannelType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 const exceptions = [
     '1120097034431639622', // Mod Dev Stage 
@@ -23,6 +24,64 @@ module.exports = {
 
     run: async (client, oldState, newState) => {
         if (newState.channelId === VcMakerChannel && oldState.channelId !== newState.channelId) {
+
+            const RenameButton = new ButtonBuilder()
+            .setCustomId('htoad-rename-button')
+            .setEmoji('📝')
+            .setStyle(ButtonStyle.Secondary);
+
+            const LimitButton = new ButtonBuilder()
+            .setCustomId('htoad-limit-button')
+            .setEmoji('👥')
+            .setStyle(ButtonStyle.Secondary);
+
+            const LockButton = new ButtonBuilder()
+            .setCustomId('htoad-lock-button')
+            .setEmoji('🔒')
+            .setStyle(ButtonStyle.Secondary);
+
+            const UnlockButton = new ButtonBuilder()
+            .setCustomId('htoad-unlock-button')
+            .setEmoji('🔓')
+            .setStyle(ButtonStyle.Secondary);
+
+            const CloseButton = new ButtonBuilder()
+            .setCustomId('htoad-close-button')
+            .setEmoji('🗑️')
+            .setStyle(ButtonStyle.Secondary);
+
+            const TransferButton = new ButtonBuilder()
+            .setCustomId('htoad-transfer-button')
+            .setEmoji('🔁')
+            .setStyle(ButtonStyle.Secondary);
+
+            const ClaimButton = new ButtonBuilder()
+            .setCustomId('htoad-claim-button')
+            .setEmoji('✅')
+            .setStyle(ButtonStyle.Secondary);
+
+
+            const KickButton = new ButtonBuilder()
+            .setCustomId('htoad-kick-button')
+            .setEmoji('🚫')
+            .setStyle(ButtonStyle.Secondary);
+
+
+            const BanButton = new ButtonBuilder()
+            .setCustomId('htoad-ban-button')
+            .setEmoji('🔨')
+            .setStyle(ButtonStyle.Secondary);
+
+
+            const UnbanButton = new ButtonBuilder()
+            .setCustomId('htoad-unban-button')
+            .setEmoji('🛠️')
+            .setStyle(ButtonStyle.Secondary);
+
+
+            const row1 = new ActionRowBuilder().addComponents(RenameButton, LimitButton, LockButton, UnlockButton, CloseButton);
+            const row2 = new ActionRowBuilder().addComponents(TransferButton, ClaimButton, KickButton, BanButton, UnbanButton);
+
             const guild = newState.guild;
             const vcName = newState.member.user.username ? `${newState.member.user.username} VC` : 'please gimme name';
             const category = newState.channel.parent;
@@ -43,6 +102,7 @@ module.exports = {
                     ],
                 });
                 await newState.setChannel(newVC);
+                await newVC.send({ embeds: [HTOADInterfaceEmbed], components: [row1, row2]});
             } catch (error) {
                 console.error(`Error creating a VC: ${error}`);
             }
