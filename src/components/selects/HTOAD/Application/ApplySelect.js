@@ -14,6 +14,7 @@ const HTOADBuilderApplyEmbed = require('../../../../embed/HTOAD/Application/Buil
 const HTOADTextureArtistApplyEmbed = require('../../../../embed/HTOAD/Application/TextureArtistApplyEmbed.js');
 const HTOADTesterApplyEmbed = require('../../../../embed/HTOAD/Application/TesterApplyEmbed.js');
 const HTOADTranslatorApplyEmbed = require('../../../../embed/HTOAD/Application/TranslatorApplyEmbed.js');
+const HTOADGameDesignApplyEmbed = require('../../../../embed/HTOAD/Application/GameDesignApplyEmbed.js');
 
 
 module.exports = {
@@ -54,6 +55,9 @@ module.exports = {
                 break;
             case 'htoad-apply-translator':
                 channelName += '-translator';
+                break;
+            case 'htoad-apply-game-design':
+                channelName += '-game-designer';
                 break;
             default:
                 break;
@@ -163,6 +167,12 @@ module.exports = {
         await channel.send({
             content: `<@${interaction.user.id}>`,
             embeds: [HTOADTranslatorApplyEmbed],
+            components: [row],
+        });
+    } else if (value === 'htoad-apply-game-design') {
+        await channel.send({
+            content: `<@${interaction.user.id}>`,
+            embeds: [HTOADGameDesignApplyEmbed],
             components: [row],
         });
     }

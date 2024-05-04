@@ -36,7 +36,8 @@ module.exports = {
                                     { label: 'Builder', value: 'htoad-apply-builder'},
                                     { label: 'Texture Artist', value: 'htoad-apply-texture-artist'},
                                     { label: 'Tester', value: 'htoad-apply-tester'},
-                                    { label: 'Translator', value: 'htoad-apply-translator'}
+                                    { label: 'Translator', value: 'htoad-apply-translator'},
+                                    { label: 'Game Designer', value: 'htoad-apply-game-design'}
                                 )
                         )
                 ],
