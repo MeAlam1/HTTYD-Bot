@@ -31,7 +31,6 @@ module.exports = {
                                 .setCustomId('help-category')
                                 .setPlaceholder(`Category's`)
                                 .addOptions(
-                                    { label: 'Links', value: 'htoad-help-category-links'},
                                     { label: 'Mod', value: 'htoad-help-category-mod'}
                                 )
                         )

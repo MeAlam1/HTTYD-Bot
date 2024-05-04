@@ -13,7 +13,6 @@ const HTOADHelpCategoryEmbed = new EmbedBuilder()
     .setImage('https://imgur.com/xEKQnvq.png')
     .addFields(
         { name: `Category's`, value: `
-        **Links** - All Commands related to the HTTYD Content!
         **Mod** - All Commands related to the mod!
     ` },
     )

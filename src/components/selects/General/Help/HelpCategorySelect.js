@@ -3,7 +3,6 @@
  * src\commands\Public\Help\help.js
  */
 
-const HTOADHelpLinksEmbed = require('../../../../embed/HTOAD/Help/HelpLinksEmbed.js');
 const HTOADHelpModEmbed = require('../../../../embed/HTOAD/Help/HelpModEmbed.js');
 const RunicHelpLinksEmbed = require('../../../../embed/Runic/Help/HelpLinksEmbed.js');
 
@@ -14,12 +13,7 @@ module.exports = {
 
     const value = interaction.values[0];
 
-    if (value === 'htoad-help-category-links') {
-        await interaction.reply({
-            embeds: [HTOADHelpLinksEmbed],
-            ephemeral: true
-        });
-    } else if (value === 'htoad-help-category-mod') {
+    if (value === 'htoad-help-category-mod') {
         await interaction.reply({
             embeds: [HTOADHelpModEmbed],
             ephemeral: true

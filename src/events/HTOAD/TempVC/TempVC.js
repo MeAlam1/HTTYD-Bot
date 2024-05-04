@@ -27,60 +27,70 @@ module.exports = {
 
             const RenameButton = new ButtonBuilder()
             .setCustomId('htoad-rename-button')
+            .setLabel('Rename')
             .setEmoji('📝')
             .setStyle(ButtonStyle.Secondary);
 
             const LimitButton = new ButtonBuilder()
             .setCustomId('htoad-limit-button')
+            .setLabel('Limit')
             .setEmoji('👥')
             .setStyle(ButtonStyle.Secondary);
 
             const LockButton = new ButtonBuilder()
             .setCustomId('htoad-lock-button')
+            .setLabel('Lock')
             .setEmoji('🔒')
             .setStyle(ButtonStyle.Secondary);
 
             const UnlockButton = new ButtonBuilder()
             .setCustomId('htoad-unlock-button')
+            .setLabel('Unlock')
             .setEmoji('🔓')
             .setStyle(ButtonStyle.Secondary);
 
             const CloseButton = new ButtonBuilder()
             .setCustomId('htoad-close-button')
+            .setLabel('Close')
             .setEmoji('🗑️')
             .setStyle(ButtonStyle.Secondary);
 
             const TransferButton = new ButtonBuilder()
             .setCustomId('htoad-transfer-button')
+            .setLabel('Transfer')
             .setEmoji('🔁')
             .setStyle(ButtonStyle.Secondary);
 
             const ClaimButton = new ButtonBuilder()
             .setCustomId('htoad-claim-button')
+            .setLabel('Claim')
             .setEmoji('✅')
             .setStyle(ButtonStyle.Secondary);
 
 
             const KickButton = new ButtonBuilder()
             .setCustomId('htoad-kick-button')
+            .setLabel('Kick')
             .setEmoji('🚫')
             .setStyle(ButtonStyle.Secondary);
 
 
             const BanButton = new ButtonBuilder()
             .setCustomId('htoad-ban-button')
+            .setLabel('Ban')
             .setEmoji('🔨')
             .setStyle(ButtonStyle.Secondary);
 
 
             const UnbanButton = new ButtonBuilder()
             .setCustomId('htoad-unban-button')
+            .setLabel('Unban')
             .setEmoji('🛠️')
             .setStyle(ButtonStyle.Secondary);
 
 
             const row1 = new ActionRowBuilder().addComponents(RenameButton, LimitButton, LockButton, UnlockButton, CloseButton);
-            const row2 = new ActionRowBuilder().addComponents(TransferButton, ClaimButton, KickButton, BanButton, UnbanButton);
+            const row2 = new ActionRowBuilder().addComponents(ClaimButton, TransferButton, KickButton, BanButton, UnbanButton);
 
             const guild = newState.guild;
             const vcName = newState.member.user.username ? `${newState.member.user.username} VC` : 'please gimme name';
