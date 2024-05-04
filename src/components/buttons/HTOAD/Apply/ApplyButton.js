@@ -24,7 +24,7 @@ module.exports = {
                                 { label: 'Modeler', value: 'htoad-apply-modeler'},
                                 { label: 'Animator', value: 'htoad-apply-animator'},
                                 { label: 'SFX Artist', value: 'htoad-apply-sfx-artist'},
-                                { label: 'Concept Artist', value: 'htoad-apply-concept-artist'},
+                                { label: 'Artist', value: 'htoad-apply-concept-artist'},
                                 { label: 'Builder', value: 'htoad-apply-builder'},
                                 { label: 'Texture Artist', value: 'htoad-apply-texture-artist'},
                                 { label: 'Tester', value: 'htoad-apply-tester'},
