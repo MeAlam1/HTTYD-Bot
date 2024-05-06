@@ -1,12 +1,12 @@
 /**Description:
- * This button is used to hide a Temp VC!
+ * This button is used to Unhide a Temp VC!
  * src\events\HTOAD\TempVC\TempVC.js
  */
 
 const { PermissionFlagsBits } = require('discord.js');
     
 module.exports = {
-    customId: 'htoad-hide-button',
+    customId: 'htoad-unhide-button',
     run: async (client, interaction) => {
 
         const memberPermissions = interaction.channel.permissionsFor(interaction.member).has(PermissionFlagsBits.ManageChannels);
@@ -22,7 +22,7 @@ module.exports = {
             const dragons = '1120099102298996876';
             const role = interaction.guild.roles.cache.get(dragons);
             await interaction.channel.permissionOverwrites.create(role, {
-                ViewChannel: false,
+                ViewChannel: true,
               })
             await interaction.reply({ content: 'The channel has been hidden.', ephemeral: true });
         } catch (error) {
