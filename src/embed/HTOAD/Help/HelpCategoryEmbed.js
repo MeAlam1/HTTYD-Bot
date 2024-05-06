@@ -13,7 +13,7 @@ const HTOADHelpCategoryEmbed = new EmbedBuilder()
     .setImage('https://imgur.com/xEKQnvq.png')
     .addFields(
         { name: `Category's`, value: `
-        **Mod** - All Commands related to the mod!
+**Mod** - All Commands related to the mod!
     ` },
     )
     .setTimestamp()

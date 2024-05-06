@@ -12,7 +12,9 @@ const HTOADFAQEmbed = new EmbedBuilder()
     .setURL('https://discord.com/channels/1120022058601029652/1221905515798597662')
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .setImage('https://imgur.com/xEKQnvq.png')
-    .setDescription('Welcome to How to Own A Dragon. Please select which part of the FAQ you would like to view.')
+    .setDescription(`
+Welcome to How to Own A Dragon. Please select which part of the FAQ you would like to view.
+`)
     .setTimestamp()
     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 

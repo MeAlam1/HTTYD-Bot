@@ -13,8 +13,9 @@ const HTOADETAEmbed = new EmbedBuilder()
     .setImage('https://imgur.com/xEKQnvq.png')
     .setDescription('The first Alpha already has been released!')
     .addFields(
-        { name: 'Links', value: `**[Curseforge](https://www.curseforge.com/minecraft/mc-mods/how-to-own-a-dragon)** - To open the Curseforge page!
-        **[Github](https://github.com/MeAlam1/How-to-Own-a-Dragon)** - To open the Github page!` },
+        { name: 'Links', value: `
+**[Curseforge](https://www.curseforge.com/minecraft/mc-mods/how-to-own-a-dragon)** - To open the Curseforge page!
+**[Github](https://github.com/MeAlam1/How-to-Own-a-Dragon)** - To open the Github page!` },
     )
     .setTimestamp()
     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });

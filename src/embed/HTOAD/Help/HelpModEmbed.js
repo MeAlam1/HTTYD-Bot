@@ -14,11 +14,11 @@ const HTOADHelpLinksEmbed = new EmbedBuilder()
     .setImage('https://imgur.com/xEKQnvq.png')
     .addFields(
         { name: `Mod`, value: `
-        **[/eta](https://www.curseforge.com/minecraft/mc-mods/how-to-own-a-dragon/files/all?page=1&pageSize=20)** - We already released the First Alpha!
-        **[/support](https://ko-fi.com/htoad)** - Feel free to support us!
-        **[/faq](https://discord.com/channels/1120022058601029652/1120302121980543007/1173294933604585583)** - Please read the FAQ before asking Questions!
-        **[/download](https://www.curseforge.com/minecraft/mc-mods/how-to-own-a-dragon)** - To open the Download page!
-        **[/apply](https://discord.com/channels/1120022058601029652/1221905515798597662)** - To Apply for the Team!
+**[/eta](https://www.curseforge.com/minecraft/mc-mods/how-to-own-a-dragon/files/all?page=1&pageSize=20)** - We already released the First Alpha!
+**[/support](https://ko-fi.com/htoad)** - Feel free to support us!
+**[/faq](https://discord.com/channels/1120022058601029652/1120302121980543007/1173294933604585583)** - Please read the FAQ before asking Questions!
+**[/download](https://www.curseforge.com/minecraft/mc-mods/how-to-own-a-dragon)** - To open the Download page!
+**[/apply](https://discord.com/channels/1120022058601029652/1221905515798597662)** - To Apply for the Team!
         `},
     )
     .setTimestamp()
