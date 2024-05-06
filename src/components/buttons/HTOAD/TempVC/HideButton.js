@@ -20,8 +20,8 @@ module.exports = {
 
         try {
             const dragons = '1133457569155920033';
-            const role = interaction.guild.roles.cache.get(dragons);
-            await interaction.channel.permissionOverwrites.create(role, {
+            await interaction.channel.permissionOverwrites.create({
+                id: dragons,
                 allow: [PermissionFlagsBits.ViewChannel]
               })
             await interaction.reply({ content: 'The channel has been hidden.', ephemeral: true });
