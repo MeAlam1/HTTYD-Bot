@@ -29,54 +29,55 @@ module.exports = {
             const hasAllowedRole = message.member.roles.cache.some(role => allowedRoles.includes(role.id));
 
             if (!hasAllowedRole) {
-                try {
-                    // Fetch known spam links from the database
-                    const knownLinks = await KnownLinkSchema.find({});
-                    const spamLinks = knownLinks.map(link => link.link);
+                // Fetch known spam links from the database
+                const knownLinks = await KnownLinkSchema.find({});
+                const spamLinks = knownLinks.map(link => link.link);
 
-                    // Check if the message contains any known spam links
-                    const containsSpamLink = spamLinks.some(spamLink => message.content.includes(spamLink));
+                // Check if the message contains any known spam links
+                const containsSpamLink = spamLinks.some(spamLink => message.content.includes(spamLink));
 
-                    if (containsSpamLink) {
-                        const AntiSpamLinkLog = new EmbedBuilder()
-                            // Embed configuration remains the same
-                            .setColor(0xbf020f)
-                            .setTitle(`${message.author.tag}`) 
-                            .setURL(`https://discord.com/users/${message.author.id}`) 
-                            .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
-                            .setDescription('Known Spam Link has been Located!')
-                            .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
-                            .addFields(
-                                { name: 'The User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, 
-                                { name: 'The User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, 
-                            )
-                            .addFields(
-                                { name: 'Message Content:', value: `${message.content}⠀⠀⠀⠀`}, 
-                                { name: 'The Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, 
-                            )
-                            .setTimestamp()
-                            .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
+                if (containsSpamLink) {
+                    try {
 
-                        await message.delete();
+                            const AntiSpamLinkLog = new EmbedBuilder()
+                                // Embed configuration remains the same
+                                .setColor(0xbf020f)
+                                .setTitle(`${message.author.tag}`) 
+                                .setURL(`https://discord.com/users/${message.author.id}`) 
+                                .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png' })
+                                .setDescription('Known Spam Link has been Located!')
+                                .setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })) 
+                                .addFields(
+                                    { name: 'The User:', value: `<@${message.author.id}>⠀⠀⠀⠀`, inline: true }, 
+                                    { name: 'The User ID:', value: `${message.author.id}⠀⠀⠀⠀`, inline: true }, 
+                                )
+                                .addFields(
+                                    { name: 'Message Content:', value: `${message.content}⠀⠀⠀⠀`}, 
+                                    { name: 'The Message ID:', value: `${message.id}⠀⠀⠀⠀`, inline: true  }, 
+                                )
+                                .setTimestamp()
+                                .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });
 
-                        const logChannelId = '1168633106757070928'; // How to Own a Dragon infraction channel ID
-                        const logChannel = await client.channels.fetch(logChannelId);
+                            await message.delete();
 
-                        const now = new Date();
-                        const sevenDaysLater = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
-                        const sevenDaysLaterTimestamp = Math.floor(sevenDaysLater.getTime() / 1000);
+                            const logChannelId = '1168633106757070928'; // How to Own a Dragon infraction channel ID
+                            const logChannel = await client.channels.fetch(logChannelId);
 
-                        await logChannel.send({ 
-                            content: `<@&1161418815440166943>
-<@${message.author.id}> got timed out until <t:${sevenDaysLaterTimestamp}:F>`,
-                            embeds: [AntiSpamLinkLog] });
+                            const now = new Date();
+                            const sevenDaysLater = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+                            const sevenDaysLaterTimestamp = Math.floor(sevenDaysLater.getTime() / 1000);
 
-                        const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 days
+                            await logChannel.send({ 
+                                content: `<@&1161418815440166943>
+    <@${message.author.id}> got timed out until <t:${sevenDaysLaterTimestamp}:F>`,
+                                embeds: [AntiSpamLinkLog] });
 
-                        await message.member.timeout(timeoutDuration, 'Sending a Known Spam link!.');
+                            const timeoutDuration = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+                            await message.member.timeout(timeoutDuration, 'Sending a Known Spam link!.');
+                    } catch (error) {
+                        console.error('Error trying to delete a spam message or timeout the user: ', error);
                     }
-                } catch (error) {
-                    console.error('Error trying to delete a spam message or timeout the user: ', error);
                 }
             }
         }

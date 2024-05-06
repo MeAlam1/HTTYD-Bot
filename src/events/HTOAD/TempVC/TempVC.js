@@ -103,10 +103,10 @@ module.exports = {
                     permissionOverwrites: [
                         {
                             id: newState.member.id,
-                            allow: [PermissionFlagsBits.ManageChannels, PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]
+                            allow: [PermissionFlagsBits.ManageChannels, PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages], 
                         },
                         {
-                            id: guild.roles.everyone,
+                            id: '1120099102298996876',
                             deny: [PermissionFlagsBits.ManageChannels, PermissionFlagsBits.ViewChannel],
                         }
                     ],
