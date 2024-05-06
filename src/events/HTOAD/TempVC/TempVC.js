@@ -37,21 +37,21 @@ module.exports = {
             .setEmoji('👥')
             .setStyle(ButtonStyle.Secondary);
 
-            const LockButton = new ButtonBuilder()
-            .setCustomId('htoad-lock-button')
-            .setLabel('Lock')
+            const HideButton = new ButtonBuilder()
+            .setCustomId('htoad-hide-button')
+            .setLabel('Hide')
             .setEmoji('🔒')
             .setStyle(ButtonStyle.Secondary);
 
-            const UnlockButton = new ButtonBuilder()
-            .setCustomId('htoad-unlock-button')
-            .setLabel('Unlock')
+            const UnhideButton = new ButtonBuilder()
+            .setCustomId('htoad-unhide-button')
+            .setLabel('Unhide')
             .setEmoji('🔓')
             .setStyle(ButtonStyle.Secondary);
 
-            const CloseButton = new ButtonBuilder()
-            .setCustomId('htoad-close-button')
-            .setLabel('Close')
+            const DeleteButton = new ButtonBuilder()
+            .setCustomId('htoad-delete-button')
+            .setLabel('Delete')
             .setEmoji('🗑️')
             .setStyle(ButtonStyle.Secondary);
 
@@ -89,7 +89,7 @@ module.exports = {
             .setStyle(ButtonStyle.Secondary);
 
 
-            const row1 = new ActionRowBuilder().addComponents(RenameButton, LimitButton, LockButton, UnlockButton, CloseButton);
+            const row1 = new ActionRowBuilder().addComponents(RenameButton, LimitButton, HideButton, UnhideButton, DeleteButton);
             const row2 = new ActionRowBuilder().addComponents(ClaimButton, TransferButton, KickButton, BanButton, UnbanButton);
 
             const guild = newState.guild;
