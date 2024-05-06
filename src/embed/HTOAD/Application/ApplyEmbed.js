@@ -12,19 +12,19 @@ const HTOADApplyEmbed = new EmbedBuilder()
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .addFields(
         { name: `***Developer***`, value: `
-        **Discord Bot Coder** - Develops bot features using Discord.js and Node.js.
-        **Website Coder** - Builds and maintains website with HTML, CSS, and JS.
-        **Modeler** - Creates and textures dragons for the mod.
-        **Animator** - Animates mod elements, adding motion and life.
-        **SFX Artist** - Designs sound effects for an immersive mod experience.
-        **Artist** - Generates visual concepts for the mod.
-        **Builder** - Constructs detailed in-mod structures.
-        **Texture Artist** - Enhances mod with detailed item and model textures.
-        **Game Designer** - Designs the mod's gameplay and mechanics.
+**Discord Bot Coder** - Develops bot features using Discord.js and Node.js.
+**Website Coder** - Builds and maintains website with HTML, CSS, and JS.
+**Modeler** - Creates and textures dragons for the mod.
+**Animator** - Animates mod elements, adding motion and life.
+**SFX Artist** - Designs sound effects for an immersive mod experience.
+**Artist** - Generates visual concepts for the mod.
+**Builder** - Constructs detailed in-mod structures.
+**Texture Artist** - Enhances mod with detailed item and model textures.
+**Game Designer** - Designs the mod's gameplay and mechanics.
     ` },
         { name: `***Helper***`, value: `
-        **Tester** - Checks mod for bugs and ensures stability.
-        **Translator** - Makes mod accessible in multiple languages.
+**Tester** - Checks mod for bugs and ensures stability.
+**Translator** - Makes mod accessible in multiple languages.
     ` },
     )
     .setTimestamp()

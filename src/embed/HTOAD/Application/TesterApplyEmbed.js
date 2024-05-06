@@ -12,15 +12,19 @@ const HTOADTesterApplyEmbed = new EmbedBuilder()
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .addFields(
         { name: `Thank you for applying to How to Own a Dragon!`, value: `
-        Please answer the following questions to start your application process.
+Please answer the following questions to start your application process.
     ` },
     { name: `Question list:`, value: `
-        **1.** What should we call you? 
-        **2.** How old are you?
-        **3.** What timezone are you in?
-        **4.** Do you have any prior experience with testing?
-        **5.** What inspired your application to How to Own a Dragon?
-        **6.** Is there any additional information that you wish to share?
+**1.** What should we call you? 
+**2.** How old are you?
+**3.** What timezone are you in?
+**4.** Do you have any prior experience with testing?
+**5.** What inspired your application to How to Own a Dragon?
+**6.** Is there any additional information that you wish to share?
+
+**7.** This final question is to test your creativity.
+Please write a short text/guide on how you would test a feature in a game.
+The more creative the better. Hint, Think of obscure and easily forgotten features like Lightning, Potion effects like Dolphin grace etc.
     ` }
     )
     .setTimestamp()

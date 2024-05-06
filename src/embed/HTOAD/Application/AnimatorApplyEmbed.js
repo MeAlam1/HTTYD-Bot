@@ -12,17 +12,17 @@ const HTOADAnimatorApplyEmbed = new EmbedBuilder()
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .addFields(
         { name: `Thank you for applying to How to Own a Dragon!`, value: `
-        Please answer the following questions to start your application process.
+Please answer the following questions to start your application process.
     ` },
     { name: `Question list:`, value: `
-        **1.** What should we call you? 
-        **2.** How old are you?
-        **3.** What timezone are you in?
-        **4.** Do you have any prior experience with animating?
-        **5.** Do you have any prior experience with Blockbench?
-        **6.** Do you have any examples of your work?
-        **7.** What inspired your application to How to Own a Dragon?
-        **8.** Is there any additional information that you wish to share?
+**1.** What should we call you? 
+**2.** How old are you?
+**3.** What timezone are you in?
+**4.** Do you have any prior experience with animating?
+**5.** Do you have any prior experience with Blockbench?
+**6.** Do you have any examples of your work?
+**7.** What inspired your application to How to Own a Dragon?
+**8.** Is there any additional information that you wish to share?
     ` }
     )
     .setTimestamp()

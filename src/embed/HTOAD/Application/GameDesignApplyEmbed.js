@@ -12,7 +12,7 @@ const HTOADGameDesignApplyEmbed = new EmbedBuilder()
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .addFields(
         { name: `Thank you for applying to How to Own a Dragon!`, value: `
-        Please answer the following questions to start your application process.
+Please answer the following questions to start your application process.
     ` },
     { name: `Question list:`, value: `
 **1.** What should we call you? 
