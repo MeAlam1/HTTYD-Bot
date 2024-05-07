@@ -19,14 +19,18 @@ module.exports = async () => {
             console.log('Loading Profanity Filter...');
             documents.forEach(doc => {
                 console.log('2Loading Profanity Filter...2');
-                doc.words.split(' ').forEach(word => {
-                    ProfanityFilter.addWord(word);
-                    console.log(`Added ${word} to the filter.`);
-                });
-                doc.ignore.split(' ').forEach(word => {
-                    ProfanityFilter.removeWord(word);
-                    console.log(`Removed ${word} from the filter.`);
-                });
+                if (doc.words) {
+                    doc.words.split(' ').forEach(word => {
+                        ProfanityFilter.addWord(word);
+                        console.log(`Added ${word} to the filter.`);
+                    });
+                }
+                if (doc.ignore) {
+                    doc.ignore.split(' ').forEach(word => {
+                        ProfanityFilter.removeWord(word);
+                        console.log(`Removed ${word} from the filter.`);
+                    });
+                }
             });
         });
     });
