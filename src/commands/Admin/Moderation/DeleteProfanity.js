@@ -1,4 +1,5 @@
 const ProfanitySchema = require('../../../schemas/Moderation/ProfanitySchema');
+const profanityFilter = require('../../../functions/profanityFilter.js');
 const { SlashCommandBuilder } = require('discord.js');
 
 
@@ -43,6 +44,9 @@ module.exports = {
                 await new ProfanitySchema({
                     ignore: words
                 }).save();
+                profanityFilter.removeWord(words);
+                await interaction.reply({ content: 'Word Removed from the database.', ephemeral: true });
+                return;
             }
 
             const knownwords2 = await ProfanitySchema.findOne({ ignore: words });
@@ -53,6 +57,7 @@ module.exports = {
             }
 
             await ProfanitySchema.deleteOne({ words: words });
+            profanityFilter.removeWord(words);
 
             await interaction.reply({ content: `Word removed to the database.
 ${words}`, ephemeral: true });

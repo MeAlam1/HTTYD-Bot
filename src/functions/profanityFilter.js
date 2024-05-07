@@ -20,4 +20,12 @@ function clean(message) {
     return profanityFilter.clean(cleanedMessage);
 }
 
-module.exports = { check, clean };
+function addWord(word) {
+    profanityFilter.addWord(word);
+}
+
+function removeWord(word) {
+    profanityFilter.removeWord(word);
+}
+
+module.exports = { check, clean, addWord, removeWord};

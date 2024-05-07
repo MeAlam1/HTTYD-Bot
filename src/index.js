@@ -4,10 +4,24 @@
 
 require('dotenv').config();
 const ExtendedClient = require('./class/ExtendedClient');
+const ProfanitySchema = require('./schemas/Moderation/ProfanitySchema');
+const ProfanityFilter = require('./functions/profanityFilter');
 
 const EventEmitter = require('events');
 
 EventEmitter.defaultMaxListeners = 50;
+
+ProfanitySchema.find().then(documents => {
+    documents.forEach(doc => {
+        doc.words.split(' ').forEach(word => {
+            ProfanityFilter.addWord(word);
+        });
+        doc.ignore.split(' ').forEach(word => {
+            ProfanityFilter.removeWord(word);
+        });
+    });
+});
+
 
 //Load How to Own a Dragon Class Files
 const HTOADwelcome = require('./class/HTOAD/welcome.js');
@@ -46,3 +60,4 @@ BFSwelcome(client);
 // Handles errors and avoids crashes, better to not remove them.
 process.on('unhandledRejection', console.error);
 process.on('uncaughtException', console.error);
+
