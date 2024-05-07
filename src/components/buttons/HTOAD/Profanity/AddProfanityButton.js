@@ -5,7 +5,7 @@ module.exports = {
     run: async (client, interaction) => {
 
 
-        const Profanity = interaction.message.content.split('\n')[1].split('# ')[1];
+        const Profanity = interaction.options.getString('profanity');
 
         try {
             profanityFilter.addWords([Profanity]);
