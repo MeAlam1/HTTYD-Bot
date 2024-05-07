@@ -20,12 +20,16 @@ module.exports = async () => {
             documents.forEach(doc => {
                 console.log('2Loading Profanity Filter...2');
                 if (doc.words) {
-                    ProfanityFilter.addWord(doc.words);
-                    console.log(`Added ${doc.words} to the filter.`);
+                    doc.words.forEach(word => {
+                        ProfanityFilter.addWord(word);
+                        console.log(`Added ${word} to the filter.`);
+                    });
                 }
                 if (doc.ignore) {
-                    ProfanityFilter.removeWord(doc.ignore);
-                    console.log(`Removed ${doc.ignore} from the filter.`);
+                    doc.ignore.forEach(word => {
+                        ProfanityFilter.removeWord(word);
+                        console.log(`Removed ${word} from the filter.`);
+                    });
                 }
             });
         });
