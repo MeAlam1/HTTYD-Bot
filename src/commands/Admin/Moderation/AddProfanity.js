@@ -1,15 +1,14 @@
 /**Servers:
  * How to Own a Dragon
- * Runic isles
  */
 
 /**Description:
- * This command is used to add a link to the known phishing links database.
+ * This command is used to add Profanity to the database.
  * ADMIN ONLY COMMAND
  */
 
 const { SlashCommandBuilder } = require('discord.js');
-const KnownLinkSchema = require('../../../schemas/Moderation/KnownLinkSchema.js');
+const CustomProfanitySchema = require('../../../schemas/Moderation/CustomProfanitySchema.js');
 
 const allowedServers = [
     '1120022058601029652', // How to Own a Dragon Server
@@ -46,14 +45,14 @@ module.exports = {
 
             const Profanity = interaction.options.getString('profanity');
 
-            const KnownProfanity = await KnownLinkSchema.findOne({ profanity: Profanity });
+            const KnownProfanity = await CustomProfanitySchema.findOne({ profanity: Profanity });
 
             if (KnownProfanity) {
                 await interaction.reply({ content: 'This word is already in the database.', ephemeral: true });
                 return;
             }
 
-            await new KnownLinkSchema({
+            await new CustomProfanitySchema({
                 profanity: Profanity
             }).save();
 

@@ -3,6 +3,7 @@
 /**Description:
  * This Database Schema is used to store Custom Profanity Words.
  * src\events\HTOAD\Moderation\MultiLanguageFilter.js
+ * src\commands\Admin\Moderation\AddProfanity.js
  */
 
 const { Schema, model } = require('mongoose');
