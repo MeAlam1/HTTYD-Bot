@@ -16,7 +16,7 @@ module.exports = {
             new ActionRowBuilder()
                 .addComponents(
                     new TextInputBuilder()
-                        .setLabel('Please give the username or ID of the user you want to transfer the VC to!')
+                        .setLabel('Enter the Username or ID of the new owner!')
                         .setCustomId('transfer-vc')
                         .setPlaceholder('Type the username or ID here!(ID works best)')
                         .setStyle(TextInputStyle.Short)
