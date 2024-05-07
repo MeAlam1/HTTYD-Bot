@@ -16,7 +16,7 @@ const log = (string, style) => {
             console.error(chalk.red('[ERROR] ' + string));
 
             break;
-        };
+        }; 
 
         case 'warn': {
             console.warn(chalk.yellow('[WARNING] ' + string));
