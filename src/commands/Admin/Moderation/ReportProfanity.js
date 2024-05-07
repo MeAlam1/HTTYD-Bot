@@ -1,14 +1,4 @@
-/**Servers:
- * How to Own a Dragon
- */
-
-/**Description:
- * This command is used to Remove Profanity from the database.
- * ADMIN ONLY COMMAND
- */
-
-const profanityFilter = require('../../../functions/profanityFilter.js');
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 
 const allowedServers = [
@@ -45,11 +35,20 @@ module.exports = {
             }
 
             const Profanity = interaction.options.getString('profanity');
-
+            
+            const button = new ButtonBuilder()
+            .setCustomId('htoad-add-profanity-button')
+            .setLabel('Add')
+            .setStyle(ButtonStyle.Primary);
+    
             try {
                 const ChannelId = '1168633539676344490';
                 const Channel = interaction.guild.channels.cache.get(ChannelId);
-                Channel.send(`Profanity Word: ${Profanity} has been reported by ${interaction.user.tag}`);
+                Channel.send({ content: `
+Profanity Word: 
+# ${Profanity} 
+has been reported by <@${interaction.user.id}>`,
+                components: [new ActionRowBuilder().addComponents(button)]});
                 await interaction.reply({ content: 'Profanity word has been Reported to the Staff.', ephemeral: true });
             } catch (error) {
                 await interaction.reply({ content: 'An error occurred while Reporting the profanity word.', ephemeral: true });
