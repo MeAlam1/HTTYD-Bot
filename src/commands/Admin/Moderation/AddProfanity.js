@@ -47,8 +47,13 @@ module.exports = {
 
             const Profanity = interaction.options.getString('profanity');
 
-            profanityFilter.addWords([`${Profanity}`]);
-            
+            try {
+                profanityFilter.addWords([Profanity]);
+                await interaction.reply({ content: 'Profanity word has been added to the list.', ephemeral: true });
+            } catch (error) {
+                await interaction.reply({ content: 'An error occurred while adding the profanity word.', ephemeral: true });
+                return;
+            }
 
         }
     }            
