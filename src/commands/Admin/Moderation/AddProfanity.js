@@ -7,8 +7,9 @@
  * ADMIN ONLY COMMAND
  */
 
+const Profanease = require('profanease');
 const { SlashCommandBuilder } = require('discord.js');
-const CustomProfanitySchema = require('../../../schemas/Moderation/CustomProfanitySchema.js');
+
 
 const allowedServers = [
     '1120022058601029652', // How to Own a Dragon Server
@@ -30,6 +31,7 @@ module.exports = {
                 .setDescription('Profanity to add to the database.')
                 .setRequired(true)),
         run: async (client, interaction) => {
+            const profanityFilter = new Profanease();
 
             if (!allowedServers.includes(interaction.guild.id)) {
                 await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
@@ -45,18 +47,8 @@ module.exports = {
 
             const Profanity = interaction.options.getString('profanity');
 
-            const KnownProfanity = await CustomProfanitySchema.findOne({ profanity: Profanity });
+            profanityFilter.addWords([`${Profanity}`]);
+            
 
-            if (KnownProfanity) {
-                await interaction.reply({ content: 'This word is already in the database.', ephemeral: true });
-                return;
-            }
-
-            await new CustomProfanitySchema({
-                profanity: Profanity
-            }).save();
-
-            await interaction.reply({ content: `Profanity added to the database.
-${Profanity}`, ephemeral: true });
         }
     }            

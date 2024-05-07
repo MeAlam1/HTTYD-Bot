@@ -1,5 +1,4 @@
 const Profanease = require('profanease');
-const CustomProfanitySchema = require('../../../schemas/Moderation/CustomProfanitySchema.js');
 
 const allowedServers = [
     '1120022058601029652' // How to Own a Dragon Server
@@ -17,12 +16,8 @@ module.exports = {
         const message = args[0];
         const profanityFilter = new Profanease();
 
-        const profanityWords = await CustomProfanitySchema.find({});
-        const badWord = profanityWords.map(profanity => profanity.profanity);
-
-        const containsbadWords = badWord.some(badWords => message.content.includes(badWords));
         if (message.author.bot) return;
-        if (containsbadWords || profanityFilter.check(message.content) || profanityFilter.check(message.content.toLowerCase()) || profanityFilter.check(message.content.toUpperCase()) || profanityFilter.check(message.content.charAt(0).toUpperCase() + message.content.slice(1)) || profanityFilter.check(message.content.charAt(0).toLowerCase() + message.content.slice(1))) {
+        if (profanityFilter.check(message.content) || profanityFilter.check(message.content.toLowerCase()) || profanityFilter.check(message.content.toUpperCase()) || profanityFilter.check(message.content.charAt(0).toUpperCase() + message.content.slice(1)) || profanityFilter.check(message.content.charAt(0).toLowerCase() + message.content.slice(1))) {
             if (allowedServers.includes(message.guild.id)) {
                 const cleanMessage = profanityFilter.clean(message.content);
                 await message.delete();
