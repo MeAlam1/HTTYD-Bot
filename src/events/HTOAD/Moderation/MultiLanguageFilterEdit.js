@@ -13,19 +13,8 @@ module.exports = {
     run: async (client, ...args) => {
         const message = args[0];
 
-        const knownWords = await ProfanitySchema.find({});
-        const spamWords = knownWords.map(words => words.words);
-
-        const lowercaseword = message.content.toLowerCase();
-
-        const containsspamWord = spamWords.some(spamWord => lowercaseword.includes(spamWord));
-
-        const ignoreWords = knownWords.map(words => words.ignore);
-        const containIgnoreWord = ignoreWords.some(ignoreWord => lowercaseword.includes(ignoreWord));
-
         if (message.author.bot) return;
-        if (containIgnoreWord) return;
-        if (containsspamWord || profanityFilter.check(message.content) || profanityFilter.check(message.content.toLowerCase()) || profanityFilter.check(message.content.toUpperCase()) || profanityFilter.check(message.content.charAt(0).toUpperCase() + message.content.slice(1)) || profanityFilter.check(message.content.charAt(0).toLowerCase() + message.content.slice(1))) {
+        if (profanityFilter.check(message.content) || profanityFilter.check(message.content.toLowerCase()) || profanityFilter.check(message.content.toUpperCase()) || profanityFilter.check(message.content.charAt(0).toUpperCase() + message.content.slice(1)) || profanityFilter.check(message.content.charAt(0).toLowerCase() + message.content.slice(1))) {
             if (allowedServers.includes(message.guild.id)) {
                 const cleanMessage = profanityFilter.clean(message.content);
                 await message.delete();
