@@ -17,9 +17,9 @@
 * Transcripts
 * Complete Logging system
 * Connected a Database
+* Interface VC
 
 # Planned
 
 * All Moderation Commands
-* Interface VC
 * And More(The list above is the priority)
