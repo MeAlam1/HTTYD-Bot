@@ -19,7 +19,9 @@ module.exports = async () => {
             console.log('Loading Profanity Filter...');
             documents.forEach(doc => {
                 console.log('2Loading Profanity Filter...2');
-                if (doc.words) {
+                console.log(`Test ${doc.words} to the filter.`);
+                console.log(`Test ${doc.ignore} from the filter.`);
+                /**if (doc.words) {
                     doc.words.forEach(word => {
                         ProfanityFilter.addWord(word);
                         console.log(`Added ${word} to the filter.`);
@@ -30,7 +32,7 @@ module.exports = async () => {
                         ProfanityFilter.removeWord(word);
                         console.log(`Removed ${word} from the filter.`);
                     });
-                }
+                }*/
             });
         });
     });
