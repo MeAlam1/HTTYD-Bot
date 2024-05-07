@@ -1,5 +1,4 @@
 const profanityFilter = require('../../../functions/profanityFilter.js');
-const ProfanitySchema = require('../../../schemas/Moderation/ProfanitySchema');
 
 const allowedServers = [
     '1120022058601029652', // How to Own a Dragon Server

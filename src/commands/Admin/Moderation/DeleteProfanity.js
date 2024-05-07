@@ -1,4 +1,5 @@
-const ProfanitySchema = require('../../../schemas/Moderation/ProfanitySchema');
+const ProfanitySchemaRemove = require('../../../schemas/Moderation/ProfanitySchemaRemove');
+const ProfanitySchemaAdd = require('../../../schemas/Moderation/ProfanitySchemaAdd');
 const profanityFilter = require('../../../functions/profanityFilter.js');
 const { SlashCommandBuilder } = require('discord.js');
 
@@ -38,10 +39,10 @@ module.exports = {
 
             const words = interaction.options.getString('profanity');
 
-            const knownwords = await ProfanitySchema.findOne({ words: words });
+            const knownwords = await ProfanitySchemaAdd.findOne({ words: words });
 
             if (!knownwords) {
-                await new ProfanitySchema({
+                await new ProfanitySchemaRemove({
                     ignore: words
                 }).save();
                 profanityFilter.removeWord(words);
@@ -49,14 +50,14 @@ module.exports = {
                 return;
             }
 
-            const knownwords2 = await ProfanitySchema.findOne({ ignore: words });
+            const knownwords2 = await ProfanitySchemaRemove.findOne({ ignore: words });
 
             if (knownwords2) {
                 await interaction.reply({ content: 'Word is already removed from database.', ephemeral: true });
                 return;
             }
 
-            await ProfanitySchema.deleteOne({ words: words });
+            await ProfanitySchemaAdd.deleteOne({ words: words });
             profanityFilter.removeWord(words);
 
             await interaction.reply({ content: `Word removed to the database.
