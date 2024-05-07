@@ -22,7 +22,7 @@ module.exports = {
 
             const Profanity = interaction.options.getString('profanity');
             try {
-                const ChannelId = '1168633539676344490';
+                const ChannelId = '1168633106757070928';
                 const Channel = interaction.guild.channels.cache.get(ChannelId);
                 Channel.send({ content: `
 Profanity Word: 
