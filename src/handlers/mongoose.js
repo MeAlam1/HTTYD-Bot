@@ -18,8 +18,8 @@ module.exports = async () => {
         ProfanitySchemaAdd.find().then(documents => {
             documents.forEach(doc => {
                 if (doc.words) {
-                        ProfanityFilter.addWord(word);
-                        console.log(`Added ${word} to the filter.`);
+                        ProfanityFilter.addWord(doc.words);
+                        console.log(`Added ${doc.words} to the filter.`);
                 }
             });
         });
@@ -27,8 +27,8 @@ module.exports = async () => {
         ProfanitySchemaRemove.find().then(documents => {
             documents.forEach(doc => {
                 if (doc.ignore) {
-                        ProfanityFilter.removeWord(word);
-                        console.log(`Removed ${word} from the filter.`);
+                        ProfanityFilter.removeWord(doc.ignore);
+                        console.log(`Removed ${doc.ignore} from the filter.`);
                 }
             });
         });
