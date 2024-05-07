@@ -21,7 +21,7 @@ module.exports = {
             console.error(`No member found with ID or username: ${inputValue}`);
             interaction.reply({ content: `No member found with ID or username: ${inputValue}`, ephemeral: true });
         } else {
-            await member.voice.kick();
+            member.voice.setChannel(null);
             await interaction.reply({ content: `${member} has been kicked from the VC.`, ephemeral: true });
         }
     }
