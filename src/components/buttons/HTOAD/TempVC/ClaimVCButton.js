@@ -15,7 +15,7 @@ module.exports = {
 
         if (memberPermissions) {
             await interaction.reply({
-                content: 'You do not have the required permissions to use this command.',
+                content: 'The owner of the channel is still present. You cannot claim the channel.',
                 ephemeral: true
             });
             return;
@@ -25,10 +25,10 @@ module.exports = {
             await interaction.channel.permissionOverwrites.create(interaction.member, {
                 ManageChannels: true,
             })
-            await interaction.reply({ content: 'The channel has been hidden.', ephemeral: true });
+            await interaction.reply({ content: 'You have claimed the channel!', ephemeral: true });
         } catch (error) {
-            console.error('Failed to hide the channel:', error);
-            await interaction.reply({ content: 'Failed to hide the channel. I might not have the necessary permissions.', ephemeral: true });
+            console.error(`Failed to claim the channel: ${error}`);
+            await interaction.reply({ content: 'Failed to claim the channel. I might not have the necessary permissions.', ephemeral: true });
         }
     }
 };
