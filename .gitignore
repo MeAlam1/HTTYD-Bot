@@ -5,5 +5,4 @@ ID.md
 autoupdate.sh
 node_modules/*
 .npm/*
-package.json
 package-lock.json
