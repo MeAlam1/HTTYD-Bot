@@ -23,7 +23,7 @@ module.exports = {
         } else {
             
             await interaction.channel.permissionOverwrites.create(member, {
-                manageChannels: true,
+                ManageChannels: true,
               })
             await interaction.reply({ content: `The VC has been transferred to ${member}.`, ephemeral: true });
         }
