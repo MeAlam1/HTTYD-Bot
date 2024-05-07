@@ -5,9 +5,6 @@ const leetMap = {
 };
 
 function replaceLeet(message) {
-    if (!message) {
-        return '';
-    }
     return message.split('').map(char => leetMap[char.toLowerCase()] || char).join('');
 }
 
