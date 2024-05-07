@@ -19,8 +19,6 @@ module.exports = (client) => {
                     continue;
                 };
 
-                log('Loaded new event: ' + file, 'info');
-
                 if (module.once) {
                     client.once(module.event, (...args) => module.run(client, ...args));
                 } else {

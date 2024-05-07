@@ -6,6 +6,11 @@ const chalk = require('chalk');
 
 const log = (string, style) => {
     switch (style) {
+        case 'info': {
+            console.log(chalk.blue('[INFO] ' + string));
+
+            break;
+        };
 
         case 'err': {
             console.error(chalk.red('[ERROR] ' + string));
