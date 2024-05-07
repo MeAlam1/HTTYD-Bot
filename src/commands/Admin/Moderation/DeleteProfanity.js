@@ -37,23 +37,22 @@ module.exports = {
 
             const words = interaction.options.getString('profanity');
 
-            const lowercaseword = words.toLowerCase();
-            const knownwords = await ProfanitySchema.findOne({ words: lowercaseword });
+            const knownwords = await ProfanitySchema.findOne({ words: words });
 
             if (!knownwords) {
                 await new ProfanitySchema({
-                    ignore: lowercaseword
+                    ignore: words
                 }).save();
             }
 
-            const knownwords2 = await ProfanitySchema.findOne({ ignore: lowercaseword });
+            const knownwords2 = await ProfanitySchema.findOne({ ignore: words });
 
             if (knownwords2) {
-                await interaction.reply({ content: 'Word is already removed from the database.', ephemeral: true });
+                await interaction.reply({ content: 'Word is already removed from database.', ephemeral: true });
                 return;
             }
 
-            await ProfanitySchema.deleteOne({ words: lowercaseword });
+            await ProfanitySchema.deleteOne({ words: words });
 
             await interaction.reply({ content: `Word removed to the database.
 ${words}`, ephemeral: true });
