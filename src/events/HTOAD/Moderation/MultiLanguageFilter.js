@@ -27,12 +27,6 @@ module.exports = {
                 const cleanMessage = profanityFilter.clean(message.content);
                 await message.delete();
                 await message.channel.send(`${message.author} said: ${cleanMessage}`);
-                const logChannelId = '1131214666757058654'; // How to Own a Dragon message-automod channel ID
-                const logChannel = await client.channels.fetch(logChannelId);
-
-                await logChannel.send({ 
-                    content: `<@${message.author.id}> said: ${message.content}`,
-                });
             }
         }
     }
