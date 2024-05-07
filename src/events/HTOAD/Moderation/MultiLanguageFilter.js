@@ -1,11 +1,8 @@
 const profanityFilter = require('../../../functions/profanityFilter.js');
 
 const allowedServers = [
-    '1120022058601029652' // How to Own a Dragon Server
-];
-
-const allowedRoles = [
-    '1120033014416670895' // Bots
+    '1120022058601029652', // How to Own a Dragon Server
+    '1121921556130566204'  // Ben Fintastic Sharks Server
 ];
 
 module.exports = {
