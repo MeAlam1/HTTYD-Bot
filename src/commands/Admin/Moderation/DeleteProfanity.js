@@ -50,7 +50,7 @@ module.exports = {
                 profanityFilter.removeWords([Profanity]);
                 await interaction.reply({ content: 'Profanity word has been removed from the list.', ephemeral: true });
             } catch (error) {
-                await interaction.reply({ content: 'An error occurred while adding the profanity word.', ephemeral: true });
+                await interaction.reply({ content: 'An error occurred while Deleting the profanity word.', ephemeral: true });
                 return;
             }
 

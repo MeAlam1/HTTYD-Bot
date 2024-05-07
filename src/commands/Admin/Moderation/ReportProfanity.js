@@ -3,7 +3,7 @@
  */
 
 /**Description:
- * This command is used to add Profanity to the database.
+ * This command is used to Remove Profanity from the database.
  * ADMIN ONLY COMMAND
  */
 
@@ -24,11 +24,11 @@ const allowedRoles = [
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('addcurse')
-        .setDescription('Add a Profanity Word to the database.')
+        .setName('reportcurse')
+        .setDescription('Report a Profanity Word to the Staff.')
         .addStringOption(option =>
             option.setName('profanity')
-                .setDescription('Profanity to add to the database.')
+                .setDescription('Profanity to report.')
                 .setRequired(true)),
         run: async (client, interaction) => {
 
@@ -47,10 +47,12 @@ module.exports = {
             const Profanity = interaction.options.getString('profanity');
 
             try {
-                profanityFilter.addWords([Profanity]);
-                await interaction.reply({ content: 'Profanity word has been added to the list.', ephemeral: true });
+                const ChannelId = '1168633539676344490';
+                const Channel = interaction.guild.channels.cache.get(ChannelId);
+                Channel.send(`Profanity Word: ${Profanity} has been reported by ${interaction.user.tag}`);
+                await interaction.reply({ content: 'Profanity word has been Reported to the Staff.', ephemeral: true });
             } catch (error) {
-                await interaction.reply({ content: `An error occurred while adding the profanity word.`, ephemeral: true });
+                await interaction.reply({ content: 'An error occurred while Reporting the profanity word.', ephemeral: true });
                 return;
             }
 
