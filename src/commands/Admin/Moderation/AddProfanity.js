@@ -1,13 +1,4 @@
-/**Servers:
- * How to Own a Dragon
- */
-
-/**Description:
- * This command is used to add Profanity to the database.
- * ADMIN ONLY COMMAND
- */
-
-const profanityFilter = require('../../../functions/profanityFilter.js');
+const ProfanitySchema = require('../../../schemas/Moderation/ProfanitySchema');
 const { SlashCommandBuilder } = require('discord.js');
 
 
@@ -44,16 +35,27 @@ module.exports = {
                 return;
             }
 
-            const Profanity = interaction.options.getString('profanity');
+            const words = interaction.options.getString('profanity');
 
-            try {
-                profanityFilter.addWords([Profanity]);
-                await interaction.reply({ content: 'Profanity word has been added to the list.', ephemeral: true });
-            } catch (error) {
-                await interaction.reply({ content: `An error occurred while adding the profanity word.`, ephemeral: true });
-                await console.log(error);
+            const knownwords = await ProfanitySchema.findOne({ ignore: words });
+
+            if (knownwords) {
+                await ProfanitySchema.deleteOne({ ignore: words });
+            }
+
+            const knownwords2 = await ProfanitySchema.findOne({ ignore: words });
+
+            if (knownwords2) {
+                await interaction.reply({ content: 'Word already in the database.', ephemeral: true });
                 return;
             }
 
+            await new ProfanitySchema({
+                words: words
+            }).save();
+
+            await interaction.reply({ content: `Word added to the database.
+${words}`, ephemeral: true });
         }
-    }            
+
+        }          

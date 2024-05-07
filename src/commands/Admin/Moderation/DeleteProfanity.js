@@ -1,13 +1,4 @@
-/**Servers:
- * How to Own a Dragon
- */
-
-/**Description:
- * This command is used to Remove Profanity from the database.
- * ADMIN ONLY COMMAND
- */
-
-const profanityFilter = require('../../../functions/profanityFilter.js');
+const ProfanitySchema = require('../../../schemas/Moderation/ProfanitySchema');
 const { SlashCommandBuilder } = require('discord.js');
 
 
@@ -24,11 +15,11 @@ const allowedRoles = [
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('removecurse')
+        .setName('deletecurse')
         .setDescription('Remove a Profanity Word from the database.')
         .addStringOption(option =>
             option.setName('profanity')
-                .setDescription('Profanity to remove to the database.')
+                .setDescription('Profanity to remove from the database.')
                 .setRequired(true)),
         run: async (client, interaction) => {
 
@@ -44,15 +35,27 @@ module.exports = {
                 return;
             }
 
-            const Profanity = interaction.options.getString('profanity');
+            const words = interaction.options.getString('profanity');
 
-            try {
-                profanityFilter.removeWords([Profanity]);
-                await interaction.reply({ content: 'Profanity word has been removed from the list.', ephemeral: true });
-            } catch (error) {
-                await interaction.reply({ content: 'An error occurred while Deleting the profanity word.', ephemeral: true });
+            const knownwords = await ProfanitySchema.findOne({ words: words });
+
+            if (!knownwords) {
+                await new ProfanitySchema({
+                    ignore: words
+                }).save();
+            }
+
+            const knownwords2 = await ProfanitySchema.findOne({ ignore: words });
+
+            if (knownwords2) {
+                await interaction.reply({ content: 'Word is already removed from the database.', ephemeral: true });
                 return;
             }
 
+            await ProfanitySchema.deleteOne({ words: words });
+
+            await interaction.reply({ content: `Word removed to the database.
+${words}`, ephemeral: true });
         }
-    }            
+
+        }          
