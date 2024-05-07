@@ -1,4 +1,4 @@
-const profanityFilter = require('../../../functions/profanityFilter.js');
+const profanityFilter = require('../../../../functions/profanityFilter.js');
 
 module.exports = {
     customId: 'htoad-add-profanity-button',
