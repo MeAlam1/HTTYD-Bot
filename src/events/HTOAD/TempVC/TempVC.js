@@ -103,12 +103,7 @@ module.exports = {
                     permissionOverwrites: [
                         {
                             id: newState.member.id,
-                            allow: [PermissionFlagsBits.ManageChannels, PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages], 
-                        },
-                        // Remove when the Feature is ready
-                        {
-                            id: '1120099102298996876',
-                            deny: [PermissionFlagsBits.ManageChannels, PermissionFlagsBits.ViewChannel],
+                            allow: [PermissionFlagsBits.ManageChannels]
                         }
                     ],
                 });
