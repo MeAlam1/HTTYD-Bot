@@ -6,3 +6,4 @@ autoupdate.sh
 node_modules/*
 .npm/*
 package-lock.json
+src/functions/profanityData.json
