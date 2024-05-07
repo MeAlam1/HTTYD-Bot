@@ -21,11 +21,11 @@ function clean(message) {
 }
 
 function addWord(word) {
-    profanityFilter.addWords(word);
+    profanityFilter.addWords([word]);
 }
 
 function removeWord(word) {
-    profanityFilter.removeWords(word);
+    profanityFilter.removeWords([word]);
 }
 
 module.exports = { check, clean, addWord, removeWord};
