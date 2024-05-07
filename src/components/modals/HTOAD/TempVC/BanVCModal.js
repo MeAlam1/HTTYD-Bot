@@ -21,7 +21,9 @@ module.exports = {
             console.error(`No member found with ID or username: ${inputValue}`);
             interaction.reply({ content: `No member found with ID or username: ${inputValue}`, ephemeral: true });
         } else {
-            member.voice.setChannel(null);
+            if (member.voice.channelId == interaction.channel.id) {
+                member.voice.setChannel(null);
+            }
             await interaction.channel.permissionOverwrites.create(member, {
                 Connect: false,
                 Speak: false,
