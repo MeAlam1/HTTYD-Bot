@@ -7,7 +7,7 @@
  * ADMIN ONLY COMMAND
  */
 
-const Profanease = require('profanease');
+const profanityFilter = require('../../../functions/profanityFilter.js');
 const { SlashCommandBuilder } = require('discord.js');
 
 
@@ -31,7 +31,6 @@ module.exports = {
                 .setDescription('Profanity to add to the database.')
                 .setRequired(true)),
         run: async (client, interaction) => {
-            const profanityFilter = new Profanease();
 
             if (!allowedServers.includes(interaction.guild.id)) {
                 await interaction.reply({ content: 'This command is not available in this server.', ephemeral: true });
