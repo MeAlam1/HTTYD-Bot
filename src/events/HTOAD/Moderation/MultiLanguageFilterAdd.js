@@ -17,6 +17,7 @@ module.exports = {
             if (allowedServers.includes(message.guild.id)) {
                 const cleanMessage = profanityFilter.clean(message.content);
                 await message.delete();
+                await message.channel.send(`**<@${message.author.id}>** said: ${cleanMessage}`);
 
                 if (message.guild.id === '1120022058601029652') {
                     const channel = message.guild.channels.cache.get('1168633539676344490');
