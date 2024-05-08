@@ -9,8 +9,8 @@ module.exports = {
     event: 'messageUpdate',
     once: false,
 
-    run: async (client, ...args) => {
-        const message = args[0];
+    run: async (client, oldMessage, newMessage) => {
+        const message = newMessage;
 
         if (message.author.bot) return;
         if (profanityFilter.check(message.content) || profanityFilter.check(message.content.toLowerCase()) || profanityFilter.check(message.content.toUpperCase()) || profanityFilter.check(message.content.charAt(0).toUpperCase() + message.content.slice(1)) || profanityFilter.check(message.content.charAt(0).toLowerCase() + message.content.slice(1))) {
