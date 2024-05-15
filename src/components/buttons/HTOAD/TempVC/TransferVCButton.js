@@ -24,7 +24,7 @@ module.exports = {
                 )
         );
 
-        const memberPermissions = interaction.channel.permissionsFor(interaction.member).has(PermissionFlagsBits.ManageChannels);
+        const memberPermissions = interaction.channel.permissionsFor(interaction.member).has(PermissionFlagsBits.ManageChannels, PermissionFlagsBits.ViewChannel);
         if (!memberPermissions) {
             await interaction.reply({
                 content: 'You do not have the required permissions to use this command.',
