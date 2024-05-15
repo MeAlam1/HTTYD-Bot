@@ -104,7 +104,11 @@ module.exports = {
                         {
                             id: newState.member.id,
                             allow: [PermissionFlagsBits.ManageChannels]
-                        }
+                        },
+                        {
+                            id: "1161418815440166943",
+                            allow: [PermissionFlagsBits.ManageChannels]
+                        },
                     ],
                 });
                 await newState.setChannel(newVC);
