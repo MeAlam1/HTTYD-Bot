@@ -15,6 +15,7 @@
     "chalk": "^2.4.2",
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
+    "httyd": "file:",
     "mongoose": "^7.4.3",
     "profanease": "^1.1.2"
   },
