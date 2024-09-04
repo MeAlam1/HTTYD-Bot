@@ -12,7 +12,7 @@ const HTOADHelpCategoryEmbed = new EmbedBuilder()
     .setAuthor({ name: 'How to Own a Dragon', iconURL: 'https://i.imgur.com/gSjyLDH.png'})
     .setImage('https://imgur.com/xEKQnvq.png')
     .addFields(
-        { name: `Category's`, value: `
+        { name: `Categories`, value: `
 **Mod** - All Commands related to the mod!
     ` },
     )
