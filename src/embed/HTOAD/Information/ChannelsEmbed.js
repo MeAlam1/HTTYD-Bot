@@ -25,7 +25,6 @@ const ChannelsEmbed = new EmbedBuilder()
 <#1120085724054704258> - Catch a glimpse of what's coming every 3-5 business days, courtesy of <@&1133420066277437490>.
 <#1120026742933958788> - <@&1140629154748956813> posts detailed changelogs here with each new release.
 <#1127173809032663110> - The hub for all crucial server/mod announcements.
-<#1152611101893214258> - Explore our planned dragon additions.
 <#1157988227890823289> - Track changes made to the code or Wiki by <@&1140629154748956813> 
 
 **Bug Report and Suggestions**
@@ -39,6 +38,7 @@ const ChannelsEmbed = new EmbedBuilder()
 
 **General**
 <#1120032046539087986> - The primary general chat dedicated to HTTYD discussions.
+<#1237503276719800371> - The chat where people can speak in any language they desire.
 <#1120032310197231646> - An alternate general chat for non-HTTYD topics.
 <#1130864389168316446> - Show off your creations here.
 <#1203829620156145724> - Execute all the commands you want in this channel.
@@ -51,10 +51,6 @@ const ChannelsEmbed = new EmbedBuilder()
 **Voice Channels**
 <#1120097034431639622> - Join this channel to find someone working on the mod.
 <#1120033811577716878>  - A general space for chatting.
-    
-Future channel additions are a possibility!
-
-For any errors, please contact <@397416283835990016>.
     `)
     .setTimestamp()
     .setFooter({ text: 'How to Own a Dragon Coder Team', iconURL: 'https://i.imgur.com/gSjyLDH.png' });

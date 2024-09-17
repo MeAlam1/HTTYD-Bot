@@ -27,15 +27,11 @@ const RolesEmbed = new EmbedBuilder()
 <@&1136977180560195584> - The contributors focused on item and model textures visible in the mod.
 <@&1138158079553318952> - The translators expanding our mod's reach by adapting it into various languages.
 <@&1138158375650218086> - The Testers ensuring the mod's quality and stability.
+<@&1239230794044538930> - The GameDesigners ensuring a flawless game idea.
 <@&1158395771675213896>
 <@&1126224071873548338> - Recognizing those who have contributed at least 5 unique, implemented ideas.
 <@&1120034233390473217> - Acknowledging contributors of a unique, implemented idea.
-<@&1158395698866290729>
-<@&1120091602669551666> - Commending individuals who reported 25+ actual bugs from a stable mod version.
-<@&1120091546121941123> - Appreciating those who reported 10+ actual bugs from a stable mod version.
 <@&1120091456837779476> - Thanking members for reporting an actual bug from a stable mod version.
-<@&1125784546227527830> - Recognizing bug reporters of 10+ actual bugs in Beta Versions.
-<@&1138157317708320768> - Honouring contributors who reported 25+ actual bugs in Alpha Versions.
 <@&1158395515713626172>
 <@&1160952417718910986> - Saluting our former mod Developers.
 <@&1121551063116419082> - Celebrating everyone who has contributed to the mod in any helpful capacity.
