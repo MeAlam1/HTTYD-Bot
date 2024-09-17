@@ -29,7 +29,7 @@ module.exports = {
                         .addComponents(
                             new StringSelectMenuBuilder()
                                 .setCustomId('help-category')
-                                .setPlaceholder(`Category's`)
+                                .setPlaceholder(`Categories`)
                                 .addOptions(
                                     { label: 'Mod', value: 'htoad-help-category-mod'}
                                 )
@@ -44,7 +44,7 @@ module.exports = {
                         .addComponents(
                             new StringSelectMenuBuilder()
                                 .setCustomId('help-category')
-                                .setPlaceholder(`Category's`)
+                                .setPlaceholder(`Categories`)
                                 .addOptions(
                                     { label: 'Links', value: 'runic-help-category-links'},
                                 )

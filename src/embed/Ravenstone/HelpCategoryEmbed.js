@@ -12,7 +12,7 @@ const RavenstoneHelpCategoryEmbed = new EmbedBuilder()
     .setAuthor({ name: 'Ravenstone Peak', iconURL: 'https://imgur.com/pbtKUuf.png'})
     .setImage('https://imgur.com/W1koL7J.png')
     .addFields(
-        { name: `Category's`, value: `
+        { name: `Categories`, value: `
     ` },
     )
     .setTimestamp()
